@@ -2,7 +2,7 @@ baseURL: https://liwm29.github.io/
 theme: pure
 title: UnderTheHood
 copyright: CC BY 4.0 CN
-defaultContentLanguage: zh  # en/zh/...
+defaultContentLanguage: en  # en/zh/...
 footnoteReturnLinkContents: ↩
 hasCJKLanguage: true
 paginate: 7
@@ -66,7 +66,7 @@ menu:
 
 
 params:
-  since: 2017
+  since: 2021
   dateFormatToUse: "2006-01-02"
   enablePostCopyright: true
   copyright_link: http://creativecommons.org/licenses/by/4.0/deed.zh
@@ -76,7 +76,7 @@ params:
   # Icon Reference: http://blog.cofess.com/hexo-theme-pure/iconfont/demo_fontclass.html
   enableMathJax: true #Enable mathjax support, to use mathematical notations
   highlightjs:
-    langs: ["python", "javascript"] # refer to http://staticfile.org/, search highlight.js, already have highlight.min.js
+    langs: ["python", "javascript","go"] # refer to http://staticfile.org/, search highlight.js, already have highlight.min.js
 
   tag_cloud:
     min: 8
@@ -99,13 +99,13 @@ params:
   # profile
   profile:
     enabled: true # Whether to show profile bar
-    avatar: avatar.png
+    avatar: me.jpg
     gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
-    author: liwm29
-    author_title: author title
-    author_description: Good Good Study, Day Day Up~
+    author: Li Weiming
+    author_title: liwm29@sysu.sdcs
+    author_description: ONE CAN GO FAST
     location: Guangzhou, China
-    follow: https://github.com/xiaoheiAh
+    follow: https://github.com/liwm29
     # Social Links
     social:
       links:
@@ -124,7 +124,7 @@ params:
       url: favicon.ico
     title: UnderTheHood # 页面title
     favicon: favicon.ico
-    board: <p>enjoy~</p> # 公告牌
+    board: <p>💕😎🐱‍👤🐱‍🏍✨</p> # 公告牌
 
   # Share
   # weibo,qq,qzone,wechat,tencent,douban,diandian,facebook,twitter,google,linkedin
