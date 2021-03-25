@@ -1,8 +1,8 @@
 baseURL: https://liwm29.github.io/
 theme: pure
-title: Pure theme for Hugo
+title: UnderTheHood
 copyright: CC BY 4.0 CN
-defaultContentLanguage: en  # en/zh/...
+defaultContentLanguage: zh  # en/zh/...
 footnoteReturnLinkContents: ↩
 hasCJKLanguage: true
 paginate: 7
@@ -122,7 +122,7 @@ params:
       width: 40
       height: 40
       url: favicon.ico
-    title: Hugo # 页面title
+    title: UnderTheHood # 页面title
     favicon: favicon.ico
     board: <p>enjoy~</p> # 公告牌
 
