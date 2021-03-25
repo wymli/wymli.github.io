@@ -8,6 +8,7 @@ hasCJKLanguage: true
 paginate: 7
 enableEmoji: true
 PygmentsCodeFences: false
+publishDir : docs
 googleAnalytics: ""      # UA-XXXXXXXX-X 
 permalinks:
   posts: /:year/:month/:filename/
@@ -201,4 +202,7 @@ params:
     - category
     - tag
     - recent_posts
+
+
+
 

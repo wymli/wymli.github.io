@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Pure theme for Hugo</title>
+    <link>https://example.com/posts/</link>
+    <description>Recent content in Posts on Pure theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Thu, 25 Mar 2021 13:46:33 +0800</lastBuildDate>
+    
+        <atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Post</title>
+      <link>https://example.com/2021/03/first-post/</link>
+      <pubDate>Thu, 25 Mar 2021 13:46:33 +0800</pubDate>
+      
+      <guid>https://example.com/2021/03/first-post/</guid>
+      <description>That&amp;rsquo;s a test </description>
+    </item>
+    
+  </channel>
+</rss>
