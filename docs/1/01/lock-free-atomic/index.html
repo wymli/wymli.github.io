@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+         - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title> - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/1/01/lock-free-atomic/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突">
+
+<meta itemprop="wordCount" content="2275">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/first-post/" class="title">First Post</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 13:46:33 &#43;0800 CST" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/alg-sort/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/arch-design-pattern/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/c-trick1/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/cache-base-concepts/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/lock-free-atomic/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2275 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 5 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="关于rmw与atomic-ldst">关于RMW与Atomic LD/ST</h1>
+<p>[TOC]</p>
+<p>事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突然发现自己不是很懂atomic.LoadUint32()的意义,于是促成了这篇文章</p>
+<h2 id="atomicloaduint32">atomic.LoadUint32()</h2>
+<p>关于<code>atomic.LoadUint32</code>意义在哪里?和普通的读有什么区别?</p>
+<blockquote>
+<p>原子性: 要么发生,要么不发生</p>
+</blockquote>
+<blockquote>
+<p>荐读:</p>
+<p><a href="http://www.1024cores.net/home/lock-free-algorithms/so-what-is-a-memory-model-and-how-to-cook-it">http://www.1024cores.net/home/lock-free-algorithms/so-what-is-a-memory-model-and-how-to-cook-it</a></p>
+<p><a href="https://preshing.com/20130618/atomic-vs-non-atomic-operations/">https://preshing.com/20130618/atomic-vs-non-atomic-operations/</a></p>
+</blockquote>
+<h2 id="原子指令分类">原子指令分类</h2>
+<p>有两类原子指令:</p>
+<ul>
+<li>RMW: read-modify-write
+<ul>
+<li>compare and swap(CAS)
+<ul>
+<li>或相似的load-linked/store-conditional, LL/SC(解决了CAS的ABA问题)</li>
+</ul>
+</li>
+<li>fetch and add(FAA)
+<ul>
+<li>atomic.AddUint32(&amp;sum, 1)</li>
+<li>为什么有个fetch?因为要更改值,必须先加载到寄存器或ALU,再更改,所以先fetch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>loads and stores
+<ul>
+<li>即关于load和store的原子性
+<ul>
+<li>atomic.LoadUint32()</li>
+<li>atomic.StoreUint32()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>对于RMW类指令,很好理解,可以解决经典的对线程对sum++的竞态问题(比如使用FAA),那么load&amp;store这两个指令呢?</p>
+<p>在一些stackoverflow的回答中,我了解到,对于内存对齐的32位数,是自然提供原子读写的,通过这个,我们大概了解到原子读写是指的能否一次性通过总线把数据从内存中读写出来,但是,如果不提供原子性,危害在哪里?</p>
+<h2 id="原子性缺失证明">原子性缺失证明</h2>
+<h3 id="双mov">双MOV</h3>
+<p>证实: 对如下代码使用386的32位指令集架构,在amd64下交叉编译,可以看到,一个return语句确实分成了两个汇编指令</p>
+<blockquote>
+<p>对go语言,交叉编译异常简单,只要设置GOOS和GOARCH即可</p>
+</blockquote>
+<pre><code class="language-go">func b() uint64 {
+	var a uint64 = 0
+	a = 0x900000008
+	return a
+}
+
+0x0012 00018 (a.go:6)      MOVL    $8, &quot;&quot;.~r0+4(SP)
+0x001a 00026 (a.go:6)      MOVL    $9, &quot;&quot;.~r0+8(SP)
+</code></pre>
+<h3 id="非原子单条汇编指令">非原子单条汇编指令</h3>
+<p>在一些cpu架构上(即一些指令集上),即使只有单条指令,也无法保证原子性</p>
+<p>比如 <strong>ARMv7</strong> 指令</p>
+<pre><code class="language-assembly">// 将r0,r1两个32位数存在r2指向的内存上的64数
+strd r0, r1, [r2]
+</code></pre>
+<blockquote>
+<p>On some ARMv7 processors, this instruction is not atomic. When the processor sees this instruction, it actually performs <em>two</em> separate 32-bit stores under the hood</p>
+</blockquote>
+<h2 id="原子性保证">原子性保证</h2>
+<p>原子写:</p>
+<ul>
+<li>When an atomic store is performed on a shared variable, no other thread can observe the modification half-complete,保证数据一次写完,防止其他线程读到半更新数据</li>
+<li>常见于32位机器写64位数,只能分成2个MOV指令,破坏了原子性</li>
+</ul>
+<p>原子读:</p>
+<ul>
+<li>保证一次读完数据,防止在两次读的间隙数据又被更改</li>
+</ul>
+<h2 id="缺失危害">缺失危害</h2>
+<p>这种data race的后果:</p>
+<ul>
+<li>未提供原子写
+<ul>
+<li>同时写: the upper 32 bits from one thread, the lower 32 bits from another.</li>
+<li>一读一写: any thread executing on a different core could read <code>sharedValue</code> at a moment when only half the change is visible,读到其他线程写了一半的数据</li>
+</ul>
+</li>
+<li>未提供原子读
+<ul>
+<li>一读多写: 读到的数据类似于同时写,上4字节来自一个线程,下4字节来自另一个线程</li>
+<li>过程是: w1-&gt;r_hi32-&gt;w2-&gt;r_lo32</li>
+</ul>
+</li>
+</ul>
+<h2 id="解决方法">解决方法</h2>
+<p>对共享变量这种会产生多线程读写data race的情况(不同于普通的竞态,data race是如上所说,更底层的竞态)</p>
+<p>因此,对于存在data race的共享变量,需要在__语言层面__提供__原子读写__,即对共享变量使用atomic rd/wr而不是plain rd/wr</p>
+<p>对于现代体系架构,原子读写是默认支持的,除非你在32位机器上存储64位数,或是对共享atomic.Value的读写,这时,需要显式使用相关package的函数支持</p>
+<blockquote>
+<p>atomic.Value可能承载一个很大的结构体,比如sync.map里面,内置的built-in map是用atomic.Value实现的</p>
+</blockquote>
+<blockquote>
+<p>在底层原子读写指令的实现,要么是锁cache line ,要么是锁总线(优先锁住cache行)</p>
+</blockquote>
+<h2 id="cas">CAS</h2>
+<p>cas的缺点: 可能会造成活锁和ABA问题</p>
+<ul>
+<li>活锁: 虽然大家都在不断尝试,外界看起来也都在运行,但是没有一个人成功</li>
+<li>ABA问题: 这不是__CAS本身的问题__,而是在使用CAS时常见的错误用法
+<ul>
+<li>因为使用CAS,你需要先加载旧值,oldVar = *addr,再CAS(addr,oldVar,newVar)</li>
+<li>再加载旧值和CAS之间,如果addr被人改了又改回去,你是无法识别的,这会导致newVar也许已经失效(如果是典型的链表场景)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果要解决这个问题,可能需要加上版本号之类的</p>
+</blockquote>
+<p>C++的<code>addr.compare_exchange_weak(oldVar,newVar)</code>当cmp失败时,会将oldVar置为新值,这可以很方便的让人写出CAS LOOP</p>
+<pre><code class="language-go">do{
+	// do something about oldValue and get newValue
+}
+while (!shared.compare_exchange_weak(oldValue, newValue));
+</code></pre>
+<p>但是遗憾的是Go语言的<code>func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)</code>	虽然提供了非侵入式的接口,但old值是不会改变的</p>
+<h2 id="llsc">LL/SC</h2>
+<p>对于load-link/store-conditional指令,可以有效解决ABA问题</p>
+<pre><code class="language-go">oldVar = LL(addr)
+// dosomthing
+ok = SC(addr , newVar)
+</code></pre>
+<p>一旦在本线程LL后SC前,只要有其他线程访问了这个addr,就导致SC的false</p>
+<h2 id="锁">锁</h2>
+<h3 id="futex">Futex</h3>
+<p>fast userspace mutx</p>
+<blockquote>
+<p>A futex consists of a <a href="https://en.wikipedia.org/wiki/Kernel_(computing)">kernelspace</a> <em>wait queue</em> that is attached to an atomic integer in <a href="https://en.wikipedia.org/wiki/Userspace">userspace</a>.</p>
+</blockquote>
+<p>查了很久,也没弄懂到底是个啥,如果按照上面这个wiki的定义,我倾向于说go的built-in mutex就是一种futex</p>
+<pre><code class="language-go">type Mutex struct {
+	state int32
+	sema  uint32
+}
+</code></pre>
+<ul>
+<li>
+<p>state是位于用户态空间的,用于无竞态时的快速上锁</p>
+</li>
+<li>
+<p>sema则用于竞态时的阻塞</p>
+</li>
+</ul>
+<blockquote>
+<p>这样的锁也称为lightweight mutex <a href="https://preshing.com/20111124/always-use-a-lightweight-mutex/">ref</a></p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<h3 id="竞态">竞态</h3>
+<ul>
+<li>宏观竞态race condition
+<ul>
+<li>读写过程作为整体不原子,用RMW解决</li>
+</ul>
+</li>
+<li>微观竞态data race
+<ul>
+<li>读写本身不原子,用原子读写解决</li>
+</ul>
+</li>
+</ul>
+<h3 id="默认原子读写">默认原子读写</h3>
+<p>it’s common knowledge that on all modern x86, x64, Itanium, SPARC, ARM and PowerPC processors, plain 32-bit integer assignment <em>is</em> atomic as long as the target variable is naturally aligned</p>
+<h3 id="处理器架构">处理器架构</h3>
+<p>处理器位数</p>
+<ul>
+<li>
+<p><strong>386,i386(intel386),80386</strong> 都指intel的32位处理器</p>
+</li>
+<li>
+<p><strong>amd64,intel64,x86-64,x64</strong> 都指intel的64位处理器</p>
+</li>
+</ul>
+<p>处理器架构</p>
+<ul>
+<li>
+<p>x86</p>
+<ul>
+<li><strong>x86,x86-32,IA32</strong>: x86是对Intel 8086、80186、80286、80386以及80486的架构的泛称,如今又称为x86-32,或IA-32</li>
+<li><strong>amd64,intel64,x86-64,x64</strong>: 由AMD公司所开发,基于IA32/x86-32架构</li>
+</ul>
+</li>
+<li>
+<p>IA64</p>
+<ul>
+<li>IA-64: IA-64是一种崭新的系统，和x86架构完全没有相似性；不应该把它与x86-64/x64弄混</li>
+</ul>
+</li>
+</ul>
+<p>单独说x86,就是指x86-32/IA32/386/I386,单指32位intel处理器</p>
+<p>如果是说x86-64,会说x64或amd64/intel64</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/1/01/lock-free-atomic/" title="" target="_blank" rel="external">https://liwm29.github.io/1/01/lock-free-atomic/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/1/01/other-everyday/" title=""><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/1/01/interview-%E6%9D%82/"
+                    title=""><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

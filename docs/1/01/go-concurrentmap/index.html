@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+         - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title> - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="Built-in map&amp; sync.Map &amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/1/01/go-concurrentmap/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Built-in map&amp; sync.Map &amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方">
+
+<meta itemprop="wordCount" content="3354">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Built-in map&amp; sync.Map &amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/first-post/" class="title">First Post</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 13:46:33 &#43;0800 CST" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/alg-sort/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/arch-design-pattern/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/c-trick1/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/cache-base-concepts/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/go-concurrentmap/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3354 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 7 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="built-in-map-syncmap--concurrentmap">Built-in map&amp; sync.Map &amp; ConcurrentMap</h1>
+<p>并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map,</p>
+<p>我们有如下的几种方案:</p>
+<ul>
+<li>map with mutex</li>
+<li>sync.Map
+<ul>
+<li>读写map分级</li>
+</ul>
+</li>
+<li>orcaman/concurrent-map
+<ul>
+<li>分片</li>
+</ul>
+</li>
+</ul>
+<h2 id="map">Map</h2>
+<p>built-in map本质是动态哈希算法实现,在运行过程中桶会分裂,导致元素的迁移.</p>
+<ul>
+<li>这也是经典的遍历无序,取出的value不可取地址的原因,以及衍生的value作为结构体时其字段无法赋值的原因</li>
+</ul>
+<p>如何处理并发也是一个比较难的问题了,我当时学数据库实现线性哈希的时候也思考了很久这个问题.</p>
+<p>但是基于当时的我的知识的思考,其实无异于在想如何开汽车登上月球,没有一定知识积累的思考,真就只是想想而已!</p>
+<p>最后,我果断的加上了读写锁 :)</p>
+<hr>
+<p>这里收录一点关于built-in map的一些冷知识</p>
+<ul>
+<li>
+<p>声明和初始化:</p>
+<ul>
+<li>空map: 声明+初始化
+<ul>
+<li>make(map[int]int)</li>
+<li>map[int]int{}</li>
+</ul>
+</li>
+<li>nil map: 声明
+<ul>
+<li>var a map[int]int</li>
+</ul>
+</li>
+<li>和slice不一样,空map和nil map有着一定的差距
+<ul>
+<li>相同: 空map和nil map的读,都会返回default_value,false</li>
+<li>不同: nil map的写触发panic,而空map的写正常; nil map可与nil比较为true</li>
+</ul>
+</li>
+<li>相比之下,slice的append操作对于空切片和nil切片都是一致的,除了与nil比较之外</li>
+</ul>
+</li>
+<li>
+<p>任何类型都可以作为key吗?</p>
+<ul>
+<li>错,必须是可比较类型;   其中 Slice，Map，Function 是三个内置的唯一的不可比较类型</li>
+<li>结构体可比较吗?
+<ul>
+<li>同一结构体定义的不同实例: 只要其字段不包含不可比较类型,就可以比较 <a href="https://golang.org/ref/spec#Comparison_operators">ref</a></li>
+<li>不同结构体定义的不同实例: 显然不行,因为go是强类型语言! 如果它们定义相同,可以尝试先cast</li>
+<li>再加上一嘴: 深度比较: reflect.DeepEqual() ,除了判断值,还会判断底层指针指向的值是否相等!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>删除</p>
+<ul>
+<li>delete (map_,key_) , 只会将其删除位置1,而不会释放空间</li>
+<li>map是一种只增不减的数据结构!</li>
+<li>对map的clear,直接创建一个新的map覆盖,原map将会被gc</li>
+</ul>
+</li>
+<li>
+<p>如何有序遍历map</p>
+</li>
+</ul>
+<pre><code class="language-go">type orderedMap (type T1,t2) struct{
+    _map map[T1]T2
+    _slice []T1
+}
+// 假装泛型,这泛型用()小括号是真的让人无语!
+
+func (m *orderedMap(T1,T2))Add(k T1,v T2){
+    m._map[k] = v
+    m._slice = append(m._slice , v)
+    sort.Sort(m)
+}
+
+func (m *orderedMap(T1,T2))Iter() func()(T1,T2){
+    m = snapshot(m)
+    i := -1
+    return func(){
+        i++
+        return m._map[m._slice[i]]
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p>键的优化:     据说, golang为 uint32、uint64、string 作为key时提供了fast access,可以在runtime/map_fast32,&hellip; runtime/map_faststr,找到</p>
+<ul>
+<li>不过我看了半天代码,发现自己看不懂</li>
+</ul>
+</li>
+</ul>
+<h2 id="map-with-mutex">Map with mutex</h2>
+<p>很显然,性能将不再是一个需要多么谈及的话题.mutex将会导致go程阻塞而被调度出运行队列</p>
+<pre><code class="language-go">type concurrentMap(type T1,T2) struct{
+    _map map[T1]T2
+    rwMutx sync.RWMutex
+}
+
+</code></pre>
+<h2 id="syncmap">sync.Map</h2>
+<p>Go1.9 推出了sync.Map</p>
+<ul>
+<li>以下场景适合sync.Map:
+<ul>
+<li>(1) when the entry for a given key is only ever written once but read many times, as in caches that only grow
+<ul>
+<li>这也是concurrent-map的文档里说的,sync.Map只适合append-only的场景(only grow)</li>
+</ul>
+</li>
+<li>(2) when multiple goroutines read, write, and overwrite entries for disjoint sets of keys.
+<ul>
+<li>根据这个issue:  <a href="https://github.com/golang/go/issues/21035">https://github.com/golang/go/issues/21035</a>   sync: reduce contention between Map operations with new-but-disjoint keys</li>
+<li>我想 (2) 应该不再是一个适用场景</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>其内部实现是用两个built-in map 加 single-mutex 实现</p>
+<p>实现:</p>
+<pre><code class="language-go">type Map struct {
+	mu Mutex
+
+	// read contains the portion of the map's contents that are safe for
+	// concurrent access (with or without mu held).
+	//
+	// The read field itself is always safe to load, but must only be stored with
+	// mu held.
+	//
+	// Entries stored in read may be updated concurrently without mu, but updating
+	// a previously-expunged entry requires that the entry be copied to the dirty
+	// map and unexpunged with mu held.
+	read atomic.Value // readOnly
+
+	// dirty contains the portion of the map's contents that require mu to be
+	// held. To ensure that the dirty map can be promoted to the read map quickly,
+	// it also includes all of the non-expunged entries in the read map.
+	// 	这里说dirty map can be promoted to the read map,个人感觉会误解为是dirty被promote到了read
+    // 实际上也没错,但更准确的是覆盖了,后续的第一次写将会导致遍历read写回dirty.这个遍历更像是promote?
+    //
+    
+	// Expunged entries are not stored in the dirty map. An expunged entry in the
+	// clean map must be unexpunged and added to the dirty map before a new value
+	// can be stored to it.
+	//
+	// If the dirty map is nil, the next write to the map will initialize it by
+	// making a shallow copy of the clean map, omitting stale entries.
+	dirty map[interface{}]*entry
+
+	// misses counts the number of loads since the read map was last updated that
+	// needed to lock mu to determine whether the key was present.
+	//
+	// Once enough misses have occurred to cover the cost of copying the dirty
+	// map, the dirty map will be promoted to the read map (in the unamended
+	// state) and the next store to the map will make a new dirty copy.
+	misses int
+}
+
+type readOnly struct {
+	m       map[interface{}]*entry
+	amended bool // true if the dirty map contains some key not in m.
+}
+
+type entry struct {
+	p unsafe.Pointer // *interface{}
+    // 用指针,是为了方便的 atomic.CompareAndSwapPointer,可以直接修改read.m中本来应该只读的数据
+}
+// 这里的interface{}, 就是键值对的值,LoadOrStore(k ,v interface{}) 中的v
+// 删除: p将指向 unsafe.Pointer(new(interface{}))
+
+func newEntry(i interface{}) *entry {
+	return &amp;entry{p: unsafe.Pointer(&amp;i)}
+}
+</code></pre>
+<p>相信这个图加上上面的注释已经解释的差不多了  <a href="https://juejin.cn/post/6844903895227957262"> ref</a></p>
+<p><!-- raw HTML omitted --></p>
+<pre><code class="language-go">sync的结构为:
+type sync.Map{
+    mutex
+    read{m map[interface{}]*entry , amended }  atomic.Value
+    dirty map[interface{}]*entry
+    misses
+}
+</code></pre>
+<h4 id="一文以蔽之">一文以蔽之</h4>
+<p>​	<strong>在大多数时刻,dirty都是read.m的超集</strong>,除了dirty刚覆盖read.m后,dirty被置为nil,read.amend置为false,表示read.m即为全部的数据, 在下一次写到来后,将会遍历read.m,将kv存进dirty,并将read.amend置为true,表示dirty是read.m的数据的超集!</p>
+<p>​	<strong>什么时候触发dirty对read.m的覆盖?</strong> 当 m.misses &gt;= len(m.dirty)时</p>
+<blockquote>
+<p>注意,无效的读Load也会导致miss次数增加!</p>
+</blockquote>
+<h3 id="总结一下syncmap的关键">总结一下sync.map的关键</h3>
+<ul>
+<li>
+<p>对于本来的map[interface{}] interface{} ,用unsafe.Pointer存储&amp;value, 即unsafe.Pointer是*interface{};</p>
+<ul>
+<li>导致可以利用atomic.CompareAndSwapPointer,直接操作readonly map,而无需加锁即可并发</li>
+</ul>
+</li>
+<li>
+<p>dirty map大多数时候都是readonly map的超集!除了短暂的dirty覆盖read.m后的nil</p>
+</li>
+<li>
+<p>覆盖后的第一次写dirty,会导致for range read.m, copy键值到dirty</p>
+</li>
+<li>
+<p>适用于读多写少</p>
+</li>
+</ul>
+<h2 id="concurrentmap">ConcurrentMap</h2>
+<blockquote>
+<p>通过对内部<code>map</code>进行分片，降低锁粒度，从而达到最少的锁等待时间(锁冲突)</p>
+</blockquote>
+<p>所谓分片,是指原先的map是一个大map,所有的key计算完的hash都是一个冲突域</p>
+<p>但是我现在不再是一个大map,而不是分成多个小map,我先计算key的一个hash,将其映射到小map上,然后对小map操作.</p>
+<p>这其实依赖于短时间内多个连续到来的key的hash值不同,那么它们就可以并行,否则就等待锁.</p>
+<ul>
+<li>在此种情况下,hash函数的选择也至关重要,对于短时间内无序到来的key序列,如何尽可能的计算出短时间内不同的hash值</li>
+</ul>
+<pre><code class="language-go">// A &quot;thread&quot; safe map of type string:Anything.
+// To avoid lock bottlenecks this map is dived to several (SHARD_COUNT) map shards.
+// shard: 碎片 var SHARD_COUNT = 32
+type ConcurrentMap []*ConcurrentMapShared
+
+// A &quot;thread&quot; safe string to anything map.
+type ConcurrentMapShared struct {
+	items        map[string]interface{}
+	sync.RWMutex // Read Write mutex, guards access to internal map.
+}
+
+</code></pre>
+<h4 id="写-store">写 Store:</h4>
+<p>很简单,通过 <code>shard := m.GetShard(key)</code> 获得该key对应所在的<code>ConcurrentMapShared</code>,然后加锁,操作,释放锁;</p>
+<p>只要短时间内到来的key计算的hash值不同,那么就不会有<code>锁竞争</code></p>
+<pre><code class="language-go">// Sets the given value under the specified key.
+func (m ConcurrentMap) Set(key string, value interface{}) {
+	// Get map shard.
+	shard := m.GetShard(key)
+	shard.Lock()
+	shard.items[key] = value
+	shard.Unlock()
+}
+</code></pre>
+<p>hash函数(Fowler–Noll–Vo hash function)  <a href="https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function">ref</a></p>
+<pre><code class="language-go">func (m ConcurrentMap) GetShard(key string) *ConcurrentMapShared {
+	return m[uint(fnv32(key))%uint(SHARD_COUNT)]
+}
+
+// Fowler–Noll–Vo hash function:
+func fnv32(key string) uint32 {
+	hash := uint32(2166136261) 
+	const prime32 = uint32(16777619)
+	for i := 0; i &lt; len(key); i++ {
+		hash *= prime32
+		hash ^= uint32(key[i])
+	}
+	return hash
+}
+</code></pre>
+<p>这个并发map最核心的思想已经讲完了,简单,却实用! 单个map也许做不了并发,但两个map(<code>一读一写,写是读超集</code>)搭配一个锁就可以做还行的并发,多个平行的map加 <code>map级别的锁</code>就能做很不错的并发</p>
+<p>除了并发的核心,这个库的其他代码其实也值得学习!</p>
+<h4 id="比如并发中的扇入模式">比如并发中的扇入模式</h4>
+<ul>
+<li>利用chan,每个shard开启一个go程,并发返回所有的Key:</li>
+</ul>
+<blockquote>
+<p>如果是同步的算法,那么时间复杂度是O(n^2),遍历了两次. 但使用了go程进行并发加速</p>
+<p>第一次计算有多少个key,即count,是有必要的,正是这个数值的确定,导致我们可以安心的创建count个缓冲的chan,并关闭通道</p>
+<p>对于无缓冲通道,适合只有一个go程生成数据,常见于lazy evaluate</p>
+</blockquote>
+<pre><code class="language-go">// Keys returns all keys as []string
+func (m ConcurrentMap) Keys() []string {
+	count := m.Count()
+	ch := make(chan string, count)
+	go func() {
+		wg := sync.WaitGroup{}
+		wg.Add(SHARD_COUNT)
+		for _, shard := range m {
+			go func(shard *ConcurrentMapShared) {
+				shard.RLock()
+				for key := range shard.items {
+					ch &lt;- key
+				}
+				shard.RUnlock()
+				wg.Done()
+			}(shard)
+		}
+		wg.Wait()
+		close(ch)
+	}()
+	keys := make([]string, 0, count)
+	for k := range ch {
+		keys = append(keys, k)
+	}
+	return keys
+}
+
+</code></pre>
+<h4 id="有缓冲优于无缓冲">有缓冲优于无缓冲</h4>
+<pre><code class="language-go">// Iter returns an iterator which could be used in a for range loop.
+//
+// Deprecated: using IterBuffered() will get a better performence
+func (m ConcurrentMap) Iter() &lt;-chan Tuple {
+	chans := snapshot(m)
+	ch := make(chan Tuple)
+	go fanIn(chans, ch)
+	return ch
+}
+
+// IterBuffered returns a buffered iterator which could be used in a for range loop.
+func (m ConcurrentMap) IterBuffered() &lt;-chan Tuple {
+	chans := snapshot(m)
+	total := 0
+	for _, c := range chans {
+		total += cap(c)
+	}
+	ch := make(chan Tuple, total)
+	go fanIn(chans, ch)
+	return ch
+}
+</code></pre>
+<p>个人认为,对于有缓冲的通道,有一个特别大的优点就是,发送完数据就可以直接关闭了;</p>
+<p>而如果无缓冲,就会一直阻塞,依赖于读的速度</p>
+<pre><code class="language-go">shard.RLock()
+chans[index] = make(chan Tuple, len(shard.items))
+wg.Done()
+for key, val := range shard.items {
+    chans[index] &lt;- Tuple{key, val}
+}
+shard.RUnlock()
+close(chans[index])
+</code></pre>
+<hr>
+<p>用一个简单的map分片解决了并发问题,而且肉眼可以看出性能不会太差,虽然占空间, 但仍然可以称之为优雅!</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/1/01/go-concurrentmap/" title="" target="_blank" rel="external">https://liwm29.github.io/1/01/go-concurrentmap/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/1/01/go-errorx/" title=""><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/1/01/deploy-server-deploy/"
+                    title=""><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

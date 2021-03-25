@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        [DB] sql spec - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="About sql statement&amp;amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title>[DB] sql spec - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="[DB] sql spec" />
+<meta property="og:description" content="About sql statement&amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/2021/03/db-sql-spec/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-25T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="[DB] sql spec">
+<meta itemprop="description" content="About sql statement&amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e"><meta itemprop="datePublished" content="2021-03-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="906">
+<meta itemprop="keywords" content="DB," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[DB] sql spec"/>
+<meta name="twitter:description" content="About sql statement&amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://liwm29.github.io/tags/alg/" class="tag-list-link" rel="1">alg<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/arch/" class="tag-list-link" rel="1">arch<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/c/" class="tag-list-link" rel="1">c<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cache/" class="tag-list-link" rel="1">cache<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cli/" class="tag-list-link" rel="2">cli<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link" rel="1">concurrency<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/data-structure/" class="tag-list-link" rel="1">data-structure<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/db/" class="tag-list-link" rel="3">db<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link" rel="1">deploy<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/go/" class="tag-list-link" rel="15">go<span
+               class="tag-list-count">15</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/http/" class="tag-list-link" rel="1">http<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/interview/" class="tag-list-link" rel="2">interview<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link" rel="1">lock-free<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/other/" class="tag-list-link" rel="2">other<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link" rel="1">protocol<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link" rel="2">rpc<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/server/" class="tag-list-link" rel="3">server<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/sys/" class="tag-list-link" rel="2">sys<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/vue/" class="tag-list-link" rel="2">vue<span
+               class="tag-list-count">2</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/alg/" class="category-list-link">alg</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/c/" class="category-list-link">c</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cache/" class="category-list-link">cache</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cli/" class="category-list-link">cli</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/concurrency/" class="category-list-link">concurrency</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/data-structure/" class="category-list-link">data-structure</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/lock-free/" class="category-list-link">lock-free</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/protocol/" class="category-list-link">protocol</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/rpc/" class="category-list-link">rpc</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/vue/" class="category-list-link">vue</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/alg/" class="tag-list-link">alg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/arch/" class="tag-list-link">arch</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/c/" class="tag-list-link">c</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cache/" class="tag-list-link">cache</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cli/" class="tag-list-link">cli</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link">concurrency</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/data-structure/" class="tag-list-link">data-structure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/db/" class="tag-list-link">db</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link">deploy</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">15</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/interview/" class="tag-list-link">interview</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link">lock-free</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/other/" class="tag-list-link">other</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link">protocol</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link">rpc</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/server/" class="tag-list-link">server</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/sys/" class="tag-list-link">sys</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/vue/" class="tag-list-link">vue</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/alg-sort/" class="title">[alg] sort</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/arch-design-pattern/" class="title">[arch] design pattern</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/c-trick1/" class="title">[c] trick1</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/cache-base-concepts/" class="title">[cache] base concepts</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/1.-eventdistributionsystem/" class="title">[cli] 事件分发系统</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/03/db-sql-spec/"
+    >[DB] sql spec</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://liwm29.github.io/2021/03/db-sql-spec/" class="article-date">
+  <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/db/"> DB </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/db/"> DB </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 906 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="about-sql-statementindex-spec">About sql statement&amp;index spec</h1>
+<blockquote>
+<p>参考但不限于<code>Java开发手册（嵩山版）</code></p>
+</blockquote>
+<h2 id="关于索引">关于索引</h2>
+<p>与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过explain后的extra列来识别语句执行速度,但是在理论上,我们知道索引是一颗B+树,所以只要了解了B+树的构造,那么自然可以从理论上去识别一个条件查询是否能使用索引</p>
+<h3 id="联合索引">联合索引</h3>
+<p>单键索引没什么好讲的,重点是多键索引</p>
+<p>其非叶子节点的搜索键是多个值,比如__(a,b,c) = (4,7,5)__</p>
+<p>那么(a&lt;4,*,*)会排序到这个索引的左边,如果a == 4,那么再比较b&hellip;</p>
+<p>所以最终,这个索引的左边会是</p>
+<p><strong>(a&lt;4,*,*) , (a=4,b&lt;7,*),(a=4,b=7,c&lt;5)</strong></p>
+<p>右边会是</p>
+<p><strong>(a&gt;4,*,*) , (a=4,b&gt;7,*) , (a=4,b=7,c&gt;=5)</strong></p>
+<h4 id="使用场景">使用场景</h4>
+<p>指定联合索引(a,b,c)</p>
+<h5 id="范围查询">范围查询</h5>
+<p>如果sql是(语法为EBNF)</p>
+<ol>
+<li>where (a &lt; * | a &gt; *)</li>
+<li>where a = * [and (b &gt; * | b &lt; *)]</li>
+<li>where a = * and b = * [and (c &gt; * | c &lt; *)]</li>
+<li>where a = * order by b</li>
+</ol>
+<p>那么显然可以使用b+树的联合索引</p>
+<blockquote>
+<p>这就是最左前缀匹配原则</p>
+</blockquote>
+<blockquote>
+<p>并且指定了a后,b,c是天然排序的; 指定a,b同理</p>
+</blockquote>
+<h5 id="失败案例">失败案例</h5>
+<p>以下无法使用索引</p>
+<ol>
+<li>where b = *</li>
+<li>where b = * and c = *</li>
+<li>where a &gt; * and b &gt; *</li>
+<li>where a &gt; * order by b</li>
+</ol>
+<h3 id="原则">原则</h3>
+<ol>
+<li>建立联合索引时,区分度最高的在左边(所谓区分度,是指唯一性)
+<ol>
+<li>除非,常用查询是where b = * &amp; a &gt; *,即使a区分度更高,也应该设置索引index_b_a</li>
+<li>这是因为,where b = *后,对a是天然排序的,若以a为第一个索引,那么查b=*,就需要对b进行filesort</li>
+</ol>
+</li>
+</ol>
+<h3 id="覆盖索引">覆盖索引</h3>
+<p>所谓覆盖索引,就是说对于辅助索引,可以直接查出想要的数据,而不再需要回表查询</p>
+<h3 id="其他">其他</h3>
+<p>禁止对索引列进行计算</p>
+<p>使用</p>
+<p><code>select * from users where adddate&lt;'2007-01-01'</code></p>
+<p>而不是</p>
+<p><code>select * from users where YEAR(adddate)&lt;2007</code></p>
+<h2 id="limit">Limit</h2>
+<p>前置条件: k 是辅助索引</p>
+<p><code>select * from table_name where k = 1 limit  3 offset 100000</code></p>
+<p>一方面是将会查找出100003条记录,再丢弃掉前100000条记录,这会导致极高的延时</p>
+<p>再其次就是会有100003次回表查询(即没找到一个辅助索引对应的pk,就回聚簇索引查找record)</p>
+<p>因此,需要使用子查询,防止超多次回表:</p>
+<p><code>select * from table_name as t1 inner join (select pk from table_name where k =1 limit 3 offset 100000) as t2 on t1.pk = t2.pk </code></p>
+<p>这其实利用了索引覆盖的特点,由于我们在子查询中是查pk,不需要回表,所以直接放回了100003条pk,然后再统一回表查一次</p>
+<h2 id="type">Type</h2>
+<p>要精确存储某个类型时,使用decimal(定点数),而不是浮点数</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/2021/03/db-sql-spec/" title="[DB] sql spec" target="_blank" rel="external">https://liwm29.github.io/2021/03/db-sql-spec/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/2021/03/deploy-server-deploy/" title="[deploy] server deploy"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/2021/03/db-rule/"
+                    title="[DB] rule"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

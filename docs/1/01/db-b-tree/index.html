@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+         - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title> - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/1/01/db-b-tree/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻">
+
+<meta itemprop="wordCount" content="3387">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/first-post/" class="title">First Post</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 13:46:33 &#43;0800 CST" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/alg-sort/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/arch-design-pattern/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/c-trick1/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/cache-base-concepts/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/db-b-tree/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3387 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 7 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="索引中的平衡树b-treeb-plus-tree">索引中的平衡树:b-tree,b-plus-tree</h1>
+<p>主要介绍数据库的索引,及其实现,平衡多叉树</p>
+<h2 id="什么是索引">什么是索引</h2>
+<blockquote>
+<p>想象一下,假设db没有任何数据结构驻留在内存,其一切存储都放在disk,那么想找到一张表的一个行,就必须把表的所有页取到memory,逐个比较各行. 因此我们必须放置一些特定的数据结构在内存中,方便快速查找(但不是缓存)(也不总是在内存中)</p>
+<p>对于一张表结构,它自身就记录自己在磁盘上的位置和大小,我们可以快速找到它,但是它包含很多页,我们无法确定某一行在哪一页,只能扫描全表.</p>
+</blockquote>
+<p>索引完成了这样一个功能, 快速找到某一列的值所在的行的在磁盘上的页(os虚拟页,实际在磁盘); 注意,无法找到在那一页的哪一个位置,最终读到内存页后还是扫描整个页,因此文档也指出了,对于小表,加不加索引意义不大,对于要查出绝大部分数据的大表,也不要用索引,不如直接全表扫描</p>
+<blockquote>
+<p>mysql 官方文档: <a href="https://dev.mysql.com/doc/refman/5.7/en/mysql-indexes.html">mysql-indexes</a> ,<a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-index-types.html">innodb-index-types</a></p>
+</blockquote>
+<p>所谓索引(index),就是给定一个键,快速返回其在磁盘上的存储页(<code>索引本身是一个键值存储数据结构</code>),然后再根据这个位置磁盘的磁头快速旋转到对应扇区(一个扇区512B,但InnoDB的页16KB),读取一整块数据,通过DMA方式从磁盘缓冲区copy到内核缓冲区,然后中断,对应db进程被唤醒,read到用户缓冲区,遍历整页的数据,找到record(实际上页16KB,一条record如果1KB,就有16行,最差比较16次,其实是不慢的),通过tcp本机通信发送给client.</p>
+<p>你可以将其理解为一个map,其键是某一列的取值,其值是对应页所在磁盘的位置.(索引树本身是要持久化在磁盘的,一个结点一页)</p>
+<blockquote>
+<p>其实这更像是搜索引擎领域中的倒排索引(反向索引),给定关键词,返回其所在页;正向索引则是像普通目录一样,给定页,返回其关键词.</p>
+</blockquote>
+<p>事实上,数据库的索引常见的实现算法就是hash和b/b+树,其本身就是一个存储型数据结构,可作为in-memory cache/db,当设置特殊的kv时,便可视作索引</p>
+<blockquote>
+<p>hash分为静态hash和动态hash(依据其是否在runtime时会有分裂桶(增加桶数)的操作),redis作为一个in-memory cache/db,其dict结构就是用的动态哈希算法中的可拓展哈希</p>
+</blockquote>
+<p>hash和b/b+树的各自特点:</p>
+<ul>
+<li>
+<p>hash表是无序的,在使用==时很快,对于不等号,有点无能为力</p>
+</li>
+<li>
+<p>b/b+树是有序数据结构,在不等号时很快,但本质还是搜索树,判断相等要多分遍历,但也不慢</p>
+</li>
+</ul>
+<blockquote>
+<p>实际上索引的树的结点都需要持久化放在磁盘,并且一般来说每个结点一个页</p>
+</blockquote>
+<blockquote>
+<p>高度为 3 的 B+ 树就能够存储千万级别的数据: 比如高度为2的树,满载时根节点有16KB/14B =1170个指针,这里14是指主键8B,指针6B,由于一条记录1KB,则一页只能存放16条记录,则总共:1170*16 = 18720 条记录; 高度为3时:1170*1170*16*21902400 条记录</p>
+</blockquote>
+<h2 id="使用">使用</h2>
+<pre><code class="language-sql">ALTER TABLE students
+ADD INDEX idx_name_score (name,score);
+</code></pre>
+<p>这一段sql就为表students,添加了名为idx_name_score的索引,它是针对列name和score的索引.</p>
+<p>我们常称为: 对列name,score创建索引</p>
+<p>显然,它将列的值作为key,行的磁盘地址作为value,当key越不同时,冲突越少,效率越高. db会默认为主键创建索引.</p>
+<blockquote>
+<p>对表的增删查改,显然也要及时更新索引,因此这是一个缺点,对于hash表和b/b+树,都可能触发整个数据结构的整形(hash是桶的分裂,b/b+树是平衡化),会拖慢速度,但没办法,没有银弹.</p>
+</blockquote>
+<p>在InnoDB中,默认采用B+树作索引,对于主键的索引,以&lt;primary_id,page&gt;的方式,辅助索引以&lt;col,primary_id&gt;的方式,辅助索引(secondary index)指出了聚簇索引(clustered index)(一般的,主键索引)以外的所有索引</p>
+<h2 id="平衡树">平衡树</h2>
+<p>由于大多数db engine会采用b/b+树,比如innodb使用b+树作为索引,我们这里就不探讨动态哈希了,哈希由于对区间查找支持太差,更适合作为键值缓存数据库,比如redis</p>
+<h3 id="平衡二叉搜索树">平衡二叉搜索树</h3>
+<p>二叉搜索树(二叉排序树,查找树),相比都知道,其在结构上是类似一个二叉堆,但是满足<code>左子节点&lt;父节点&lt;右子节点</code>,相比之下,用来实现优先队列(大/小顶堆)的二叉堆结构,只需要满足<code>左子节点&lt;父节点,右子节点&lt;父子节点</code></p>
+<p>平衡化: 这意味着插入/删除元素的时候,不能直接简单的插入删除,需要对局部结构进行reshape(旋转),以满足插入/删除后仍然是平衡树</p>
+<blockquote>
+<p>平衡树: 如果一棵树,其子节点都是平衡树,并且深度相差不超过1,则称为平衡树</p>
+</blockquote>
+<p>平衡化的旋转操作比较复杂,如果不是专门去实现一个平衡树,我个人认为了解它需要平衡化就行了</p>
+<blockquote>
+<p>有序性: 当对平衡二叉搜索树进行中序遍历时,将得到一个递增序列</p>
+</blockquote>
+<h3 id="b树">B树</h3>
+<p>B树是平衡二叉搜索树的进阶版,可以认为,B树是<code>平衡多叉搜索树</code>,在这里,平衡是严格平衡,不再是相差为1,而是都一样的高度</p>
+<p><!-- raw HTML omitted --></p>
+<p>这是<code>google/btree</code>的go语言实现版</p>
+<pre><code class="language-go">// degree指度数,一个node的最小item数是degree-1,最大是degree*2-1
+// order指阶数,一个node的最大子树个数是order,最大item数是order-1,最小item数是order/2
+// 所以: order-1 等于 degree*2-1 , 一个2度树是一个4阶数
+type BTree struct {
+	degree int
+	length int
+	root   *node
+	cow    *copyOnWriteContext
+}
+
+// node指tree中的一个节点
+type node struct {
+	items    items
+	children children
+	cow      *copyOnWriteContext
+}
+type items []Item
+type children []Item
+// 显然items代表父节点自己存储的值数组,而children代表指向子节点的指针数组
+
+// Item represents a single object in the tree.
+type Item interface {
+	// Less tests whether the current item is less than the given argument.
+	Less(than Item) bool
+}
+</code></pre>
+<blockquote>
+<p>对于m阶的b树,每个子节点不能有超过m-1个关键字,非根结点至少有Math.ceil(m/2)-1个关键字</p>
+<p>插入节点时,首先寻路到了叶子节点(注意一定是叶子节点,否则是replace而不是insert),正常按顺序找到位置,插入,对于go实现,可以通过*items = copy((*items)[i:] , (*items)[i+1:]) 如果叶子节点关键字数超过了m-1,则将整个items二分,将中间的关键字append到父节点</p>
+</blockquote>
+<p>当一层满了之后,才会插入到下一层!</p>
+<h3 id="b树-1">B+树</h3>
+<p>B+树显然是B树的升级版</p>
+<p>B+树的特点是,非叶子节点不保存(key-value),而只是保存key用于比较,所有的数据item都在叶子节点</p>
+<p>叶子节点的最右指针将会指向临近的叶子节点</p>
+<h6 id="b数相对b数的优点">B+数相对B数的优点</h6>
+<ol>
+<li>
+<p>快速性: B+树的层级比B树小,查的更快(基本上看其他资料,都有提到这个,但我实在不懂为什么会更矮:2021/03/16更新:因为B+树的非叶子节点没有数据,而一个数据要1kb,至少相当于100个指针了,所以B+树每个节点能容纳的叉数更多(建立在一个节点存一个页的情况))</p>
+</li>
+<li>
+<p>稳定性: B+树由于非叶子节点不存储值,所以每次查询必须一直查到叶子节点,对于不同的键查询时间差距不大(这个是建立在其本身和B树的查询速度差距不大的前提下)</p>
+</li>
+<li>
+<p>有序性: 虽然B树作为搜索树也可以通过中序遍历获取有序列,但是B+树更加便捷,因为叶子节点之间是直接通过指针相连的(所以在查区间数据时很有优势)</p>
+</li>
+</ol>
+<blockquote>
+<p>有些地方说,B+树有利于全表扫描,但根据文档的建议,对于要查出大部分record的查询来说,不要用索引,直接全表扫描</p>
+</blockquote>
+<blockquote>
+<p>2020/03/16更新,今天面试问了为什么稳定性是一个好的特性呢,可惜我不知道! 面试官说是和硬盘的特性有关,我搜索了一下,B+树比B树更满足硬盘的特性,因为硬盘读取慢,我们希望降低io次数,对于3层B+树,就可索引2kw个数据,这意味着4次io就可索引到2kw个数据,很恐怖! 反之对B树,由于数据要放在非叶子节点,所以一页最多16个指针,16^3远小于2kw</p>
+<p>但是对于内存中的存储,多用B树,因为不再需要io</p>
+</blockquote>
+<h6 id="使用注意">使用注意:</h6>
+<p>使用B/B+树时,不建议使用自增主键,因为自增主键由于主键的严格有序性,导致每插入一个元素(最终都会在最后一个叶子节点插入),就会触发一次分裂</p>
+<blockquote>
+<p>2021/03/16更新,这句话就是在放屁,自己可以压测一下,无论是avl树还是rb树还是b树,在插入递增key时,绝对是比随机key性能好的</p>
+<p>更何况b+树呢</p>
+</blockquote>
+<p><img src="http://file.mycookies.cn/201805191537_258.gif?imageView1/JannLee/md/01" alt="http://mycookies.cn/#/"></p>
+<blockquote>
+<p><a href="http://mycookies.cn/#/">gif来源博客</a></p>
+</blockquote>
+<h2 id="为什么innodb使用b树">为什么InnoDB使用B+树</h2>
+<p>等价问题是,为什么InnoDB为什么采用B+树,而不是B树和动态哈希?</p>
+<p>显然,对于OLTP来说,所有提到的优点在前文已经说明了.</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/1/01/db-b-tree/" title="" target="_blank" rel="external">https://liwm29.github.io/1/01/db-b-tree/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/1/01/db-rule/" title=""><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/1/01/data-structure-skip-list/"
+                    title=""><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

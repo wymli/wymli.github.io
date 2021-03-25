@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data-structure on UnderTheHood</title>
+    <link>https://liwm29.github.io/tags/data-structure/</link>
+    <description>Recent content in data-structure on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://liwm29.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[alg] sort</title>
+      <link>https://liwm29.github.io/2021/03/alg-sort/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/alg-sort/</guid>
+      <description>排序算法 稳定性 假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[</description>
+    </item>
+    
+    <item>
+      <title>[arch] design pattern</title>
+      <link>https://liwm29.github.io/2021/03/arch-design-pattern/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/arch-design-pattern/</guid>
+      <description>设计模式 聊聊我熟悉的设计模式 首先,推荐一下这门课: https://time.geekbang.org/column/intro/100039001 我看了目录,确实很有吸引力,可惜太贵了:( 创建型 用于创建类型 单例 单例模式常用于创建全局唯</description>
+    </item>
+    
+    <item>
+      <title>[c] trick1</title>
+      <link>https://liwm29.github.io/2021/03/c-trick1/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/c-trick1/</guid>
+      <description>总结一下在c语言中遇到的诸多Tricks 柔性数组 一个典型的柔性数组如下所示,数组本身是不占空间的 struct skipnode { int key; int value; struct sk_link link[0]; }; struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link)); 关</description>
+    </item>
+    
+    <item>
+      <title>[cache] base concepts</title>
+      <link>https://liwm29.github.io/2021/03/cache-base-concepts/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/cache-base-concepts/</guid>
+      <description>应用层缓存 通常我们不希望所有数据的请求都去查询数据库,这一方面是慢,另一方面对数据库的压力也大. 因此,类似硬件层面的缓存,我们在应用层也会使</description>
+    </item>
+    
+    <item>
+      <title>[cli] 事件分发系统</title>
+      <link>https://liwm29.github.io/2021/03/1.-eventdistributionsystem/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/1.-eventdistributionsystem/</guid>
+      <description>[Go] 可交互动态终端 &amp;lt;1, 事件注册分发中心&amp;gt; github.com/mum4k/termdash 如何完成一个好看的terminal呢?在以前我们大都会使用简单的printf来打印数据到终端,进</description>
+    </item>
+    
+    <item>
+      <title>[cli] 刷新屏幕</title>
+      <link>https://liwm29.github.io/2021/03/2.-createandfreshscreen/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/2.-createandfreshscreen/</guid>
+      <description>可交互动态终端 &amp;lt;2, 刷新屏幕&amp;gt; ref: github.com/gdamore/tcell/v2 我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数</description>
+    </item>
+    
+    <item>
+      <title>[concurrency] promise&amp;future</title>
+      <link>https://liwm29.github.io/2021/03/concurrency-promisefuture/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/concurrency-promisefuture/</guid>
+      <description>Promise&amp;amp;future 函数式编程是一个新的编程范式,基本上,只要你的编程语言支持函数是一等公民这个说法,那么就至少支持部分的函数式编程 [TOC] promise 所谓的promise,</description>
+    </item>
+    
+    <item>
+      <title>[data-structure] skip-list</title>
+      <link>https://liwm29.github.io/2021/03/data-structure-skip-list/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/data-structure-skip-list/</guid>
+      <description>skipList 跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n) 跳表是二叉搜索树,AVL,RBTree的替代品 这里我们不介绍如何从头开始编</description>
+    </item>
+    
+    <item>
+      <title>[DB] b-tree</title>
+      <link>https://liwm29.github.io/2021/03/db-b-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-b-tree/</guid>
+      <description>索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻</description>
+    </item>
+    
+    <item>
+      <title>[DB] rule</title>
+      <link>https://liwm29.github.io/2021/03/db-rule/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-rule/</guid>
+      <description>数据库设计范式 所谓设计范式,可理解为设计一张表的各个列的规则 定义 键和函数依赖 键 所有的键(key) 都是 a set of one or more attributes 主属性(prime attribute) 至少出</description>
+    </item>
+    
+    <item>
+      <title>[DB] sql spec</title>
+      <link>https://liwm29.github.io/2021/03/db-sql-spec/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-sql-spec/</guid>
+      <description>About sql statement&amp;amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e</description>
+    </item>
+    
+    <item>
+      <title>[deploy] server deploy</title>
+      <link>https://liwm29.github.io/2021/03/deploy-server-deploy/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/deploy-server-deploy/</guid>
+      <description>记一次云端部署web服务器 本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识</description>
+    </item>
+    
+    <item>
+      <title>[Go] concurrentMap</title>
+      <link>https://liwm29.github.io/2021/03/go-concurrentmap/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-concurrentmap/</guid>
+      <description>Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方</description>
+    </item>
+    
+    <item>
+      <title>[Go] errorx</title>
+      <link>https://liwm29.github.io/2021/03/go-errorx/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-errorx/</guid>
+      <description>Error go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下if err!=nil{return err} 而对于进阶一点的程序员,则会诟病它的error接口设</description>
+    </item>
+    
+    <item>
+      <title>[Go] escape analysis</title>
+      <link>https://liwm29.github.io/2021/03/go-escape-analysis/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-escape-analysis/</guid>
+      <description>逃逸分析 首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配 注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当</description>
+    </item>
+    
+    <item>
+      <title>[Go] GC</title>
+      <link>https://liwm29.github.io/2021/03/go-gc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-gc/</guid>
+      <description>垃圾回收算法 https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/ 有两种常见的自动管理堆内存的方法: 引用计数/智能指针 追踪式垃圾回收(对堆内存的对象关系图进行可达性分析) 术语 根对象: 包括所有栈</description>
+    </item>
+    
+    <item>
+      <title>[Go] goroutine pool</title>
+      <link>https://liwm29.github.io/2021/03/go-goroutine-pool/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-goroutine-pool/</guid>
+      <description>Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,</description>
+    </item>
+    
+    <item>
+      <title>[Go] monkey patch</title>
+      <link>https://liwm29.github.io/2021/03/go-monkey-patch/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-monkey-patch/</guid>
+      <description>Monkey patch 猴子补丁 ref: https://bou.ke/blog/monkey-patching-in-go/ Intro: 什么是monkey patch? package main func a() int { return 1 } func b() int { return 2 } func main() { replace(a, b) print(a()) // 2 } monkey patch将做到如上的效果,当你调用a函数时,实际</description>
+    </item>
+    
+    <item>
+      <title>[Go] mutex</title>
+      <link>https://liwm29.github.io/2021/03/go-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-mutex/</guid>
+      <description>mutex 结构 type Mutex struct { state int32 sema uint32 } 自旋 for{ cas(m.state) } 阻塞 wait(m.sema) 状态 普通模式 就是正常的模式,线程相互竞争获得锁 饥饿模式 由于线程竞争失败会阻塞,而这些被唤醒的线程会和</description>
+    </item>
+    
+    <item>
+      <title>[Go] netaddr</title>
+      <link>https://liwm29.github.io/2021/03/go-netaddr/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-netaddr/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        [linux] high performance server - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd); B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind] C--&amp;gt;D[listen] D--&amp;gt;E[accept] E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;] F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E 一个传统的多线程服务器, pthread也可以换成fork," />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title>[linux] high performance server - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="[linux] high performance server" />
+<meta property="og:description" content="高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&quot;socket()&quot;]--&gt;B(sockfd); B--&gt;|&quot;setsockopt()&quot;| C[bind] C--&gt;D[listen] D--&gt;E[accept] E--&gt;|connfd|F[&quot;dowork(){read/write connfd}&quot;] F--&gt;|&quot;while (1)&quot;| E 一个传统的多线程服务器, pthread也可以换成fork," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/2021/03/linux-high-performance-server/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-25T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="[linux] high performance server">
+<meta itemprop="description" content="高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&quot;socket()&quot;]--&gt;B(sockfd); B--&gt;|&quot;setsockopt()&quot;| C[bind] C--&gt;D[listen] D--&gt;E[accept] E--&gt;|connfd|F[&quot;dowork(){read/write connfd}&quot;] F--&gt;|&quot;while (1)&quot;| E 一个传统的多线程服务器, pthread也可以换成fork,"><meta itemprop="datePublished" content="2021-03-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1425">
+<meta itemprop="keywords" content="server," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[linux] high performance server"/>
+<meta name="twitter:description" content="高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&quot;socket()&quot;]--&gt;B(sockfd); B--&gt;|&quot;setsockopt()&quot;| C[bind] C--&gt;D[listen] D--&gt;E[accept] E--&gt;|connfd|F[&quot;dowork(){read/write connfd}&quot;] F--&gt;|&quot;while (1)&quot;| E 一个传统的多线程服务器, pthread也可以换成fork,"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://liwm29.github.io/tags/alg/" class="tag-list-link" rel="1">alg<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/arch/" class="tag-list-link" rel="1">arch<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/c/" class="tag-list-link" rel="1">c<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cache/" class="tag-list-link" rel="1">cache<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cli/" class="tag-list-link" rel="2">cli<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link" rel="1">concurrency<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/data-structure/" class="tag-list-link" rel="1">data-structure<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/db/" class="tag-list-link" rel="3">db<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link" rel="1">deploy<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/go/" class="tag-list-link" rel="15">go<span
+               class="tag-list-count">15</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/http/" class="tag-list-link" rel="1">http<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/interview/" class="tag-list-link" rel="2">interview<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link" rel="1">lock-free<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/other/" class="tag-list-link" rel="2">other<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link" rel="1">protocol<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link" rel="2">rpc<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/server/" class="tag-list-link" rel="3">server<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/sys/" class="tag-list-link" rel="2">sys<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/vue/" class="tag-list-link" rel="2">vue<span
+               class="tag-list-count">2</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/alg/" class="category-list-link">alg</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/c/" class="category-list-link">c</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cache/" class="category-list-link">cache</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cli/" class="category-list-link">cli</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/concurrency/" class="category-list-link">concurrency</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/data-structure/" class="category-list-link">data-structure</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/lock-free/" class="category-list-link">lock-free</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/protocol/" class="category-list-link">protocol</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/rpc/" class="category-list-link">rpc</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/vue/" class="category-list-link">vue</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/alg/" class="tag-list-link">alg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/arch/" class="tag-list-link">arch</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/c/" class="tag-list-link">c</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cache/" class="tag-list-link">cache</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cli/" class="tag-list-link">cli</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link">concurrency</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/data-structure/" class="tag-list-link">data-structure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/db/" class="tag-list-link">db</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link">deploy</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">15</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/interview/" class="tag-list-link">interview</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link">lock-free</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/other/" class="tag-list-link">other</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link">protocol</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link">rpc</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/server/" class="tag-list-link">server</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/sys/" class="tag-list-link">sys</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/vue/" class="tag-list-link">vue</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/alg-sort/" class="title">[alg] sort</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/arch-design-pattern/" class="title">[arch] design pattern</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/c-trick1/" class="title">[c] trick1</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/cache-base-concepts/" class="title">[cache] base concepts</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/1.-eventdistributionsystem/" class="title">[cli] 事件分发系统</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/03/linux-high-performance-server/"
+    >[linux] high performance server</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://liwm29.github.io/2021/03/linux-high-performance-server/" class="article-date">
+  <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/linux/"> linux </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/server/"> server </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1425 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="高性能linux服务器">高性能linux服务器</h1>
+<h2 id="服务器监听范式">服务器监听范式</h2>
+<p>一个传统的单线程服务器</p>
+<pre><code class="language-mermaid">graph LR;
+A[&quot;socket()&quot;]--&gt;B(sockfd);
+B--&gt;|&quot;setsockopt()&quot;| C[bind]
+C--&gt;D[listen]
+D--&gt;E[accept]
+E--&gt;|connfd|F[&quot;dowork(){read/write connfd}&quot;]
+F--&gt;|&quot;while (1)&quot;| E
+</code></pre>
+<p>一个传统的多线程服务器, pthread也可以换成fork,多进程</p>
+<pre><code class="language-mermaid">graph LR;
+A[&quot;socket()&quot;]--&gt;B(sockfd);
+B--&gt;|&quot;setsockopt()&quot;| C[bind]
+C--&gt;D[listen]
+D--&gt;E[accept]
+E--&gt;|connfd|F[pthread_create]
+F--&gt;|pthread|G[threadRoutine]--&gt;O[&quot;dowork(){read/write connfd}&quot;]
+F--&gt;|pthread|H[threadRoutine]--&gt;Oo[&quot;dowork(){read/write connfd}&quot;]
+F--&gt;|pthread|I[threadRoutine]--&gt;Ooo[&quot;dowork(){read/write connfd}&quot;]
+F--&gt;|&quot;while (1)&quot;| E
+</code></pre>
+<p>一个传统的多线程服务器,多线程同时accpet同一个sockfd</p>
+<blockquote>
+<p>这种方法应该会触发所谓的__&ldquo;惊群现象&rdquo;__,在linux2.6后,如果是多进程调用sockfd.accept(),则惊群被解决</p>
+<p>如果是使用epoll_wait()监听sockfd,则仍然存在惊群问题,其原因很明显,因为只是在监听文件描述符,内核没权利指定到底哪个线程epoll_wait成功,而accept()解决惊群则是因为将accept设计成了某种意义上的原子指令</p>
+<p>解决方法是对多个线程,任何时刻都只让一个线程去epoll_wait sockfd</p>
+</blockquote>
+<pre><code class="language-mermaid">graph LR;
+A[&quot;socket()&quot;]--&gt;B(sockfd);
+B--&gt;|&quot;setsockopt()&quot;| C[bind]
+C--&gt;D[listen]--&gt;F[pthread_create]
+F--&gt;|pthread|G[threadRoutine]--&gt;aa[accept]--&gt;|connfd|O[&quot;dowork(){read/write connfd}&quot;]--&gt;|&quot;while (1)&quot;|aa
+F--&gt;|pthread|H[threadRoutine]--&gt;aaa[accept]--&gt;|connfd|Oo[&quot;dowork(){read/write connfd}&quot;]--&gt;|&quot;while (1)&quot;|aaa
+F--&gt;|pthread|I[threadRoutine]--&gt;aaaa[accept]--&gt;|connfd|Ooo[&quot;dowork(){read/write connfd}&quot;]--&gt;|&quot;while (1)&quot;|aaaa
+</code></pre>
+<p>一个现代的多线程服务器,使用了SO_REUSEPORT来达到多个普通的sockfd绑定到同一个port,这样的好处是内核帮你实现了负载均衡,由于是不同的sockfd,所以即使使用epoll_wait,也只会有一个sockfd被唤醒</p>
+<pre><code class="language-mermaid">graph LR;
+x[pthread_create]--&gt;A
+xa[pthread_create]--&gt;Aa
+xaa[pthread_create]--&gt;Aaa
+A[&quot;socket()&quot;]--&gt;B(sockfd);
+Aa[&quot;socket()&quot;]--&gt;Ba(sockfd);
+Aaa[&quot;socket()&quot;]--&gt;Baa(sockfd);
+B--&gt;|&quot;setsockopt(so_reuseport)&quot;| C[bind]
+Ba--&gt;|&quot;setsockopt(so_reuseport)&quot;| Ca[bind]
+Baa--&gt;|&quot;setsockopt(so_reuseport)&quot;| Caa[bind]
+C--&gt;D[listen]
+Ca--&gt;Da[listen]
+Caa--&gt;Daa[listen]
+D--&gt;aa[accept]--&gt;|connfd|O[&quot;dowork(){read/write connfd}&quot;]--&gt;|&quot;while (1)&quot;|aa
+Da--&gt;aaa[accept]--&gt;|connfd|Oo[&quot;dowork(){read/write connfd}&quot;]--&gt;|&quot;while (1)&quot;|aaa
+Daa--&gt;aaaa[accept]--&gt;|connfd|Ooo[&quot;dowork(){read/write connfd}&quot;]--&gt;|&quot;while (1)&quot;|aaaa
+</code></pre>
+<h2 id="so_reuseportso_reuseaddr">SO_REUSEPORT&amp;SO_REUSEADDR</h2>
+<p><code>SO_REUSEADDR</code> 常见的是用于复用监听TIME_WAIT状态的端口,对于多线程监听同一个端口,也需要使用这个参数</p>
+<p><code>SO_REUSEPORT</code></p>
+<p>为了解决上述的常见的多线程处理网络请求的需求,linux推出了一个sockopt参数:</p>
+<p>首先给出官方文档的介绍,很清晰了</p>
+<blockquote>
+<p>SO_REUSEPORT (since Linux 3.9)</p>
+<p>Permits multiple AF_INET or AF_INET6 sockets to be bound
+to an identical socket address.  This option must be set
+on each socket (including the first socket) prior to
+calling bind(2) on the socket.  To prevent port hijacking,
+all of the processes binding to the same address must have
+the same effective UID.  This option can be employed with
+both TCP and UDP sockets.</p>
+<p>For TCP sockets, this option allows accept(2) load
+distribution in a multi-threaded server to be improved by
+using a distinct listener socket for each thread.  This
+provides improved load distribution as compared to
+traditional techniques such using a single accept(2)ing
+thread that distributes connections, or having multiple
+threads that compete to accept(2) from the same socket.</p>
+<p>For UDP sockets, the use of this option can provide better
+distribution of incoming datagrams to multiple processes
+(or threads) as compared to the traditional technique of
+having multiple processes compete to receive datagrams on
+the same socket.</p>
+</blockquote>
+<p>在go中如何实现呢?我们知道一般提供的都是linux c的api,对于go,当然可以通过syscall,但还是会有些不同</p>
+<p>具体可以看看这个repo: <a href="https://github.com/kavu/go_reuseport/blob/47bb7f1bfa3921a92422a1eb4f0941e9caed1103/tcp.go#L96">https://github.com/kavu/go_reuseport/blob/47bb7f1bfa3921a92422a1eb4f0941e9caed1103/tcp.go#L96</a></p>
+<p>如何完成syscall得到的fd与go语言内置的net.Listener之间的转换,可能是一个关键</p>
+<p>在该库中,是这样实现</p>
+<blockquote>
+<p>由于SO_REUSEPORT在go中尚未提供,所有直接用 var reusePort = 0x0F 代替</p>
+</blockquote>
+<pre><code class="language-mermaid">graph TD;
+fx[&quot;begin&quot;]--&gt;|&quot;syscall.ForkLock.RLock()&quot;|a
+a[&quot;syscall.Socket(soType, syscall.SOCK_STREAM, syscall.IPPROTO_TCP)&quot;]--&gt;|&quot;syscall.ForkLock.RUnlock()&quot;|b[fd]
+b--&gt;c[&quot;syscall.SetsockoptInt(fd, syscall.SOL_SOCKET, syscall.SO_REUSEADDR, 1)&quot;]
+c--&gt;d[&quot;syscall.SetsockoptInt(fd, syscall.SOL_SOCKET, reusePort, 1)&quot;]
+d--&gt;f[&quot;syscall.Bind(fd, sockaddr)&quot;]
+f--&gt;g[&quot;syscall.Listen(fd, listenerBacklogMaxSize)&quot;]
+g--&gt;s[&quot;file = os.NewFile(uintptr(fd), getSocketFileName(proto, addr))&quot;]
+s--&gt;ss[&quot;listener, err = net.FileListener(file)&quot;]
+ss--&gt;sss[&quot;net.Listener&quot;]
+
+</code></pre>
+<p>这里</p>
+<ul>
+<li>
+<p><code>getSocketFileName()</code></p>
+<ul>
+<li>只是单纯的返回了<code>fmt.Sprintf(&quot;reuseport.%d.%s.%s&quot;, os.Getpid(), proto, addr)</code></li>
+</ul>
+</li>
+<li>
+<p><code>os.NewFile(fd uintptr, name string)*os.File</code></p>
+<ul>
+<li>returns a new File with the given file descriptor and name.`</li>
+</ul>
+</li>
+<li>
+<p><code>net.FileListener(* os.File)</code></p>
+<ul>
+<li><code>FileListener returns a copy of the network listener corresponding to the open file f</code></li>
+</ul>
+</li>
+<li>
+<p><code>listenerBacklogMaxSize</code></p>
+<ul>
+<li><code>fd, err := os.Open(&quot;/proc/sys/net/core/somaxconn&quot;) 默认最大128</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="非阻塞io">非阻塞io</h3>
+<p>文件描述符应该被设置成非阻塞,如果你通过epoll等进行io复用,可以通过fcntl设置</p>
+<p><code>fcntl(fd, F_SETFL, O_NONBLOCK);</code></p>
+<h2 id="高级封装">高级封装</h2>
+<p>import &ldquo;golang.org/x/sys/unix&rdquo;</p>
+<p>直接使用syscall可能比较复杂繁琐,golang.org实现了一个类似c语言的封装,api和c语言的接口基本一致</p>
+<pre><code class="language-go">unix.Socket(domain int, typ int, proto int)
+unix.SetsockoptInt(fd int, level int, opt int, value int)
+unix.Bind(fd int, sa unix.Sockaddr)
+unix.Listen(s int, n int)
+unix.Accept(fd int)
+</code></pre>
+<p>我们之前说过将fd转换到net.Listener的方法,这里也同样适用</p>
+<h2 id="减少内核态切换拷贝开销">减少内核态切换拷贝开销</h2>
+<p>如果是UDP类型通信,每调用一次recvmsg,都会触发内核态缓冲区到用户态缓冲区的数据拷贝,并且只会拷贝一个数据包,为了减少次数,我们期望一次接受多个UDP包,linux提供了recvmmsg,即recv multiple msg, 一次性接受多个包.</p>
+<p>go中可以自己封装syscall(这里的6,指的是后面的参数个数)</p>
+<pre><code class="language-go">func (rw *ReaderWriter) read() (int, error) {
+ 	n, _, err := unix.Syscall6(unix.SYS_RECVMMSG, uintptr(rw.fd),uintptr(unsafe.Pointer(&amp;rw.msgs[0])), uintptr(len(rw.msgs)), unix.MSG_WAITFORONE, 0, 0)
+    return int(n),err
+}
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/2021/03/linux-high-performance-server/" title="[linux] high performance server" target="_blank" rel="external">https://liwm29.github.io/2021/03/linux-high-performance-server/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/2021/03/linux-server-intro/" title="[linux] server intro"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/2021/03/linux-bg-run-linux/"
+                    title="[linux] daemon"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

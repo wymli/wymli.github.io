@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        [Go] goroutine pool - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下," />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title>[Go] goroutine pool - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="[Go] goroutine pool" />
+<meta property="og:description" content="Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下," />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/2021/03/go-goroutine-pool/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-25T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-25T00:00:00&#43;00:00" />
+
+<meta itemprop="name" content="[Go] goroutine pool">
+<meta itemprop="description" content="Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,"><meta itemprop="datePublished" content="2021-03-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1614">
+<meta itemprop="keywords" content="Go," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[Go] goroutine pool"/>
+<meta name="twitter:description" content="Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://liwm29.github.io/tags/alg/" class="tag-list-link" rel="1">alg<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/arch/" class="tag-list-link" rel="1">arch<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/c/" class="tag-list-link" rel="1">c<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cache/" class="tag-list-link" rel="1">cache<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cli/" class="tag-list-link" rel="2">cli<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link" rel="1">concurrency<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/data-structure/" class="tag-list-link" rel="1">data-structure<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/db/" class="tag-list-link" rel="3">db<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link" rel="1">deploy<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/go/" class="tag-list-link" rel="15">go<span
+               class="tag-list-count">15</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/http/" class="tag-list-link" rel="1">http<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/interview/" class="tag-list-link" rel="2">interview<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link" rel="1">lock-free<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/other/" class="tag-list-link" rel="2">other<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link" rel="1">protocol<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link" rel="2">rpc<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/server/" class="tag-list-link" rel="3">server<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/sys/" class="tag-list-link" rel="2">sys<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/vue/" class="tag-list-link" rel="2">vue<span
+               class="tag-list-count">2</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/alg/" class="category-list-link">alg</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/c/" class="category-list-link">c</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cache/" class="category-list-link">cache</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cli/" class="category-list-link">cli</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/concurrency/" class="category-list-link">concurrency</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/data-structure/" class="category-list-link">data-structure</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/lock-free/" class="category-list-link">lock-free</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/protocol/" class="category-list-link">protocol</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/rpc/" class="category-list-link">rpc</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/vue/" class="category-list-link">vue</a><span class="category-list-count">2</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/alg/" class="tag-list-link">alg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/arch/" class="tag-list-link">arch</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/c/" class="tag-list-link">c</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cache/" class="tag-list-link">cache</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cli/" class="tag-list-link">cli</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link">concurrency</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/data-structure/" class="tag-list-link">data-structure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/db/" class="tag-list-link">db</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link">deploy</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">15</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/interview/" class="tag-list-link">interview</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link">lock-free</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/other/" class="tag-list-link">other</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link">protocol</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link">rpc</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/server/" class="tag-list-link">server</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/sys/" class="tag-list-link">sys</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/vue/" class="tag-list-link">vue</a><span
+                    class="tag-list-count">2</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/alg-sort/" class="title">[alg] sort</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/arch-design-pattern/" class="title">[arch] design pattern</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/c-trick1/" class="title">[c] trick1</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/cache-base-concepts/" class="title">[cache] base concepts</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/1.-eventdistributionsystem/" class="title">[cli] 事件分发系统</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/03/go-goroutine-pool/"
+    >[Go] goroutine pool</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://liwm29.github.io/2021/03/go-goroutine-pool/" class="article-date">
+  <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/go/"> Go </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/go/"> Go </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1614 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="goroutine-pool">Goroutine Pool</h1>
+<blockquote>
+<p>代码来自:gobwas/ws-example</p>
+</blockquote>
+<p>在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,复用goroutine形成goroutine池的优化效果很有限</p>
+<p>但是,池不仅减少了创建开销,还能有效的限制对象个数</p>
+<p>因此,假如我们的服务期望有最大的goroutine个数限制,将需要使用goroutine pool</p>
+<h2 id="设计">设计</h2>
+<p>一个goroutine pool需要什么呢?</p>
+<p>需要: 当前运行的gorotine数,最大goroutine数,任务队列,条件变量/信号量(用于线程阻塞等待任务)</p>
+<p>但是在go中,chan是天然的一个阻塞队列,任务队列本身就完成了阻塞唤醒的功能</p>
+<p>对于curr_n_thread和max_n_thread,本来应该用两个int去存,但是在go中,也可以用chan struct{},因为有缓冲的通道天然有上限,并且增加减少都是并发安全的</p>
+<blockquote>
+<p>虽然用<code>sem  chan struct{}</code>表示goroutine数目的限制很炫,但是确实不如int去存有用,毕竟int能反映当前运行的goroutine数目,而<code>sem  chan struct{}</code>只能限制最大数</p>
+</blockquote>
+<pre><code class="language-go">type Pool struct {
+	sem  chan struct{}
+	work chan func()
+}
+</code></pre>
+<h3 id="newpool">NewPool</h3>
+<p>创建一个pool</p>
+<blockquote>
+<p>size: max_n_thread</p>
+<p>queue: 等待队列上限(最大等待任务数)</p>
+<p>spawn: 立即运行多少工作线程</p>
+</blockquote>
+<pre><code class="language-go">func NewPool(size, queue, spawn int) *Pool {
+	if spawn &lt;= 0 &amp;&amp; queue &gt; 0 {
+		panic(&quot;dead queue configuration detected&quot;)
+	}
+	if spawn &gt; size {
+		panic(&quot;spawn &gt; workers&quot;)
+	}
+	p := &amp;Pool{
+		sem:  make(chan struct{}, size),
+		work: make(chan func(), queue),
+	}
+	for i := 0; i &lt; spawn; i++ {
+		p.sem &lt;- struct{}{}
+		go p.worker(func() {})
+	}
+
+	return p
+}
+</code></pre>
+<h3 id="分配任务">分配任务</h3>
+<p>只需要简单的往通道里丢任务就可以了</p>
+<p>注意,这里的实现是有问题的,原作者可能是想实现:优先想p.work发送任务,如何P.work满了还没有被消费,就新开一个工作线程</p>
+<p>但是go的select是没有顺序的,所以我们必须拆分一下</p>
+<pre><code class="language-go">func (p *Pool) Schedule(task func()) {
+	p.schedule(task, nil)
+}
+
+func (p *Pool) schedule(task func(), timeout &lt;-chan time.Time) error {
+	select {
+	case &lt;-timeout:
+		return ErrScheduleTimeout
+	case p.work &lt;- task:
+		return nil
+	case p.sem &lt;- struct{}{}:
+		go p.worker(task)
+		return nil
+	}
+}
+</code></pre>
+<p>=&gt;</p>
+<pre><code class="language-go">func (p *Pool) schedule(task func(), timeout &lt;-chan time.Time) error {
+    select{
+    case p.work &lt;- task:
+		return nil
+    default:
+    }
+    
+    select {
+	case &lt;-timeout:
+		return ErrScheduleTimeout
+	case p.work &lt;- task:
+		return nil
+	case p.sem &lt;- struct{}{}:
+		go p.worker(task)
+		return nil
+	}
+}
+</code></pre>
+<p>或:</p>
+<pre><code class="language-go">select {
+	case &lt;-timeout:
+		return ErrScheduleTimeout
+	case p.work &lt;- task:
+		return nil
+	case p.sem &lt;- struct{}{}:
+        select{
+            case p.work &lt;- task:
+            	&lt;- p.sem
+            	return nil
+            default:
+        }
+		go p.worker(task)
+		return nil
+}
+</code></pre>
+<h3 id="工作线程等待分发任务">工作线程等待分发任务</h3>
+<p>由于chan的自阻塞性,极易实现,当然这个没有实现线程的退出,如果想实现,可以使用一个退出chan,然后每个线程去竞争done,就像竞争任务一样</p>
+<pre><code class="language-go">func (p *Pool) worker(task func()) {
+	defer func() { &lt;-p.sem }()
+
+	task()
+
+	for task := range p.work {
+		task()
+	}
+}
+</code></pre>
+<p>加了退出通道的工作线程</p>
+<pre><code class="language-go">func (p *Pool) worker(task func()) {
+	defer func() { &lt;-p.sem }()
+
+	task()
+
+	for task := range p.work {
+		task()
+        select{
+        case &lt;- p.done:
+            return
+        default:
+        }
+	}
+}
+
+func (p *Pool) ReduceOne(){
+    p.done &lt;- struct{}{}
+    p.work &lt;- func(){} // 发送一个空任务,防止工作线程阻塞在p.work而接收不到p.done
+}
+</code></pre>
+<p>当然,更好的写法是直接同等地位的判断p.work和p.done:</p>
+<pre><code class="language-go">func (p *Pool) worker(task func()) {
+	defer func() { &lt;-p.sem }()
+
+	task()
+
+    for {
+        select{
+            case task := &lt;- p.work:
+            	task()
+            case &lt;- p.done
+            	return
+        }
+	}
+}
+</code></pre>
+<h2 id="ants库">Ants库</h2>
+<p>github上看到了一个5.2k star的协程库,首先不管技术架构和代码风格,看到readme的几张大图,就感动的哭了,这就是所谓的一分钟上手!</p>
+<p>1h后,我只想说挺捞的.</p>
+<p>readme有很多错误或不足:</p>
+<ul>
+<li>作者似乎区分不清throughput和one-way latency;</li>
+<li>配图也比较老旧了,和代码对不上;</li>
+<li>go test , 某些协程发生了panic</li>
+<li>性能测试是基于工作是sleep的,这相当于又将开销放到了go自己的阻塞调度上</li>
+</ul>
+<p>我自己基于如下的工作函数重新测了下:</p>
+<pre><code class="language-go">func demoFunc() {
+	begin := time.Now()
+	i := 0
+	for {
+		i++
+		end := time.Now()
+		if end.UnixNano()-begin.UnixNano() &gt; int64(time.Millisecond)*10 {
+			return
+		}
+	}
+}
+</code></pre>
+<pre><code class="language-go">goos: windows
+goarch: amd64
+pkg: a/ants
+cpu: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+BenchmarkPlainPool
+BenchmarkPlainPool-8                   1        13103489000 ns/op        6123848 B/op
+  54292 allocs/op
+BenchmarkGoroutines
+BenchmarkGoroutines-8                  1        13296742800 ns/op        4290672 B/op
+  10006 allocs/op
+BenchmarkAntsPool
+BenchmarkAntsPool-8                    1        13276752000 ns/op        2631920 B/op
+  41997 allocs/op
+PASS
+ok      a/ants  39.795s
+</code></pre>
+<p>这里的plainPool指的就是我们上面自己实现的pool</p>
+<p>可以看到,整个的吞吐率是差不多的,测试完成时间都是13s(所以加起来是39s),但是ants确实降低了1倍的内存消耗</p>
+<p>至于单向提交延迟,我个人感觉意义不太大.协程池的主要优点应该在内存上,避免了无节制的新建内存.</p>
+<p>但是话又说回来,如果只是避免内存,那只需要加个计数器来限制就好了</p>
+<p>于是给ants提了个issue: <a href="https://github.com/panjf2000/ants/issues/144">https://github.com/panjf2000/ants/issues/144</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>协程池是有必要的,它所保证的__内存消耗与协程调度的上限__,增强了服务器对DOS攻击的耐受性.</p>
+<p>除此之外,在go中的优势似乎没有太多,不过,即使只有一点,也够了.</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/2021/03/go-goroutine-pool/" title="[Go] goroutine pool" target="_blank" rel="external">https://liwm29.github.io/2021/03/go-goroutine-pool/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/2021/03/go-monkey-patch/" title="[Go] monkey patch"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/2021/03/go-gc/"
+                    title="[Go] GC"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

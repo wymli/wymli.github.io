@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+         - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title> - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/1/01/protocol-oauth2/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是">
+
+<meta itemprop="wordCount" content="1864">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/first-post/" class="title">First Post</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 13:46:33 &#43;0800 CST" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/alg-sort/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/arch-design-pattern/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/c-trick1/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/cache-base-concepts/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/protocol-oauth2/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1864 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="oauth20">OAuth2.0</h1>
+<p>open authority 2.0,开放授权</p>
+<p>主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是如果直接给予A网站用户的用户名密码,又太不安全,并且我们希望只提供给A网站受限的资源访问权限,比如只能获取到用户名等.因此需要使用OAuth2.0</p>
+<blockquote>
+<p>ref:</p>
+<p><a href="https://aaronparecki.com/oauth-2-simplified/#web-server-apps">https://aaronparecki.com/oauth-2-simplified/#web-server-apps</a></p>
+<p><a href="https://blog.bearer.sh/understanding-auth-part-1-what-is-oauth/">https://blog.bearer.sh/understanding-auth-part-1-what-is-oauth/</a></p>
+</blockquote>
+<h2 id="多种授权模式">多种授权模式</h2>
+<p>客户端必须得到用户的授权（authorization grant），才能获得令牌（access token）。OAuth 2.0定义了四种授权方式。</p>
+<blockquote>
+<p>这里用户的授权,是在从第三方网站跳转到社交网站进行授权,用户需在社交网站登陆,并点击授权</p>
+</blockquote>
+<ul>
+<li>authorization code</li>
+<li>implicit</li>
+<li>resource owner password credentials</li>
+</ul>
+<blockquote>
+<p>The authorization code grant type is the <strong>most common variant</strong> of OAuth 2.0</p>
+</blockquote>
+<h2 id="user-agent-flow流程">User-Agent Flow流程</h2>
+<p>以qq的OAuth2为例,qq采用了隐式(implicit)授权(client-side模式，是<a href="https://wiki.open.qq.com/wiki/mobile/OAuth2.0%E7%AE%80%E4%BB%8B">OAuth2.0认证</a>的一种模式，又称User-Agent Flow)</p>
+<p>即不涉及后端,全在浏览器操作</p>
+<h3 id="a网站向第三方注册">A网站向第三方注册</h3>
+<p>对于要使用第三方登陆功能的web service(此时,社交网站是第三方),必须先向第三方社交网站注册自己,获得唯一的<code>Client ID and Secret</code>,以qq第三方登陆为例,将会获得唯一的<code>appid and apikey</code></p>
+<blockquote>
+<p>对于secret/apikey必须机密保存在后端,如果是前端单页面服务,没有后端,则不应该向它们发送密钥,使用PKCE拓展</p>
+</blockquote>
+<blockquote>
+<p>似乎 Client ID and Client Secret 被称为client credentials</p>
+</blockquote>
+<h3 id="用户在a网站点击第三方登陆">用户在A网站点击第三方登陆</h3>
+<p>前端跳转到如下URL</p>
+<pre><code>https://graph.qq.com/oauth2.0/authorize?response_type=code&amp;client_id=CLIENT_ID&amp;redirect_uri=REDIRECT_URI&amp;scope=photos&amp;state=1234zyx
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:right">isNeed</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>response_type</td>
+<td style="text-align:right">必须</td>
+<td style="text-align:center">授权类型，此值固定为“token”。</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td style="text-align:right">必须</td>
+<td style="text-align:center">申请QQ登录成功后，分配给应用的appid。</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td style="text-align:right">必须</td>
+<td style="text-align:center">成功授权后的回调地址。</td>
+</tr>
+<tr>
+<td>scope</td>
+<td style="text-align:right">可选</td>
+<td style="text-align:center">请求用户授权时向用户显示的可进行授权的列表。  可填写的值是<a href="https://wiki.open.qq.com/wiki/mobile/API%E5%88%97%E8%A1%A8">API列表</a>中列出的接口，以及一些动作型的授权（目前仅有：do_like），如果要填写多个接口名称，请用逗号隔开。  例如：scope=get_user_info,list_album,upload_pic,do_like  不传则默认请求对接口get_user_info进行授权。  建议控制授权项的数量，只传入必要的接口名称，因为授权项越多，用户越可能拒绝进行任何授权。</td>
+</tr>
+<tr>
+<td>state</td>
+<td style="text-align:right">可选</td>
+<td style="text-align:center">client端的状态值。用于第三方应用防止CSRF攻击，成功授权后回调时会原样带回</td>
+</tr>
+</tbody>
+</table>
+<p>如果用户成功登录并授权，则会跳转到指定的回调地址，并在URL后加“#”号，带上Access  Token以及expires_in等参数。如果请求参数中传入了state，这里会带上原始的state值。如果redirect_uri地址后已经有“#”号，则加“&amp;”号，带上相应的返回参数。如：
+<code> http://graph.qq.com/demo/index.jsp?#access_token=FE04************************CCE2&amp;expires_in=7776000&amp;state=test</code></p>
+<blockquote>
+<p>expires_in是该access token的有效期，单位为秒。</p>
+</blockquote>
+<p>Tips：</p>
+<ol>
+<li>可通过js方法：window.location.hash来获取URL中#后的参数值。</li>
+<li>建议用js设置cookie存储token。</li>
+</ol>
+<h3 id="获取openid">获取openID</h3>
+<blockquote>
+<p>openid是qq用户的唯一标识</p>
+</blockquote>
+<p>拿到access_token后,get如下的url:</p>
+<p><code>https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN </code></p>
+<p>返回</p>
+<pre><code>callback( {&quot;client_id&quot;:&quot;YOUR_APPID&quot;,&quot;openid&quot;:&quot;YOUR_OPENID&quot;} ); 
+</code></pre>
+<h3 id="获取用户信息">获取用户信息</h3>
+<p>获得用户标识openid后,get如下url:</p>
+<pre><code>https://graph.qq.com/user/get_simple_userinfo?access_token=1234ABD1234ABD&amp;oauth_consumer_key=12345&amp; openid=B08D412EEC4000FFC37CAABBDC1234CC&amp;format=json 
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>access_token</td>
+<td>可通过<a href="https://wiki.open.qq.com/wiki/mobile/%E4%BD%BF%E7%94%A8Implicit_Grant%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96Access_Token">使用Implicit Grant方式获取Access Token</a>来获取。  access_token有3个月有效期。</td>
+</tr>
+<tr>
+<td>oauth_consumer_key</td>
+<td>申请QQ登录成功后，分配给应用的appid(即client_id)</td>
+</tr>
+<tr>
+<td>openid</td>
+<td>用户的ID，与QQ号码一一对应。  可通过调用https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN 来获取。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意,不是直接返回用户信息,而是让网站自己去请求</p>
+</blockquote>
+<h3 id="注意">注意</h3>
+<p><strong>Implicit</strong> was previously recommended for clients without a secret, but has been <strong>superseded</strong> by using the Authorization Code grant with PKCE.</p>
+<h2 id="授权码流程">授权码流程</h2>
+<p>参考上述的User-Agent Flow,在第一次访问授权服务的时候,不直接返回access_token,而是返回一个授权码</p>
+<p>接着,我们拿这个授权码去得到access_token</p>
+<pre><code>POST https://api.authorization-server.com/token?
+  grant_type=authorization_code&amp;
+  code=AUTH_CODE_HERE&amp;
+  redirect_uri=REDIRECT_URI&amp;
+  client_id=CLIENT_ID&amp;
+  client_secret=CLIENT_SECRET
+</code></pre>
+<p>因为是server发起的,所以可以带上secret</p>
+<p>响应:</p>
+<pre><code>{
+  &quot;access_token&quot;:&quot;RsT5OjbzRn430zqMLgV3Ia&quot;,
+  &quot;expires_in&quot;:3600
+}
+</code></pre>
+<blockquote>
+<p>为什么不直接返回access_token? 因为不安全,我们希望access_token只在后端持有,所以多了一步用code换access_token的步骤</p>
+</blockquote>
+<h2 id="legs">Legs</h2>
+<p>implicit和authority code都是three-legs,即都需要用户的参与</p>
+<p>2-legs的使用场景和第三方登陆无关,故不讨论</p>
+<blockquote>
+<p>Three legged does not imply a certain type of app as in &ldquo;browser  based&rdquo;. Three legged means that an application acts on the direct behalf of a user. In the three legged scenarios there is</p>
+<ol>
+<li>an application (consumer),</li>
+<li>a user (resource owner) and</li>
+<li>an API (service provider).</li>
+</ol>
+<p>In two legged scenarios there is no concept of a user. Typically this has to do with application-to-application solutions. There the  application (consumer) acts on behalf of itself. So in two legged OAuth, there is:</p>
+<ol>
+<li>an application (consumer),</li>
+<li>an API (service provider)</li>
+</ol>
+<p>The difference is simply that there is no need of a user authorisation step in the 2-legged approach.</p>
+</blockquote>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/1/01/protocol-oauth2/" title="" target="_blank" rel="external">https://liwm29.github.io/1/01/protocol-oauth2/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/1/01/rpc-grpc/" title=""><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/1/01/other-term/"
+                    title=""><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

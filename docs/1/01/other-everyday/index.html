@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+         - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title> - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/1/01/other-everyday/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述">
+
+<meta itemprop="wordCount" content="4704">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/first-post/" class="title">First Post</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 13:46:33 &#43;0800 CST" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/alg-sort/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/arch-design-pattern/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/c-trick1/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/1/01/cache-base-concepts/" class="title"></a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">0001-01-01</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/other-everyday/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 4704 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 10 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="121">12.1</h1>
+<ol>
+<li>重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习</li>
+<li>看了一篇微服务的概述,看起来微服务的兴起就像操作系统的历史一样,由宏内核到微内核,将函数作为服务提供调用,微服务则是将不同的功能组件独立成独立的网络服务,分布在不同的主机;为了降低延迟,使用rpc而不是http,使用protobuf(?存疑)而不是json/xml,因为解析速度不够;带宽方面,随着计算机性能的提升,一般没问题,记得chenshuo在muduo教程里面测过通过本机tcp端口做ipc,带宽也非常可观.目的还是降低单次调用的延时</li>
+<li>看了下go语言的sync.map源码,实现上类似于双缓冲区,涉及到写缓冲区的操作一律加锁,默认一个读一个写,加快速度,读不到了再从写的那个缓冲区读;miss次数一定后,就更新缓冲区(用写缓冲区直接覆盖读缓冲区,写缓冲区置为0,后续第一次写入写缓冲区时,会先将读缓冲区的数据拷贝过来,为什么这样设计,可能只是语言机制语法上的妥协吧);
+<ol>
+<li>关于写,如果在读缓冲区读到了(注意读到了还要考虑是不是被删除了),就用cas写(换指针),否则上锁,去写缓冲区;</li>
+<li>关于读,读缓冲区没读到,并且两个缓冲区数据不一致(定义两个缓冲区数据一致指的是写缓冲区为0,即刚将写缓冲区覆盖读缓冲区),就上锁,去写缓冲区读;</li>
+<li>删除: 将指向value的指针置为nil,但本身还存在map中,延迟删除</li>
+<li>还有一个特点是,获取锁后,不要立即访问写缓冲区,而是再访问一次读缓冲区,因为你不知道有没有其他线程触发更新,使得写缓存区清空了</li>
+</ol>
+</li>
+<li>把win10升级到了专业版,可以用remote desktop了</li>
+</ol>
+<h1 id="122">12.2</h1>
+<ol>
+<li>remote desktop 的延迟还是挺高的,仅仅能用</li>
+<li>继续说sync.map,其中还是有很多东西可以说到说到的
+<ol>
+<li>乐观锁与悲观锁
+<ol>
+<li>数据库中的概念</li>
+<li>cas(compare&amp;swap),或者是test&amp;set,这些原子指令认为是无锁的,lock-free
+<ol>
+<li>但这并不意味着它们代价低,事实上cas作为一个写指令,一定会在总线上发出BusX(后续会写的读信号)信号,以失效多核cpu的其他核的cache,保证cache一致性,然后才读到数据,compare失败或成功</li>
+<li>因此一个典型的优化是read and cas,先读,因为处理器读导致BusRead不会使cache失效,这其实就是要减少cas的强制占用总线,后续也可能会有多个核cas,但没关系,最多是核数而不是线程数</li>
+</ol>
+</li>
+<li>乐观锁,倾向于数据少写
+<ol>
+<li>先不加锁访问(读),直到更新的时候再用cas更新,可以通过比较version字段(或要修改的值的最新状态与之前的快照)来比较,然后update
+<ol>
+<li>如果是全局的version字段,就不会有ABA问题</li>
+<li>如果失败,就回滚,重新search</li>
+</ol>
+</li>
+<li>所以其实乐观锁不算是一种锁</li>
+</ol>
+</li>
+<li>悲观锁,倾向于数据多写
+<ol>
+<li>强制加锁,访问</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>复制的效率
+<ol>
+<li>可以看到读缓冲区miss后将要访问写缓冲区时,写缓冲区要先copy读缓冲区,再写新的key&amp;value</li>
+<li>这是说明了复制的效率一定高于加锁PV的效率?</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="1213">12.13</h1>
+<ul>
+<li>一下子就10天没写了,自己还是太懒了,但是这十天还是接触了很多东西的</li>
+<li>authentication and authorization, 认证与鉴权
+<ul>
+<li>在go里面,认证可以用jwt,鉴权可以用casbin,一般鉴权是rbac,role-based-access-control,基于角色的访问控制,鉴权就是访问控制</li>
+<li>这其实就类似于Kerberos,有认证服务器和票据服务器,二者分开</li>
+</ul>
+</li>
+<li>go语言并发,daisy chain之类的东西,输入channel,开goroutine对数据filter,输出channel</li>
+<li>reactor,proactor,两种事件处理模式,event-driven
+<ul>
+<li>reactor是主线程只负责监听事件发生(epoll_wait),然后分发任务给任务线程,读写数据都在工作线程中完成,accept()也在worker中完成</li>
+<li>proactor是异步io的,将io操作交给主线程/内核完成,我们知道异步本质就是注册一个回调函数,当io结束后执行回调函数</li>
+<li>不够,感觉没太大用,因为目前还接触不到应用的场景</li>
+</ul>
+</li>
+<li>reactiveX,流式处理数据,一种异步io风格
+<ul>
+<li>但是和回调又有点不同,它是源源不断接收流式的数据,然后对数据像流水线一样处理. 当然本质也就是注册回调函数,但可以避免过多callback时候的混乱代码,主要是语法上更简介吧</li>
+</ul>
+</li>
+<li>看了beego的session模块的代码,感觉写的确实收益颇多
+<ul>
+<li>因为可以有不同的存储场景,所以用interface在中间层抽象,应用层(应用者,user)和底层(提供者,provider)都面向interface编程,底层存储提供者可以是memory,file,redis,db等等,这需要编写对应的驱动(虽然我不知道这叫不叫驱动,但是确实在功能上给我一种驱动的感觉,一般会称之为adapter吧,适配器)</li>
+<li>它的并发链表的实现也不错,一方面用链表存储数据,另一方面为了解决链表线性访问慢的问题,用map存储链表的node,快速查找sessionId对应的node
+<ul>
+<li>为什么要用container/list呢,而不直接用sync.map存储session,这是因为,我们还要计算其超时时间!</li>
+<li>我们不可能遍历所有的node去计算其超时,所以必须要按时间排序</li>
+<li>在这里,list就充当了这个角色,新创建的session被放到list的前面,快超时的session自然在最后面,在gc的时候只需要不断测试最后一个node就好了
+<ul>
+<li>另外这种定时事件,好像都是用小顶堆做的,这里用链表其实也不错</li>
+<li>container/list提供了极其方便的api,比如:PushFront,MoveToFront,Remove</li>
+</ul>
+</li>
+<li>何时GC,处理超时session:
+<ul>
+<li>在sessionInit时,就goroutine一个线程定时gc,可以用递归的形式,比较优雅.当然放在一个for{}无穷循环里面也可</li>
+<li>func(m *manager)gc(){m.provider.gc(); time.AfterFunc(time.Duration , m.gc)}</li>
+</ul>
+</li>
+<li>在哪里告诉程序,这个provider实现了?
+<ul>
+<li>直接在init()中register,维护一个全局的map即可,实现了就在这个文件的init函数中往map里面写就可以了,极其容易拓展,低耦合</li>
+</ul>
+</li>
+<li>注意session只需要管理一个sessionId和对应的value就行了,value可以是任何值的集合,可以设成map[string]interface{},虽然其实go也支持map[interface{}]interface{}
+<ul>
+<li>session不需要管理对应的url路径什么的,那是cookie的事,我们在response的时候要set-cookie,对应的cookie值在那里设置,value设置成对应的sessionId即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MVC架构
+<ul>
+<li>model-view-controller
+<ul>
+<li>model就是一个个定义的结构体/类对象,其实主要还是用来访问数据库的,其他的名字:DAO,data-access-object,数据访问对象,也就是orm,object-relation-model</li>
+<li>view,就是前端视图了,可能是一些模板之类的</li>
+<li>controller就是后端处理逻辑,hanler,middlerware,log,session,router之类的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>综合看下来,beego不完全是一个web框架,它还集成了client,定时任务task之类的模块,我感觉非常值得学习,而且谢大的书go web编程也是开源的,顶礼膜拜好吧</li>
+</ul>
+</li>
+<li>VUE
+<ul>
+<li>在看奇淼在b站录的vue视频,感觉这个人教学方面是很不错的,视频看下来不会让我感觉无聊,讲的也比较有激情,知识点归纳的也不错</li>
+<li>在我入门gin的情况下去听了下他的gin入门课,感觉还是很不错的,也有收获</li>
+<li>之前接触的那些开源项目的目录结构都很迷,初学者完全看不懂为什么这么摆,他的gin-vue-admin的项目目录结构就比较清爽,一目了然</li>
+</ul>
+</li>
+<li>vue-router
+<ul>
+<li>前端页面路由,用来构建单页面应用</li>
+<li>表现上就是一个页面内的标签页/导航</li>
+<li>典型的,前端路由可以用在登陆界面上,就不用登陆界面单独写一个后端路由/html了</li>
+</ul>
+</li>
+</ul>
+<h1 id="1214">12.14</h1>
+<ul>
+<li>这一周打算:
+<ul>
+<li>学会vue/element ui的布局layout,一个典型的后台管理系统就是单页面的,在固定的框类切换不同的内容,所以建立好总体的布局尤为重要</li>
+<li>了解http2,简单看了下,感觉都在说什么连接复用,头部压缩之类的,但是http1.0/1.1不是也已经支持keep-alive了吗?这两个长连接的区别?</li>
+<li>了解redis?redis就是一个键值对的数据库,经常用作缓存</li>
+<li>看到了vue-element-admin,是个不错的项目,而且有教程,基本和奇淼的gin-vue-admin是一个东西,不过这也是因为后台管理系统确实就是那一套.但是对我来说,依然还是有很多学习的地方的</li>
+</ul>
+</li>
+<li>todo
+<ul>
+<li>组件上的v-model</li>
+<li>子组件的this.emit(&lsquo;input&rsquo;,)</li>
+<li>根组件
+<ul>
+<li>就是new Vue()</li>
+</ul>
+</li>
+<li>组件一定要被<!-- raw HTML omitted -->包含?</li>
+<li>直接获取组件对象:
+<ul>
+<li>根组件: $root</li>
+<li>父组件:$parent 只读</li>
+<li>子组件:$children 只读,无序
+<ul>
+<li>若想改变子组件的内容,只能直接改变子组件所引用的数组的内容,子组件由v-for生成</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><!-- raw HTML omitted -->插槽
+<ul>
+<li>用来指示外部传给组件的innerHTML的显示位置</li>
+<li>比如<!-- raw HTML omitted -->&ldquo;this is innerHTML&rdquo;<!-- raw HTML omitted --></li>
+</ul>
+</li>
+<li>vue的入口文件:
+<ul>
+<li>入口可以是 main.js、index.js、App.vue 或 app.vue 中的一个</li>
+<li>哪个定义了new Vue()实例,哪个就是入口</li>
+</ul>
+</li>
+<li>vue实例内置数据/方法,前加$,比如var vm = new Vue({el:&quot;&quot;,data:{}}),vm.$el,vm.$mount()
+<ul>
+<li>只有在初始创建时在data字典里面的数据才是响应式的,后面添加的都必须手动触发更新</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关于layout
+<ul>
+<li>一般来说,后台管理系统是单页面的,简洁好用,没必要设计成跳来跳去的跳转</li>
+<li>一般的,用侧边栏来导航,el-main块用来显示内容,如何实现点击不同的按钮,main块切换到不同的页面内容呢?
+<ul>
+<li>这个其实element-ui直接实现了,叫标签页</li>
+<li>但是如果想更灵活一点,可以自己设计,是通过vue-route实现的</li>
+<li>main块放<!-- raw HTML omitted -->即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>标签页是容易实现的,可以用它来练习组件,设计插槽,父子组件通信这些
+<ul>
+<li>本质就是一个tab组件,子组件是tab-pane代表各个标签,tab只是控制tab-pane的显示而已,而显示可以用v-if,很简单</li>
+</ul>
+</li>
+<li>一个标准的vue前端代码结构是: ./component , ./App.vue , ./main.js
+<ul>
+<li>在main.js中引入全局组件,App.vue是入口文件</li>
+</ul>
+</li>
+<li>组件通信: 父传子:props down ; 子传父:events up : this.$emit()</li>
+<li>关于vue的组件,强推这个课程:https://www.bilibili.com/video/BV1nx411X7oA</li>
+</ul>
+<h1 id="1216">12.16</h1>
+<ul>
+<li>前后端分离,不仅仅是独立开发,也是独立部署,这意味着后端仅仅是提供api的路由!而由前端自己提供页面的路由,这就是意味着前端有自己的路由</li>
+</ul>
+<h1 id="1218">12.18</h1>
+<ul>
+<li>前后端分离,前端一般是单页面的,通过内置前端路由实现多页面,但只有一个vue实例,请求后端api服务器可能需要设置跨域
+SPA,单页面应用的路由有两种模式:hash和history,这两种方法都可以改变uri而不触发浏览器的刷新(向服务器请求)
+<ul>
+<li>如果是history模式,又没有前后端分开部署(即服务端渲染),指浏览器直接向后端服务器请求html,这时候手动刷新页面就会触发对后端的请求,但因为是前端路由,在后端中不存在,所以需要后端特别配置,后端当收到不存在的路由时,直接返回index.html,index.html将自动根据浏览器栏的path跳转到特定的前端路由,此时要注意设置前端路由的404,用'*&lsquo;匹配即可</li>
+</ul>
+</li>
+<li>了解了vue的路由,以及子路由</li>
+<li>todo:
+<ul>
+<li>import , export default,export const这些是什么</li>
+</ul>
+</li>
+<li>未来目标: 重构一下sysu_jwxt_v2,前后端分离,后端仅作为api服务器</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/1/01/other-everyday/" title="" target="_blank" rel="external">https://liwm29.github.io/1/01/other-everyday/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/1/01/other-term/" title=""><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/1/01/lock-free-atomic/"
+                    title=""><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
