@@ -6,10 +6,19 @@
     <description>Recent content in Tags on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Mar 2021 12:23:27 +0800</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] netaddr</title>
+      <link>https://liwm29.github.io/2021/03/go-netaddr/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-netaddr/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>[Go] radix-tree</title>
@@ -180,15 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/rpc-rpcx/</guid>
       <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
-    </item>
-    
-    <item>
-      <title>[sys] inotify</title>
-      <link>https://liwm29.github.io/2021/03/sys-inotify/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/sys-inotify/</guid>
-      <description>Inotify The inotify API provides a mechanism for monitoring filesystem events. Inotify can be used to monitor individual files, or to monitor directories. When a directory is monitored, inotify will return events for the directory itself, and for files inside the directory. 四个API func InotifyInit() (fd int, err error) func InotifyInit1(flags int) (fd int, err error) 这个可以设置flag</description>
     </item>
     
   </channel>

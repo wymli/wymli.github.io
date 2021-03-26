@@ -6,10 +6,19 @@
     <description>Recent content in Tags on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Mar 2021 12:23:27 +0800</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[sys] inotify</title>
+      <link>https://liwm29.github.io/2021/03/sys-inotify/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/sys-inotify/</guid>
+      <description>Inotify The inotify API provides a mechanism for monitoring filesystem events. Inotify can be used to monitor individual files, or to monitor directories. When a directory is monitored, inotify will return events for the directory itself, and for files inside the directory. 四个API func InotifyInit() (fd int, err error) func InotifyInit1(flags int) (fd int, err error) 这个可以设置flag</description>
+    </item>
     
     <item>
       <title>[sys] tsar&amp;proc</title>

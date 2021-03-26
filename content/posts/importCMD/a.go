@@ -16,11 +16,7 @@ func GetCateName(a string) (string, string) {
 	return re.FindStringSubmatch(a)[1], a[:len(a)-3]
 }
 
-func TestGetCate() {
-	if cat, name := GetCateName("[asdf] a.go"); cat != "asdf" && name != "a" {
-		panic(cat + name)
-	}
-}
+
 
 func tmpl(cat, name string) string {
 	a := fmt.Sprintf(`---

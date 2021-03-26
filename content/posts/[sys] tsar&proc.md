@@ -114,7 +114,7 @@ cat cpuinfo | grep processor
 
 超线程应该就是同时多线程的一种实现
 
-![image-20210324171440077](static\image-20210324171440077.png)
+![image-20210324171440077](/posts/static/image-20210324171440077.png)
 
 
 
