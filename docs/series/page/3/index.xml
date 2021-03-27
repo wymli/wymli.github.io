@@ -11,6 +11,42 @@
     
     
     <item>
+      <title>[other] everyDay</title>
+      <link>https://liwm29.github.io/2021/03/other-everyday/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/other-everyday/</guid>
+      <description>12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述</description>
+    </item>
+    
+    <item>
+      <title>[other] term</title>
+      <link>https://liwm29.github.io/2021/03/other-term/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/other-term/</guid>
+      <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
+    </item>
+    
+    <item>
+      <title>[protocol] OAuth2</title>
+      <link>https://liwm29.github.io/2021/03/protocol-oauth2/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/protocol-oauth2/</guid>
+      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
+    </item>
+    
+    <item>
+      <title>[rpc] rpcx</title>
+      <link>https://liwm29.github.io/2021/03/rpc-rpcx/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/rpc-rpcx/</guid>
+      <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
+    </item>
+    
+    <item>
       <title>[sys] inotify</title>
       <link>https://liwm29.github.io/2021/03/sys-inotify/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>

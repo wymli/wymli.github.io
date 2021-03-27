@@ -6,17 +6,62 @@
     <description>Recent content in Posts on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 26 Mar 2021 12:23:27 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Mar 2021 21:09:05 +0800</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>[malloc] tcmalloc</title>
-      <link>https://liwm29.github.io/2021/03/malloc-tcmalloc/</link>
+      <title>[Other] Go</title>
+      <link>https://liwm29.github.io/2021/03/other-go/</link>
+      <pubDate>Sat, 27 Mar 2021 21:09:05 +0800</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/other-go/</guid>
+      <description>列举我心目中的go的优点 实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件 现代的包管理go get/go m</description>
+    </item>
+    
+    <item>
+      <title>[rpc] grpc</title>
+      <link>https://liwm29.github.io/2021/03/rpc-grpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/rpc-grpc/</guid>
+      <description>grpc grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就</description>
+    </item>
+    
+    <item>
+      <title>[rpc] intro</title>
+      <link>https://liwm29.github.io/2021/03/rpc-intro/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/rpc-intro/</guid>
+      <description>什么是RPC? rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数 在传统的单体服务中,所有的函数都写在一个进程映</description>
+    </item>
+    
+    <item>
+      <title>[rpc] net/rpc</title>
+      <link>https://liwm29.github.io/2021/03/rpc-net-rpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/rpc-net-rpc/</guid>
+      <description>net/rpc 如下是一段极简的net/rpc代码, client.Call()代表这是一个同步的rpc,如果是异步,net/rpc提供了client.Go</description>
+    </item>
+    
+    <item>
+      <title>[mem] Buddy system</title>
+      <link>https://liwm29.github.io/2021/03/mem-buddyfreelist/</link>
       <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/malloc-tcmalloc/</guid>
+      <guid>https://liwm29.github.io/2021/03/mem-buddyfreelist/</guid>
+      <description>Buddy system linux底层使用buddy-system+slab slab位于buddy-system的上层 伙伴系统是一种基于二分的动态分区算法,一开</description>
+    </item>
+    
+    <item>
+      <title>[mem] tcmalloc</title>
+      <link>https://liwm29.github.io/2021/03/mem-tcmalloc/</link>
+      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/mem-tcmalloc/</guid>
       <description>TCMalloc thread-caching malloc 顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的</description>
     </item>
     
@@ -144,51 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/go-errorx/</guid>
       <description>Error go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下if err!=nil{return err} 而对于进阶一点的程序员,则会诟病它的error接口设</description>
-    </item>
-    
-    <item>
-      <title>[Go] escape analysis</title>
-      <link>https://liwm29.github.io/2021/03/go-escape-analysis/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-escape-analysis/</guid>
-      <description>逃逸分析 首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配 注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当</description>
-    </item>
-    
-    <item>
-      <title>[Go] GC</title>
-      <link>https://liwm29.github.io/2021/03/go-gc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-gc/</guid>
-      <description>垃圾回收算法 https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/ 有两种常见的自动管理堆内存的方法: 引用计数/智能指针 追踪式垃圾回收(对堆内存的对象关系图进行可达性分析) 术语 根对象: 包括所有栈</description>
-    </item>
-    
-    <item>
-      <title>[Go] goroutine pool</title>
-      <link>https://liwm29.github.io/2021/03/go-goroutine-pool/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-goroutine-pool/</guid>
-      <description>Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,</description>
-    </item>
-    
-    <item>
-      <title>[Go] monkey patch</title>
-      <link>https://liwm29.github.io/2021/03/go-monkey-patch/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-monkey-patch/</guid>
-      <description>Monkey patch 猴子补丁 ref: https://bou.ke/blog/monkey-patching-in-go/ Intro: 什么是monkey patch? package main func a() int { return 1 } func b() int { return 2 } func main() { replace(a, b) print(a()) // 2 } monkey patch将做到如上的效果,当你调用a函数时,实际</description>
-    </item>
-    
-    <item>
-      <title>[Go] mutex</title>
-      <link>https://liwm29.github.io/2021/03/go-mutex/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-mutex/</guid>
-      <description>mutex 结构 type Mutex struct { state int32 sema uint32 } 自旋 for{ cas(m.state) } 阻塞 wait(m.sema) 状态 普通模式 就是正常的模式,线程相互竞争获得锁 饥饿模式 由于线程竞争失败会阻塞,而这些被唤醒的线程会和</description>
     </item>
     
   </channel>

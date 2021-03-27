@@ -1,29 +1,15 @@
 ---
-title: "[malloc] tcmalloc"
+title: "[mem] Buddy system"
 date: 2021-03-26T12:23:27+08:00
-tags : ["malloc"]
-categories : ["malloc"]
+tags : ["mem"]
+categories : ["mem"]
 ---
 
-# TCMalloc
-
-thread-caching malloc
-
-顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的malloc操作就不会相互造成锁的竞争了
-
-不同的malloc算法,就是不同的内存池算法,一是为了减少从os申请内存的次数,二也要增加分配给用户的速度
-
-> 但是注意,os本身其实也有不同的内存分配算法
-
-## Prerequisite
-
-要了解比较高阶的tcmalloc,我们首先要知道传统的内存分配算法,比如伙伴关系,slab,隐式free-list,显式free-list等(slab应该也是一种free-list),基于bitmap的等等
-
-可以看看[这个回答](https://www.zhihu.com/question/25527491/answer/56571062), 这个答主给出了从简单到复杂的内存池设计
-
-### buddy system
+### Buddy system
 
 linux底层使用buddy-system+slab
+
+>  slab位于buddy-system的上层
 
 伙伴系统是一种基于二分的动态分区算法,一开始他有k大小的空间,当有新的内存申请到达时,他会对k进行二分,直到满足那个大小恰好是最合适的大小时,返回给用户.比如,申请18KB内存,伙伴系统最初是128KB,那么会一直二分成32KB,16KB,发现16<18,所以返回给用户32KB的大小,这造成了很大的内部碎片
 
@@ -49,7 +35,7 @@ linux底层使用buddy-system+slab
 
 >  [from wiki](https://en.wikipedia.org/wiki/Buddy_memory_allocation)
 >
-> Typically the buddy memory allocation system is implemented with the use of a [binary tree](https://en.wikipedia.org/wiki/Binary_tree) to represent used or unused split memory blocks. The "buddy" of each block can be found with an [exclusive OR](https://en.wikipedia.org/wiki/Exclusive_OR) of the block's address and the block's size.
+>  Typically the buddy memory allocation system is implemented with the use of a [binary tree](https://en.wikipedia.org/wiki/Binary_tree) to represent used or unused split memory blocks. The "buddy" of each block can be found with an [exclusive OR](https://en.wikipedia.org/wiki/Exclusive_OR) of the block's address and the block's size.
 
  建议阅读:
 
@@ -80,11 +66,4 @@ linux底层使用buddy-system+slab
 
 对于每个内存区域区块的大小,我们预先定义好,但是并不是按2的n次幂 ,因为这样会造成严重的内部碎片(比如需要65,却分配了128)
 
-## TCMalloc
-
-![avatar](https://google.github.io/tcmalloc/images/tcmalloc_internals.png)
-
-
-
-
-
+因此,free-list其实是某种静态分配策略,而buddy则是半动态的

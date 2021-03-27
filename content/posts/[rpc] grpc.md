@@ -1,14 +1,17 @@
 ---
 title: "[rpc] grpc"
-date: 2021-03-25
+date: 2021-03-27
 tags: ["rpc"]
 categories: ["rpc"]
 ---
 
-# GRPC
+# grpc
 
-创建一个rpc连接,需要三端努力,即客户端,IDL,服务端
+grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就像在本机上调用一样.
 
-> IDL: interface define language
+如果你还不知道这个,请移步另一个文章[rpc] intro,以及[rpc] net-rpc
 
-但是似乎其他的rpc框架,并没有执着于使用IDL来定义接口,而直接在代码中使用字符串来指示远程过程函数名
+
+
+gRPC是Google公司基于Protobuf开发的跨语言的开源RPC框架。gRPC基于HTTP/2协议设计，可以基于一个HTTP/2链接提供多个服务，对于移动设备更加友好
+

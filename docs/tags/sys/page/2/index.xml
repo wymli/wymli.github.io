@@ -12,6 +12,51 @@
     
     
     <item>
+      <title>[Go] escape analysis</title>
+      <link>https://liwm29.github.io/2021/03/go-escape-analysis/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-escape-analysis/</guid>
+      <description>逃逸分析 首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配 注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当</description>
+    </item>
+    
+    <item>
+      <title>[Go] GC</title>
+      <link>https://liwm29.github.io/2021/03/go-gc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-gc/</guid>
+      <description>垃圾回收算法 https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/ 有两种常见的自动管理堆内存的方法: 引用计数/智能指针 追踪式垃圾回收(对堆内存的对象关系图进行可达性分析) 术语 根对象: 包括所有栈</description>
+    </item>
+    
+    <item>
+      <title>[Go] goroutine pool</title>
+      <link>https://liwm29.github.io/2021/03/go-goroutine-pool/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-goroutine-pool/</guid>
+      <description>Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,</description>
+    </item>
+    
+    <item>
+      <title>[Go] monkey patch</title>
+      <link>https://liwm29.github.io/2021/03/go-monkey-patch/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-monkey-patch/</guid>
+      <description>Monkey patch 猴子补丁 ref: https://bou.ke/blog/monkey-patching-in-go/ Intro: 什么是monkey patch? package main func a() int { return 1 } func b() int { return 2 } func main() { replace(a, b) print(a()) // 2 } monkey patch将做到如上的效果,当你调用a函数时,实际</description>
+    </item>
+    
+    <item>
+      <title>[Go] mutex</title>
+      <link>https://liwm29.github.io/2021/03/go-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-mutex/</guid>
+      <description>mutex 结构 type Mutex struct { state int32 sema uint32 } 自旋 for{ cas(m.state) } 阻塞 wait(m.sema) 状态 普通模式 就是正常的模式,线程相互竞争获得锁 饥饿模式 由于线程竞争失败会阻塞,而这些被唤醒的线程会和</description>
+    </item>
+    
+    <item>
       <title>[Go] netaddr</title>
       <link>https://liwm29.github.io/2021/03/go-netaddr/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
@@ -144,51 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/lock-free-atomic/</guid>
       <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
-    </item>
-    
-    <item>
-      <title>[other] everyDay</title>
-      <link>https://liwm29.github.io/2021/03/other-everyday/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/other-everyday/</guid>
-      <description>12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述</description>
-    </item>
-    
-    <item>
-      <title>[other] term</title>
-      <link>https://liwm29.github.io/2021/03/other-term/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/other-term/</guid>
-      <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
-    </item>
-    
-    <item>
-      <title>[protocol] OAuth2</title>
-      <link>https://liwm29.github.io/2021/03/protocol-oauth2/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/protocol-oauth2/</guid>
-      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
-    </item>
-    
-    <item>
-      <title>[rpc] grpc</title>
-      <link>https://liwm29.github.io/2021/03/rpc-grpc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/rpc-grpc/</guid>
-      <description>GRPC 创建一个rpc连接,需要三端努力,即客户端,IDL,服务端 IDL: interface define language 但是似乎其他的rpc框架,并没有执着于使用IDL来定义接口,而直接在代码</description>
-    </item>
-    
-    <item>
-      <title>[rpc] rpcx</title>
-      <link>https://liwm29.github.io/2021/03/rpc-rpcx/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/rpc-rpcx/</guid>
-      <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
     </item>
     
   </channel>

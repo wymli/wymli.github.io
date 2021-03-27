@@ -3,49 +3,126 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://liwm29.github.io/2021/03/malloc-tcmalloc/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <loc>https://liwm29.github.io/2021/03/other-go/</loc>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/categories/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/tags/malloc/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <loc>https://liwm29.github.io/tags/go/</loc>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/categories/malloc/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <loc>https://liwm29.github.io/categories/go/</loc>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/tags/other/</loc>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/categories/other/</loc>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/posts/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/tags/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/</loc>
+    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/03/rpc-grpc/</loc>
+    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/03/rpc-intro/</loc>
+    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/03/rpc-net-rpc/</loc>
+    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/tags/rpc/</loc>
+    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/categories/rpc/</loc>
+    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/03/mem-buddyfreelist/</loc>
+    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/03/mem-tcmalloc/</loc>
+    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/tags/mem/</loc>
+    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/categories/mem/</loc>
     <lastmod>2021-03-26T12:23:27+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -311,13 +388,6 @@
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/2021/03/rpc-grpc/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://liwm29.github.io/2021/03/rpc-rpcx/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -479,20 +549,6 @@
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/tags/go/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liwm29.github.io/categories/go/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://liwm29.github.io/tags/http/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -542,20 +598,6 @@
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/tags/other/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liwm29.github.io/categories/other/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://liwm29.github.io/tags/protocol/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -564,20 +606,6 @@
   
   <url>
     <loc>https://liwm29.github.io/categories/protocol/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liwm29.github.io/tags/rpc/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liwm29.github.io/categories/rpc/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
