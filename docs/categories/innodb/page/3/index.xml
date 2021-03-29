@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>innoDB on UnderTheHood</title>
+    <link>https://liwm29.github.io/categories/innodb/</link>
+    <description>Recent content in innoDB on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://liwm29.github.io/categories/innodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[linux] high performance server</title>
+      <link>https://liwm29.github.io/2021/03/linux-high-performance-server/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/linux-high-performance-server/</guid>
+      <description>高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd); B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind] C--&amp;gt;D[listen] D--&amp;gt;E[accept] E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;] F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E 一个传统的多线程服务器, pthread也可以换成fork,</description>
+    </item>
+    
+    <item>
+      <title>[linux] server intro</title>
+      <link>https://liwm29.github.io/2021/03/linux-server-intro/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/linux-server-intro/</guid>
+      <description>Introduction to linux server linux 服务器导论 文件目录相关 假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式 如果是.d结尾,则代表</description>
+    </item>
+    
+    <item>
+      <title>[lock-free] atomic</title>
+      <link>https://liwm29.github.io/2021/03/lock-free-atomic/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/lock-free-atomic/</guid>
+      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
+    </item>
+    
+    <item>
+      <title>[other] everyDay</title>
+      <link>https://liwm29.github.io/2021/03/other-everyday/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/other-everyday/</guid>
+      <description>12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述</description>
+    </item>
+    
+    <item>
+      <title>[other] term</title>
+      <link>https://liwm29.github.io/2021/03/other-term/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/other-term/</guid>
+      <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
+    </item>
+    
+    <item>
+      <title>[protocol] OAuth2</title>
+      <link>https://liwm29.github.io/2021/03/protocol-oauth2/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/protocol-oauth2/</guid>
+      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
+    </item>
+    
+    <item>
+      <title>[rpc] rpcx</title>
+      <link>https://liwm29.github.io/2021/03/rpc-rpcx/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/rpc-rpcx/</guid>
+      <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
+    </item>
+    
+    <item>
+      <title>[sys] inotify</title>
+      <link>https://liwm29.github.io/2021/03/sys-inotify/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/sys-inotify/</guid>
+      <description>Inotify The inotify API provides a mechanism for monitoring filesystem events. Inotify can be used to monitor individual files, or to monitor directories. When a directory is monitored, inotify will return events for the directory itself, and for files inside the directory. 四个API func InotifyInit() (fd int, err error) func InotifyInit1(flags int) (fd int, err error) 这个可以设置flag</description>
+    </item>
+    
+    <item>
+      <title>[sys] tsar&amp;proc</title>
+      <link>https://liwm29.github.io/2021/03/sys-tsarproc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/sys-tsarproc/</guid>
+      <description>TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息</description>
+    </item>
+    
+    <item>
+      <title>[vue] everything</title>
+      <link>https://liwm29.github.io/2021/03/vue-everything/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/vue-everything/</guid>
+      <description>1. vue的生命周期/运行流程/渲染流程/初始化流程 doc link vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue</description>
+    </item>
+    
+    <item>
+      <title>[vue] import-export</title>
+      <link>https://liwm29.github.io/2021/03/vue-import-export/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/vue-import-export/</guid>
+      <description>About import and export 这是es6的语法,即js的语法 export用于对外输出本模块的数据 import用于引入其他模块的数据 语法细则 // 导出变量 // 法一 // js1 export var</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://liwm29.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/about/</guid>
+      <description>Hi there 👋 🏃 求实习
+About me: ♂, 信息与计算科学(计算机学院) 中山大学 广州
+2018 - 2022
+Contact me: liwm29@mail2.sysu.edu.cn</description>
+    </item>
+    
+    <item>
+      <title>[sys] unix domain socket</title>
+      <link>https://liwm29.github.io/1/01/sys-unix-domain-socket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/1/01/sys-unix-domain-socket/</guid>
+      <description>荐读 unix domain sockets vs. internet sockets 简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经</description>
+    </item>
+    
+  </channel>
+</rss>

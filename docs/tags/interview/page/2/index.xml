@@ -6,10 +6,37 @@
     <description>Recent content in interview on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Mar 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/tags/interview/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[deploy] server deploy</title>
+      <link>https://liwm29.github.io/2021/03/deploy-server-deploy/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/deploy-server-deploy/</guid>
+      <description>记一次云端部署web服务器 本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识</description>
+    </item>
+    
+    <item>
+      <title>[Go] concurrentMap</title>
+      <link>https://liwm29.github.io/2021/03/go-concurrentmap/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-concurrentmap/</guid>
+      <description>Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方</description>
+    </item>
+    
+    <item>
+      <title>[Go] errorx</title>
+      <link>https://liwm29.github.io/2021/03/go-errorx/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-errorx/</guid>
+      <description>Error go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下if err!=nil{return err} 而对于进阶一点的程序员,则会诟病它的error接口设</description>
+    </item>
     
     <item>
       <title>[Go] escape analysis</title>
@@ -162,33 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/linux-bg-run-linux/</guid>
       <description>[linux] 关于后台运行进程的小实验 我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置 守护模式 通</description>
-    </item>
-    
-    <item>
-      <title>[linux] high performance server</title>
-      <link>https://liwm29.github.io/2021/03/linux-high-performance-server/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/linux-high-performance-server/</guid>
-      <description>高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd); B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind] C--&amp;gt;D[listen] D--&amp;gt;E[accept] E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;] F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E 一个传统的多线程服务器, pthread也可以换成fork,</description>
-    </item>
-    
-    <item>
-      <title>[linux] server intro</title>
-      <link>https://liwm29.github.io/2021/03/linux-server-intro/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/linux-server-intro/</guid>
-      <description>Introduction to linux server linux 服务器导论 文件目录相关 假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式 如果是.d结尾,则代表</description>
-    </item>
-    
-    <item>
-      <title>[lock-free] atomic</title>
-      <link>https://liwm29.github.io/2021/03/lock-free-atomic/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/lock-free-atomic/</guid>
-      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
     </item>
     
   </channel>

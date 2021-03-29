@@ -6,10 +6,37 @@
     <description>Recent content in Posts on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 27 Mar 2021 21:09:05 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[linux] high performance server</title>
+      <link>https://liwm29.github.io/2021/03/linux-high-performance-server/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/linux-high-performance-server/</guid>
+      <description>高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd); B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind] C--&amp;gt;D[listen] D--&amp;gt;E[accept] E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;] F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E 一个传统的多线程服务器, pthread也可以换成fork,</description>
+    </item>
+    
+    <item>
+      <title>[linux] server intro</title>
+      <link>https://liwm29.github.io/2021/03/linux-server-intro/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/linux-server-intro/</guid>
+      <description>Introduction to linux server linux 服务器导论 文件目录相关 假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式 如果是.d结尾,则代表</description>
+    </item>
+    
+    <item>
+      <title>[lock-free] atomic</title>
+      <link>https://liwm29.github.io/2021/03/lock-free-atomic/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/lock-free-atomic/</guid>
+      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
+    </item>
     
     <item>
       <title>[other] everyDay</title>
@@ -93,6 +120,15 @@
 About me: ♂, 信息与计算科学(计算机学院) 中山大学 广州
 2018 - 2022
 Contact me: liwm29@mail2.sysu.edu.cn</description>
+    </item>
+    
+    <item>
+      <title>[sys] unix domain socket</title>
+      <link>https://liwm29.github.io/1/01/sys-unix-domain-socket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/1/01/sys-unix-domain-socket/</guid>
+      <description>荐读 unix domain sockets vs. internet sockets 简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经</description>
     </item>
     
   </channel>
