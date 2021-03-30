@@ -1,8 +1,9 @@
 ---
-title: "[lock-free] atomic"
+title: "[atomic] atomic"
 date: 2021-03-25
-tags: ["lock-free"]
-categories: ["lock-free"]
+tags: ["atomic"]
+categories: ["atomic"]
+weight: 1
 ---
 
 # 关于RMW与Atomic LD/ST
