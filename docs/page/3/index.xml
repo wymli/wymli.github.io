@@ -6,10 +6,64 @@
     <description>Recent content on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] standard package layout</title>
+      <link>https://liwm29.github.io/2021/03/go-standard-package-layout/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-standard-package-layout/</guid>
+      <description>Standard Package Layout 标准包布局 -Ben Johnson https://www.gobeyond.dev/standard-package-layout/ Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用</description>
+    </item>
+    
+    <item>
+      <title>[Go] user thread</title>
+      <link>https://liwm29.github.io/2021/03/go-user-thread/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-user-thread/</guid>
+      <description>用户线程与核心线程 ref: Scheduler Activations: Effective Kernel Support for the User-Level Management of Parallelism 论文观点: We argue that the performance of user-levelthreads is inherently better than that of kernel threads, rather than thisbeing an artifact of existing implementations. kernel threads are the wrong abstraction on which to support user-level management of parallelism. 1.用户线程的</description>
+    </item>
+    
+    <item>
+      <title>[HTTP] Content-Type</title>
+      <link>https://liwm29.github.io/2021/03/http-content-type/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/http-content-type/</guid>
+      <description>About Content-Type Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段 三种Content-Type application/x-www-form-urlencoded 默认类型,当for</description>
+    </item>
+    
+    <item>
+      <title>[interview] ByteDance&amp;Tencent</title>
+      <link>https://liwm29.github.io/2021/03/interview-bytedancetencent/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/interview-bytedancetencent/</guid>
+      <description>ByteDance&amp;amp;Tencent 2021/3 暑期实习 腾讯一面 上来抛了道js,问我输出 const a = ( i : 0, toString(){ return i++ } ) print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2) 答案是false,没答出来,我当时主要纠结于为什么会调用t</description>
+    </item>
+    
+    <item>
+      <title>[interview] 杂</title>
+      <link>https://liwm29.github.io/2021/03/interview-%E6%9D%82/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/interview-%E6%9D%82/</guid>
+      <description>记录一下为面试做的准备 声明: 以下知识点可能不完全正确,但也不会错的太离谱 记录一些知识点 数据库事务的四个特性: ACID 原子性,一致性,隔离性,持久性</description>
+    </item>
+    
+    <item>
+      <title>[linux] daemon</title>
+      <link>https://liwm29.github.io/2021/03/linux-bg-run-linux/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/linux-bg-run-linux/</guid>
+      <description>[linux] 关于后台运行进程的小实验 我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置 守护模式 通</description>
+    </item>
     
     <item>
       <title>[linux] high performance server</title>
@@ -27,15 +81,6 @@
       
       <guid>https://liwm29.github.io/2021/03/linux-server-intro/</guid>
       <description>Introduction to linux server linux 服务器导论 文件目录相关 假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式 如果是.d结尾,则代表</description>
-    </item>
-    
-    <item>
-      <title>[lock-free] atomic</title>
-      <link>https://liwm29.github.io/2021/03/lock-free-atomic/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/lock-free-atomic/</guid>
-      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
     </item>
     
     <item>

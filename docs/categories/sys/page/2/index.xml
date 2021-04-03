@@ -6,10 +6,64 @@
     <description>Recent content in sys on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/categories/sys/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[concurrency] promise&amp;future</title>
+      <link>https://liwm29.github.io/2021/03/concurrency-promisefuture/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/concurrency-promisefuture/</guid>
+      <description>Promise&amp;amp;future 函数式编程是一个新的编程范式,基本上,只要你的编程语言支持函数是一等公民这个说法,那么就至少支持部分的函数式编程 [TOC] promise 所谓的promise,</description>
+    </item>
+    
+    <item>
+      <title>[data-structure] skip-list</title>
+      <link>https://liwm29.github.io/2021/03/data-structure-skip-list/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/data-structure-skip-list/</guid>
+      <description>skipList 跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n) 跳表是二叉搜索树,AVL,RBTree的替代品 这里我们不介绍如何从头开始编</description>
+    </item>
+    
+    <item>
+      <title>[DB] b-tree</title>
+      <link>https://liwm29.github.io/2021/03/db-b-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-b-tree/</guid>
+      <description>索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻</description>
+    </item>
+    
+    <item>
+      <title>[DB] mutex</title>
+      <link>https://liwm29.github.io/2021/03/db-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-mutex/</guid>
+      <description>数据库中的三种锁 ref record锁(行锁) gap锁(间隙锁)(左开右开) next-lock锁(行+间隙)(左开右闭) 注意,锁的区间不是任意的,</description>
+    </item>
+    
+    <item>
+      <title>[DB] rule</title>
+      <link>https://liwm29.github.io/2021/03/db-rule/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-rule/</guid>
+      <description>数据库设计范式 所谓设计范式,可理解为设计一张表的各个列的规则 定义 键和函数依赖 键 所有的键(key) 都是 a set of one or more attributes 主属性(prime attribute) 至少出</description>
+    </item>
+    
+    <item>
+      <title>[DB] sql spec</title>
+      <link>https://liwm29.github.io/2021/03/db-sql-spec/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/db-sql-spec/</guid>
+      <description>About sql statement&amp;amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e</description>
+    </item>
     
     <item>
       <title>[deploy] server deploy</title>
@@ -135,60 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/go-slice-index-detail/</guid>
       <description>[Go] Slice的下标索引细节 在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治 常见的比如快排,恢复二叉树等 在c/c++中,我会使</description>
-    </item>
-    
-    <item>
-      <title>[Go] standard package layout</title>
-      <link>https://liwm29.github.io/2021/03/go-standard-package-layout/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-standard-package-layout/</guid>
-      <description>Standard Package Layout 标准包布局 -Ben Johnson https://www.gobeyond.dev/standard-package-layout/ Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用</description>
-    </item>
-    
-    <item>
-      <title>[Go] user thread</title>
-      <link>https://liwm29.github.io/2021/03/go-user-thread/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-user-thread/</guid>
-      <description>用户线程与核心线程 ref: Scheduler Activations: Effective Kernel Support for the User-Level Management of Parallelism 论文观点: We argue that the performance of user-levelthreads is inherently better than that of kernel threads, rather than thisbeing an artifact of existing implementations. kernel threads are the wrong abstraction on which to support user-level management of parallelism. 1.用户线程的</description>
-    </item>
-    
-    <item>
-      <title>[HTTP] Content-Type</title>
-      <link>https://liwm29.github.io/2021/03/http-content-type/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/http-content-type/</guid>
-      <description>About Content-Type Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段 三种Content-Type application/x-www-form-urlencoded 默认类型,当for</description>
-    </item>
-    
-    <item>
-      <title>[interview] ByteDance&amp;Tencent</title>
-      <link>https://liwm29.github.io/2021/03/interview-bytedancetencent/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/interview-bytedancetencent/</guid>
-      <description>ByteDance&amp;amp;Tencent 2021/3 暑期实习 腾讯一面 上来抛了道js,问我输出 const a = ( i : 0, toString(){ return i++ } ) print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2) 答案是false,没答出来,我当时主要纠结于为什么会调用t</description>
-    </item>
-    
-    <item>
-      <title>[interview] 杂</title>
-      <link>https://liwm29.github.io/2021/03/interview-%E6%9D%82/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/interview-%E6%9D%82/</guid>
-      <description>记录一下为面试做的准备 声明: 以下知识点可能不完全正确,但也不会错的太离谱 记录一些知识点 数据库事务的四个特性: ACID 原子性,一致性,隔离性,持久性</description>
-    </item>
-    
-    <item>
-      <title>[linux] daemon</title>
-      <link>https://liwm29.github.io/2021/03/linux-bg-run-linux/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/linux-bg-run-linux/</guid>
-      <description>[linux] 关于后台运行进程的小实验 我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置 守护模式 通</description>
     </item>
     
   </channel>

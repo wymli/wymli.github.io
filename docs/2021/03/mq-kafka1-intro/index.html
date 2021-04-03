@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="kafka1 intro 部分参考 kafka技术内幕 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息) 消息队列的三大" />
+    <meta name="description" content="kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除" />
     <meta name="generator" content="Hugo 0.81.0 with theme pure" />
     <title>kafka1 intro - UnderTheHood</title>
     
@@ -30,19 +30,19 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:title" content="kafka1 intro" />
-<meta property="og:description" content="kafka1 intro 部分参考 kafka技术内幕 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息) 消息队列的三大" />
+<meta property="og:description" content="kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liwm29.github.io/2021/03/mq-kafka1-intro/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-03-29T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2021-03-29T00:00:00&#43;00:00" />
 
 <meta itemprop="name" content="kafka1 intro">
-<meta itemprop="description" content="kafka1 intro 部分参考 kafka技术内幕 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息) 消息队列的三大"><meta itemprop="datePublished" content="2021-03-29T00:00:00&#43;00:00" />
+<meta itemprop="description" content="kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除"><meta itemprop="datePublished" content="2021-03-29T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2021-03-29T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4286">
+<meta itemprop="wordCount" content="5009">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="kafka1 intro"/>
-<meta name="twitter:description" content="kafka1 intro 部分参考 kafka技术内幕 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息) 消息队列的三大"/>
+<meta name="twitter:description" content="kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -162,6 +162,10 @@
                class="tag-list-count">1</span></a>
             
             
+            <a href="https://liwm29.github.io/tags/atomic/" class="tag-list-link" rel="1">atomic<span
+               class="tag-list-count">1</span></a>
+            
+            
             <a href="https://liwm29.github.io/tags/bytedance/" class="tag-list-link" rel="1">bytedance<span
                class="tag-list-count">1</span></a>
             
@@ -206,12 +210,16 @@
                class="tag-list-count">3</span></a>
             
             
-            <a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link" rel="1">lock-free<span
-               class="tag-list-count">1</span></a>
+            <a href="https://liwm29.github.io/tags/kafka/" class="tag-list-link" rel="3">kafka<span
+               class="tag-list-count">3</span></a>
             
             
             <a href="https://liwm29.github.io/tags/mem/" class="tag-list-link" rel="2">mem<span
                class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/mq/" class="tag-list-link" rel="3">mq<span
+               class="tag-list-count">3</span></a>
             
             
             <a href="https://liwm29.github.io/tags/other/" class="tag-list-link" rel="3">other<span
@@ -236,6 +244,10 @@
             
             <a href="https://liwm29.github.io/tags/sys/" class="tag-list-link" rel="3">sys<span
                class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/underthehood/" class="tag-list-link" rel="1">underthehood<span
+               class="tag-list-count">1</span></a>
             
             
             <a href="https://liwm29.github.io/tags/vue/" class="tag-list-link" rel="2">vue<span
@@ -272,6 +284,7 @@ function tagCloud(where, min, max) {
         <ul class="category-list">
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/alg/" class="category-list-link">alg</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/atomic/" class="category-list-link">atomic</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/bytedance/" class="category-list-link">bytedance</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/c/" class="category-list-link">c</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/cache/" class="category-list-link">cache</a><span class="category-list-count">1</span></li>
@@ -286,13 +299,13 @@ function tagCloud(where, min, max) {
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/kafka/" class="category-list-link">kafka</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
-            <li class="category-list-item"><a href="https://liwm29.github.io/categories/lock-free/" class="category-list-link">lock-free</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/mem/" class="category-list-link">mem</a><span class="category-list-count">2</span></li>
-            <li class="category-list-item"><a href="https://liwm29.github.io/categories/mq/" class="category-list-link">mq</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/mq/" class="category-list-link">mq</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/protocol/" class="category-list-link">protocol</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/rpc/" class="category-list-link">rpc</a><span class="category-list-count">4</span></li>
-            <li class="category-list-item"><a href="https://liwm29.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/underthehood/" class="category-list-link">underthehood</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://liwm29.github.io/categories/vue/" class="category-list-link">vue</a><span class="category-list-count">2</span></li>
         </ul>
     </div>
@@ -308,6 +321,10 @@ function tagCloud(where, min, max) {
             
             
             <li class="tag-list-item"><a href="https://liwm29.github.io/tags/arch/" class="tag-list-link">arch</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/atomic/" class="tag-list-link">atomic</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -355,12 +372,16 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">3</span></li>
             
             
-            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/lock-free/" class="tag-list-link">lock-free</a><span
-                    class="tag-list-count">1</span></li>
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/kafka/" class="tag-list-link">kafka</a><span
+                    class="tag-list-count">3</span></li>
             
             
             <li class="tag-list-item"><a href="https://liwm29.github.io/tags/mem/" class="tag-list-link">mem</a><span
                     class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/mq/" class="tag-list-link">mq</a><span
+                    class="tag-list-count">3</span></li>
             
             
             <li class="tag-list-item"><a href="https://liwm29.github.io/tags/other/" class="tag-list-link">other</a><span
@@ -387,6 +408,10 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">3</span></li>
             
             
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/underthehood/" class="tag-list-link">underthehood</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://liwm29.github.io/tags/vue/" class="tag-list-link">vue</a><span
                     class="tag-list-count">2</span></li>
             
@@ -402,50 +427,50 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://liwm29.github.io/2021/03/mq-kafka1-intro/" class="title">kafka1 intro</a>
+                        <a href="https://liwm29.github.io/2021/03/atomic-atomic/" class="title">[atomic] atomic</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2021-03-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-29</time>
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://liwm29.github.io/2021/03/other-go/" class="title">[Other] Go</a>
+                        <a href="https://liwm29.github.io/2021/04/mq-kafka3-consumer/" class="title">[mq] kafka3 consumer</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2021-03-27 21:09:05 &#43;0800 CST" itemprop="datePublished">2021-03-27</time>
+                        <time datetime="2021-04-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-02</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://liwm29.github.io/2021/03/interview-bytedance2/" class="title">[interview] ByteDance2</a>
+                        <a href="https://liwm29.github.io/2021/04/mq-kafka1.5-install/" class="title">[mq] kafka1.5 install</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2021-03-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-27</time>
+                        <time datetime="2021-04-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-01</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://liwm29.github.io/2021/03/rpc-grpc/" class="title">[rpc] grpc</a>
+                        <a href="https://liwm29.github.io/2021/03/mq-kakfa2-producer/" class="title">[mq] kafka2 producer</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2021-03-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-27</time>
+                        <time datetime="2021-03-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-31</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://liwm29.github.io/2021/03/rpc-intro/" class="title">[rpc] intro</a>
+                        <a href="https://liwm29.github.io/2021/03/sys-virtmempage-cachebuffer-cache/" class="title">[sys] 虚拟内存与缓存缓冲</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2021-03-27 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-27</time>
+                        <time datetime="2021-03-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-30</time>
                     </p>
                 </div>
             </li>
@@ -492,8 +517,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/kafka/"> kafka </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 4286 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 9 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5009 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 10 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -501,7 +526,8 @@ function tagCloud(where, min, max) {
 <blockquote>
 <p>部分参考</p>
 <ol>
-<li>kafka技术内幕</li>
+<li>kafka技术内幕:图文详解kafka源码设计和实现</li>
+<li>kafka权威指南</li>
 <li><a href="https://zhuanlan.zhihu.com/p/68052232">https://zhuanlan.zhihu.com/p/68052232</a></li>
 </ol>
 </blockquote>
@@ -518,6 +544,14 @@ function tagCloud(where, min, max) {
 <li>数据存储(容错,对等待转发的数据备份到持久化内存)</li>
 <li>实时流式处理数据</li>
 </ol>
+<p>其中最重要的,应该是解耦这个功能,因为无论是异步还是削峰,一个进程内的并发队列都能做到,每必要独立为一个分布式消息系统服务器.只有解耦,独立成了一个服务器,才能方便的给不同的后端提供服务,比如传统的消费者,比如流量监控程序,比如机器学习数据采集器等等</p>
+<blockquote>
+<p>这里,我个人倾向于将producer视作前端,broker视作中端,consumer视作后端</p>
+</blockquote>
+<p>原先的架构,监控程序或消费程序,直接与数据生产者打交道,当有各式各样不同的生产者时,又有各式各样不同的消费者时,对应关系将会错综复杂</p>
+<p><img src="posts%5Cstatic%5Cimage-20210401110005121.png" alt="image-20210401110005121"></p>
+<p>于是我们在生产者和消费者之间增加一个用于解耦泛化订阅关系的信息队列,所有的消息统一发忘消息队列,所有的监控程序统一从消息队列取数据(通过订阅不同的topic)</p>
+<p><img src="posts%5Cstatic%5Cimage-20210401110036991.png" alt="image-20210401110036991"></p>
 <h2 id="消息系统">消息系统</h2>
 <p>两种常见模型</p>
 <ol>
@@ -536,10 +570,11 @@ function tagCloud(where, min, max) {
 <p>所谓流式处理,可以参照reactiveX这个库,它是一种类似于函数式编程里面常见的处理过程,比如映射,聚合,连接等等</p>
 <p>在实际处理中,由于是网络通信,还可能面临乱序数据等问题</p>
 <h2 id="api">API</h2>
-<p>kafka中有四个核心概念:</p>
+<p>kafka中有五个核心概念:</p>
 <ol>
 <li>producer</li>
 <li>consumer</li>
+<li>broker</li>
 <li>connector,用于连接数据库,持久化备份,或者读取静态数据进行流处理</li>
 <li>processor,进行流处理</li>
 </ol>
@@ -608,18 +643,25 @@ function tagCloud(where, min, max) {
 <blockquote>
 <p>这里的备份详见后文的副本与容灾,简单来说就是一个消息只有被所有从副本同步后(称为消息的提交),才能够被消费者看见从而消费,表现上就是watermark的增加</p>
 </blockquote>
+<blockquote>
+<p>事实上,也可能同时将offset记录在zk上,以确保消费者的宕机不会丢失消费记录位置</p>
+</blockquote>
 <p>kafka不会像有些消息队列一样,当消息被所有消费组消费后,就立马删掉消息.而是会将生产者发布的所有消息保存在kafka集群,无论消费者是否已经消费.用户需要设置保留时间来清理过期数据.</p>
 <p>这样的一个好处是,消费者可以通过更改自己的offset来消费以前的消息.(比如消费者逻辑出错,导致的回滚)</p>
 <h2 id="分布式模型">分布式模型</h2>
 <p>这里的分布式模型,也就是主从模型. 一个topic的不同partition在不同的broker上都将维护一个同样的副本.其中一个节点作为leader(主副本),其他节点作为follower(从副本).读写操作都只会打到leader上,当leader故障时,某个follower晋升为leader.</p>
 <blockquote>
 <p>不是读写分离,而是读写都施加到leader上.</p>
-<p>一个topic不同的partition在一台broker上,有的是leader,有的不是</p>
+<p>一个topic不同的partition在同一台broker上,有的是leader,有的是follower,有效减轻了一台broker的负担</p>
 </blockquote>
+<p>单个broker可以处理数千个分区和每秒百万级别的消息量</p>
 <h3 id="分区路由">分区路由</h3>
 <p>生产者需要自己决定将消息发送到哪个分区,然后再去寻找该分区的leader所在的broker的ip</p>
 <p>当消息没有键时,将采用轮询的方式;当消息有键时,将通过某种手段将相同的键发到相同的分区(很显然,一种hash方法)</p>
 <p>每个broker将会保存一份关于主题分区leader的metadata(元数据),这样就不需要一个统一的服务注册中心了. 生产者在生产消息之前,首先向任意一个broker申请元数据,以此确定每条消息的目的地</p>
+<blockquote>
+<p>这里似乎表述有误,虽然原文说是每个broker维护一份metadata,但是其他地方又说是zookeeper作为统一的注册中心维护一份metadata,我个人倾向于是zk维护,代价低</p>
+</blockquote>
 <h2 id="副本与容错">副本与容错</h2>
 <p>不同分区的主副本应该均匀地分配到各个服务器上,在主从同步上,从副本同步消息的过程和消费者消费消息的过程是一致的,只不过从副本会将消息写到自己的分区日志文件.</p>
 <h3 id="节点存活">节点存活</h3>
@@ -642,6 +684,33 @@ function tagCloud(where, min, max) {
 <h3 id="批量消费">批量消费</h3>
 <p>消费者理所当然的也可以一次接收一批数据,但是如果partition中消息数量不够呢?</p>
 <p>消费者需要不断轮询broker(这时拉取式的缺点),解决方法是允许拉取请求是阻塞式,长轮询的,直到有足够的一批数据.</p>
+<h1 id="为什么选择kafka">为什么选择kafka</h1>
+<ul>
+<li>支持消费组的概念,一个消息只会被一个消费组消费一次</li>
+<li>partition的概念,并发度较高</li>
+<li>消息默认持久化,可消费历史消息</li>
+<li>可伸缩性,轻松拓展broker数量</li>
+</ul>
+<h1 id="使用场景">使用场景</h1>
+<ol>
+<li>用户行为跟踪
+<ol>
+<li>前端会将用户的行为,比如页面点击量等,作为消息发送到消息中心</li>
+</ol>
+</li>
+<li>传统的传递业务消息</li>
+<li>度量指标
+<ol>
+<li>也就是监控,收集系统度量指标</li>
+</ol>
+</li>
+<li>提交日志
+<ol>
+<li>将数据库的更新发布到kafka上,应用程序订阅特定topic来实时同步</li>
+</ol>
+</li>
+<li>流处理</li>
+</ol>
 <hr>
 <p>下一章: kafka2 生产者</p>
 
@@ -682,9 +751,14 @@ function tagCloud(where, min, max) {
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://liwm29.github.io/2021/03/other-go/" title="[Other] Go"><i
+                <a href="https://liwm29.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/" title="[Other] Go优点"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/2021/03/underthehood-underthehood/"
+                    title="[underTheHood]  underTheHood"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

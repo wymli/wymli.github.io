@@ -6,10 +6,64 @@
     <description>Recent content in sys on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/categories/sys/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[atomic] atomic</title>
+      <link>https://liwm29.github.io/2021/03/atomic-atomic/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/atomic-atomic/</guid>
+      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka3 consumer</title>
+      <link>https://liwm29.github.io/2021/04/mq-kafka3-consumer/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/04/mq-kafka3-consumer/</guid>
+      <description>kafka3 consumer [TOC] 消费组 往群组里增加消费者是横向伸缩消费能力的主要方式 消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个t</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka1.5 install</title>
+      <link>https://liwm29.github.io/2021/04/mq-kafka1.5-install/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/04/mq-kafka1.5-install/</guid>
+      <description>安装kafka 我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get sea</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka2 producer</title>
+      <link>https://liwm29.github.io/2021/03/mq-kakfa2-producer/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/mq-kakfa2-producer/</guid>
+      <description>kafka producer 参考kafka技术内幕:图文详解kafka源码设计和实现 本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网</description>
+    </item>
+    
+    <item>
+      <title>[sys] 虚拟内存与缓存缓冲</title>
+      <link>https://liwm29.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
+      <description>虚拟内存virtual memory 什么是虚拟内存,应该不用多言.本质就是一个逻辑的虚拟地址空间,这些地址空间中,有的地址真正的对应到了物理内存的地址,</description>
+    </item>
+    
+    <item>
+      <title>[underTheHood]  underTheHood</title>
+      <link>https://liwm29.github.io/2021/03/underthehood-underthehood/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/underthehood-underthehood/</guid>
+      <description>UnderTheHood 这里记录一些具有高度总结性质的格言 Page Cache 主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache) 如此一来,一切都说得通了,</description>
+    </item>
     
     <item>
       <title>kafka1 intro</title>
@@ -17,15 +71,15 @@
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://liwm29.github.io/2021/03/mq-kafka1-intro/</guid>
-      <description>kafka1 intro 部分参考 kafka技术内幕 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息) 消息队列的三大</description>
+      <description>kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除</description>
     </item>
     
     <item>
-      <title>[Other] Go</title>
-      <link>https://liwm29.github.io/2021/03/other-go/</link>
+      <title>[Other] Go优点</title>
+      <link>https://liwm29.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</link>
       <pubDate>Sat, 27 Mar 2021 21:09:05 +0800</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/other-go/</guid>
+      <guid>https://liwm29.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</guid>
       <description>列举我心目中的go的优点 实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件 现代的包管理go get/go m</description>
     </item>
     
@@ -135,60 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/2.-createandfreshscreen/</guid>
       <description>可交互动态终端 &amp;lt;2, 刷新屏幕&amp;gt; ref: github.com/gdamore/tcell/v2 我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数</description>
-    </item>
-    
-    <item>
-      <title>[concurrency] promise&amp;future</title>
-      <link>https://liwm29.github.io/2021/03/concurrency-promisefuture/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/concurrency-promisefuture/</guid>
-      <description>Promise&amp;amp;future 函数式编程是一个新的编程范式,基本上,只要你的编程语言支持函数是一等公民这个说法,那么就至少支持部分的函数式编程 [TOC] promise 所谓的promise,</description>
-    </item>
-    
-    <item>
-      <title>[data-structure] skip-list</title>
-      <link>https://liwm29.github.io/2021/03/data-structure-skip-list/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/data-structure-skip-list/</guid>
-      <description>skipList 跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n) 跳表是二叉搜索树,AVL,RBTree的替代品 这里我们不介绍如何从头开始编</description>
-    </item>
-    
-    <item>
-      <title>[DB] b-tree</title>
-      <link>https://liwm29.github.io/2021/03/db-b-tree/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/db-b-tree/</guid>
-      <description>索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻</description>
-    </item>
-    
-    <item>
-      <title>[DB] mutex</title>
-      <link>https://liwm29.github.io/2021/03/db-mutex/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/db-mutex/</guid>
-      <description>数据库中的三种锁 ref record锁(行锁) gap锁(间隙锁)(左开右开) next-lock锁(行+间隙)(左开右闭) 注意,锁的区间不是任意的,</description>
-    </item>
-    
-    <item>
-      <title>[DB] rule</title>
-      <link>https://liwm29.github.io/2021/03/db-rule/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/db-rule/</guid>
-      <description>数据库设计范式 所谓设计范式,可理解为设计一张表的各个列的规则 定义 键和函数依赖 键 所有的键(key) 都是 a set of one or more attributes 主属性(prime attribute) 至少出</description>
-    </item>
-    
-    <item>
-      <title>[DB] sql spec</title>
-      <link>https://liwm29.github.io/2021/03/db-sql-spec/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/db-sql-spec/</guid>
-      <description>About sql statement&amp;amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e</description>
     </item>
     
   </channel>

@@ -174,7 +174,7 @@ func newEntry(i interface{}) *entry {
 
 相信这个图加上上面的注释已经解释的差不多了  [ ref]( https://juejin.cn/post/6844903895227957262)
 
-<img src="http://159.75.75.160/static/sync_map.png" style="zoom:50%;" />
+<img src="/posts/static/sync_map.png" style="zoom:50%;" />
 
 ```go
 sync的结构为:
