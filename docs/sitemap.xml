@@ -10,56 +10,84 @@
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/2021/04/mq-kafka3-consumer/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <loc>https://liwm29.github.io/2021/04/mq-kafka4-walk-deep/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/04/zk-zk1-intro/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/categories/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/tags/kafka/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/tags/mq/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/categories/mq/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/posts/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/tags/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://liwm29.github.io/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/tags/zookeeper/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/categories/zookeeper/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liwm29.github.io/2021/04/mq-kafka3-consumer/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -73,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://liwm29.github.io/2021/03/mq-kakfa2-producer/</loc>
+    <loc>https://liwm29.github.io/2021/03/mq-kafka2-producer/</loc>
     <lastmod>2021-03-31T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

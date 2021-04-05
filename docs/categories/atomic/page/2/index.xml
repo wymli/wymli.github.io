@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>[cli] 事件分发系统</title>
+      <link>https://liwm29.github.io/2021/03/1.-eventdistributionsystem/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/1.-eventdistributionsystem/</guid>
+      <description>[Go] 可交互动态终端 &amp;lt;1, 事件注册分发中心&amp;gt; github.com/mum4k/termdash 如何完成一个好看的terminal呢?在以前我们大都会使用简单的printf来打印数据到终端,进</description>
+    </item>
+    
+    <item>
+      <title>[cli] 刷新屏幕</title>
+      <link>https://liwm29.github.io/2021/03/2.-createandfreshscreen/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/2.-createandfreshscreen/</guid>
+      <description>可交互动态终端 &amp;lt;2, 刷新屏幕&amp;gt; ref: github.com/gdamore/tcell/v2 我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数</description>
+    </item>
+    
+    <item>
       <title>[concurrency] promise&amp;future</title>
       <link>https://liwm29.github.io/2021/03/concurrency-promisefuture/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
@@ -171,24 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</guid>
       <description>Runtime Struct: 运行时结构体构造方法 参考: https://github.com/itsubaki/gostruct https://pkg.go.dev/reflect#example-StructOf reflect.New(typ reflect.Type) reflect.Value New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ). 因此,给定一个结构体类型的type,我们就可以构造出</description>
-    </item>
-    
-    <item>
-      <title>[Go] short var declare</title>
-      <link>https://liwm29.github.io/2021/03/go-short-var-declare/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-short-var-declare/</guid>
-      <description>[Go] 短变量声明 := 在Go中,提供了动态语言常用的一种直接声明并赋值的语法糖,即 := 短变量声明 := 这个符号,可能是借鉴了Pascal 短变量声明有一定的</description>
-    </item>
-    
-    <item>
-      <title>[Go] slice index detail</title>
-      <link>https://liwm29.github.io/2021/03/go-slice-index-detail/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-slice-index-detail/</guid>
-      <description>[Go] Slice的下标索引细节 在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治 常见的比如快排,恢复二叉树等 在c/c++中,我会使</description>
     </item>
     
   </channel>

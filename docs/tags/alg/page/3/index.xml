@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>[Go] short var declare</title>
+      <link>https://liwm29.github.io/2021/03/go-short-var-declare/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-short-var-declare/</guid>
+      <description>[Go] 短变量声明 := 在Go中,提供了动态语言常用的一种直接声明并赋值的语法糖,即 := 短变量声明 := 这个符号,可能是借鉴了Pascal 短变量声明有一定的</description>
+    </item>
+    
+    <item>
+      <title>[Go] slice index detail</title>
+      <link>https://liwm29.github.io/2021/03/go-slice-index-detail/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-slice-index-detail/</guid>
+      <description>[Go] Slice的下标索引细节 在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治 常见的比如快排,恢复二叉树等 在c/c++中,我会使</description>
+    </item>
+    
+    <item>
       <title>[Go] standard package layout</title>
       <link>https://liwm29.github.io/2021/03/go-standard-package-layout/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
