@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+         - UnderTheHood
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离" />
+    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <title> - UnderTheHood</title>
+    
+    
+    <link rel="stylesheet" href="https://liwm29.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liwm29.github.io/1/01/datamining-cluster/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离">
+
+<meta itemprop="wordCount" content="2770">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/liwm29" target="_blank">
+            <img class="img-circle img-rotate" src="https://liwm29.github.io/me.jpg" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Li Weiming</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">liwm29@sysu.sdcs</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Guangzhou, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>💕😎🐱‍👤🐱‍🏍✨</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://liwm29.github.io/tags/alg/" class="tag-list-link" rel="1">alg<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/arch/" class="tag-list-link" rel="1">arch<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/atomic/" class="tag-list-link" rel="1">atomic<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/bytedance/" class="tag-list-link" rel="1">bytedance<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/c/" class="tag-list-link" rel="1">c<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cache/" class="tag-list-link" rel="1">cache<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/cli/" class="tag-list-link" rel="2">cli<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link" rel="1">concurrency<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/datastructure/" class="tag-list-link" rel="1">datastructure<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/db/" class="tag-list-link" rel="4">db<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link" rel="1">deploy<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/go/" class="tag-list-link" rel="16">go<span
+               class="tag-list-count">16</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/http/" class="tag-list-link" rel="1">http<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/interview/" class="tag-list-link" rel="3">interview<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/kafka/" class="tag-list-link" rel="4">kafka<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/mem/" class="tag-list-link" rel="2">mem<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/mq/" class="tag-list-link" rel="4">mq<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/other/" class="tag-list-link" rel="3">other<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link" rel="1">protocol<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link" rel="4">rpc<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/server/" class="tag-list-link" rel="3">server<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/socket/" class="tag-list-link" rel="1">socket<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/sys/" class="tag-list-link" rel="3">sys<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/todo/" class="tag-list-link" rel="1">todo<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/underthehood/" class="tag-list-link" rel="1">underthehood<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/vue/" class="tag-list-link" rel="2">vue<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://liwm29.github.io/tags/zookeeper/" class="tag-list-link" rel="1">zookeeper<span
+               class="tag-list-count">1</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/alg/" class="category-list-link">alg</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/atomic/" class="category-list-link">atomic</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/bytedance/" class="category-list-link">bytedance</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/c/" class="category-list-link">c</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cache/" class="category-list-link">cache</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/cli/" class="category-list-link">cli</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/concurrency/" class="category-list-link">concurrency</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/datastructure/" class="category-list-link">datastructure</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/innodb/" class="category-list-link">innodb</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/kafka/" class="category-list-link">kafka</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/mem/" class="category-list-link">mem</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/mq/" class="category-list-link">mq</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/protocol/" class="category-list-link">protocol</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/rpc/" class="category-list-link">rpc</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/todo/" class="category-list-link">todo</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/underthehood/" class="category-list-link">underthehood</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/vue/" class="category-list-link">vue</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://liwm29.github.io/categories/zookeeper/" class="category-list-link">zookeeper</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/alg/" class="tag-list-link">alg</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/arch/" class="tag-list-link">arch</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/atomic/" class="tag-list-link">atomic</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/bytedance/" class="tag-list-link">bytedance</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/c/" class="tag-list-link">c</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cache/" class="tag-list-link">cache</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/cli/" class="tag-list-link">cli</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/concurrency/" class="tag-list-link">concurrency</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/datastructure/" class="tag-list-link">datastructure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/db/" class="tag-list-link">db</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/deploy/" class="tag-list-link">deploy</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">16</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/interview/" class="tag-list-link">interview</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/kafka/" class="tag-list-link">kafka</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/mem/" class="tag-list-link">mem</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/mq/" class="tag-list-link">mq</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/other/" class="tag-list-link">other</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/protocol/" class="tag-list-link">protocol</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/rpc/" class="tag-list-link">rpc</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/server/" class="tag-list-link">server</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/socket/" class="tag-list-link">socket</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/sys/" class="tag-list-link">sys</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/todo/" class="tag-list-link">todo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/underthehood/" class="tag-list-link">underthehood</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/vue/" class="tag-list-link">vue</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://liwm29.github.io/tags/zookeeper/" class="tag-list-link">zookeeper</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/04/aatodo-todo-list/" class="title">TodoList</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/03/atomic-atomic/" class="title">[atomic] atomic</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-03-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="title">[mq] kafka4 工作原理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-04-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/04/zk-zk1-intro/" class="title">[zk] zk1 intro</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-04-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://liwm29.github.io/2021/04/mq-kafka3-consumer/" class="title">[mq] kafka3 consumer</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-04-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-02</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/datamining-cluster/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2770 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 6 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="聚类">聚类</h1>
+<p>聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起</p>
+<p>对于输入的数值元组的不同的视角,我们可以定义不同的距离</p>
+<ul>
+<li>将元组视为向量
+<ul>
+<li>计算cos距离来求解相似度,即余弦值,可有余弦定理计算得出</li>
+</ul>
+</li>
+<li>将元组视为集合
+<ul>
+<li>计算jaccard距离,即A∩B/A∪B</li>
+</ul>
+</li>
+<li>将元组视为欧氏空间中的坐标点
+<ul>
+<li>计算欧式距离</li>
+</ul>
+</li>
+</ul>
+<h2 id="层次聚类">层次聚类</h2>
+<p>方法是不断的将小聚类合并(合并两个最近的聚类),形成大的聚类,从单个点作为一个聚类开始</p>
+<p>也可以是top down的方法,不断将大聚类split,但一般采用bottom up方法</p>
+<ul>
+<li>聚类的代表
+<ul>
+<li>centroid : average of its points(这要求欧式空间(欧式距离),此时直线最短,所以直接求平均,便是聚类的中心点)
+<ul>
+<li>centroid 可能不是一个实际存在的点</li>
+</ul>
+</li>
+<li>clustroid: point closest to other points
+<ul>
+<li>clustroid一定是一个实际存在的点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>聚类内closest的定义(clustroid选举)
+<ul>
+<li>某个点关于其他所有点的最大距离最小,则这个点是clustroid</li>
+<li>某个点关于其他所有点的平均距离最小</li>
+<li>某个点关于其他所有点的距离平方和最小</li>
+</ul>
+</li>
+<li>聚类间nearness定义(聚类合并选择)
+<ul>
+<li>将clustroid视作centroid,计算两个cluster的centroid/clustroid之间的距离
+<ul>
+<li>注意如果没有定义欧式距离就没有centroid,但一定会有距离的定义,只是不是直线最短</li>
+</ul>
+</li>
+<li>分别从两个聚类选择两个点,得到的最小的距离即使聚类之间的距离</li>
+<li>凝聚度(计算合并后的聚类的凝聚度)
+<ul>
+<li>直径: 聚类内的点之间的最大距离</li>
+<li>平均距离: 聚类内所有点之间的平均距离</li>
+<li>密度: 使用直径或平均距离除以点数,密度越小越好(相同直径下,点越多,密度越小,聚类越密集)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>看网上其他博客,基本都采用这样的距离定义来计算聚类间的nearness:
+<ul>
+<li>聚类间两点距离的最小值</li>
+<li>聚类间两点距离的最大值</li>
+<li>聚类间两点距离的平均值</li>
+</ul>
+</li>
+</ul>
+<h2 id="k-means-算法">k-means 算法</h2>
+<blockquote>
+<p>这里的k指的是k个聚类</p>
+</blockquote>
+<p>首先会给每个聚类随机初始化为1个点,也就是我们要随机选取k个点,每个点作为一个聚类.</p>
+<p>但显然,如果随机选,可能选到两个很近的点,因此针对初始化的不同,提出了k-means++算法,二者仅仅在初始化时不同,后续跌打是一样的</p>
+<ul>
+<li>初始化
+<ul>
+<li>随机</li>
+<li>k-means++
+<ul>
+<li>随机遍历点,但是否将它们加入初始点集合取决于它与已加入初始点集合内的点的最短距离的平方</li>
+<li>因此,以这种方法选出来的k个初始点将会尽可能的远</li>
+</ul>
+</li>
+<li>于是,每个cluster都有了一个centroid</li>
+</ul>
+</li>
+<li>聚类
+<ul>
+<li>遍历所有点,将其加入离他最近的centroid所属的cluster(你可以认为也遍历了初始点,反正肯定离自己最近,当迭代一次后,一般centroid都不再是实际存在的点)</li>
+<li>遍历完后,更新cluster的centroid位置</li>
+<li>重新遍历所有点,加入离他最近的centroid所属的cluster
+<ul>
+<li>此时,点对cluster的所属关系可能变更</li>
+</ul>
+</li>
+<li>重复上述过程</li>
+</ul>
+</li>
+<li>收敛
+<ul>
+<li>当点对cluster的所属关系不再变更,并且centroid稳定时,认为收敛</li>
+</ul>
+</li>
+<li>k的选择
+<ul>
+<li>我们计算聚类内的点到centroid的平均距离作为k的好坏,平均距离越小,k越好</li>
+<li>实践证明,k越大,平均距离越小,当大到一定程度后,平均距离几乎不变,此时即为最佳的k</li>
+</ul>
+</li>
+</ul>
+<h2 id="bfr-算法">BFR 算法</h2>
+<blockquote>
+<p>算法名字是三个发明人的首字母</p>
+</blockquote>
+<p>BFR算法是k-means算法的变种,用于解决大规模数据集问题(这些数据集一般驻留在磁盘上)</p>
+<p>首先我们假设聚类内的点是关于centroid呈正太分布的,不同的维度的标准差不同,这意味着一个聚类将会很像一个关于轴对齐的椭圆(一个轴就是一个维度)</p>
+<blockquote>
+<p>? 我们的目标是找到cluster的centroid,然后就可以按照k-means的算法,对所有点计算得到离他最近的centroid,并归入那个cluster(这称为point assignment)</p>
+</blockquote>
+<p>算法流程:</p>
+<ol>
+<li>初始化k个cluster的centroid</li>
+<li>加载一些point到内存</li>
+<li>对这些点进行point assignment,前提是最小距离小于一定的阈值,如果这些点离最近的centroid的距离大于所设置的阈值,则将这些点视为outlier离群点</li>
+<li>将离群点独立为一个cluster,于是现存k+1个cluster</li>
+<li>对k+1个cluster中的两个cluster执行merge,生成k个cluster</li>
+<li>重复2-5</li>
+</ol>
+<p>我们将维护三类点集</p>
+<ul>
+<li>Discard set(DS): 能够被分配给某个cluster的点(我们可以加载它,计算统计信息,然后丢弃这个实例,有点充分统计量的感觉)</li>
+<li>Compression set(CS): 一些足够近的点的集合,但这些点离最近的centroid足够远,所以独立成为一个cluster</li>
+<li>Retained set(RS): 孤立的等待被分配给CS压缩集的点</li>
+</ul>
+<p>每个discard set将会维护2d+1个值,d是向量的维度</p>
+<ul>
+<li>1: 点数</li>
+<li>d: sum向量,sum_i代表set内的所有点的第i个分量的和</li>
+<li>d: sumsq向量,sumsq_i代表sum_i的平方</li>
+</ul>
+<p>有了这三个数值,我们可以很方便的计算ds的centroid和方差(centroid就是每个维度的平均值,sum/N , 方差就是(sumsq/N) - (sum/N)^2),我们不需要知道到底哪些点属于ds,我们唯一要维护的就是这三个统计量</p>
+<blockquote>
+<p>注意,cluster是轴对齐的,这样的好处是sumsq是一个d维向量,而不是一个dxd的二维协方差矩阵</p>
+</blockquote>
+<p>将点加载到内存,如果发现这些点离某个centroid足够近,就将这些点分配给那个cluster,并添加到ds</p>
+<p>这样,一次加载进内存的点将还会剩下一些点没有进入任何集合,这些点由于离现存的centroid们比较远而无法进入discard set,现在我们对这些在内存中的点运用任何in-memory的聚类方法分类即可,我们要分出两类,一类是compression set,一类是retained set</p>
+<p>比如我们直接对剩下的点随机初始化几个centroid(或使用层次聚类),然后遍历所有点,如果离这些centroid足够近,就加入这些cluster对应的compression set,否则便是离群点,加入retained set</p>
+<p>下一步,我们首先处理ds,之前加入ds的点,在这一步用于更新ds的统计量(N,sum,sumsq)(实际上这一步完全可以放在加入ds时就直接更新统计量)</p>
+<p>然后,考虑合并compressed set,如果这是最后一轮,那么合并compressed set和ratained set到最近的cluster中</p>
+<h3 id="距离">距离</h3>
+<p>使用mahalanobis distance(马氏距离),点x到centroid点c的距离定义为:
+$$
+d(x,c) = \sqrt{\sum_{i=1}^d(\frac{x_i-c_i}{\sigma_i})^2}
+$$
+即对每个维度进行标准化,然后求平方和的根号</p>
+<p>根据3sigma原则, 当x_i = c_i + sigma_i或c_i - sigma时,dist = sqrt(d)</p>
+<p>此时,有68%的概率,使得dist&lt;sqrt(d),如果x服从正态分布</p>
+<p>一般的,我们认为一个点x属于某个cluster,如果dist&lt;2sqrt(d)</p>
+<h3 id="合并">合并</h3>
+<p>何时合并cs中的集合呢? 如果合并后的方差小于某个阈值,则合并两个compressed set</p>
+<h2 id="cure">CURE</h2>
+<p>&hellip;</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://liwm29.github.io/1/01/datamining-cluster/" title="" target="_blank" rel="external">https://liwm29.github.io/1/01/datamining-cluster/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liwm29" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://liwm29.github.io/me.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liwm29" target="_blank"><span class="text-dark">Li Weiming</span><small class="ml-1x">liwm29@sysu.sdcs</small></a></h3>
+        <div>ONE CAN GO FAST</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://liwm29.github.io/1/01/sys-unix-domain-socket/" title="[sys] unix domain socket"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://liwm29.github.io/about/"
+                    title=""><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/liwm29" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://liwm29.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2021
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/go.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://liwm29.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://liwm29.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/liwm29.github.io\/',
+            CONTENT_URL: 'https:\/\/liwm29.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://liwm29.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sys on UnderTheHood</title>
+    <link>https://liwm29.github.io/categories/sys/</link>
+    <description>Recent content in sys on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://liwm29.github.io/categories/sys/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://liwm29.github.io/1/01/datamining-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/1/01/datamining-cluster/</guid>
+      <description>聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离</description>
+    </item>
+    
+    <item>
+      <title>[sys] unix domain socket</title>
+      <link>https://liwm29.github.io/1/01/sys-unix-domain-socket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/1/01/sys-unix-domain-socket/</guid>
+      <description>荐读 unix domain sockets vs. internet sockets 简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经</description>
+    </item>
+    
+  </channel>
+</rss>

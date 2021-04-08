@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>[cache] base concepts</title>
+      <link>https://liwm29.github.io/2021/03/cache-base-concepts/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/cache-base-concepts/</guid>
+      <description>应用层缓存 通常我们不希望所有数据的请求都去查询数据库,这一方面是慢,另一方面对数据库的压力也大. 因此,类似硬件层面的缓存,我们在应用层也会使</description>
+    </item>
+    
+    <item>
       <title>[cli] 事件分发系统</title>
       <link>https://liwm29.github.io/2021/03/1.-eventdistributionsystem/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
@@ -39,7 +48,7 @@
     </item>
     
     <item>
-      <title>[data-structure] skip-list</title>
+      <title>[dataStructure] skip-list</title>
       <link>https://liwm29.github.io/2021/03/data-structure-skip-list/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
@@ -180,15 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/go-reflect/</guid>
       <description>什么是反射? 反射提供了一种运行时能对对象增删查改的方法. 换句话说,当函数参数的interface{}时,提供了一种访问原来的类型和值的方法.</description>
-    </item>
-    
-    <item>
-      <title>[Go] runtime struct builder</title>
-      <link>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</guid>
-      <description>Runtime Struct: 运行时结构体构造方法 参考: https://github.com/itsubaki/gostruct https://pkg.go.dev/reflect#example-StructOf reflect.New(typ reflect.Type) reflect.Value New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ). 因此,给定一个结构体类型的type,我们就可以构造出</description>
     </item>
     
   </channel>

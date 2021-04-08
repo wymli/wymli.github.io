@@ -6,10 +6,19 @@
     <description>Recent content on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Apr 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] runtime struct builder</title>
+      <link>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</guid>
+      <description>Runtime Struct: 运行时结构体构造方法 参考: https://github.com/itsubaki/gostruct https://pkg.go.dev/reflect#example-StructOf reflect.New(typ reflect.Type) reflect.Value New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ). 因此,给定一个结构体类型的type,我们就可以构造出</description>
+    </item>
     
     <item>
       <title>[Go] short var declare</title>
@@ -183,15 +192,6 @@
 About me: ♂, 信息与计算科学(计算机学院) 中山大学 广州
 2018 - 2022
 Contact me: liwm29@mail2.sysu.edu.cn</description>
-    </item>
-    
-    <item>
-      <title>[sys] unix domain socket</title>
-      <link>https://liwm29.github.io/1/01/sys-unix-domain-socket/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/1/01/sys-unix-domain-socket/</guid>
-      <description>荐读 unix domain sockets vs. internet sockets 简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经</description>
     </item>
     
   </channel>

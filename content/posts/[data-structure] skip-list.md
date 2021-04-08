@@ -1,8 +1,8 @@
 ---
-title: "[data-structure] skip-list"
+title: "[dataStructure] skip-list"
 date: 2021-03-25
-tags: ["data-structure"]
-categories: ["data-structure"]
+tags: ["dataStructure"]
+categories: ["dataStructure"]
 ---
 
 # skipList

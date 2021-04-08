@@ -1,5 +1,5 @@
 ---
-title: "[mq] kafka4 deep"
+title: "[mq] kafka4 工作原理"
 date: 2021-04-03
 categories: ["mq" ]
 tags: ["mq" , "kafka"]
