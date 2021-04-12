@@ -6,7 +6,7 @@
     <description>Recent content on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 08 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,15 @@
       
       <guid>https://liwm29.github.io/2021/03/atomic-atomic/</guid>
       <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
+    </item>
+    
+    <item>
+      <title>[dataMining] LSH</title>
+      <link>https://liwm29.github.io/2021/04/datamining-lsh/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/04/datamining-lsh/</guid>
+      <description>locality sensitive hashing 位置敏感哈希,这是一种hash算法,当两个对象被hash到同一个桶中时,我们认为这两个对象是可能相似的,然后去检查这两个对象的相似性,</description>
     </item>
     
     <item>
@@ -85,10 +94,10 @@
     
     <item>
       <title>[underTheHood]  underTheHood</title>
-      <link>https://liwm29.github.io/2021/03/underthehood-underthehood/</link>
+      <link>https://liwm29.github.io/2021/03/aaaunderthehood-underthehood/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/underthehood-underthehood/</guid>
+      <guid>https://liwm29.github.io/2021/03/aaaunderthehood-underthehood/</guid>
       <description>UnderTheHood 这里记录一些具有高度总结性质的格言 Page Cache 主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache) 如此一来,一切都说得通了,</description>
     </item>
     
@@ -180,15 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/arch-design-pattern/</guid>
       <description>设计模式 聊聊我熟悉的设计模式 首先,推荐一下这门课: https://time.geekbang.org/column/intro/100039001 我看了目录,确实很有吸引力,可惜太贵了:( 创建型 用于创建类型 单例 单例模式常用于创建全局唯</description>
-    </item>
-    
-    <item>
-      <title>[c] trick1</title>
-      <link>https://liwm29.github.io/2021/03/c-trick1/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/c-trick1/</guid>
-      <description>总结一下在c语言中遇到的诸多Tricks 柔性数组 一个典型的柔性数组如下所示,数组本身是不占空间的 struct skipnode { int key; int value; struct sk_link link[0]; }; struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link)); 关</description>
     </item>
     
   </channel>
