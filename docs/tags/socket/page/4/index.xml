@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>[vue] import-export</title>
+      <link>https://liwm29.github.io/2021/03/vue-import-export/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/vue-import-export/</guid>
+      <description>About import and export 这是es6的语法,即js的语法 export用于对外输出本模块的数据 import用于引入其他模块的数据 语法细则 // 导出变量 // 法一 // js1 export var</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>https://liwm29.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

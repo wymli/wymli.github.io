@@ -6,7 +6,7 @@
     <description>Recent content in dataMining on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/categories/datamining/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,15 @@
       
       <guid>https://liwm29.github.io/2021/03/atomic-atomic/</guid>
       <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
+    </item>
+    
+    <item>
+      <title>recommend system</title>
+      <link>https://liwm29.github.io/2021/04/datamining-recsys/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/04/datamining-recsys/</guid>
+      <description>推荐系统 utility matrix效用矩阵,横轴是用户,纵轴是商品,矩阵元素是打分 推荐系统的三个核心步骤: 收集效用矩阵中的打分 从已知的打分中预测未知的打</description>
     </item>
     
     <item>
@@ -180,15 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/alg-sort/</guid>
       <description>排序算法 稳定性 假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[</description>
-    </item>
-    
-    <item>
-      <title>[arch] design pattern</title>
-      <link>https://liwm29.github.io/2021/03/arch-design-pattern/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/arch-design-pattern/</guid>
-      <description>设计模式 聊聊我熟悉的设计模式 首先,推荐一下这门课: https://time.geekbang.org/column/intro/100039001 我看了目录,确实很有吸引力,可惜太贵了:( 创建型 用于创建类型 单例 单例模式常用于创建全局唯</description>
     </item>
     
   </channel>

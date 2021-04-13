@@ -6,10 +6,19 @@
     <description>Recent content on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://liwm29.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[arch] design pattern</title>
+      <link>https://liwm29.github.io/2021/03/arch-design-pattern/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://liwm29.github.io/2021/03/arch-design-pattern/</guid>
+      <description>设计模式 聊聊我熟悉的设计模式 首先,推荐一下这门课: https://time.geekbang.org/column/intro/100039001 我看了目录,确实很有吸引力,可惜太贵了:( 创建型 用于创建类型 单例 单例模式常用于创建全局唯</description>
+    </item>
     
     <item>
       <title>[c] trick1</title>
@@ -180,15 +189,6 @@
       
       <guid>https://liwm29.github.io/2021/03/go-netaddr/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>[Go] radix-tree</title>
-      <link>https://liwm29.github.io/2021/03/go-radix-tree/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/go-radix-tree/</guid>
-      <description>Radix树 又叫压缩前缀树,基数树,常用于路由匹配上,会将路由组织成一颗radix树</description>
     </item>
     
   </channel>
