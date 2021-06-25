@@ -2,193 +2,193 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTTP on UnderTheHood</title>
-    <link>https://liwm29.github.io/categories/http/</link>
+    <link>https://wymli.github.io/categories/http/</link>
     <description>Recent content in HTTP on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://liwm29.github.io/categories/http/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://wymli.github.io/categories/http/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>[Go] radix-tree</title>
-      <link>https://liwm29.github.io/2021/03/go-radix-tree/</link>
+      <title>[Go] netaddr</title>
+      <link>https://wymli.github.io/2021/03/go-netaddr/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-radix-tree/</guid>
+      <guid>https://wymli.github.io/2021/03/go-netaddr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] radix-tree</title>
+      <link>https://wymli.github.io/2021/03/go-radix-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-radix-tree/</guid>
       <description>Radix树 又叫压缩前缀树,基数树,常用于路由匹配上,会将路由组织成一颗radix树</description>
     </item>
     
     <item>
       <title>[Go] reflect</title>
-      <link>https://liwm29.github.io/2021/03/go-reflect/</link>
+      <link>https://wymli.github.io/2021/03/go-reflect/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-reflect/</guid>
+      <guid>https://wymli.github.io/2021/03/go-reflect/</guid>
       <description>什么是反射? 反射提供了一种运行时能对对象增删查改的方法. 换句话说,当函数参数的interface{}时,提供了一种访问原来的类型和值的方法.</description>
     </item>
     
     <item>
       <title>[Go] runtime struct builder</title>
-      <link>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</link>
+      <link>https://wymli.github.io/2021/03/go-runtime-struct-builder/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-runtime-struct-builder/</guid>
+      <guid>https://wymli.github.io/2021/03/go-runtime-struct-builder/</guid>
       <description>Runtime Struct: 运行时结构体构造方法 参考: https://github.com/itsubaki/gostruct https://pkg.go.dev/reflect#example-StructOf reflect.New(typ reflect.Type) reflect.Value New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ). 因此,给定一个结构体类型的type,我们就可以构造出</description>
     </item>
     
     <item>
       <title>[Go] short var declare</title>
-      <link>https://liwm29.github.io/2021/03/go-short-var-declare/</link>
+      <link>https://wymli.github.io/2021/03/go-short-var-declare/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-short-var-declare/</guid>
+      <guid>https://wymli.github.io/2021/03/go-short-var-declare/</guid>
       <description>[Go] 短变量声明 := 在Go中,提供了动态语言常用的一种直接声明并赋值的语法糖,即 := 短变量声明 := 这个符号,可能是借鉴了Pascal 短变量声明有一定的</description>
     </item>
     
     <item>
       <title>[Go] slice index detail</title>
-      <link>https://liwm29.github.io/2021/03/go-slice-index-detail/</link>
+      <link>https://wymli.github.io/2021/03/go-slice-index-detail/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-slice-index-detail/</guid>
+      <guid>https://wymli.github.io/2021/03/go-slice-index-detail/</guid>
       <description>[Go] Slice的下标索引细节 在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治 常见的比如快排,恢复二叉树等 在c/c++中,我会使</description>
     </item>
     
     <item>
       <title>[Go] standard package layout</title>
-      <link>https://liwm29.github.io/2021/03/go-standard-package-layout/</link>
+      <link>https://wymli.github.io/2021/03/go-standard-package-layout/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-standard-package-layout/</guid>
+      <guid>https://wymli.github.io/2021/03/go-standard-package-layout/</guid>
       <description>Standard Package Layout 标准包布局 -Ben Johnson https://www.gobeyond.dev/standard-package-layout/ Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用</description>
     </item>
     
     <item>
       <title>[Go] user thread</title>
-      <link>https://liwm29.github.io/2021/03/go-user-thread/</link>
+      <link>https://wymli.github.io/2021/03/go-user-thread/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/go-user-thread/</guid>
+      <guid>https://wymli.github.io/2021/03/go-user-thread/</guid>
       <description>用户线程与核心线程 ref: Scheduler Activations: Effective Kernel Support for the User-Level Management of Parallelism 论文观点: We argue that the performance of user-levelthreads is inherently better than that of kernel threads, rather than thisbeing an artifact of existing implementations. kernel threads are the wrong abstraction on which to support user-level management of parallelism. 1.用户线程的</description>
     </item>
     
     <item>
       <title>[HTTP] Content-Type</title>
-      <link>https://liwm29.github.io/2021/03/http-content-type/</link>
+      <link>https://wymli.github.io/2021/03/http-content-type/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/http-content-type/</guid>
+      <guid>https://wymli.github.io/2021/03/http-content-type/</guid>
       <description>About Content-Type Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段 三种Content-Type application/x-www-form-urlencoded 默认类型,当for</description>
     </item>
     
     <item>
       <title>[interview] ByteDance&amp;Tencent</title>
-      <link>https://liwm29.github.io/2021/03/interview-bytedancetencent/</link>
+      <link>https://wymli.github.io/2021/03/interview-bytedancetencent/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/interview-bytedancetencent/</guid>
+      <guid>https://wymli.github.io/2021/03/interview-bytedancetencent/</guid>
       <description>ByteDance&amp;amp;Tencent 2021/3 暑期实习 腾讯一面 上来抛了道js,问我输出 const a = ( i : 0, toString(){ return i++ } ) print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2) 答案是false,没答出来,我当时主要纠结于为什么会调用t</description>
     </item>
     
     <item>
       <title>[interview] 杂</title>
-      <link>https://liwm29.github.io/2021/03/interview-%E6%9D%82/</link>
+      <link>https://wymli.github.io/2021/03/interview-%E6%9D%82/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/interview-%E6%9D%82/</guid>
+      <guid>https://wymli.github.io/2021/03/interview-%E6%9D%82/</guid>
       <description>记录一下为面试做的准备 声明: 以下知识点可能不完全正确,但也不会错的太离谱 记录一些知识点 数据库事务的四个特性: ACID 原子性,一致性,隔离性,持久性</description>
     </item>
     
     <item>
       <title>[linux] daemon</title>
-      <link>https://liwm29.github.io/2021/03/linux-bg-run-linux/</link>
+      <link>https://wymli.github.io/2021/03/linux-bg-run-linux/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/linux-bg-run-linux/</guid>
+      <guid>https://wymli.github.io/2021/03/linux-bg-run-linux/</guid>
       <description>[linux] 关于后台运行进程的小实验 我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置 守护模式 通</description>
     </item>
     
     <item>
       <title>[linux] high performance server</title>
-      <link>https://liwm29.github.io/2021/03/linux-high-performance-server/</link>
+      <link>https://wymli.github.io/2021/03/linux-high-performance-server/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/linux-high-performance-server/</guid>
+      <guid>https://wymli.github.io/2021/03/linux-high-performance-server/</guid>
       <description>高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd); B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind] C--&amp;gt;D[listen] D--&amp;gt;E[accept] E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;] F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E 一个传统的多线程服务器, pthread也可以换成fork,</description>
     </item>
     
     <item>
       <title>[linux] server intro</title>
-      <link>https://liwm29.github.io/2021/03/linux-server-intro/</link>
+      <link>https://wymli.github.io/2021/03/linux-server-intro/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/linux-server-intro/</guid>
+      <guid>https://wymli.github.io/2021/03/linux-server-intro/</guid>
       <description>Introduction to linux server linux 服务器导论 文件目录相关 假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式 如果是.d结尾,则代表</description>
     </item>
     
     <item>
       <title>[other] everyDay</title>
-      <link>https://liwm29.github.io/2021/03/other-everyday/</link>
+      <link>https://wymli.github.io/2021/03/other-everyday/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/other-everyday/</guid>
+      <guid>https://wymli.github.io/2021/03/other-everyday/</guid>
       <description>12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述</description>
     </item>
     
     <item>
       <title>[other] term</title>
-      <link>https://liwm29.github.io/2021/03/other-term/</link>
+      <link>https://wymli.github.io/2021/03/other-term/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/other-term/</guid>
+      <guid>https://wymli.github.io/2021/03/other-term/</guid>
       <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
     </item>
     
     <item>
       <title>[protocol] OAuth2</title>
-      <link>https://liwm29.github.io/2021/03/protocol-oauth2/</link>
+      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/protocol-oauth2/</guid>
+      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
       <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
     </item>
     
     <item>
       <title>[rpc] rpcx</title>
-      <link>https://liwm29.github.io/2021/03/rpc-rpcx/</link>
+      <link>https://wymli.github.io/2021/03/rpc-rpcx/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/rpc-rpcx/</guid>
+      <guid>https://wymli.github.io/2021/03/rpc-rpcx/</guid>
       <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
     </item>
     
     <item>
       <title>[sys] inotify</title>
-      <link>https://liwm29.github.io/2021/03/sys-inotify/</link>
+      <link>https://wymli.github.io/2021/03/sys-inotify/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/sys-inotify/</guid>
+      <guid>https://wymli.github.io/2021/03/sys-inotify/</guid>
       <description>Inotify The inotify API provides a mechanism for monitoring filesystem events. Inotify can be used to monitor individual files, or to monitor directories. When a directory is monitored, inotify will return events for the directory itself, and for files inside the directory. 四个API func InotifyInit() (fd int, err error) func InotifyInit1(flags int) (fd int, err error) 这个可以设置flag</description>
     </item>
     
     <item>
       <title>[sys] tsar&amp;proc</title>
-      <link>https://liwm29.github.io/2021/03/sys-tsarproc/</link>
+      <link>https://wymli.github.io/2021/03/sys-tsarproc/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/sys-tsarproc/</guid>
+      <guid>https://wymli.github.io/2021/03/sys-tsarproc/</guid>
       <description>TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息</description>
-    </item>
-    
-    <item>
-      <title>[vue] everything</title>
-      <link>https://liwm29.github.io/2021/03/vue-everything/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/vue-everything/</guid>
-      <description>1. vue的生命周期/运行流程/渲染流程/初始化流程 doc link vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue</description>
     </item>
     
   </channel>

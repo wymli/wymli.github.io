@@ -1,4 +1,4 @@
-baseURL: https://liwm29.github.io/
+baseURL: https://wymli.github.io/
 theme: pure
 title: UnderTheHood
 copyright: CC BY 4.0 CN
@@ -102,14 +102,14 @@ params:
     avatar: me.jpg
     gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
     author: Li Weiming
-    author_title: liwm29@sysu.sdcs
+    author_title: wymli@sysu.cse
     author_description: ONE CAN GO FAST
     location: Guangzhou, China
-    follow: https://github.com/liwm29
+    follow: https://github.com/wymli
     # Social Links
     social:
       links:
-        github: https://github.com/liwm29
+        github: https://github.com/wymli
         # weibo: http://weibo.com/{yourid}
         # twitter: https://twitter.com/
         # facebook: /

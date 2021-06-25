@@ -171,7 +171,7 @@ https://github.com/smartystreets/goconvey
 
 非常适合做行为测试,但是我们一般好像都只是做一下结果测试
 
-testtify
+#### testtify
 
 ```
 "github.com/stretchr/testify/assert"

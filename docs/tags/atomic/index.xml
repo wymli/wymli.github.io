@@ -2,193 +2,193 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>atomic on UnderTheHood</title>
-    <link>https://liwm29.github.io/tags/atomic/</link>
+    <link>https://wymli.github.io/tags/atomic/</link>
     <description>Recent content in atomic on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://liwm29.github.io/tags/atomic/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://wymli.github.io/tags/atomic/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TodoList</title>
-      <link>https://liwm29.github.io/2021/04/aatodo-todo-list/</link>
+      <link>https://wymli.github.io/2021/04/aatodo-todo-list/</link>
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/aatodo-todo-list/</guid>
+      <guid>https://wymli.github.io/2021/04/aatodo-todo-list/</guid>
       <description>TodoList sysmon线程 eBPF和ipvs : ref 数据挖掘: LHS 数学物理方程: 波动方程,热传导方程</description>
     </item>
     
     <item>
       <title>[atomic] atomic</title>
-      <link>https://liwm29.github.io/2021/03/atomic-atomic/</link>
+      <link>https://wymli.github.io/2021/03/atomic-atomic/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/atomic-atomic/</guid>
+      <guid>https://wymli.github.io/2021/03/atomic-atomic/</guid>
       <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
     </item>
     
     <item>
+      <title>[Go] 单测</title>
+      <link>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</link>
+      <pubDate>Fri, 25 Jun 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</guid>
+      <description>单测 单测在业务开发的重要性中不言而喻,在常见的epc规范中,一般的存量覆盖率要求达到50%,增量覆盖率要求达到80%. 当然,这个很教条,我们</description>
+    </item>
+    
+    <item>
       <title>recommend system</title>
-      <link>https://liwm29.github.io/2021/04/datamining-recsys/</link>
+      <link>https://wymli.github.io/2021/04/datamining-recsys/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/datamining-recsys/</guid>
+      <guid>https://wymli.github.io/2021/04/datamining-recsys/</guid>
       <description>推荐系统 utility matrix效用矩阵,横轴是用户,纵轴是商品,矩阵元素是打分 推荐系统的三个核心步骤: 收集效用矩阵中的打分 从已知的打分中预测未知的打</description>
     </item>
     
     <item>
       <title>[dataMining] LSH</title>
-      <link>https://liwm29.github.io/2021/04/datamining-lsh/</link>
+      <link>https://wymli.github.io/2021/04/datamining-lsh/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/datamining-lsh/</guid>
+      <guid>https://wymli.github.io/2021/04/datamining-lsh/</guid>
       <description>locality sensitive hashing 位置敏感哈希,这是一种hash算法,当两个对象被hash到同一个桶中时,我们认为这两个对象是可能相似的,然后去检查这两个对象的相似性,</description>
     </item>
     
     <item>
       <title>[mq] kafka4 工作原理</title>
-      <link>https://liwm29.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
+      <link>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
+      <guid>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
       <description>深入kafka 在此前的系列中,其实对于kafka集群和zk集群的区分很模糊,数据似乎有时是存在某个broker中的,又有时是存在zk中的 ka</description>
     </item>
     
     <item>
       <title>[zk] zk1 intro</title>
-      <link>https://liwm29.github.io/2021/04/zk-zk1-intro/</link>
+      <link>https://wymli.github.io/2021/04/zk-zk1-intro/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/zk-zk1-intro/</guid>
+      <guid>https://wymli.github.io/2021/04/zk-zk1-intro/</guid>
       <description>Intro 官方文档： https://zookeeper.apache.org/doc/r3.4.14/ zookeeper是一种分布式协调服务(也就是说常称的注册中心),分布式应用正在运行的一组系统称为集群，而在集群中运行的每台机</description>
     </item>
     
     <item>
       <title>[mq] kafka3 consumer</title>
-      <link>https://liwm29.github.io/2021/04/mq-kafka3-consumer/</link>
+      <link>https://wymli.github.io/2021/04/mq-kafka3-consumer/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/mq-kafka3-consumer/</guid>
+      <guid>https://wymli.github.io/2021/04/mq-kafka3-consumer/</guid>
       <description>kafka3 consumer [TOC] 消费组 往群组里增加消费者是横向伸缩消费能力的主要方式 消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个t</description>
     </item>
     
     <item>
       <title>[mq] kafka1.5 install</title>
-      <link>https://liwm29.github.io/2021/04/mq-kafka1.5-install/</link>
+      <link>https://wymli.github.io/2021/04/mq-kafka1.5-install/</link>
       <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/04/mq-kafka1.5-install/</guid>
+      <guid>https://wymli.github.io/2021/04/mq-kafka1.5-install/</guid>
       <description>安装kafka 我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get sea</description>
     </item>
     
     <item>
       <title>[mq] kafka2 producer</title>
-      <link>https://liwm29.github.io/2021/03/mq-kafka2-producer/</link>
+      <link>https://wymli.github.io/2021/03/mq-kafka2-producer/</link>
       <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/mq-kafka2-producer/</guid>
+      <guid>https://wymli.github.io/2021/03/mq-kafka2-producer/</guid>
       <description>kafka producer 参考kafka技术内幕:图文详解kafka源码设计和实现 本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网</description>
     </item>
     
     <item>
       <title>[sys] 虚拟内存与缓存缓冲</title>
-      <link>https://liwm29.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</link>
+      <link>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
+      <guid>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
       <description>虚拟内存virtual memory 什么是虚拟内存,应该不用多言.本质就是一个逻辑的虚拟地址空间,这些地址空间中,有的地址真正的对应到了物理内存的地址,</description>
     </item>
     
     <item>
       <title>[underTheHood]  underTheHood</title>
-      <link>https://liwm29.github.io/2021/03/aaaunderthehood-underthehood/</link>
+      <link>https://wymli.github.io/2021/03/aaaunderthehood-underthehood/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/aaaunderthehood-underthehood/</guid>
+      <guid>https://wymli.github.io/2021/03/aaaunderthehood-underthehood/</guid>
       <description>UnderTheHood 这里记录一些具有高度总结性质的格言 Page Cache 主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache) 如此一来,一切都说得通了,</description>
     </item>
     
     <item>
       <title>[mq] kafka1 intro</title>
-      <link>https://liwm29.github.io/2021/03/mq-kafka1-intro/</link>
+      <link>https://wymli.github.io/2021/03/mq-kafka1-intro/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/mq-kafka1-intro/</guid>
+      <guid>https://wymli.github.io/2021/03/mq-kafka1-intro/</guid>
       <description>kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除</description>
     </item>
     
     <item>
       <title>[Other] Go优点</title>
-      <link>https://liwm29.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</link>
+      <link>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</link>
       <pubDate>Sat, 27 Mar 2021 21:09:05 +0800</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</guid>
+      <guid>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</guid>
       <description>列举我心目中的go的优点 实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件 现代的包管理go get/go m</description>
     </item>
     
     <item>
       <title>[interview] ByteDance2</title>
-      <link>https://liwm29.github.io/2021/03/interview-bytedance2/</link>
+      <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/interview-bytedance2/</guid>
+      <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
       <description>字节二面 算法题: 二叉树中的最长距离 又拉跨了,太久没做题了,做了很久 并发和并行的区别 讲讲go的协程调度 GMP模型,balabala讲一堆,提到</description>
     </item>
     
     <item>
       <title>[rpc] grpc</title>
-      <link>https://liwm29.github.io/2021/03/rpc-grpc/</link>
+      <link>https://wymli.github.io/2021/03/rpc-grpc/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/rpc-grpc/</guid>
+      <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
       <description>grpc grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就</description>
     </item>
     
     <item>
       <title>[rpc] intro</title>
-      <link>https://liwm29.github.io/2021/03/rpc-intro/</link>
+      <link>https://wymli.github.io/2021/03/rpc-intro/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/rpc-intro/</guid>
+      <guid>https://wymli.github.io/2021/03/rpc-intro/</guid>
       <description>什么是RPC? rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数 在传统的单体服务中,所有的函数都写在一个进程映</description>
     </item>
     
     <item>
       <title>[rpc] net/rpc</title>
-      <link>https://liwm29.github.io/2021/03/rpc-net-rpc/</link>
+      <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/rpc-net-rpc/</guid>
+      <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
       <description>net/rpc 如下是一段极简的net/rpc代码, client.Call()代表这是一个同步的rpc,如果是异步,net/rpc提供了client.Go</description>
     </item>
     
     <item>
       <title>[mem] Buddy system</title>
-      <link>https://liwm29.github.io/2021/03/mem-buddyfreelist/</link>
+      <link>https://wymli.github.io/2021/03/mem-buddyfreelist/</link>
       <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/mem-buddyfreelist/</guid>
+      <guid>https://wymli.github.io/2021/03/mem-buddyfreelist/</guid>
       <description>Buddy system linux底层使用buddy-system+slab slab位于buddy-system的上层 伙伴系统是一种基于二分的动态分区算法,一开</description>
     </item>
     
     <item>
       <title>[mem] tcmalloc</title>
-      <link>https://liwm29.github.io/2021/03/mem-tcmalloc/</link>
+      <link>https://wymli.github.io/2021/03/mem-tcmalloc/</link>
       <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/mem-tcmalloc/</guid>
+      <guid>https://wymli.github.io/2021/03/mem-tcmalloc/</guid>
       <description>TCMalloc thread-caching malloc 顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的</description>
-    </item>
-    
-    <item>
-      <title>[alg] sort</title>
-      <link>https://liwm29.github.io/2021/03/alg-sort/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://liwm29.github.io/2021/03/alg-sort/</guid>
-      <description>排序算法 稳定性 假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[</description>
     </item>
     
   </channel>

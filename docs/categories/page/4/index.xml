@@ -2,30 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on UnderTheHood</title>
-    <link>https://liwm29.github.io/categories/</link>
+    <link>https://wymli.github.io/categories/</link>
     <description>Recent content in Categories on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Jun 2021 12:23:27 +0800</lastBuildDate>
     
-        <atom:link href="https://liwm29.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>[vue] import-export</title>
-      <link>https://liwm29.github.io/2021/03/vue-import-export/</link>
+      <title>[vue] everything</title>
+      <link>https://wymli.github.io/2021/03/vue-everything/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/2021/03/vue-import-export/</guid>
+      <guid>https://wymli.github.io/2021/03/vue-everything/</guid>
+      <description>1. vue的生命周期/运行流程/渲染流程/初始化流程 doc link vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue</description>
+    </item>
+    
+    <item>
+      <title>[vue] import-export</title>
+      <link>https://wymli.github.io/2021/03/vue-import-export/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/vue-import-export/</guid>
       <description>About import and export 这是es6的语法,即js的语法 export用于对外输出本模块的数据 import用于引入其他模块的数据 语法细则 // 导出变量 // 法一 // js1 export var</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://liwm29.github.io/about/</link>
+      <link>https://wymli.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/about/</guid>
+      <guid>https://wymli.github.io/about/</guid>
       <description>Hi there 👋 🏃 求实习
 About me: ♂, 信息与计算科学(计算机学院) 中山大学 广州
 2018 - 2022
@@ -34,28 +43,28 @@ Contact me: liwm29@mail2.sysu.edu.cn</description>
     
     <item>
       <title></title>
-      <link>https://liwm29.github.io/1/01/datamining-cluster/</link>
+      <link>https://wymli.github.io/1/01/datamining-cluster/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/1/01/datamining-cluster/</guid>
+      <guid>https://wymli.github.io/1/01/datamining-cluster/</guid>
       <description>聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离</description>
     </item>
     
     <item>
       <title>[c] 符号与链接</title>
-      <link>https://liwm29.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</link>
+      <link>https://wymli.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</guid>
+      <guid>https://wymli.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</guid>
       <description>[c] 符号与链接 我们知道,一个可执行文件的生成过程经历了一些步骤: 预处理-&amp;gt;编译-&amp;gt;汇编-&amp;gt;链接 最终的步骤,是将不同的.o目标</description>
     </item>
     
     <item>
       <title>[sys] unix domain socket</title>
-      <link>https://liwm29.github.io/1/01/sys-unix-domain-socket/</link>
+      <link>https://wymli.github.io/1/01/sys-unix-domain-socket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://liwm29.github.io/1/01/sys-unix-domain-socket/</guid>
+      <guid>https://wymli.github.io/1/01/sys-unix-domain-socket/</guid>
       <description>荐读 unix domain sockets vs. internet sockets 简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经</description>
     </item>
     
