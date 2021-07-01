@@ -2,7 +2,7 @@
 title: "[mq] kafka1 intro"
 date: 2021-03-29
 categories: ["mq" , "kafka"]
-tag: ["mq" , "kafka"]
+tags: ["mq" , "kafka"]
 ---
 
 # kafka1 intro
