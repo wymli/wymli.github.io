@@ -5,7 +5,9 @@ tags : ["Go" ,"design-pattern"]
 categories : ["Go"]
 ---
 
-# 设计模式-构造器
+# 设计模式-多步骤构造器
+
+[TOC]
 
 想像这样一个场景,我们有一个工人类,工人可以吃饭,工作,睡觉
 
@@ -53,18 +55,21 @@ w := workerImpl{}
 w.Register()
 w.CheckIn()
 w.Study()
-w.VerifyAll()
+w.Verify()
 
 w.Work()
 w.Eat()
 w.Sleep()
 ```
 
+这显然很丑陋,并且不符合逻辑,我们
 
+- 1: 无法控制用户对Register,CheckIn,Study,Verify的调用顺序
+- 2: 也无法保证用户在Verify后不再调用这些前置条件函数
 
 ## 方案2: builder
 
-我们独立出一个builder构造类来专门做构造工作
+为了解决问题2,我们独立出一个builder构造类来专门做构造工作
 
 ```go
 b := workerBuilder{}
@@ -74,7 +79,7 @@ b.Study()
 worker := b.Build()
 ```
 
-这样,在每一步调用函数后得到的一些消息就可以保留在workerBuilder里面,链路传递下去
+这样,build()后返回的workerImpl,可以只实现eat/sleep/work三个方法.
 
 ```go
 type workerBuilder struct{
@@ -85,12 +90,11 @@ func (wb workerBuilder) Build() *workerImpl{
     check(wb.registerInfo)
     check(wb.checkInInfo)
     check(wb.studyInfo)
-    // 做一些其他事,这些事会依赖这三个字段
     return &workerImpl{}
 }
 ```
 
-缺点很明显,我们显式强制要求了register,checkin,study的调用顺序,但是对于程序员来说,这是无法控制的,使用者也许会先调用b.Study()
+但是我们仍然没有解决register,checkin,study的调用顺序问题,用户也许先调用Study再Register
 
 ## 方案3: 柯里化,返回下一步的构造函数
 
@@ -98,31 +102,33 @@ func (wb workerBuilder) Build() *workerImpl{
 
 ```go
 checkIn := RegisterWorker()
-study := checkIn()
-verify := study()
-worker := verify()
+study := checkIn("1")
+verify := study("B")
+worker := verify("1")
 ```
 
 如此一来,我们就很好的指定了下一步该调用哪个步骤
 
-注意,每一步返回的函数都是一个闭包,这样就可以在全链路中传递`registerInfo, checkInInfo , studyInfo string`
+> 注意,每一步返回的函数都是一个闭包,这样就可以在全链路中传递`registerInfo, checkInInfo , studyInfo string`
 
 比如:
 
 ```go
-type checkIn func() study
-type study func() verify
-type verify func() workerImpl
+type checkIn func(checkInCode string) study
+type study func(studyClass string) verify
+type verify func(verifyCode string) workerImpl
 
-func RegisterWorker() checkIn{
-    registerInfo := register()
-    return func() study{
-        checkInInfo := checkIn(registerInfo)
-        return func() verify{
-            studyInfo := study(checkInInfo)
-            return func () workerImpl{
-                check(studyInfo)
-                return workerImpl{}
+func RegisterWorker() checkIn {
+    registerInfo := registerF()
+    return func(checkInCode string) study{
+        checkInInfo := checkInF(registerInfo,checkInCode)
+        return func(studyClass string) verify{
+            studyInfo := studyF(checkInInfo, studyClass)
+            return func(verifyCode string) workerImpl{
+                if ok := verifyF(studyInfo , verifyCode);ok{
+                    return workerImpl{...}
+                }
+                return nil
             }
         }
     }
@@ -132,17 +138,58 @@ func RegisterWorker() checkIn{
 有时候,我们需要一些信息暴露出来,这也简单,函数返回即可
 
 ```go
-registerInfo, checkIn := RegisterWorker()
-fmt.Println(registerInfo)
-var a int
-fmt.Scanln(&a)
-study := checkIn(a)
-verify := study()
-worker := verify()
+func RegisterWorker() (string, checkIn) {
+    registerInfo := registerF()
+    return registerInfo , func(checkInCode string) study{
+        // ...
+    }
+}
 ```
 
 
 
 这很好的使得用户调用代码简单了,但是随之带来一个问题,在多步骤构建过程中,代码会有较多缩进
 
-不过只要我们将各个步骤的业务代码抽象成函数,只在柯里化中调用一个函数,然后返回下一个构建函数,还是可以接收的
+不过只要我们将各个步骤的业务代码抽象成函数(指上例中的`register()`,`checkIn(registerInfo)`,`study(checkInInfo)`等函数),只在柯里化中调用一个函数,然后返回下一个构建函数,还是可以接收的
+
+## 方案4: 装饰函数以避免callback hell
+
+用函数wrap<装饰器decorate>代替闭包匿名函数
+
+```go
+type checkIn func(checkInCode string) study
+type study func(studyClass string) verify
+type verify func(verifyCode string) workerImpl
+
+func RegisterWorker() checkIn {
+    registerInfo := registerF()
+    return checkInWrap(registerInfo)
+}
+
+func checkInWrap(ri *registerInfo) checkIn{
+    return func(checkInCode string) study{
+        checkInInfo := checkInF(ri,checkInCode)
+        return studyWrap(checkInfo)
+    }
+}
+
+func studyWrap(ci *checkInInfo) study{
+    return func(studyClass string) verify{
+        studyInfo := studyF(ci, studyClass)
+        return verifyWrap(studyInfo)
+    }
+}
+
+func verifyWrap(si *studyInfo)verify{
+    return func(verifyCode string) workerImpl{
+        if ok := verifyF(si , verifyCode);ok{
+            return workerImpl{...}
+        }
+        return nil
+    }
+}
+```
+
+原理:我们之前使用闭包的原因就是为了获取`registerInfo,checkInInfo,studyInfo`这些数据,所以也可以使用wrap把他们包起来,作为函数参数传入,效果是一样的
+
+其实闭包就相当于匿名函数,这里的wrap就是具名函数,匿名函数天然获取外部数据引用,具名函数通过显式传参来获取引用.
