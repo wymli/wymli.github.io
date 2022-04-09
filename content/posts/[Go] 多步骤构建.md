@@ -1,5 +1,5 @@
 ---
-title: "[Go] 设计模式-构造器 多步骤构建和柯里化"
+title: "[Go] 多步骤构造器"
 date: 2021-07-10T12:23:27+08:00
 tags : ["Go" ,"design-pattern"]
 categories : ["Go"]
