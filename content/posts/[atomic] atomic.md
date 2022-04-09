@@ -3,7 +3,6 @@ title: "[atomic] atomic"
 date: 2021-03-25
 tags: ["atomic"]
 categories: ["atomic"]
-weight: 1
 ---
 
 # 关于RMW与Atomic LD/ST

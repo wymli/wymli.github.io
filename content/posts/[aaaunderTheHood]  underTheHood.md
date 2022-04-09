@@ -3,7 +3,7 @@ title: "[underTheHood] 基础-重要-知识-教旨-格言-蝉"
 date: 2021-04-10
 categories: ["underTheHood"]
 tags: ["underTheHood"]
-weight: 2
+weight: 100
 ---
 
 # UnderTheHood
@@ -46,3 +46,6 @@ weight: 2
 
 ## 组件依赖
 如果你只是想要实现一个差不多就行的，或者说是内部系统，建议不要引入太多外部依赖，可以使用一些嵌入式的数据库，比如badger，嵌入式kv。
+
+## 原子读写
+。。。

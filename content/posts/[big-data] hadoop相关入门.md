@@ -1,8 +1,8 @@
 ---
 title: "[big-data] 大数据入门"
-date: 2021-04-10
+date: 2022-04-10
 categories: ["big-data"]
-tags: ["bug-data"]
+tags: ["big-data"]
 ---
 
 # 大数据
