@@ -6,10 +6,37 @@
     <description>Recent content in underTheHood on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Apr 2021 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/underthehood/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] goroutine pool</title>
+      <link>https://wymli.github.io/2021/03/go-goroutine-pool/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-goroutine-pool/</guid>
+      <description>Goroutine Pool 代码来自:gobwas/ws-example 在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,</description>
+    </item>
+    
+    <item>
+      <title>[Go] monkey patch</title>
+      <link>https://wymli.github.io/2021/03/go-monkey-patch/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-monkey-patch/</guid>
+      <description>Monkey patch 猴子补丁 ref: https://bou.ke/blog/monkey-patching-in-go/ Intro: 什么是monkey patch? package main func a() int { return 1 } func b() int { return 2 } func main() { replace(a, b) print(a()) // 2 } monkey patch将做到如上的效果,当你调用a函数时,实际</description>
+    </item>
+    
+    <item>
+      <title>[Go] mutex</title>
+      <link>https://wymli.github.io/2021/03/go-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-mutex/</guid>
+      <description>mutex 结构 type Mutex struct { state int32 sema uint32 } 自旋 for{ cas(m.state) } 阻塞 wait(m.sema) 状态 普通模式 就是正常的模式,线程相互竞争获得锁 饥饿模式 由于线程竞争失败会阻塞,而这些被唤醒的线程会和</description>
+    </item>
     
     <item>
       <title>[Go] netaddr</title>
@@ -162,33 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
       <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
-    </item>
-    
-    <item>
-      <title>[rpc] rpcx</title>
-      <link>https://wymli.github.io/2021/03/rpc-rpcx/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/rpc-rpcx/</guid>
-      <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
-    </item>
-    
-    <item>
-      <title>[sys] inotify</title>
-      <link>https://wymli.github.io/2021/03/sys-inotify/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/sys-inotify/</guid>
-      <description>Inotify The inotify API provides a mechanism for monitoring filesystem events. Inotify can be used to monitor individual files, or to monitor directories. When a directory is monitored, inotify will return events for the directory itself, and for files inside the directory. 四个API func InotifyInit() (fd int, err error) func InotifyInit1(flags int) (fd int, err error) 这个可以设置flag</description>
-    </item>
-    
-    <item>
-      <title>[sys] tsar&amp;proc</title>
-      <link>https://wymli.github.io/2021/03/sys-tsarproc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/sys-tsarproc/</guid>
-      <description>TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息</description>
     </item>
     
   </channel>

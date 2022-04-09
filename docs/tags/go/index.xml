@@ -6,7 +6,7 @@
     <description>Recent content in Go on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 25 Jun 2021 12:23:27 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jul 2021 12:23:27 +0800</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,16 +17,43 @@
       <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/04/aatodo-todo-list/</guid>
-      <description>TodoList sysmon线程 eBPF和ipvs : ref 数据挖掘: LHS 数学物理方程: 波动方程,热传导方程</description>
+      <description>TodoList sysmon线程 eBPF和ipvs : ref kafka client, 看看sarama,了解kafka客户端能获得哪些东西,server api暴露了哪些东西 kv db, 比如e</description>
     </item>
     
     <item>
-      <title>[atomic] atomic</title>
-      <link>https://wymli.github.io/2021/03/atomic-atomic/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <title>[underTheHood] 基础-重要-知识-教旨-格言-蝉</title>
+      <link>https://wymli.github.io/2021/04/aaaunderthehood-underthehood/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wymli.github.io/2021/03/atomic-atomic/</guid>
-      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
+      <guid>https://wymli.github.io/2021/04/aaaunderthehood-underthehood/</guid>
+      <description>UnderTheHood 这里记录一些具有重要的知识 Page Cache 主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache) 如此一来,一切都说得通了,我们常说</description>
+    </item>
+    
+    <item>
+      <title>[脚本] 脚本</title>
+      <link>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</guid>
+      <description>输出version到文件 version=`git log --date=iso --pretty=format:&amp;quot;%cd @%H&amp;quot; -1` if [ $? -ne 0 ]; then version=&amp;quot;unknown version&amp;quot; fi compile=`date +&amp;quot;%F %T %z&amp;quot;`&amp;quot; by &amp;quot;`go version` if [ $? -ne 0 ]; then compile=&amp;quot;unknown datetime&amp;quot; fi describe=`git describe --tags 2&amp;gt;/dev/null` if [ $? -eq 0 ]; then version=&amp;quot;${version} @${describe}&amp;quot; fi cat &amp;lt;&amp;lt; EOF | gofmt &amp;gt; pkg/utils/version.go package utils const (</description>
+    </item>
+    
+    <item>
+      <title>[Go] 多步骤构造器</title>
+      <link>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</link>
+      <pubDate>Sat, 10 Jul 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</guid>
+      <description>设计模式-多步骤构造器 [TOC] 想像这样一个场景,我们有一个工人类,工人可以吃饭,工作,睡觉 type worker interface{ eat() work() sleep() } 但是如何获得一个工人呢?常见的我们有一个N</description>
+    </item>
+    
+    <item>
+      <title>[DB] redis</title>
+      <link>https://wymli.github.io/2021/07/db-redis/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/db-redis/</guid>
+      <description>关于redis的大部分事情 非常不错: https://redis.io/topics/data-types-intro redis的数据结构: Binary-safe strings. Lists: collections of string elements sorted according to the order of insertion. They are basically linked lists. Sets: collections of unique, unsorted string elements. Sorted sets, similar to Sets but where every string element is associated to a</description>
     </item>
     
     <item>
@@ -111,15 +138,6 @@
     </item>
     
     <item>
-      <title>[underTheHood]  underTheHood</title>
-      <link>https://wymli.github.io/2021/03/aaaunderthehood-underthehood/</link>
-      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/aaaunderthehood-underthehood/</guid>
-      <description>UnderTheHood 这里记录一些具有高度总结性质的格言 Page Cache 主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache) 如此一来,一切都说得通了,</description>
-    </item>
-    
-    <item>
       <title>[mq] kafka1 intro</title>
       <link>https://wymli.github.io/2021/03/mq-kafka1-intro/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
@@ -171,24 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
       <description>net/rpc 如下是一段极简的net/rpc代码, client.Call()代表这是一个同步的rpc,如果是异步,net/rpc提供了client.Go</description>
-    </item>
-    
-    <item>
-      <title>[mem] Buddy system</title>
-      <link>https://wymli.github.io/2021/03/mem-buddyfreelist/</link>
-      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/mem-buddyfreelist/</guid>
-      <description>Buddy system linux底层使用buddy-system+slab slab位于buddy-system的上层 伙伴系统是一种基于二分的动态分区算法,一开</description>
-    </item>
-    
-    <item>
-      <title>[mem] tcmalloc</title>
-      <link>https://wymli.github.io/2021/03/mem-tcmalloc/</link>
-      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/mem-tcmalloc/</guid>
-      <description>TCMalloc thread-caching malloc 顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的</description>
     </item>
     
   </channel>
