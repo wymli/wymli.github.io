@@ -6,10 +6,19 @@
     <description>Recent content on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[protocol] OAuth2</title>
+      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
+      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
+    </item>
     
     <item>
       <title>[rpc] rpcx</title>

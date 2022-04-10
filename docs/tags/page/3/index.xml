@@ -6,10 +6,19 @@
     <description>Recent content in Tags on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] GC</title>
+      <link>https://wymli.github.io/2021/03/go-gc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-gc/</guid>
+      <description>垃圾回收算法 https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/ 有两种常见的自动管理堆内存的方法: 引用计数/智能指针 追踪式垃圾回收(对堆内存的对象关系图进行可达性分析) 术语 根对象: 包括所有栈</description>
+    </item>
     
     <item>
       <title>[Go] goroutine pool</title>
@@ -180,15 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/other-term/</guid>
       <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
-    </item>
-    
-    <item>
-      <title>[protocol] OAuth2</title>
-      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
-      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
     </item>
     
   </channel>

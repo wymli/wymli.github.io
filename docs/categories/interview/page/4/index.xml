@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>[protocol] OAuth2</title>
+      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
+      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
+    </item>
+    
+    <item>
       <title>[rpc] rpcx</title>
       <link>https://wymli.github.io/2021/03/rpc-rpcx/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>

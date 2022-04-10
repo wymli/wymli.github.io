@@ -6,6 +6,16 @@ tags: ["underTheHood"]
 weight: 100
 ---
 
+
+<!-- 
+  hugo使用指南：
+  hugo new posts/first.md
+  hugo // 如果直接加文件，需要hugo一下，编译前端
+  git add .
+  git commit -m "asdf"
+  git push
+ -->
+
 # UnderTheHood
 
 这里记录一些具有重要的知识

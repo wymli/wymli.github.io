@@ -29,6 +29,15 @@
     </item>
     
     <item>
+      <title>[big-data] 大数据入门</title>
+      <link>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</guid>
+      <description>大数据 未来工作或多或少要接触大数据，学习下。 glossary hadoop， 可以认为大数据平台就是hadoop平台/hadoop集群的代名词 hadoop集群</description>
+    </item>
+    
+    <item>
       <title>[脚本] 脚本</title>
       <link>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
@@ -179,15 +188,6 @@
       
       <guid>https://wymli.github.io/2021/03/rpc-intro/</guid>
       <description>什么是RPC? rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数 在传统的单体服务中,所有的函数都写在一个进程映</description>
-    </item>
-    
-    <item>
-      <title>[rpc] net/rpc</title>
-      <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
-      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
-      <description>net/rpc 如下是一段极简的net/rpc代码, client.Call()代表这是一个同步的rpc,如果是异步,net/rpc提供了client.Go</description>
     </item>
     
   </channel>

@@ -6,10 +6,19 @@
     <description>Recent content on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[rpc] net/rpc</title>
+      <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
+      <description>net/rpc 如下是一段极简的net/rpc代码, client.Call()代表这是一个同步的rpc,如果是异步,net/rpc提供了client.Go</description>
+    </item>
     
     <item>
       <title>[mem] Buddy system</title>
@@ -180,15 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/go-escape-analysis/</guid>
       <description>逃逸分析 首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配 注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当</description>
-    </item>
-    
-    <item>
-      <title>[Go] GC</title>
-      <link>https://wymli.github.io/2021/03/go-gc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-gc/</guid>
-      <description>垃圾回收算法 https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/ 有两种常见的自动管理堆内存的方法: 引用计数/智能指针 追踪式垃圾回收(对堆内存的对象关系图进行可达性分析) 术语 根对象: 包括所有栈</description>
     </item>
     
   </channel>
