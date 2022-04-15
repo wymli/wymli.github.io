@@ -40,12 +40,11 @@ tags: ["big-data"]
 ## MapReduce
 - 没啥，一个计算框架呗，将输入输出的过程分为：
   - Input
-  - Map
-  - Sort
-  - Combine
-  - Reduce
+  - 无状态Map，比如map，flatmap， filter，foreach
+  - 有状态Reduce，比如reduceby，sortby，group， fold
   - Output
 - 用户只需要在特定的阶段编写自己的代码即可
+- 本质上就是提供对单个元素操作，以及对一群元素操作的api，可以看看spark.rdd暴露的[api](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.RDD.reduceByKey.html)
 
 
 ## HBase
@@ -60,6 +59,16 @@ tags: ["big-data"]
 
 
 ## Hive
-- Hive是一个工具，将HiveQL转成MapReduce任务
-- Hive建立在hdfs之上
-- 
+- Hive是一个工具，将HiveQL转成MapReduce任务（也可以是spark任务）,一个简单的例子是HBase不支持SQL，所以可以使用HiveQL操作HBase
+- Hive建立在hdfs或相关生态之上（比如hbase）
+- Hive在普通的查询语句之前，要先建表
+- 关于建表，数据存储，可以看看[这个](https://blog.csdn.net/xxydzyr/article/details/100915053)。
+- 简单来说就是，hive建立的表是一种虚拟的表，相当于只是一种元数据schema。表里的数据是存在hdfs上的，当你建完表之后，就会在hive对应的hdfs路径里自动创建一个该表的文件夹，你需要自己把你的数据文件拷贝进去。然后就可以通过hql查询了。后续应该是直接把数据存到hive对应的hdfs里。
+- hive还支持一种external表，可以指定对应的数据存储的hdfs路径，而不需要将数据放到hive对应的路径里面。
+
+## Spark
+- 并行计算框架
+- 支持流式(spark streaming)或批式(spark core)
+- spark streaming 会将流处理成一个个窗口，所以其实底层还是批式的spark core
+- 部署方式有spark standalone， spark on yarn
+- 参看另一篇专门介绍spark的文章

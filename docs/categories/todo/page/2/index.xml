@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>[rpc] intro</title>
+      <link>https://wymli.github.io/2021/03/rpc-intro/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-intro/</guid>
+      <description>什么是RPC? rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数 在传统的单体服务中,所有的函数都写在一个进程映</description>
+    </item>
+    
+    <item>
       <title>[rpc] net/rpc</title>
       <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
@@ -180,15 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/go-errorx/</guid>
       <description>Error go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下if err!=nil{return err} 而对于进阶一点的程序员,则会诟病它的error接口设</description>
-    </item>
-    
-    <item>
-      <title>[Go] escape analysis</title>
-      <link>https://wymli.github.io/2021/03/go-escape-analysis/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-escape-analysis/</guid>
-      <description>逃逸分析 首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配 注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当</description>
     </item>
     
   </channel>

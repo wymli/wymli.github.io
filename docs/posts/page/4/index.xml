@@ -6,10 +6,19 @@
     <description>Recent content in Posts on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[other] term</title>
+      <link>https://wymli.github.io/2021/03/other-term/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/other-term/</guid>
+      <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
+    </item>
     
     <item>
       <title>[protocol] OAuth2</title>

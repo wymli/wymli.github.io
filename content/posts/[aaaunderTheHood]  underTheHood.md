@@ -59,3 +59,26 @@ weight: 100
 
 ## 原子读写
 。。。
+
+## protobuf
+一个对象应该独立成一个message，而不是嵌入到Response。
+```
+// Contains Production-related information  
+message Production {
+  string id = 1;
+  // ... more fields
+}
+
+message GetProductionRequest {
+  string production_id = 1;
+}
+
+message GetProductionResponse {
+  Production production = 1;
+} 
+
+service ProductionService {
+  rpc GetProduction (GetProductionRequest) returns (GetProductionResponse);
+}
+```
+一个良好实现上，Request应该加上FieldMask，以标识所期望收到的Response的字段，实现按需。http://dockone.io/article/2434655
