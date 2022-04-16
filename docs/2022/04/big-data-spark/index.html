@@ -39,7 +39,7 @@
 <meta itemprop="name" content="[big-data] spark">
 <meta itemprop="description" content="Spark 并行计算框架 支持流式或批式 spark提交有一个单独的spark-commit.sh脚本 批处理是spark core 流处理是spark streami"><meta itemprop="datePublished" content="2022-04-15T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-04-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2705">
+<meta itemprop="wordCount" content="4802">
 <meta itemprop="keywords" content="big-data," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[big-data] spark"/>
 <meta name="twitter:description" content="Spark 并行计算框架 支持流式或批式 spark提交有一个单独的spark-commit.sh脚本 批处理是spark core 流处理是spark streami"/>
@@ -598,8 +598,8 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/big-data/"> big-data </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2705 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 6 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 4802 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 10 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -672,6 +672,8 @@ sc.stop()
 <p>窄依赖就是指父RDD的每个分区只被一个子RDD分区使用，子RDD分区通常只对应常数个父RDD分区，典型的如map，filter，union（常数个父RDD） 
 宽依赖就是指父RDD的每个分区都有可能被多个子RDD分区使用，子RDD分区通常对应父RDD所有分区，典型的如groupByKey</p>
 <p>注意上面所说的分区，是RDD-&gt;Partition-&gt;Record 这个关系里的分区。在Spark中以Partition为单位进行操作。在对stage从后往前拓展时，遇到窄依赖就将其加入stage，遇到宽依赖就断开，重新是一个stage。</p>
+<h3 id="transformation-算子和action-算子的区别">transformation 算子和action 算子的区别</h3>
+<p>Transformation是lazy的，用于定义新的RDD；而Action启动计算操作，提交一个Job，并向用户程序（driver，yarn的appMaster）返回值或向外部存储写数据</p>
 <h2 id="部署方式">部署方式</h2>
 <p>我们需要cluster manager来管理机器，不同的cluster manager就是不同的部署方式</p>
 <h3 id="spark-standalone">spark standalone</h3>
@@ -680,18 +682,179 @@ sc.stop()
 <p>前面spark standalone的方式比较笨且繁琐，如果有很多机器，有很多类似spark这样的分布式集群应用，那每台机器都要手动运行一下对应的manager process，很麻烦。<br>
 yarn给出了一种统一的管理机器的方式，支持多种分布式集群应用，比如spark，flink这些大数据场景应用。换句话说，是将机器上的spark-worker进程换成了yarn的nodeManager进程，而这种nodeManager进程不仅支持spark，还支持flink等。<br>
 对于spark on yarn，就让yarn帮助我们管理机器，所谓的管理机器呢，我的理解就是处在对应机器上运行的管理进程作为一个代理，是能够帮你分配资源，启动进程等等。此时，driver就是yarn的AppMaster。</p>
-<h1 id="spark-1">Spark</h1>
-<h2 id="名词">名词</h2>
-<p><a href="https://spark.apache.org/docs/latest/spark-standalone.html">https://spark.apache.org/docs/latest/spark-standalone.html</a>
-<a href="https://spark.apache.org/docs/latest/cluster-overview.html">https://spark.apache.org/docs/latest/cluster-overview.html</a>
-glossary: <a href="https://spark.apache.org/docs/latest/cluster-overview.html#glossary">https://spark.apache.org/docs/latest/cluster-overview.html#glossary</a></p>
+<h4 id="详细流程">详细流程</h4>
+<p>yarn集群模式为例，部署模式也是cluster；参考 <a href="https://cangchen.blog.csdn.net/article/details/120278516">here</a></p>
+<blockquote>
+<p>spark deploy部署部分的代码在<a href="https://github.com/apache/spark/tree/master/core/src/main/scala/org/apache/spark/deploy">此处</a></p>
+</blockquote>
+<ol>
+<li>spark-submit.sh <a href="https://github.com/apache/spark/tree/master/sbin">脚本</a>开始提交，参数master指定yarn，java代码指定jar包&ndash;jar和主类名&ndash;class（main函数在的类，这和java运行机制相关），其他语言如python/r，只要指定文件即可</li>
+<li>spark-submit.sh 脚本调用scala org.apache.spark.deploy.SparkSubmit类，下称之为SparkSubmit进程</li>
+<li>根据调用参数&ndash;deploy=cluster,&ndash;master=yarn，现在调用org.apache.spark.deploy.yarn.YarnClusterApplication，</li>
+<li>SparkSubmit进程创建一个YarnClient，提交Application给yarn集群的ResourceManager，提交成功后返回appid，如果spark.submit.deployMode=cluster&amp;&amp;spark.yarn.submit.waitAppCompletion=true， SparkSubmit进程会定期输出appId日志直到任务结束(monitorApplication(appId))，否则会输出一次日志然后退出。
+<ol>
+<li>这就是deploy=cluster模式，如果是deploy=client模式，就不需要提交。</li>
+</ol>
+</li>
+<li>YarnClient通过提交Application的过程</li>
+</ol>
+<pre><code class="language-scala">launcherBackend.connect()
+yarnClient.init(hadoopConf)
+yarnClient.start()
+
+logInfo(&quot;Requesting a new application from cluster with %d NodeManagers&quot;
+  .format(yarnClient.getYarnClusterMetrics.getNumNodeManagers))
+
+// Get a new application from our RM
+val newApp = yarnClient.createApplication()
+val newAppResponse = newApp.getNewApplicationResponse()
+appId = newAppResponse.getApplicationId()
+
+// The app staging dir based on the STAGING_DIR configuration if configured
+// otherwise based on the users home directory.
+val appStagingBaseDir = sparkConf.get(STAGING_DIR)
+  .map { new Path(_, UserGroupInformation.getCurrentUser.getShortUserName) }
+  .getOrElse(FileSystem.get(hadoopConf).getHomeDirectory())
+stagingDirPath = new Path(appStagingBaseDir, getAppStagingDir(appId))
+
+new CallerContext(&quot;CLIENT&quot;, sparkConf.get(APP_CALLER_CONTEXT),
+  Option(appId.toString)).setCurrentContext()
+
+// Verify whether the cluster has enough resources for our AM
+verifyClusterResources(newAppResponse)
+
+// Set up the appropriate contexts to launch our AM
+val containerContext = createContainerLaunchContext(newAppResponse)
+val appContext = createApplicationSubmissionContext(newApp, containerContext)
+
+// Finally, submit and monitor the application
+logInfo(s&quot;Submitting application $appId to ResourceManager&quot;)
+yarnClient.submitApplication(appContext)
+launcherBackend.setAppId(appId.toString)
+reportLauncherState(SparkAppHandle.State.SUBMITTED)
+</code></pre>
+<ol start="6">
+<li>在提交应用时，yarn客户端首先调用yarn.createApplication()获取newAppResponse（其中包括appID），随后构建容器和应用上下文appContext，最终提交应用yarn.submitApplication(appContext)，yarn客户端通过传入appContext真正提交应用。appContext包括容器启动上下文（<code>containerContext = createContainerLaunchContext(newAppResponse)</code>）和应用提交上下文（<code>appContext = createApplicationSubmissionContext(newApp,containerContext)</code>）</li>
+<li>我们来看是如何构建容器启动上下文的，createContainerLaunchContext(newAppResponse)：</li>
+</ol>
+<pre><code class="language-scala">if (isClusterMode) {
+  Utils.classForName(&quot;org.apache.spark.deploy.yarn.ApplicationMaster&quot;).getName
+} else {
+  Utils.classForName(&quot;org.apache.spark.deploy.yarn.ExecutorLauncher&quot;).getName
+}
+val commands = prefixEnv ++
+      Seq(Environment.JAVA_HOME.$$() + &quot;/bin/java&quot;, &quot;-server&quot;) ++
+      javaOpts ++ amArgs ++
+      Seq(
+        &quot;1&gt;&quot;, ApplicationConstants.LOG_DIR_EXPANSION_VAR + &quot;/stdout&quot;,
+        &quot;2&gt;&quot;, ApplicationConstants.LOG_DIR_EXPANSION_VAR + &quot;/stderr&quot;)
+</code></pre>
+<p>对于deploy=cluster的appMaster的容器启动命令简单来看就是<code>bin/java -server org.apache.spark.deploy.yarn.ApplicationMaster --class … --jar ...</code>
+8. 应用通过yarnClient提交后，yarn集群某一个NodeManager收到ResourceManager的命令，启动ApplicationMaster进程。ApplicationMaster会启动driver。</p>
+<pre><code class="language-scala">if (isClusterMode) {
+  runDriver()
+} else {
+  runExecutorLauncher()
+}
+</code></pre>
+<ol>
+<li>下面是runDriver()的流程，先另启动一个线程通过反射执行命令行中-–class指定的类（org.apache.spark.examples.SparkPi）中的main函数。同时在主线程会向ResourceManager作为AppMaster注册自己。</li>
+</ol>
+<pre><code class="language-scala">// 1. startUserApplication 启动用户应用main代码
+val mainMethod = userClassLoader.loadClass(args.userClass)
+      .getMethod(&quot;main&quot;, classOf[Array[String]])
+val userThread = new Thread {
+      override def run(): Unit = {
+          mainMethod.invoke(null, userArgs.toArray)
+      }
+}
+userThread.setContextClassLoader(userClassLoader)
+userThread.setName(&quot;Driver&quot;)
+userThread.start()
+
+// 2. 向rm注册am
+registerAM(host, port, userConf, sc.ui.map(_.webUrl), appAttemptId)
+// 3. 申请exector的资源
+createAllocator(driverRef, userConf, rpcEnv, appAttemptId, distCacheConf)
+  // createAllocator()函数内部
+  // 3.1 创建申请客户端
+  allocator = client.createAllocator(
+      yarnConf,
+      _sparkConf,
+      appAttemptId,
+      driverUrl,
+      driverRef,
+      securityMgr,
+      localResources)
+  // 3.2 申请资源并沟通对应的nm，执行exector容器
+  allocator.allocateResources()
+    // allocateResources()函数内部
+    // 3.2.1 获取containers
+    val allocateResponse = amClient.allocate(progressIndicator)
+    val allocatedContainers = allocateResponse.getAllocatedContainers()
+    // 3.2.1 筛选contaienrs，根据主机host，机架rack等信息筛选出要使用的containers
+    matchContainerToRequest(allocatedContainer, ANY_HOST, containersToUse,
+        remainingAfterOffRackMatches)
+    // 3.2.3 启动容器
+    runAllocatedContainers(containersToUse)
+      // runAllocatedContainers()内部
+      // 3.2.3.1 调用ExecutorRunnable
+      for (container &lt;- containersToUse) {
+        new ExecutorRunnable(
+                  Some(container),
+                  conf,
+                  sparkConf,
+                  driverUrl,
+                  executorId,
+                  executorHostname,
+                  executorMemory,
+                  executorCores,
+                  appAttemptId.getApplicationId.toString,
+                  securityMgr,
+                  localResources,
+                  ResourceProfile.DEFAULT_RESOURCE_PROFILE_ID // use until fully supported
+                ).run()
+      }
+      // 3.2.3.2 执行ExecutorRunnable.run()方法,沟通nodeManager
+      def run(): Unit = {
+        logDebug(&quot;Starting Executor Container&quot;)
+        nmClient = NMClient.createNMClient()
+        nmClient.init(conf)
+        nmClient.start()
+        startContainer()
+      }
+      def startContainer(){
+        val commands = prepareCommand()
+        ctx.setCommands(commands.asJava)
+
+        nmClient.startContainer(container.get, ctx)
+      }
+      def prepareCommand(){
+        val commands = prefixEnv ++
+          Seq(Environment.JAVA_HOME.$$() + &quot;/bin/java&quot;, &quot;-server&quot;) ++
+          javaOpts ++
+          Seq(&quot;org.apache.spark.executor.YarnCoarseGrainedExecutorBackend&quot;,
+            &quot;--driver-url&quot;, masterAddress,
+            &quot;--executor-id&quot;, executorId,
+            &quot;--hostname&quot;, hostname,
+            &quot;--cores&quot;, executorCores.toString,
+            &quot;--app-id&quot;, appId,
+            &quot;--resourceProfileId&quot;, resourceProfileId.toString) ++
+          userClassPath ++
+          Seq(
+            s&quot;1&gt;${ApplicationConstants.LOG_DIR_EXPANSION_VAR}/stdout&quot;,
+            s&quot;2&gt;${ApplicationConstants.LOG_DIR_EXPANSION_VAR}/stderr&quot;)
+      }
+
+</code></pre>
+<blockquote>
+<p>这一套流程走下来，我觉得应该看看yarnclient~，即怎么与yarn交互。</p>
+</blockquote>
+<h2 id="提交任务">提交任务</h2>
+<p><a href="https://spark.apache.org/docs/2.2.0/submitting-applications.html">https://spark.apache.org/docs/2.2.0/submitting-applications.html</a>
+通过名为spark-submit.sh的脚本，指定master的地址即可提交到spark standalone或yarn。</p>
+<h2 id="其他">其他</h2>
 <ul>
-<li>
-<p>master node</p>
-</li>
-<li>
-<p>worker node</p>
-</li>
 <li>
 <h2 id="application">application</h2>
 </li>

@@ -39,7 +39,7 @@
 <meta itemprop="name" content="[big-data] 大数据入门">
 <meta itemprop="description" content="大数据 未来工作或多或少要接触大数据，学习下。 glossary hadoop， 可以认为大数据平台就是hadoop平台/hadoop集群的代名词 hadoop集群"><meta itemprop="datePublished" content="2022-04-10T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-04-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2275">
+<meta itemprop="wordCount" content="2427">
 <meta itemprop="keywords" content="big-data," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[big-data] 大数据入门"/>
 <meta name="twitter:description" content="大数据 未来工作或多或少要接触大数据，学习下。 glossary hadoop， 可以认为大数据平台就是hadoop平台/hadoop集群的代名词 hadoop集群"/>
@@ -598,7 +598,7 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/big-data/"> big-data </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2275 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2427 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 5 minutes </span>
       </div>
     </div>
@@ -626,18 +626,18 @@ function tagCloud(where, min, max) {
 <h2 id="yarn">Yarn</h2>
 <ul>
 <li>Yarn是资源管理调度器，所谓的资源是硬件资源，包括内存，CPU，磁盘，网络等，以容器的形式交付给应用</li>
-<li>我感觉就是k8s+docker的感觉</li>
+<li>我感觉就是k8s+docker的感觉，提供统一的nodeManager和容器资源交付。</li>
 <li>架构上是资源管理器（分为资源调度器和应用程序管理器）+节点管理器
 <ul>
 <li>资源调度器根据需要的资源声明交付容器</li>
 <li>应用程序管理器管理应用的提交，与资源调度器协商资源等</li>
-<li>节点管理器，顾名思义，节点代理，启动容器</li>
+<li>节点管理器，顾名思义，节点代理，实际上的工作者，分配容器资源，启动工作进程等。</li>
 </ul>
 </li>
 <li>每个任务的提交需要三个东西
 <ul>
-<li>应用的Master程序（ApplicationMaster），比如MapReduceApplicationMaster，类似于k8s中CRD Operator的感觉</li>
-<li>应用的Master程序的启动程序，比如。。。，启动脚本呗</li>
+<li>应用的Master程序（ApplicationMaster），比如MapReduceApplicationMaster，类似于k8s中CRD Operator的感觉，比如spark中的driver就是这种appMaster程序（也就是spark的main程序，包含sparkcontext）</li>
+<li>应用的Master程序的启动程序，估计是启动脚本一类的。</li>
 <li>用户程序，比如用户自己编写的MapReduce程序</li>
 </ul>
 </li>
@@ -679,6 +679,7 @@ function tagCloud(where, min, max) {
 <li>关于建表，数据存储，可以看看<a href="https://blog.csdn.net/xxydzyr/article/details/100915053">这个</a>。</li>
 <li>简单来说就是，hive建立的表是一种虚拟的表，相当于只是一种元数据schema。表里的数据是存在hdfs上的，当你建完表之后，就会在hive对应的hdfs路径里自动创建一个该表的文件夹，你需要自己把你的数据文件拷贝进去。然后就可以通过hql查询了。后续应该是直接把数据存到hive对应的hdfs里。</li>
 <li>hive还支持一种external表，可以指定对应的数据存储的hdfs路径，而不需要将数据放到hive对应的路径里面。</li>
+<li>一般来说，文件里的一行就是一个record，在行里面，需要指定列分隔符来划分列。</li>
 </ul>
 <h2 id="spark">Spark</h2>
 <ul>
@@ -686,7 +687,7 @@ function tagCloud(where, min, max) {
 <li>支持流式(spark streaming)或批式(spark core)</li>
 <li>spark streaming 会将流处理成一个个窗口，所以其实底层还是批式的spark core</li>
 <li>部署方式有spark standalone， spark on yarn</li>
-<li>参看另一篇专门介绍spark的文章</li>
+<li>参看大数据系列下一篇专门介绍spark的文章</li>
 </ul>
 
     </div>

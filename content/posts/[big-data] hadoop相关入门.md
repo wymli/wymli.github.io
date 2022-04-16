@@ -24,14 +24,14 @@ tags: ["big-data"]
 
 ## Yarn
 - Yarn是资源管理调度器，所谓的资源是硬件资源，包括内存，CPU，磁盘，网络等，以容器的形式交付给应用
-- 我感觉就是k8s+docker的感觉
+- 我感觉就是k8s+docker的感觉，提供统一的nodeManager和容器资源交付。
 - 架构上是资源管理器（分为资源调度器和应用程序管理器）+节点管理器
   - 资源调度器根据需要的资源声明交付容器
   - 应用程序管理器管理应用的提交，与资源调度器协商资源等
-  - 节点管理器，顾名思义，节点代理，启动容器
+  - 节点管理器，顾名思义，节点代理，实际上的工作者，分配容器资源，启动工作进程等。
 - 每个任务的提交需要三个东西
-  - 应用的Master程序（ApplicationMaster），比如MapReduceApplicationMaster，类似于k8s中CRD Operator的感觉
-  - 应用的Master程序的启动程序，比如。。。，启动脚本呗
+  - 应用的Master程序（ApplicationMaster），比如MapReduceApplicationMaster，类似于k8s中CRD Operator的感觉，比如spark中的driver就是这种appMaster程序（也就是spark的main程序，包含sparkcontext）
+  - 应用的Master程序的启动程序，估计是启动脚本一类的。
   - 用户程序，比如用户自己编写的MapReduce程序
 
 > 我比较好奇容器是怎么交付的，可以深究一下
@@ -65,10 +65,11 @@ tags: ["big-data"]
 - 关于建表，数据存储，可以看看[这个](https://blog.csdn.net/xxydzyr/article/details/100915053)。
 - 简单来说就是，hive建立的表是一种虚拟的表，相当于只是一种元数据schema。表里的数据是存在hdfs上的，当你建完表之后，就会在hive对应的hdfs路径里自动创建一个该表的文件夹，你需要自己把你的数据文件拷贝进去。然后就可以通过hql查询了。后续应该是直接把数据存到hive对应的hdfs里。
 - hive还支持一种external表，可以指定对应的数据存储的hdfs路径，而不需要将数据放到hive对应的路径里面。
+- 一般来说，文件里的一行就是一个record，在行里面，需要指定列分隔符来划分列。
 
 ## Spark
 - 并行计算框架
 - 支持流式(spark streaming)或批式(spark core)
 - spark streaming 会将流处理成一个个窗口，所以其实底层还是批式的spark core
 - 部署方式有spark standalone， spark on yarn
-- 参看另一篇专门介绍spark的文章
+- 参看大数据系列下一篇专门介绍spark的文章
