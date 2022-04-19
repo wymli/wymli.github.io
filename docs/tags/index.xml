@@ -6,7 +6,7 @@
     <description>Recent content in Tags on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -30,6 +30,24 @@
     </item>
     
     <item>
+      <title>[task-queue] lmstfy</title>
+      <link>https://wymli.github.io/2022/04/task-queue-lmstfy/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/task-queue-lmstfy/</guid>
+      <description>lmstfy 碰巧github给我推了这个任务队列，抽空读了下源码。如果第一次接触这种延时任务队列，还是挺有意思的。 架构 lmstfy使用redis作为底</description>
+    </item>
+    
+    <item>
+      <title>[big-data] yarn client</title>
+      <link>https://wymli.github.io/2022/04/big-data-yarn/</link>
+      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-yarn/</guid>
+      <description>Yarn Client </description>
+    </item>
+    
+    <item>
       <title>[big-data] spark</title>
       <link>https://wymli.github.io/2022/04/big-data-spark/</link>
       <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
@@ -45,6 +63,15 @@
       
       <guid>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</guid>
       <description>大数据 未来工作或多或少要接触大数据，学习下。 glossary hadoop， 可以认为大数据平台就是hadoop平台/hadoop集群的代名词 hadoop集群</description>
+    </item>
+    
+    <item>
+      <title>[tensorflow-arch] 入门</title>
+      <link>https://wymli.github.io/2022/04/tensorflow-arch-intro/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/tensorflow-arch-intro/</guid>
+      <description>tensorflow入门 intro tensorflow采用基于数据流图的模型设计方法。 基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件</description>
     </item>
     
     <item>
@@ -162,33 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/mq-kafka1-intro/</guid>
       <description>kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除</description>
-    </item>
-    
-    <item>
-      <title>[Other] Go优点</title>
-      <link>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</link>
-      <pubDate>Sat, 27 Mar 2021 21:09:05 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</guid>
-      <description>列举我心目中的go的优点 实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件 现代的包管理go get/go m</description>
-    </item>
-    
-    <item>
-      <title>[interview] ByteDance2</title>
-      <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
-      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
-      <description>字节二面 算法题: 二叉树中的最长距离 又拉跨了,太久没做题了,做了很久 并发和并行的区别 讲讲go的协程调度 GMP模型,balabala讲一堆,提到</description>
-    </item>
-    
-    <item>
-      <title>[rpc] grpc</title>
-      <link>https://wymli.github.io/2021/03/rpc-grpc/</link>
-      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
-      <description>grpc grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就</description>
     </item>
     
   </channel>

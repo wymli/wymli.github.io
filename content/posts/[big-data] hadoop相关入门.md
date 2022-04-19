@@ -67,6 +67,47 @@ tags: ["big-data"]
 - hive还支持一种external表，可以指定对应的数据存储的hdfs路径，而不需要将数据放到hive对应的路径里面。
 - 一般来说，文件里的一行就是一个record，在行里面，需要指定列分隔符来划分列。
 
+### Hive表Hbase表映射
+
+通过"hbase.columns.mapping"设置映射关系，按position一对一，:key可以省略，cf0:indexId代表映射到hbase的cf0列族的indexId列（没有写对应的hive的列明，因为按位置顺序一对一映射，也就是hive中的indexId）  
+- 如果是外部表，数据就是存在hbase
+- 如果有设置"hbase.mapred.output.outputtable"，往hive插入数据也会插入hbase，否则就是单向的hbase到hive的映射
+
+如果想将hive的people表的内容输出到hbase的hbase_people表，可以创建一个hive的hive_people表作为中继，如下面的代码，然后执行插入`insert overwrite table hive_people  select * from people where age = 17;`
+```
+CREATE EXTERNAL TABLE hbase_table_2(key int, indexId string, muMac string) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' 
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = ":key,cf0:indexId,cf0:muMac") 
+TBLPROPERTIES("hbase.table.name" = "default:index1");
+
+
+create table hive_people
+(
+id int,
+name string,
+age string,
+sex string, 
+edu string, 
+country string, 
+telPhone string,  
+email string
+)
+stored by 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+with serdeproperties ("hbase.columns.mapping" = "
+:key,
+basic_info:name,
+basic_info:age,
+basic_info:sex,
+basic_info:edu,
+other_info:country,
+other_info:telPhone,
+other_info:email
+")
+tblproperties("hbase.table.name" = "default:hbase_people","hbase.mapred.output.outputtable" = "default:hbase_people");
+```
+
+可以考虑hive的可视化连接工具dbeaver
+
 ## Spark
 - 并行计算框架
 - 支持流式(spark streaming)或批式(spark core)

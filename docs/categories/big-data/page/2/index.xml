@@ -6,10 +6,37 @@
     <description>Recent content in big-data on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 15 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/big-data/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Other] Go优点</title>
+      <link>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</link>
+      <pubDate>Sat, 27 Mar 2021 21:09:05 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</guid>
+      <description>列举我心目中的go的优点 实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件 现代的包管理go get/go m</description>
+    </item>
+    
+    <item>
+      <title>[interview] ByteDance2</title>
+      <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
+      <description>字节二面 算法题: 二叉树中的最长距离 又拉跨了,太久没做题了,做了很久 并发和并行的区别 讲讲go的协程调度 GMP模型,balabala讲一堆,提到</description>
+    </item>
+    
+    <item>
+      <title>[rpc] grpc</title>
+      <link>https://wymli.github.io/2021/03/rpc-grpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
+      <description>grpc grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就</description>
+    </item>
     
     <item>
       <title>[rpc] intro</title>
@@ -162,33 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/db-sql-spec/</guid>
       <description>About sql statement&amp;amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e</description>
-    </item>
-    
-    <item>
-      <title>[deploy] server deploy</title>
-      <link>https://wymli.github.io/2021/03/deploy-server-deploy/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/deploy-server-deploy/</guid>
-      <description>记一次云端部署web服务器 本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识</description>
-    </item>
-    
-    <item>
-      <title>[Go] concurrentMap</title>
-      <link>https://wymli.github.io/2021/03/go-concurrentmap/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-concurrentmap/</guid>
-      <description>Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap 并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map, 我们有如下的几种方</description>
-    </item>
-    
-    <item>
-      <title>[Go] errorx</title>
-      <link>https://wymli.github.io/2021/03/go-errorx/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-errorx/</guid>
-      <description>Error go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下if err!=nil{return err} 而对于进阶一点的程序员,则会诟病它的error接口设</description>
     </item>
     
   </channel>

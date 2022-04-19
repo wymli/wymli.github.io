@@ -17,6 +17,76 @@
   </url>
   
   <url>
+    <loc>https://wymli.github.io/2022/04/task-queue-lmstfy/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/posts/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/task-queue/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/task-queue/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/</loc>
+    <lastmod>2022-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2022/04/big-data-yarn/</loc>
+    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/big-data/</loc>
+    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/big-data/</loc>
+    <lastmod>2022-04-16T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wymli.github.io/2022/04/big-data-spark/</loc>
     <lastmod>2022-04-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -24,49 +94,28 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/big-data/</loc>
-    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/big-data/</loc>
-    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/</loc>
-    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/posts/</loc>
-    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/</loc>
-    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/</loc>
-    <lastmod>2022-04-15T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2022/04/tensorflow-arch-intro/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/tensorflow-arch/</loc>
+    <lastmod>2022-04-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/tensorflow-arch/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tensorflow-arch on UnderTheHood</title>
+    <link>https://wymli.github.io/categories/tensorflow-arch/</link>
+    <description>Recent content in tensorflow-arch on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Sun, 10 Apr 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://wymli.github.io/categories/tensorflow-arch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TodoList</title>
+      <link>https://wymli.github.io/2021/04/aatodo-todo-list/</link>
+      <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/aatodo-todo-list/</guid>
+      <description>TodoList sysmon线程 eBPF和ipvs : ref kafka client, 看看sarama,了解kafka客户端能获得哪些东西,server api暴露了哪些东西 kv db, 比如e</description>
+    </item>
+    
+    <item>
+      <title>[underTheHood] 基础-重要-知识-教旨-格言-蝉</title>
+      <link>https://wymli.github.io/2021/04/aaaunderthehood-underthehood/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/aaaunderthehood-underthehood/</guid>
+      <description>UnderTheHood 这里记录一些具有重要的知识 Page Cache 主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache) 如此一来,一切都说得通了,我们常说</description>
+    </item>
+    
+    <item>
+      <title>[task-queue] lmstfy</title>
+      <link>https://wymli.github.io/2022/04/task-queue-lmstfy/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/task-queue-lmstfy/</guid>
+      <description>lmstfy 碰巧github给我推了这个任务队列，抽空读了下源码。如果第一次接触这种延时任务队列，还是挺有意思的。 架构 lmstfy使用redis作为底</description>
+    </item>
+    
+    <item>
+      <title>[big-data] yarn client</title>
+      <link>https://wymli.github.io/2022/04/big-data-yarn/</link>
+      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-yarn/</guid>
+      <description>Yarn Client </description>
+    </item>
+    
+    <item>
+      <title>[big-data] spark</title>
+      <link>https://wymli.github.io/2022/04/big-data-spark/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-spark/</guid>
+      <description>Spark 并行计算框架 支持流式或批式 spark提交有一个单独的spark-commit.sh脚本 批处理是spark core 流处理是spark streami</description>
+    </item>
+    
+    <item>
+      <title>[big-data] 大数据入门</title>
+      <link>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</guid>
+      <description>大数据 未来工作或多或少要接触大数据，学习下。 glossary hadoop， 可以认为大数据平台就是hadoop平台/hadoop集群的代名词 hadoop集群</description>
+    </item>
+    
+    <item>
+      <title>[tensorflow-arch] 入门</title>
+      <link>https://wymli.github.io/2022/04/tensorflow-arch-intro/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/tensorflow-arch-intro/</guid>
+      <description>tensorflow入门 intro tensorflow采用基于数据流图的模型设计方法。 基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件</description>
+    </item>
+    
+    <item>
+      <title>[脚本] 脚本</title>
+      <link>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</guid>
+      <description>输出version到文件 version=`git log --date=iso --pretty=format:&amp;quot;%cd @%H&amp;quot; -1` if [ $? -ne 0 ]; then version=&amp;quot;unknown version&amp;quot; fi compile=`date +&amp;quot;%F %T %z&amp;quot;`&amp;quot; by &amp;quot;`go version` if [ $? -ne 0 ]; then compile=&amp;quot;unknown datetime&amp;quot; fi describe=`git describe --tags 2&amp;gt;/dev/null` if [ $? -eq 0 ]; then version=&amp;quot;${version} @${describe}&amp;quot; fi cat &amp;lt;&amp;lt; EOF | gofmt &amp;gt; pkg/utils/version.go package utils const (</description>
+    </item>
+    
+    <item>
+      <title>[Go] 多步骤构造器</title>
+      <link>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</link>
+      <pubDate>Sat, 10 Jul 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</guid>
+      <description>设计模式-多步骤构造器 [TOC] 想像这样一个场景,我们有一个工人类,工人可以吃饭,工作,睡觉 type worker interface{ eat() work() sleep() } 但是如何获得一个工人呢?常见的我们有一个N</description>
+    </item>
+    
+    <item>
+      <title>[DB] redis</title>
+      <link>https://wymli.github.io/2021/07/db-redis/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/db-redis/</guid>
+      <description>关于redis的大部分事情 非常不错: https://redis.io/topics/data-types-intro redis的数据结构: Binary-safe strings. Lists: collections of string elements sorted according to the order of insertion. They are basically linked lists. Sets: collections of unique, unsorted string elements. Sorted sets, similar to Sets but where every string element is associated to a</description>
+    </item>
+    
+    <item>
+      <title>[Go] 单测</title>
+      <link>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</link>
+      <pubDate>Fri, 25 Jun 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</guid>
+      <description>单测 单测在业务开发的重要性中不言而喻,在常见的epc规范中,一般的存量覆盖率要求达到50%,增量覆盖率要求达到80%. 当然,这个很教条,我们</description>
+    </item>
+    
+    <item>
+      <title>recommend system</title>
+      <link>https://wymli.github.io/2021/04/datamining-recsys/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/datamining-recsys/</guid>
+      <description>推荐系统 utility matrix效用矩阵,横轴是用户,纵轴是商品,矩阵元素是打分 推荐系统的三个核心步骤: 收集效用矩阵中的打分 从已知的打分中预测未知的打</description>
+    </item>
+    
+    <item>
+      <title>[dataMining] LSH</title>
+      <link>https://wymli.github.io/2021/04/datamining-lsh/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/datamining-lsh/</guid>
+      <description>locality sensitive hashing 位置敏感哈希,这是一种hash算法,当两个对象被hash到同一个桶中时,我们认为这两个对象是可能相似的,然后去检查这两个对象的相似性,</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka4 工作原理</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
+      <description>深入kafka 在此前的系列中,其实对于kafka集群和zk集群的区分很模糊,数据似乎有时是存在某个broker中的,又有时是存在zk中的 ka</description>
+    </item>
+    
+    <item>
+      <title>[zk] zk1 intro</title>
+      <link>https://wymli.github.io/2021/04/zk-zk1-intro/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/zk-zk1-intro/</guid>
+      <description>Intro 官方文档： https://zookeeper.apache.org/doc/r3.4.14/ zookeeper是一种分布式协调服务(也就是说常称的注册中心),分布式应用正在运行的一组系统称为集群，而在集群中运行的每台机</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka3 consumer</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka3-consumer/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka3-consumer/</guid>
+      <description>kafka3 consumer [TOC] 消费组 往群组里增加消费者是横向伸缩消费能力的主要方式 消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个t</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka1.5 install</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka1.5-install/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka1.5-install/</guid>
+      <description>安装kafka 我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get sea</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka2 producer</title>
+      <link>https://wymli.github.io/2021/03/mq-kafka2-producer/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mq-kafka2-producer/</guid>
+      <description>kafka producer 参考kafka技术内幕:图文详解kafka源码设计和实现 本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网</description>
+    </item>
+    
+    <item>
+      <title>[sys] 虚拟内存与缓存缓冲</title>
+      <link>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
+      <description>虚拟内存virtual memory 什么是虚拟内存,应该不用多言.本质就是一个逻辑的虚拟地址空间,这些地址空间中,有的地址真正的对应到了物理内存的地址,</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka1 intro</title>
+      <link>https://wymli.github.io/2021/03/mq-kafka1-intro/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mq-kafka1-intro/</guid>
+      <description>kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除</description>
+    </item>
+    
+  </channel>
+</rss>
