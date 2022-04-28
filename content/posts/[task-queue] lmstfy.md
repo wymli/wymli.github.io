@@ -9,7 +9,7 @@ tags: ["task-queue"]
 碰巧github给我推了这个[任务队列](https://github.com/bitleak/lmstfy)，抽空读了下源码。如果第一次接触这种延时任务队列，还是挺有意思的。
 
 ## 架构
-lmstfy使用redis作为底层存储，使用redis的list的`lpush`,`brpop`完成任务的生产和消费，消费要阻塞的pop，避免轮询。lmstfy使用redis设计了多个模块，ready队列是其一，还有timer zset的延时队列用来处理延时的任务，以及死信队列。  
+lmstfy使用redis作为底层存储，使用redis的list的`lpush`,`brpop`完成任务的生产和消费，消费要阻塞的pop，避免轮询。lmstfy使用redis设计了多个模块，ready队列是其一，还有timer zset的延时队列用来处理延时的任务，以及死信队列处理消费失败的任务。  
 假设称任务为task或job，下面统一称之为job。对于一个任务的提交（生产），它具有下面的生命周期：
 1. 任务被加入任务池（redis kv实现），所有任务的body数据都以redis kv存储，而入queue入zset的都是任务的句柄或者说描述符或者说指针
 2. 如果任务是延时的，加入延时队列（timer zset），对这个延时队列的操作以lua脚本的形式存在，简单来看就是按时间tick，将到期的任务句柄取出，判断是加入ready队列还是死信队列，判断依据就是任务的retry值是否为0

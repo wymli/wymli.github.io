@@ -39,7 +39,7 @@
 <meta itemprop="name" content="[tensorflow-arch] 入门">
 <meta itemprop="description" content="tensorflow入门 intro tensorflow采用基于数据流图的模型设计方法。 基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件"><meta itemprop="datePublished" content="2022-04-10T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2022-04-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3301">
+<meta itemprop="wordCount" content="4813">
 <meta itemprop="keywords" content="tensorflow-arch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[tensorflow-arch] 入门"/>
 <meta name="twitter:description" content="tensorflow入门 intro tensorflow采用基于数据流图的模型设计方法。 基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件"/>
@@ -210,6 +210,10 @@
                class="tag-list-count">1</span></a>
             
             
+            <a href="https://wymli.github.io/tags/distribute/" class="tag-list-link" rel="1">distribute<span
+               class="tag-list-count">1</span></a>
+            
+            
             <a href="https://wymli.github.io/tags/go/" class="tag-list-link" rel="18">go<span
                class="tag-list-count">18</span></a>
             
@@ -339,6 +343,7 @@ function tagCloud(where, min, max) {
             <li class="category-list-item"><a href="https://wymli.github.io/categories/datastructure/" class="category-list-link">datastructure</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/distribute/" class="category-list-link">distribute</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">18</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/innodb/" class="category-list-link">innodb</a><span class="category-list-count">1</span></li>
@@ -421,6 +426,10 @@ function tagCloud(where, min, max) {
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/design-pattern/" class="tag-list-link">design-pattern</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/distribute/" class="tag-list-link">distribute</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -543,6 +552,16 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" class="title">[distribute] 单应用分布式架构</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-04-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-04-28</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://wymli.github.io/2022/04/task-queue-lmstfy/" class="title">[task-queue] lmstfy</a>
                     </p>
                     <p class="item-date">
@@ -557,16 +576,6 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2022-04-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-04-16</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://wymli.github.io/2022/04/big-data-spark/" class="title">[big-data] spark</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2022-04-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-04-15</time>
                     </p>
                 </div>
             </li>
@@ -616,8 +625,8 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/tensorflow-arch/"> tensorflow-arch </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3301 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 7 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 4813 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 10 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -797,6 +806,7 @@ function tagCloud(where, min, max) {
 <p>分布式训练分为<code>PS-worker</code>架构和<code>Ring-allreduce</code>架构，前者是中心化非对称的，后者是去中心化对称的全worker架构</p>
 </blockquote>
 <ul>
+<li>这种架构不是C/S架构，而是类似于SPARK，只是将单进程变成多进程在多个服务器运行而已。对于Spark，yarn或原生的spark-standalone提供了集群管理，让你可以一键在多机构建多进程任务，所以非常类似于C/S架构了，但不管怎么说，他其实只是集群的节点管理器帮你启动进程而已。对于tf来说，也是一样，不过tf目前来说没有实现集群节点管理，都是手动在多机启动进程，通过在同一份代码里预置PS和worker的操作，并在启动进程时指明是PS还是worker</li>
 <li>计算形态：
 <ul>
 <li>推理态：只前向计算</li>
@@ -824,6 +834,52 @@ function tagCloud(where, min, max) {
 </ol>
 </li>
 <li>PS-worker架构的思想是分离模型和训练，PS负责模型参数的存储、分发、汇总、更新；Worker负责推理计算和梯度计算。</li>
+<li>分布式训练一般采用数据并行加速模型训练
+<ul>
+<li>数据并行分为两类：
+<ul>
+<li>图内复制（in-graph replication）：单进程内的数据并行，即单机多卡，对应pytorch的<code>dp</code></li>
+<li>图间复制（between-graph replication）：多进程，跨机器分布式训练</li>
+</ul>
+</li>
+<li>参数更新机制：
+<ul>
+<li>异步训练（asynchronous training）：每个worker独立训练，计算出梯度后按照一定策略等待特定时间发生后进行模型参数更新，也可以直接立即更新，主要看异步更新策略，而不需要等待其他worker完成训练计算梯度</li>
+<li>同步训练（synchronous training）：每个worker独立训练计算梯度上报梯度并等待从PS拉取最新的模型参数，PS会等待所有worker计算完后再汇总更新模型参数，计算快的worker要等待慢worker计算</li>
+</ul>
+</li>
+<li>同步训练比异步训练收敛速度快，训练步数少。异步训练单步快，但容易受单批数据的影响，训练步数多。</li>
+</ul>
+</li>
+<li>同步训练机制：
+<ul>
+<li>副本是模型训练过程中单独处理一份批数局的抽象
+<ul>
+<li>并行副本数：单步训练中用户希望的并行数据个数</li>
+<li>实际副本数：单步训练中实际参与计算的worker数</li>
+<li>如果并行副本数大于实际副本数，代表计算快的worker会单步计算多个批次；如果小于，则代表个别worker不需要训练</li>
+</ul>
+</li>
+<li>同步优化器，以M个模型参数，N个并行副本数为例
+<ul>
+<li>梯度聚合器：存储梯度值的队列，有多少个模型参数就有多少个梯度队列。对于每个模型参数，都存在一个长度为N的梯度队列，共M个队列</li>
+<li>同步标记队列：存储同步标记的队列，全局一条队列。同步标记决定worker是否能够参与梯度计算，有多少个并行副本数队列就有多少个同步标记，只有拿到同步标记的worker才能拿到最新的模型参数。这个同步标记（sync token）实际是一个表示global_step全局训练步数（第几步）的值。worker会首先拿到该代表全局训练步数的token，更新自己的本地训练步数，然后从PS获取最新的模型参数，计算梯度。</li>
+<li>每一次上报的梯度和下发的模型参数都会附带训练步数的字段，以保证不会串数据。对于PS来说，梯度聚合器在收集梯度时会校验收到的梯度的训练步数是不是当前的全局训练步数（版本号的作用），否则丢弃。Worker上传完梯度后，会去阻塞的领取同步标记队列中的标记，由于已经领完，只能等待全局进入下一步训练（如果是能者多劳，并行副本数大于实际副本数，那么快worker能在同步标记队列中领到标记，并继续计算）。PS更新完参数后，会更新全局训练步数+1，并按并行副本数入队同步标记队列。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>异步训练机制：
+<ul>
+<li>每个worker计算出的梯度值上报后，PS更新参数</li>
+<li>不同的worker进行参数的拉取和更新时，tf内部的锁机制保证模型参数的数据一致性</li>
+<li>异步训练的一个典型问题就是次优解，比如worker1和worker2同时拉取参数，计算，worker1先上报更新参数，比如是向左的梯度，然后worker2上报，也是向左的梯度，但此时参数已经更新过了，导致两次向左，可能就向左过头了</li>
+</ul>
+</li>
+</ul>
+<h2 id="tensorflow-serving">TensorFlow Serving</h2>
+<ul>
+<li>生产系统中，模型以推理态运行，我们需要打通模型训练到发布的全流程</li>
 <li></li>
 </ul>
 

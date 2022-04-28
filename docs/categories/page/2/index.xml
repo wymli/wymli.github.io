@@ -6,10 +6,19 @@
     <description>Recent content in Categories on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 19 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Apr 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[mq] kafka1 intro</title>
+      <link>https://wymli.github.io/2021/03/mq-kafka1-intro/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mq-kafka1-intro/</guid>
+      <description>kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除</description>
+    </item>
     
     <item>
       <title>[Other] Go优点</title>
@@ -180,15 +189,6 @@
       
       <guid>https://wymli.github.io/2021/03/db-rule/</guid>
       <description>数据库设计范式 所谓设计范式,可理解为设计一张表的各个列的规则 定义 键和函数依赖 键 所有的键(key) 都是 a set of one or more attributes 主属性(prime attribute) 至少出</description>
-    </item>
-    
-    <item>
-      <title>[DB] sql spec</title>
-      <link>https://wymli.github.io/2021/03/db-sql-spec/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/db-sql-spec/</guid>
-      <description>About sql statement&amp;amp;index spec 参考但不限于Java开发手册（嵩山版） 关于索引 与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过e</description>
     </item>
     
   </channel>
