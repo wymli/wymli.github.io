@@ -1,8 +1,8 @@
 ---
 title: "[atomic] atomic"
 date: 2021-03-25
-tags: ["atomic"]
-categories: ["atomic"]
+tags: ["Atomic"]
+categories: ["Atomic"]
 ---
 
 # 关于RMW与Atomic LD/ST

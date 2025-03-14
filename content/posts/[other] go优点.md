@@ -1,8 +1,8 @@
 ---
 title: "[Other] Go优点"
 date: 2021-03-27T21:09:05+08:00
-categories: ["go","other"]
-tags: ["go","other"]
+categories: ["Golang"]
+tags: ["Golang"]
 ---
 
 # 列举我心目中的go的优点

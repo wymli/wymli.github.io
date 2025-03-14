@@ -1,8 +1,8 @@
 ---
 title: "[Go] slice index detail"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # [Go] Slice的下标索引细节

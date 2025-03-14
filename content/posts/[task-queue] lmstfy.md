@@ -1,8 +1,8 @@
 ---
 title: "[task-queue] lmstfy"
 date: 2022-04-19
-categories: ["task-queue"]
-tags: ["task-queue"]
+categories: ["TaskQueue"]
+tags: ["TaskQueue"]
 ---
 
 # lmstfy

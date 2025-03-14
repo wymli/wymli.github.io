@@ -1,8 +1,8 @@
 ---
 title: "[zk] zk1 intro"
 date: 2021-04-03
-categories: ["zookeeper" ]
-tags: [ "zookeeper"]
+categories: ["ConfigCenter"]
+tags: ["zookeeper"]
 ---
 
 # Intro

@@ -1,8 +1,8 @@
 ---
 title: "[DB] sql spec"
 date: 2021-03-25
-tags: ["DB"]
-categories: ["DB"]
+tags: ["Database"]
+categories: ["Database"]
 ---
 
 # About sql statement&index spec

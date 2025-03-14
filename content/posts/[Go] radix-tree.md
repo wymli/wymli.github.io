@@ -1,8 +1,8 @@
 ---
 title: "[Go] radix-tree"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # Radix树

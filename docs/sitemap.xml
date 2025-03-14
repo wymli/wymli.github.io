@@ -3,35 +3,182 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wymli.github.io/2021/04/aatodo-todo-list/</loc>
+    <loc>https://wymli.github.io/2021/04/a2todo-todo-list/</loc>
     <lastmod>2021-04-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/2021/04/aaaunderthehood-underthehood/</loc>
+    <loc>https://wymli.github.io/2021/04/a1underthehood-underthehood/</loc>
     <lastmod>2021-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</loc>
-    <lastmod>2022-04-28T00:00:00+00:00</lastmod>
+    <loc>https://wymli.github.io/2025/03/container-6.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wymli.github.io/categories/</loc>
-    <lastmod>2022-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/distribute/</loc>
+    <loc>https://wymli.github.io/categories/container/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/container/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/oci/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/posts/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/runc/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/container-5.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-dist/</loc>
+    <lastmod>2025-03-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</loc>
+    <lastmod>2025-03-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/container-3.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc/</loc>
+    <lastmod>2025-03-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/http-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E4%B9%8Btext.event-stream/</loc>
+    <lastmod>2025-03-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/event-stream/</loc>
+    <lastmod>2025-03-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/http/</loc>
+    <lastmod>2025-03-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/http/</loc>
+    <lastmod>2025-03-04T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/container-1.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boverlayfs/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/containerd/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/install/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/overlayfs/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/wsl/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</loc>
     <lastmod>2022-04-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -45,21 +192,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/posts/</loc>
-    <lastmod>2022-04-28T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/</loc>
-    <lastmod>2022-04-28T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/</loc>
+    <loc>https://wymli.github.io/tags/distribute/</loc>
     <lastmod>2022-04-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -73,14 +206,14 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/task-queue/</loc>
+    <loc>https://wymli.github.io/categories/taskqueue/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/task-queue/</loc>
+    <loc>https://wymli.github.io/tags/taskqueue/</loc>
     <lastmod>2022-04-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -94,14 +227,14 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/big-data/</loc>
+    <loc>https://wymli.github.io/categories/bigdata/</loc>
     <lastmod>2022-04-16T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/big-data/</loc>
+    <loc>https://wymli.github.io/tags/bigdata/</loc>
     <lastmod>2022-04-16T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -122,21 +255,21 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/2022/04/tensorflow-arch-intro/</loc>
+    <loc>https://wymli.github.io/2022/04/tensorflow-intro/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/tensorflow-arch/</loc>
+    <loc>https://wymli.github.io/categories/tensorflow/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/tensorflow-arch/</loc>
+    <loc>https://wymli.github.io/tags/tensorflow/</loc>
     <lastmod>2022-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -150,14 +283,14 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/script/</loc>
+    <loc>https://wymli.github.io/categories/script/</loc>
     <lastmod>2021-07-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/script/</loc>
+    <loc>https://wymli.github.io/tags/script/</loc>
     <lastmod>2021-07-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -171,21 +304,21 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/design-pattern/</loc>
+    <loc>https://wymli.github.io/tags/designpattern/</loc>
     <lastmod>2021-07-10T12:23:27+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/go/</loc>
+    <loc>https://wymli.github.io/categories/golang/</loc>
     <lastmod>2021-07-10T12:23:27+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/go/</loc>
+    <loc>https://wymli.github.io/tags/golang/</loc>
     <lastmod>2021-07-10T12:23:27+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -199,21 +332,14 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/db/</loc>
+    <loc>https://wymli.github.io/categories/database/</loc>
     <lastmod>2021-07-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/db/</loc>
-    <lastmod>2021-07-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/redis/</loc>
+    <loc>https://wymli.github.io/tags/database/</loc>
     <lastmod>2021-07-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -221,6 +347,13 @@
   
   <url>
     <loc>https://wymli.github.io/categories/redis/</loc>
+    <lastmod>2021-07-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/redis/</loc>
     <lastmod>2021-07-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -276,7 +409,21 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/underthehood/</loc>
+    <loc>https://wymli.github.io/2021/04/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</loc>
+    <lastmod>2021-04-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/c/</loc>
+    <lastmod>2021-04-10T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/c/</loc>
     <lastmod>2021-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -290,14 +437,21 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/todo/</loc>
-    <lastmod>2021-04-08T00:00:00+00:00</lastmod>
+    <loc>https://wymli.github.io/tags/underthehood/</loc>
+    <lastmod>2021-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wymli.github.io/categories/todo/</loc>
+    <lastmod>2021-04-08T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/todo/</loc>
     <lastmod>2021-04-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -318,6 +472,13 @@
   </url>
   
   <url>
+    <loc>https://wymli.github.io/categories/configcenter/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wymli.github.io/tags/kafka/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -325,14 +486,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/mq/</loc>
-    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/mq/</loc>
+    <loc>https://wymli.github.io/categories/messagequeue/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -340,13 +494,6 @@
   
   <url>
     <loc>https://wymli.github.io/tags/zookeeper/</loc>
-    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/zookeeper/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -381,13 +528,6 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/sys/</loc>
-    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wymli.github.io/2021/03/mq-kafka1-intro/</loc>
     <lastmod>2021-03-29T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -395,28 +535,35 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/kafka/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
+    <loc>https://wymli.github.io/2021/03/sys-unix-domain-socket/</loc>
+    <lastmod>2021-03-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/socket/</loc>
+    <lastmod>2021-03-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/sys/</loc>
+    <lastmod>2021-03-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/sys/</loc>
+    <lastmod>2021-03-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</loc>
-    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/other/</loc>
-    <lastmod>2021-03-27T21:09:05+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/other/</loc>
     <lastmod>2021-03-27T21:09:05+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -451,13 +598,6 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/bytedance/</loc>
-    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wymli.github.io/categories/bytedance/</loc>
     <lastmod>2021-03-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -465,7 +605,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/interview/</loc>
+    <loc>https://wymli.github.io/tags/bytedance/</loc>
     <lastmod>2021-03-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -479,7 +619,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/rpc/</loc>
+    <loc>https://wymli.github.io/tags/interview/</loc>
     <lastmod>2021-03-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -487,6 +627,13 @@
   
   <url>
     <loc>https://wymli.github.io/categories/rpc/</loc>
+    <lastmod>2021-03-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/rpc/</loc>
     <lastmod>2021-03-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -507,14 +654,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/mem/</loc>
-    <lastmod>2021-03-26T12:23:27+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/mem/</loc>
+    <loc>https://wymli.github.io/categories/os-memory/</loc>
     <lastmod>2021-03-26T12:23:27+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -822,21 +962,14 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/alg/</loc>
+    <loc>https://wymli.github.io/categories/algorithm/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/alg/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/arch/</loc>
+    <loc>https://wymli.github.io/tags/algorithm/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -850,7 +983,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/atomic/</loc>
+    <loc>https://wymli.github.io/tags/arch/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -864,21 +997,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/c/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/c/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/cache/</loc>
+    <loc>https://wymli.github.io/tags/atomic/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -892,7 +1011,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/cli/</loc>
+    <loc>https://wymli.github.io/tags/cache/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -906,7 +1025,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/concurrency/</loc>
+    <loc>https://wymli.github.io/tags/cli/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -920,7 +1039,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/datastructure/</loc>
+    <loc>https://wymli.github.io/tags/concurrency/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -934,7 +1053,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/deploy/</loc>
+    <loc>https://wymli.github.io/tags/datastructure/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -948,14 +1067,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/http/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/categories/http/</loc>
+    <loc>https://wymli.github.io/tags/deploy/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -976,7 +1088,42 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/protocol/</loc>
+    <loc>https://wymli.github.io/tags/oauth2/</loc>
+    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/os/</loc>
+    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/other/</loc>
+    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/other/</loc>
+    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/proc/</loc>
+    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/categories/protocal/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -997,7 +1144,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/tags/sys/</loc>
+    <loc>https://wymli.github.io/categories/vue/</loc>
     <lastmod>2021-03-25T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -1011,15 +1158,9 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/categories/vue/</loc>
-    <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+    <loc>https://wymli.github.io/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/about/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -1029,25 +1170,7 @@
   </url>
   
   <url>
-    <loc>https://wymli.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/1/01/sys-unix-domain-socket/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wymli.github.io/series/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://wymli.github.io/tags/socket/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

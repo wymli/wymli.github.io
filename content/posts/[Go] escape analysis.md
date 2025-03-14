@@ -1,8 +1,8 @@
 ---
 title: "[Go] escape analysis"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # 逃逸分析

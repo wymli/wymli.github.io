@@ -1,8 +1,8 @@
 ---
-title: "[alg] sort"
+title: "[Algorithm] sort"
 date: 2021-03-25
-tags: ["alg"]
-categories: ["alg"]
+tags: ["Algorithm"]
+categories: ["Algorithm"]
 ---
 
 # 排序算法

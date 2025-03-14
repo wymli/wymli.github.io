@@ -1,8 +1,8 @@
 ---
 title: "[c] trick1"
 date: 2021-03-25
-tags: ["c"]
-categories: ["c"]
+tags: ["C"]
+categories: ["C"]
 ---
 
 # 总结一下在c语言中遇到的诸多Tricks

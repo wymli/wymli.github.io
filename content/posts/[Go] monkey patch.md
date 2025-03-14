@@ -1,8 +1,8 @@
 ---
 title: "[Go] monkey patch"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # Monkey patch 猴子补丁

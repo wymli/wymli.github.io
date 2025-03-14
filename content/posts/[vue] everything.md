@@ -1,8 +1,8 @@
 ---
 title: "[vue] everything"
 date: 2021-03-25
-tags: ["vue"]
-categories: ["vue"]
+tags: ["Vue"]
+categories: ["Vue"]
 ---
 
 # 1. vue的生命周期/运行流程/渲染流程/初始化流程

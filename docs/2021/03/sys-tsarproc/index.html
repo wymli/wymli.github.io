@@ -20,29 +20,48 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息" />
-    <meta name="generator" content="Hugo 0.81.0 with theme pure" />
+    <meta name="description" content="TSAR taobao system activity reporter
+该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息
+关于此目录下的文件信息,
+可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html
+" />
+    <meta name="generator" content="Hugo 0.145.0 with theme pure" />
     <title>[sys] tsar&amp;proc - UnderTheHood</title>
     
     
-    <link rel="stylesheet" href="https://wymli.github.io/css/style.min.6f90022f237877ae2514ec95f3c9cca9f2314394f20800ca037a497e20053122.css">
+    <link rel="stylesheet" href="https://wymli.github.io/css/style.min.31c841d028bbb1b4f57eadc51e8f652fb1d4f783171c15f4f5de039708e133b3.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="[sys] tsar&amp;proc" />
-<meta property="og:description" content="TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://wymli.github.io/2021/03/sys-tsarproc/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-25T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-03-25T00:00:00&#43;00:00" />
+    <meta property="og:url" content="https://wymli.github.io/2021/03/sys-tsarproc/">
+  <meta property="og:site_name" content="UnderTheHood">
+  <meta property="og:title" content="[sys] tsar&proc">
+  <meta property="og:description" content="TSAR taobao system activity reporter
+该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息
+关于此目录下的文件信息,
+可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-03-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-03-25T00:00:00+00:00">
+    <meta property="article:tag" content="Proc">
 
-<meta itemprop="name" content="[sys] tsar&amp;proc">
-<meta itemprop="description" content="TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息"><meta itemprop="datePublished" content="2021-03-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3037">
-<meta itemprop="keywords" content="sys," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="[sys] tsar&amp;proc"/>
-<meta name="twitter:description" content="TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息"/>
+  <meta itemprop="name" content="[sys] tsar&proc">
+  <meta itemprop="description" content="TSAR taobao system activity reporter
+该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息
+关于此目录下的文件信息,
+可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html">
+  <meta itemprop="datePublished" content="2021-03-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-03-25T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3037">
+  <meta itemprop="keywords" content="Proc">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[sys] tsar&proc">
+  <meta name="twitter:description" content="TSAR taobao system activity reporter
+该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息
+关于此目录下的文件信息,
+可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html">
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -154,7 +173,7 @@
     <div id="tag-cloud-list" class="widget-body">
             
             
-            <a href="https://wymli.github.io/tags/alg/" class="tag-list-link" rel="1">alg<span
+            <a href="https://wymli.github.io/tags/algorithm/" class="tag-list-link" rel="1">algorithm<span
                class="tag-list-count">1</span></a>
             
             
@@ -166,7 +185,7 @@
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/big-data/" class="tag-list-link" rel="3">big-data<span
+            <a href="https://wymli.github.io/tags/bigdata/" class="tag-list-link" rel="3">bigdata<span
                class="tag-list-count">3</span></a>
             
             
@@ -190,6 +209,18 @@
                class="tag-list-count">1</span></a>
             
             
+            <a href="https://wymli.github.io/tags/container/" class="tag-list-link" rel="6">container<span
+               class="tag-list-count">6</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/containerd/" class="tag-list-link" rel="1">containerd<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/database/" class="tag-list-link" rel="5">database<span
+               class="tag-list-count">5</span></a>
+            
+            
             <a href="https://wymli.github.io/tags/datamining/" class="tag-list-link" rel="1">datamining<span
                class="tag-list-count">1</span></a>
             
@@ -198,15 +229,11 @@
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/db/" class="tag-list-link" rel="5">db<span
-               class="tag-list-count">5</span></a>
-            
-            
             <a href="https://wymli.github.io/tags/deploy/" class="tag-list-link" rel="1">deploy<span
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/design-pattern/" class="tag-list-link" rel="1">design-pattern<span
+            <a href="https://wymli.github.io/tags/designpattern/" class="tag-list-link" rel="1">designpattern<span
                class="tag-list-count">1</span></a>
             
             
@@ -214,12 +241,16 @@
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/go/" class="tag-list-link" rel="18">go<span
+            <a href="https://wymli.github.io/tags/event-stream/" class="tag-list-link" rel="1">event-stream<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/golang/" class="tag-list-link" rel="18">golang<span
                class="tag-list-count">18</span></a>
             
             
-            <a href="https://wymli.github.io/tags/http/" class="tag-list-link" rel="1">http<span
-               class="tag-list-count">1</span></a>
+            <a href="https://wymli.github.io/tags/http/" class="tag-list-link" rel="2">http<span
+               class="tag-list-count">2</span></a>
             
             
             <a href="https://wymli.github.io/tags/interview/" class="tag-list-link" rel="3">interview<span
@@ -234,19 +265,23 @@
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/mem/" class="tag-list-link" rel="2">mem<span
-               class="tag-list-count">2</span></a>
+            <a href="https://wymli.github.io/tags/oauth2/" class="tag-list-link" rel="1">oauth2<span
+               class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/mq/" class="tag-list-link" rel="5">mq<span
+            <a href="https://wymli.github.io/tags/oci/" class="tag-list-link" rel="5">oci<span
                class="tag-list-count">5</span></a>
             
             
-            <a href="https://wymli.github.io/tags/other/" class="tag-list-link" rel="3">other<span
-               class="tag-list-count">3</span></a>
+            <a href="https://wymli.github.io/tags/other/" class="tag-list-link" rel="2">other<span
+               class="tag-list-count">2</span></a>
             
             
-            <a href="https://wymli.github.io/tags/protocol/" class="tag-list-link" rel="1">protocol<span
+            <a href="https://wymli.github.io/tags/overlayfs/" class="tag-list-link" rel="1">overlayfs<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/proc/" class="tag-list-link" rel="1">proc<span
                class="tag-list-count">1</span></a>
             
             
@@ -256,6 +291,10 @@
             
             <a href="https://wymli.github.io/tags/rpc/" class="tag-list-link" rel="4">rpc<span
                class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/runc/" class="tag-list-link" rel="2">runc<span
+               class="tag-list-count">2</span></a>
             
             
             <a href="https://wymli.github.io/tags/script/" class="tag-list-link" rel="1">script<span
@@ -270,15 +309,15 @@
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/sys/" class="tag-list-link" rel="3">sys<span
-               class="tag-list-count">3</span></a>
+            <a href="https://wymli.github.io/tags/sys/" class="tag-list-link" rel="2">sys<span
+               class="tag-list-count">2</span></a>
             
             
-            <a href="https://wymli.github.io/tags/task-queue/" class="tag-list-link" rel="1">task-queue<span
+            <a href="https://wymli.github.io/tags/taskqueue/" class="tag-list-link" rel="1">taskqueue<span
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/tensorflow-arch/" class="tag-list-link" rel="1">tensorflow-arch<span
+            <a href="https://wymli.github.io/tags/tensorflow/" class="tag-list-link" rel="1">tensorflow<span
                class="tag-list-count">1</span></a>
             
             
@@ -296,6 +335,10 @@
             
             <a href="https://wymli.github.io/tags/vue/" class="tag-list-link" rel="2">vue<span
                class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/wsl/" class="tag-list-link" rel="1">wsl<span
+               class="tag-list-count">1</span></a>
             
             
             <a href="https://wymli.github.io/tags/zookeeper/" class="tag-list-link" rel="1">zookeeper<span
@@ -330,40 +373,43 @@ function tagCloud(where, min, max) {
     <h3 class="widget-title"> Categories</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/alg/" class="category-list-link">alg</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/algorithm/" class="category-list-link">algorithm</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/atomic/" class="category-list-link">atomic</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/big-data/" class="category-list-link">big-data</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/bigdata/" class="category-list-link">bigdata</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/bytedance/" class="category-list-link">bytedance</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/c/" class="category-list-link">c</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/cache/" class="category-list-link">cache</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/cli/" class="category-list-link">cli</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/concurrency/" class="category-list-link">concurrency</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/configcenter/" class="category-list-link">configcenter</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/container/" class="category-list-link">container</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/database/" class="category-list-link">database</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/datamining/" class="category-list-link">datamining</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/datastructure/" class="category-list-link">datastructure</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">5</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/distribute/" class="category-list-link">distribute</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">18</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/innodb/" class="category-list-link">innodb</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/install/" class="category-list-link">install</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">3</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/kafka/" class="category-list-link">kafka</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/mem/" class="category-list-link">mem</a><span class="category-list-count">2</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/mq/" class="category-list-link">mq</a><span class="category-list-count">5</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/messagequeue/" class="category-list-link">messagequeue</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/os/" class="category-list-link">os</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/os-memory/" class="category-list-link">os-memory</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/other/" class="category-list-link">other</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/protocal/" class="category-list-link">protocal</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/protocol/" class="category-list-link">protocol</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/redis/" class="category-list-link">redis</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/rpc/" class="category-list-link">rpc</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/script/" class="category-list-link">script</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">4</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/task-queue/" class="category-list-link">task-queue</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/tensorflow-arch/" class="category-list-link">tensorflow-arch</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/sys/" class="category-list-link">sys</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/taskqueue/" class="category-list-link">taskqueue</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/tensorflow/" class="category-list-link">tensorflow</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/todo/" class="category-list-link">todo</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/underthehood/" class="category-list-link">underthehood</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/vue/" class="category-list-link">vue</a><span class="category-list-count">2</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/zookeeper/" class="category-list-link">zookeeper</a><span class="category-list-count">1</span></li>
         </ul>
     </div>
 </div>
@@ -373,7 +419,7 @@ function tagCloud(where, min, max) {
         <ul class="tag-list">
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/alg/" class="tag-list-link">alg</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/algorithm/" class="tag-list-link">algorithm</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -385,7 +431,7 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/big-data/" class="tag-list-link">big-data</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/bigdata/" class="tag-list-link">bigdata</a><span
                     class="tag-list-count">3</span></li>
             
             
@@ -409,6 +455,18 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/container/" class="tag-list-link">container</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/containerd/" class="tag-list-link">containerd</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/database/" class="tag-list-link">database</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/datamining/" class="tag-list-link">datamining</a><span
                     class="tag-list-count">1</span></li>
             
@@ -417,15 +475,11 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/db/" class="tag-list-link">db</a><span
-                    class="tag-list-count">5</span></li>
-            
-            
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/deploy/" class="tag-list-link">deploy</a><span
                     class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/design-pattern/" class="tag-list-link">design-pattern</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/designpattern/" class="tag-list-link">designpattern</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -433,12 +487,16 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/go/" class="tag-list-link">go</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/event-stream/" class="tag-list-link">event-stream</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/golang/" class="tag-list-link">golang</a><span
                     class="tag-list-count">18</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/http/" class="tag-list-link">http</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/interview/" class="tag-list-link">interview</a><span
@@ -453,19 +511,23 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/mem/" class="tag-list-link">mem</a><span
-                    class="tag-list-count">2</span></li>
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/oauth2/" class="tag-list-link">oauth2</a><span
+                    class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/mq/" class="tag-list-link">mq</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/oci/" class="tag-list-link">oci</a><span
                     class="tag-list-count">5</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/other/" class="tag-list-link">other</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">2</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/protocol/" class="tag-list-link">protocol</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/overlayfs/" class="tag-list-link">overlayfs</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/proc/" class="tag-list-link">proc</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -475,6 +537,10 @@ function tagCloud(where, min, max) {
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/rpc/" class="tag-list-link">rpc</a><span
                     class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/runc/" class="tag-list-link">runc</a><span
+                    class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/script/" class="tag-list-link">script</a><span
@@ -490,14 +556,14 @@ function tagCloud(where, min, max) {
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/sys/" class="tag-list-link">sys</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">2</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/task-queue/" class="tag-list-link">task-queue</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/taskqueue/" class="tag-list-link">taskqueue</a><span
                     class="tag-list-count">1</span></li>
             
             
-            <li class="tag-list-item"><a href="https://wymli.github.io/tags/tensorflow-arch/" class="tag-list-link">tensorflow-arch</a><span
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/tensorflow/" class="tag-list-link">tensorflow</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -517,6 +583,10 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">2</span></li>
             
             
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/wsl/" class="tag-list-link">wsl</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/zookeeper/" class="tag-list-link">zookeeper</a><span
                     class="tag-list-count">1</span></li>
             
@@ -532,7 +602,7 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/aatodo-todo-list/" class="title">TodoList</a>
+                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
@@ -542,7 +612,7 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/aaaunderthehood-underthehood/" class="title">[underTheHood] 基础-重要-知识-教旨-格言-蝉</a>
+                        <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2021-04-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-10</time>
@@ -552,30 +622,30 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" class="title">[distribute] 单应用分布式架构</a>
+                        <a href="https://wymli.github.io/2025/03/container-6.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc%E6%BA%90%E7%A0%81/" class="title">[container] 6.容器基础之runc源码</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2022-04-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-04-28</time>
+                        <time datetime="2025-03-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-03-14</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2022/04/task-queue-lmstfy/" class="title">[task-queue] lmstfy</a>
+                        <a href="https://wymli.github.io/2025/03/container-5.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-dist/" class="title">[container] 5.容器基础之oci dist</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2022-04-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-04-19</time>
+                        <time datetime="2025-03-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-03-09</time>
                     </p>
                 </div>
             </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2022/04/big-data-yarn/" class="title">[big-data] yarn client</a>
+                        <a href="https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/" class="title">[container] 4.容器基础之oci image</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2022-04-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-04-16</time>
+                        <time datetime="2025-03-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-03-06</time>
                     </p>
                 </div>
             </li>
@@ -618,11 +688,11 @@ function tagCloud(where, min, max) {
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/sys/"> sys </a>
+  <a class="article-category-link" href="/categories/os/"> OS </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/sys/"> sys </a>
+    <a class="article-tag-link" href="/tags/proc/"> proc </a>
   </span>
 
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3037 words</span>
@@ -670,8 +740,7 @@ power management:
 </code></pre>
 <p>解释:</p>
 <blockquote>
-<p>摘自https://www.cnblogs.com/wxxjianchi/p/10522049.html</p>
-</blockquote>
+<p>摘自https://www.cnblogs.com/wxxjianchi/p/10522049.html</p></blockquote>
 <pre><code class="language-sh">processor　：系统中逻辑处理核心数的编号，从0开始排序。
 vendor_id　：CPU制造商
 cpu family　：CPU产品系列代号
@@ -752,59 +821,58 @@ procs_blocked 0 // 阻塞数
 softirq 147819 0 41104 0 123 4812 0 20320 42642 0 38818
 </code></pre>
 <table>
-<thead>
-<tr>
-<th>cpu指标</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user</td>
-<td>用户态时间(一般/高优先级,nice&lt;=0)</td>
-</tr>
-<tr>
-<td>nice</td>
-<td>用户态时间(低优先级，nice&gt;0)</td>
-</tr>
-<tr>
-<td>system</td>
-<td>内核态时间</td>
-</tr>
-<tr>
-<td>idle</td>
-<td>空闲时间</td>
-</tr>
-<tr>
-<td>iowait</td>
-<td>I/O等待时间</td>
-</tr>
-<tr>
-<td>irq</td>
-<td>硬中断</td>
-</tr>
-<tr>
-<td>softirq</td>
-<td>软中断</td>
-</tr>
-<tr>
-<td>steal</td>
-<td>被盗时间,Steal time is the percentage of time a virtual CPU waits for a real CPU  while the hypervisor is servicing another virtual processor.</td>
-</tr>
-<tr>
-<td>guest</td>
-<td>来宾时间</td>
-</tr>
-<tr>
-<td>guest_nice</td>
-<td>nice来宾时间</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>cpu指标</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>user</td>
+          <td>用户态时间(一般/高优先级,nice&lt;=0)</td>
+      </tr>
+      <tr>
+          <td>nice</td>
+          <td>用户态时间(低优先级，nice&gt;0)</td>
+      </tr>
+      <tr>
+          <td>system</td>
+          <td>内核态时间</td>
+      </tr>
+      <tr>
+          <td>idle</td>
+          <td>空闲时间</td>
+      </tr>
+      <tr>
+          <td>iowait</td>
+          <td>I/O等待时间</td>
+      </tr>
+      <tr>
+          <td>irq</td>
+          <td>硬中断</td>
+      </tr>
+      <tr>
+          <td>softirq</td>
+          <td>软中断</td>
+      </tr>
+      <tr>
+          <td>steal</td>
+          <td>被盗时间,Steal time is the percentage of time a virtual CPU waits for a real CPU  while the hypervisor is servicing another virtual processor.</td>
+      </tr>
+      <tr>
+          <td>guest</td>
+          <td>来宾时间</td>
+      </tr>
+      <tr>
+          <td>guest_nice</td>
+          <td>nice来宾时间</td>
+      </tr>
+  </tbody>
 </table>
 <blockquote>
 <p>单位是jiffies , 1 jiffies = 0.01s = 10ms</p>
-<p>统计cpu利用率: 总时间就是它们的和</p>
-</blockquote>
+<p>统计cpu利用率: 总时间就是它们的和</p></blockquote>
 <h3 id="top">top</h3>
 <p>在top命令的第三行,即打印出了全局的cpu利用率</p>
 <pre><code class="language-go">%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
@@ -977,7 +1045,7 @@ dummy0:       0       0    0    0    0     0          0         0        0      
 </ul>
   <div class="copyright">
     &copy;2021  -
-    2022
+    2025
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
     </div>
@@ -997,7 +1065,7 @@ dummy0:       0       0    0    0    0     0          0         0        0      
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('\x3Cscript src="js/jquery.min.js"><\/script>')
 </script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
@@ -1010,8 +1078,8 @@ dummy0:       0       0    0    0    0     0          0         0        0      
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://wymli.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
-<script src="https://wymli.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+<script src="https://wymli.github.io/js/application.min.e4989ab4dc212027af8773861b05b6bc333a1217f6b0a1b3377a3a3dbd454483.js"></script>
+<script src="https://wymli.github.io/js/plugin.min.353ef3573cf0beb9b69d43450140ff59f497f732396f539052fc4973c6330fdb.js"></script>
 
 <script>
     (function (window) {
@@ -1029,7 +1097,7 @@ dummy0:       0       0    0    0    0     0          0         0        0      
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
 </script>
-<script type="text/javascript" src="https://wymli.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script type="text/javascript" src="https://wymli.github.io/js/insight.min.716b0c6a00b68ccc31a2b65345f3412f4246ffa94a90f8e25d525528b4504f9937880692bbe619023233caba5d0a17ebe23d7cfb57cd3a88f23ea337ad5e4d00.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
 <script>
     tocbot.init({
@@ -1043,6 +1111,7 @@ dummy0:       0       0    0    0    0     0          0         0        0      
         hasInnerContainers: true,
     });
 </script>
+
 
 
   </body>

@@ -1,8 +1,8 @@
 ---
 title: "[mq] kafka1 intro"
 date: 2021-03-29
-categories: ["mq" , "kafka"]
-tags: ["mq" , "kafka"]
+categories: ["MessageQueue"]
+tags: [ "Kafka"]
 ---
 
 # kafka1 intro

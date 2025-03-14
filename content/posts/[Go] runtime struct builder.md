@@ -1,8 +1,8 @@
 ---
 title: "[Go] runtime struct builder"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # Runtime Struct: 运行时结构体构造方法

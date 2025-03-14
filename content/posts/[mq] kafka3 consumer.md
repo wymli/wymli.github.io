@@ -1,8 +1,8 @@
 ---
 title: "[mq] kafka3 consumer"
 date: 2021-04-02
-categories: ["mq" ]
-tags: ["mq" , "kafka"]
+categories: ["MessageQueue" ]
+tags: ["Kafka"]
 ---
 
 # kafka3 consumer

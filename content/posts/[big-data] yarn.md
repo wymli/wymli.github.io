@@ -1,8 +1,8 @@
 ---
-title: "[big-data] yarn client"
+title: "[BigData] yarn client"
 date: 2022-04-16
-categories: ["big-data"]
-tags: ["big-data"]
+categories: ["BigData"]
+tags: ["BigData"]
 ---
 
 # Yarn Client

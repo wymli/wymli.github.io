@@ -5,10 +5,121 @@
     <link>https://wymli.github.io/series/</link>
     <description>Recent content in Series on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
     
         <atom:link href="https://wymli.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>recommend system</title>
+      <link>https://wymli.github.io/2021/04/datamining-recsys/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/datamining-recsys/</guid>
+      <description>&lt;h1 id=&#34;推荐系统&#34;&gt;推荐系统&lt;/h1&gt;
+&lt;p&gt;utility matrix效用矩阵,横轴是用户,纵轴是商品,矩阵元素是打分&lt;/p&gt;
+&lt;p&gt;推荐系统的三个核心步骤:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;收集效用矩阵中的打分&lt;/li&gt;
+&lt;li&gt;从已知的打分中预测未知的打分&lt;/li&gt;
+&lt;li&gt;评估预测性能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gathering-ratings&#34;&gt;Gathering Ratings&lt;/h2&gt;
+&lt;p&gt;我们可以显式让用户打分或付钱让它们打分,也可以从它们的行为推测分数,比如它们经常观看,或购买&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[dataMining] LSH</title>
+      <link>https://wymli.github.io/2021/04/datamining-lsh/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/datamining-lsh/</guid>
+      <description>&lt;h1 id=&#34;locality-sensitive-hashing&#34;&gt;locality sensitive hashing&lt;/h1&gt;
+&lt;p&gt;位置敏感哈希,这是一种hash算法,当两个对象被hash到同一个桶中时,我们认为这两个对象是可能相似的,然后去检查这两个对象的相似性,最后得出答案,这避免了对所有对象两两之间进行O(N^2)的比较&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[c] 符号与链接</title>
+      <link>https://wymli.github.io/2021/04/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</guid>
+      <description>&lt;h1 id=&#34;c-符号与链接&#34;&gt;[c] 符号与链接&lt;/h1&gt;
+&lt;p&gt;我们知道,一个可执行文件的生成过程经历了一些步骤:&lt;/p&gt;
+&lt;p&gt;预处理-&amp;gt;编译-&amp;gt;汇编-&amp;gt;链接&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;最终的步骤,是将不同的.o目标文件链接在一起,形成一个可执行文件,不同的.o文件将会引用其他.o文件内的变量或函数,那么它们是怎么找到对应的变量或函数的地址的呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka4 工作原理</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
+      <description>&lt;h1 id=&#34;深入kafka&#34;&gt;深入kafka&lt;/h1&gt;
+&lt;p&gt;在此前的系列中,其实对于kafka集群和zk集群的区分很模糊,数据似乎有时是存在某个broker中的,又有时是存在zk中的&lt;/p&gt;
+&lt;h2 id=&#34;kafka成员&#34;&gt;kafka成员&lt;/h2&gt;
+&lt;p&gt;kafka使用zk来维护集群成员的信息.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[zk] zk1 intro</title>
+      <link>https://wymli.github.io/2021/04/zk-zk1-intro/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/zk-zk1-intro/</guid>
+      <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官方文档： &lt;a href=&#34;https://zookeeper.apache.org/doc/r3.4.14/&#34;&gt;https://zookeeper.apache.org/doc/r3.4.14/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;zookeeper是一种分布式协调服务(也就是说常称的注册中心),分布式应用正在运行的一组系统称为&lt;strong&gt;集群&lt;/strong&gt;，而在集群中运行的每台机器被称为&lt;strong&gt;节点&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka3 consumer</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka3-consumer/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka3-consumer/</guid>
+      <description>&lt;h1 id=&#34;kafka3-consumer&#34;&gt;kafka3 consumer&lt;/h1&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;消费组&#34;&gt;消费组&lt;/h2&gt;
+&lt;p&gt;往群组里增加消费者是横向伸缩消费能力的主要方式&lt;/p&gt;
+&lt;p&gt;消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个topic的消息,而必须要订阅&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka1.5 install</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka1.5-install/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka1.5-install/</guid>
+      <description>&lt;h1 id=&#34;安装kafka&#34;&gt;安装kafka&lt;/h1&gt;
+&lt;p&gt;我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get search搜索看有没有自己想要的版本&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mq] kafka2 producer</title>
+      <link>https://wymli.github.io/2021/03/mq-kafka2-producer/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mq-kafka2-producer/</guid>
+      <description>&lt;h1 id=&#34;kafka-producer&#34;&gt;kafka producer&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考kafka技术内幕:图文详解kafka源码设计和实现&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网络通信框架(比如rpc)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[sys] 虚拟内存与缓存缓冲</title>
+      <link>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
+      <description>&lt;h1 id=&#34;虚拟内存virtual-memory&#34;&gt;虚拟内存virtual memory&lt;/h1&gt;
+&lt;p&gt;什么是虚拟内存,应该不用多言.本质就是一个逻辑的虚拟地址空间,这些地址空间中,有的地址真正的对应到了物理内存的地址,有的地址却是对应到了磁盘上的地址(通过swap交换换页进入物理内存).&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[mq] kafka1 intro</title>
@@ -16,7 +127,25 @@
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/mq-kafka1-intro/</guid>
-      <description>kafka1 intro 部分参考 kafka技术内幕:图文详解kafka源码设计和实现 kafka权威指南 https://zhuanlan.zhihu.com/p/68052232 kafka是一种流式数据处理平台(消息队列的进阶版,即除</description>
+      <description>&lt;h1 id=&#34;kafka1-intro&#34;&gt;kafka1 intro&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;部分参考&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;kafka技术内幕:图文详解kafka源码设计和实现&lt;/li&gt;
+&lt;li&gt;kafka权威指南&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/68052232&#34;&gt;https://zhuanlan.zhihu.com/p/68052232&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;p&gt;kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[sys] unix domain socket</title>
+      <link>https://wymli.github.io/2021/03/sys-unix-domain-socket/</link>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/sys-unix-domain-socket/</guid>
+      <description>&lt;p&gt;荐读 &lt;a href=&#34;https://lists.freebsd.org/pipermail/freebsd-performance/2005-February/001143.html&#34;&gt;unix domain sockets vs. internet sockets&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经历一个完整的网络流程(虽然是通过lo网卡),也会收到syn,ack包,只是碰巧在解析的过程中,机器发现了这个包是要路由到本机的,于是借助lo网卡回来,本质仍然是一种尽力交付&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -25,16 +154,121 @@
       <pubDate>Sat, 27 Mar 2021 21:09:05 +0800</pubDate>
       
       <guid>https://wymli.github.io/2021/03/other-go%E4%BC%98%E7%82%B9/</guid>
-      <description>列举我心目中的go的优点 实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件 现代的包管理go get/go m</description>
+      <description>&lt;h1 id=&#34;列举我心目中的go的优点&#34;&gt;列举我心目中的go的优点&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;实现开源,源代码可以很方便的通过代码跳转去追踪,而不像c/c++都是链接库,或者只能追踪到头文件&lt;/li&gt;
+&lt;li&gt;现代的包管理go get/go mod,类似pip一样方便的包安装,但是也有很多不足,经常被人诟病
+&lt;ol&gt;
+&lt;li&gt;但就我个人使用上,感觉还是比较方便&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;类,结构与方法分离. 这在阅读源代码时很方便清爽,不必被各种inline函数搞得眼花缭乱
+&lt;ol&gt;
+&lt;li&gt;虽然go严格并没有类的概念&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;方便的方法函数拓展,只需要新写一个方法即可,不需要改动任何原来的代码&lt;/li&gt;
+&lt;li&gt;简洁的语法,不必把时间花费在底层理解上,但这也导致了无法极度的优化,不过相信大多数程序员都没有那么强,仍然利大于弊,不同的语言用来解决不同领域的问题&lt;/li&gt;
+&lt;li&gt;go的文档是直接放在一页的,直接ctrf-f搜索,很方便&lt;/li&gt;
+&lt;li&gt;待更&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>
-      <title>[interview] ByteDance2</title>
+      <title>[Interview] ByteDance2</title>
       <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
-      <description>字节二面 算法题: 二叉树中的最长距离 又拉跨了,太久没做题了,做了很久 并发和并行的区别 讲讲go的协程调度 GMP模型,balabala讲一堆,提到</description>
+      <description>&lt;h1 id=&#34;字节二面&#34;&gt;字节二面&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;算法题: 二叉树中的最长距离
+&lt;ol&gt;
+&lt;li&gt;又拉跨了,太久没做题了,做了很久&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;并发和并行的区别&lt;/li&gt;
+&lt;li&gt;讲讲go的协程调度
+&lt;ol&gt;
+&lt;li&gt;GMP模型,balabala讲一堆,提到了netpoller,触发linux io复用剧情&lt;/li&gt;
+&lt;li&gt;讲到了steal机制,面试官问我为什么在全局队列未空的时候要去steal呢?
+&lt;ol&gt;
+&lt;li&gt;回答,应该不会吧,毕竟其他p的g可能不在一个核上,会增加cahce缺失率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲linux的io复用
+&lt;ol&gt;
+&lt;li&gt;select/poll/epoll&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;select和epoll的区别
+&lt;ol&gt;
+&lt;li&gt;说了些常见的,比如select用链表不限制fd个数,但是触发后要遍历所有fd,epoll只需要遍历已经激活的fd,数组的前n个&lt;/li&gt;
+&lt;li&gt;似乎不是面试官想要的,让我回去再看看&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;提到epoll只返回激活的fd的个数,问我怎么设计这个数据结构
+&lt;ol&gt;
+&lt;li&gt;其实没搞懂想问什么,于是我balabal扯了一堆&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲docker
+&lt;ol&gt;
+&lt;li&gt;一种linux容器&lt;/li&gt;
+&lt;li&gt;虚拟化,轻量级,隔离&lt;/li&gt;
+&lt;li&gt;dockerfile可以很方便的构建容器镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲TCP的分包
+&lt;ol&gt;
+&lt;li&gt;tcp是面向流的协议&lt;/li&gt;
+&lt;li&gt;基于长度&lt;/li&gt;
+&lt;li&gt;基于分隔符&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;分隔符和内容冲突了怎么办?
+&lt;ol&gt;
+&lt;li&gt;转义
+&lt;ol&gt;
+&lt;li&gt;这里可以参考http协议,使用\r\n来分隔,对于body,会使用base64编码转义成文本字符,header和body之间有两个\r\n来区分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;配对
+&lt;ol&gt;
+&lt;li&gt;比如json,xml这种,但显然面临注入的风险,也要转义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;定长
+&lt;ol&gt;
+&lt;li&gt;对于简单的报文,直接定长即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;看我实验室的经历,问我知道哪些机器学习算法
+&lt;ol&gt;
+&lt;li&gt;讲了些简单的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;怎么对垃圾邮件分类
+&lt;ol&gt;
+&lt;li&gt;首先肯定是要特征工程,将邮件编码为欧氏空间中的一个点(向量,embedding),然后就是加标签之类的,丢到算法里面fit参数,我只懂些皮毛&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;问我svm怎么分类
+&lt;ol&gt;
+&lt;li&gt;没搞懂要问什么,以为要讲原理,我说一个分类间隔,支持向量啥啥啥的,反正我不懂,瞎扯一堆&lt;/li&gt;
+&lt;li&gt;最后说只需要怎么使用
+&lt;ol&gt;
+&lt;li&gt;那不是直接丢进去fit参数就行了嘛,重点在特征工程,分词那些吧,没搞懂面试官的逻辑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;其他,忘了,暂时只想起来这么多&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -43,7 +277,8 @@
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
-      <description>grpc grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就</description>
+      <description>&lt;h1 id=&#34;grpc&#34;&gt;grpc&lt;/h1&gt;
+&lt;p&gt;grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就像在本机上调用一样.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -52,7 +287,9 @@
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/rpc-intro/</guid>
-      <description>什么是RPC? rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数 在传统的单体服务中,所有的函数都写在一个进程映</description>
+      <description>&lt;h1 id=&#34;什么是rpc&#34;&gt;什么是RPC?&lt;/h1&gt;
+&lt;p&gt;rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数&lt;/p&gt;
+&lt;p&gt;在传统的单体服务中,所有的函数都写在一个进程映像里,我们调用函数只需要跳转到对应的代码段即可.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -61,7 +298,8 @@
       <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
-      <description>net/rpc 如下是一段极简的net/rpc代码, client.Call()代表这是一个同步的rpc,如果是异步,net/rpc提供了client.Go</description>
+      <description>&lt;h1 id=&#34;netrpc&#34;&gt;net/rpc&lt;/h1&gt;
+&lt;p&gt;如下是一段极简的net/rpc代码, &lt;code&gt;client.Call()&lt;/code&gt;代表这是一个同步的rpc,如果是异步,net/rpc提供了&lt;code&gt;client.Go()&lt;/code&gt;方法,典型的实现是返回一个chan,当异步完成时,这个chan就会读出消息(当然,net/rpc的Go()不是完全这样实现的,但也差不多)&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -70,7 +308,11 @@
       <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
       
       <guid>https://wymli.github.io/2021/03/mem-buddyfreelist/</guid>
-      <description>Buddy system linux底层使用buddy-system+slab slab位于buddy-system的上层 伙伴系统是一种基于二分的动态分区算法,一开</description>
+      <description>&lt;h3 id=&#34;buddy-system&#34;&gt;Buddy system&lt;/h3&gt;
+&lt;p&gt;linux底层使用buddy-system+slab&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;slab位于buddy-system的上层&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;伙伴系统是一种基于二分的动态分区算法,一开始他有k大小的空间,当有新的内存申请到达时,他会对k进行二分,直到满足那个大小恰好是最合适的大小时,返回给用户.比如,申请18KB内存,伙伴系统最初是128KB,那么会一直二分成32KB,16KB,发现16&amp;lt;18,所以返回给用户32KB的大小,这造成了很大的内部碎片&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -79,16 +321,20 @@
       <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
       
       <guid>https://wymli.github.io/2021/03/mem-tcmalloc/</guid>
-      <description>TCMalloc thread-caching malloc 顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的</description>
+      <description>&lt;h1 id=&#34;tcmalloc&#34;&gt;TCMalloc&lt;/h1&gt;
+&lt;p&gt;thread-caching malloc&lt;/p&gt;
+&lt;p&gt;顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的malloc操作就不会相互造成锁的竞争了&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>[alg] sort</title>
+      <title>[Algorithm] sort</title>
       <link>https://wymli.github.io/2021/03/alg-sort/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/alg-sort/</guid>
-      <description>排序算法 稳定性 假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[</description>
+      <description>&lt;h1 id=&#34;排序算法&#34;&gt;排序算法&lt;/h1&gt;
+&lt;h2 id=&#34;稳定性&#34;&gt;稳定性&lt;/h2&gt;
+&lt;p&gt;假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[j]，且r[i]在r[j]之前，而在排序后的序列中，r[i]仍在r[j]之前，则称这种排序算法是稳定的；否则称为不稳定的&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -97,97 +343,14 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/arch-design-pattern/</guid>
-      <description>设计模式 聊聊我熟悉的设计模式 首先,推荐一下这门课: https://time.geekbang.org/column/intro/100039001 我看了目录,确实很有吸引力,可惜太贵了:( 创建型 用于创建类型 单例 单例模式常用于创建全局唯</description>
-    </item>
-    
-    <item>
-      <title>[atomic] atomic</title>
-      <link>https://wymli.github.io/2021/03/atomic-atomic/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/atomic-atomic/</guid>
-      <description>关于RMW与Atomic LD/ST [TOC] 事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突</description>
-    </item>
-    
-    <item>
-      <title>[c] trick1</title>
-      <link>https://wymli.github.io/2021/03/c-trick1/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/c-trick1/</guid>
-      <description>总结一下在c语言中遇到的诸多Tricks 柔性数组 一个典型的柔性数组如下所示,数组本身是不占空间的 struct skipnode { int key; int value; struct sk_link link[0]; }; struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link)); 关</description>
-    </item>
-    
-    <item>
-      <title>[cache] base concepts</title>
-      <link>https://wymli.github.io/2021/03/cache-base-concepts/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/cache-base-concepts/</guid>
-      <description>应用层缓存 通常我们不希望所有数据的请求都去查询数据库,这一方面是慢,另一方面对数据库的压力也大. 因此,类似硬件层面的缓存,我们在应用层也会使</description>
-    </item>
-    
-    <item>
-      <title>[cli] 事件分发系统</title>
-      <link>https://wymli.github.io/2021/03/1.-eventdistributionsystem/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/1.-eventdistributionsystem/</guid>
-      <description>[Go] 可交互动态终端 &amp;lt;1, 事件注册分发中心&amp;gt; github.com/mum4k/termdash 如何完成一个好看的terminal呢?在以前我们大都会使用简单的printf来打印数据到终端,进</description>
-    </item>
-    
-    <item>
-      <title>[cli] 刷新屏幕</title>
-      <link>https://wymli.github.io/2021/03/2.-createandfreshscreen/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/2.-createandfreshscreen/</guid>
-      <description>可交互动态终端 &amp;lt;2, 刷新屏幕&amp;gt; ref: github.com/gdamore/tcell/v2 我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数</description>
-    </item>
-    
-    <item>
-      <title>[concurrency] promise&amp;future</title>
-      <link>https://wymli.github.io/2021/03/concurrency-promisefuture/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/concurrency-promisefuture/</guid>
-      <description>Promise&amp;amp;future 函数式编程是一个新的编程范式,基本上,只要你的编程语言支持函数是一等公民这个说法,那么就至少支持部分的函数式编程 [TOC] promise 所谓的promise,</description>
-    </item>
-    
-    <item>
-      <title>[dataStructure] skip-list</title>
-      <link>https://wymli.github.io/2021/03/data-structure-skip-list/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/data-structure-skip-list/</guid>
-      <description>skipList 跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n) 跳表是二叉搜索树,AVL,RBTree的替代品 这里我们不介绍如何从头开始编</description>
-    </item>
-    
-    <item>
-      <title>[DB] b-tree</title>
-      <link>https://wymli.github.io/2021/03/db-b-tree/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/db-b-tree/</guid>
-      <description>索引中的平衡树:b-tree,b-plus-tree 主要介绍数据库的索引,及其实现,平衡多叉树 什么是索引 想象一下,假设db没有任何数据结构驻</description>
-    </item>
-    
-    <item>
-      <title>[DB] mutex</title>
-      <link>https://wymli.github.io/2021/03/db-mutex/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/db-mutex/</guid>
-      <description>数据库中的三种锁 ref record锁(行锁) gap锁(间隙锁)(左开右开) next-lock锁(行+间隙)(左开右闭) 注意,锁的区间不是任意的,</description>
-    </item>
-    
-    <item>
-      <title>[DB] rule</title>
-      <link>https://wymli.github.io/2021/03/db-rule/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/db-rule/</guid>
-      <description>数据库设计范式 所谓设计范式,可理解为设计一张表的各个列的规则 定义 键和函数依赖 键 所有的键(key) 都是 a set of one or more attributes 主属性(prime attribute) 至少出</description>
+      <description>&lt;h1 id=&#34;设计模式&#34;&gt;设计模式&lt;/h1&gt;
+&lt;p&gt;聊聊我熟悉的设计模式&lt;/p&gt;
+&lt;p&gt;首先,推荐一下这门课: &lt;a href=&#34;https://time.geekbang.org/column/intro/100039001&#34;&gt;https://time.geekbang.org/column/intro/100039001&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我看了目录,确实很有吸引力,可惜太贵了:(&lt;/p&gt;
+&lt;h2 id=&#34;创建型&#34;&gt;创建型&lt;/h2&gt;
+&lt;p&gt;用于创建类型&lt;/p&gt;
+&lt;h3 id=&#34;单例&#34;&gt;单例&lt;/h3&gt;
+&lt;p&gt;单例模式常用于创建全局唯一变量,大多数时候都增加了耦合,降低了可测试性&lt;/p&gt;</description>
     </item>
     
   </channel>

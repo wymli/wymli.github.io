@@ -1,8 +1,8 @@
 ---
-title: "[interview] ByteDance&Tencent"
+title: "[Interview] ByteDance&Tencent"
 date: 2021-03-25
-tags: ["interview"]
-categories: ["interview"]
+tags: ["Interview"]
+categories: ["Interview"]
 ---
 
 # ByteDance&Tencent

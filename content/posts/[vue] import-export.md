@@ -1,8 +1,8 @@
 ---
 title: "[vue] import-export"
 date: 2021-03-25
-tags: ["vue"]
-categories: ["vue"]
+tags: ["Vue"]
+categories: ["Vue"]
 ---
 
 # About import and export

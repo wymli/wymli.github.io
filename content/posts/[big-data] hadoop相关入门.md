@@ -1,8 +1,8 @@
 ---
-title: "[big-data] 大数据入门"
+title: "[BigData] 大数据入门"
 date: 2022-04-10
-categories: ["big-data"]
-tags: ["big-data"]
+categories: ["BigData"]
+tags: ["BigData"]
 ---
 
 # 大数据

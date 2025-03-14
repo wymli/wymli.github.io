@@ -1,8 +1,8 @@
 ---
 title: "[Go] GC"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # 垃圾回收算法

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cli on UnderTheHood</title>
+    <title>Cli on UnderTheHood</title>
     <link>https://wymli.github.io/tags/cli/</link>
-    <description>Recent content in cli on UnderTheHood</description>
+    <description>Recent content in Cli on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
     
@@ -12,12 +13,479 @@
     
     
     <item>
+      <title>[Go] radix-tree</title>
+      <link>https://wymli.github.io/2021/03/go-radix-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-radix-tree/</guid>
+      <description>&lt;h1 id=&#34;radix树&#34;&gt;Radix树&lt;/h1&gt;
+&lt;p&gt;又叫压缩前缀树,基数树,常用于路由匹配上,会将路由组织成一颗radix树&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] reflect</title>
+      <link>https://wymli.github.io/2021/03/go-reflect/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-reflect/</guid>
+      <description>&lt;h2 id=&#34;什么是反射&#34;&gt;什么是反射?&lt;/h2&gt;
+&lt;p&gt;反射提供了一种运行时能对对象增删查改的方法.&lt;/p&gt;
+&lt;p&gt;换句话说,当函数参数的interface{}时,提供了一种访问原来的类型和值的方法. 这与switch type类似,但是switch只能对type进行判断,而你根本不知道会传进来何种自定义的结构体,这就是需要判断reflect.kind了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] runtime struct builder</title>
+      <link>https://wymli.github.io/2021/03/go-runtime-struct-builder/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-runtime-struct-builder/</guid>
+      <description>&lt;h1 id=&#34;runtime-struct-运行时结构体构造方法&#34;&gt;Runtime Struct: 运行时结构体构造方法&lt;/h1&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/itsubaki/gostruct&#34;&gt;https://github.com/itsubaki/gostruct&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pkg.go.dev/reflect#example-StructOf&#34;&gt;https://pkg.go.dev/reflect#example-StructOf&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;reflectnewtyp-reflecttype-reflectvalue&#34;&gt;reflect.New(typ reflect.Type) reflect.Value&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ).&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;因此,给定一个结构体类型的type,我们就可以构造出value&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] short var declare</title>
+      <link>https://wymli.github.io/2021/03/go-short-var-declare/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-short-var-declare/</guid>
+      <description>&lt;h1 id=&#34;go-短变量声明-&#34;&gt;[Go] 短变量声明 :=&lt;/h1&gt;
+&lt;p&gt;在Go中,提供了动态语言常用的一种直接声明并赋值的语法糖,即 := 短变量声明&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;:= 这个符号,可能是借鉴了Pascal&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;短变量声明有一定的要注意的地方,它与先声明后赋值有着一定的区别:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] slice index detail</title>
+      <link>https://wymli.github.io/2021/03/go-slice-index-detail/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-slice-index-detail/</guid>
+      <description>&lt;h1 id=&#34;go-slice的下标索引细节&#34;&gt;[Go] Slice的下标索引细节&lt;/h1&gt;
+&lt;p&gt;在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治&lt;/p&gt;
+&lt;p&gt;常见的比如快排,恢复二叉树等&lt;/p&gt;
+&lt;p&gt;在c/c++中,我会使用func(int* array , int lo , int hi)来标识数组的范围,但是在python这种动态语言中,可以直接使用数组的切片,很方便的传入递归函数 func (slice[lo:hi])&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] standard package layout</title>
+      <link>https://wymli.github.io/2021/03/go-standard-package-layout/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-standard-package-layout/</guid>
+      <description>&lt;h1 id=&#34;standard-package-layout&#34;&gt;Standard Package Layout&lt;/h1&gt;
+&lt;p&gt;标准包布局   -Ben Johnson &lt;a href=&#34;https://www.gobeyond.dev/standard-package-layout/&#34;&gt;https://www.gobeyond.dev/standard-package-layout/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用的包布局(application package layout)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] user thread</title>
+      <link>https://wymli.github.io/2021/03/go-user-thread/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-user-thread/</guid>
+      <description>&lt;h1 id=&#34;用户线程与核心线程&#34;&gt;用户线程与核心线程&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://flint.cs.yale.edu/cs422/doc/sched-act.pdf&#34;&gt;Scheduler Activations: Effective Kernel Support for the  User-Level Management of Parallelism&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;论文观点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We  argue  that  the  performance  of  user-levelthreads  is  inherently  better  than  that  of  kernel  threads,  rather  than  thisbeing  an  artifact  of  existing  implementations.&lt;/li&gt;
+&lt;li&gt;kernel   threads   are   the wrong   abstraction   on   which   to   support   user-level management   of   parallelism.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1用户线程的优势&#34;&gt;1.用户线程的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The  cost  of  accessing  thread  management  operations.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>[HTTP] Content-Type</title>
+      <link>https://wymli.github.io/2021/03/http-content-type/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/http-content-type/</guid>
+      <description>&lt;h1 id=&#34;about-content-type&#34;&gt;About Content-Type&lt;/h1&gt;
+&lt;p&gt;Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段&lt;/p&gt;
+&lt;h2 id=&#34;三种content-type&#34;&gt;三种Content-Type&lt;/h2&gt;
+&lt;h3 id=&#34;applicationx-www-form-urlencoded&#34;&gt;application/x-www-form-urlencoded&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;默认类型,当form不指定enctype时使用此content-type&lt;/li&gt;
+&lt;li&gt;看名字就知道,urlencoded,当自己构造时,要对参数进行url转义&lt;/li&gt;
+&lt;li&gt;示例: &lt;code&gt;a=123&amp;amp;b=123&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go语言中,可以直接传string/[]byte给body,也可以是map[string]string,也可以是url.Values(typedef map[string][]string)
+&lt;ul&gt;
+&lt;li&gt;虽然这些都可以,但推荐url.Values,可以直接调用.encode(),自己构造的是没有encode的,但一般来说都没有问题,因为只有特殊字符需要encode!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;go-server-解析&#34;&gt;go server 解析:&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;multipartform-datamime&#34;&gt;multipart/form-data(mime)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用于上传文件&lt;/li&gt;
+&lt;li&gt;html form 构造: &lt;code&gt;form.enctype=&amp;quot;multipart/form-data&amp;quot; i.put:type=&amp;quot;file&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go client 构造: &lt;code&gt;import &amp;quot;mime/multipart&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go server 解析:
+&lt;ul&gt;
+&lt;li&gt;首先解析: &lt;code&gt;r.ParseMultipartForm(1024 * 1024)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;取出来:&lt;code&gt;image := r.MultipartForm.Value[&amp;quot;image&amp;quot;] &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;也可以看看gin的api,更方便&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;applicationjson&#34;&gt;application/json&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;json.marshall之后传进body即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gin解析&#34;&gt;gin解析:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;id := c.Query(&amp;quot;id&amp;quot;)
+c.PostForm(&amp;quot;name&amp;quot;)
+// 也可以bind进一个结构体
+// 推荐使用bind,可以很方便的进行表单验证
+// get:BindQuery , post:bindjson/bindxml/...
+c.ShouldBind(&amp;amp;person)
+
+
+// 单文件
+router.MaxMultipartMemory = 8 &amp;lt;&amp;lt; 20 
+file, _ := c.FormFile(&amp;quot;file&amp;quot;)
+c.SaveUploadedFile(file, dst)
+
+// 多文件
+form, _ := c.MultipartForm()
+files := form.File[&amp;quot;upload[]&amp;quot;]
+
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Interview] ByteDance&amp;Tencent</title>
+      <link>https://wymli.github.io/2021/03/interview-bytedancetencent/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-bytedancetencent/</guid>
+      <description>&lt;h1 id=&#34;bytedancetencent&#34;&gt;ByteDance&amp;amp;Tencent&lt;/h1&gt;
+&lt;p&gt;2021/3 暑期实习&lt;/p&gt;
+&lt;h3 id=&#34;腾讯一面&#34;&gt;腾讯一面&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;上来抛了道js,问我输出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const a = (
+   i : 0,
+   toString(){
+      return i++
+   }
+)
+print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;答案是false,没答出来,我当时主要纠结于为什么会调用toString呢&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;问了下闭包,以及和方法引用对象变量的区别&lt;/li&gt;
+&lt;li&gt;union结构体,柔性数组&lt;/li&gt;
+&lt;li&gt;讲讲TCP三次握手,序数是从0开始吗
+&lt;ol&gt;
+&lt;li&gt;不是&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲数据包从本机到公网的历程
+&lt;ol&gt;
+&lt;li&gt;讲了arp,交换机,路由器这些&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲物理层的冲突
+&lt;ol&gt;
+&lt;li&gt;载波侦听多路访问&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;交换机和路由器的区别&lt;/li&gt;
+&lt;li&gt;交换机的端口分向内向外吗
+&lt;ol&gt;
+&lt;li&gt;不分,一个广播域,一个子网&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;了解tcmalloc吗
+&lt;ol&gt;
+&lt;li&gt;不懂,查了下,是thread cache malloc,一种内存管理中的内存分配方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;介绍自己的项目,聊到多态哈希,问我的并发控制是怎么做的
+&lt;ol&gt;
+&lt;li&gt;读写锁,map分片&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;哈希怎么做的内存管理
+&lt;ol&gt;
+&lt;li&gt;用bitmap,不是像slab用链表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;等等,多数忘了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二面&#34;&gt;二面&lt;/h3&gt;
+&lt;p&gt;今天早上过了tx的二面,感觉面的很简单&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Interview] 杂</title>
+      <link>https://wymli.github.io/2021/03/interview-%E6%9D%82/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-%E6%9D%82/</guid>
+      <description>&lt;h1 id=&#34;记录一下为面试做的准备&#34;&gt;记录一下为面试做的准备&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;声明: 以下知识点可能不完全正确,但也不会错的太离谱&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;记录一些知识点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;数据库事务的四个特性: ACID 原子性,一致性,隔离性,持久性&lt;/li&gt;
+&lt;li&gt;事务的隔离级别:
+&lt;ol&gt;
+&lt;li&gt;读未提交 : 即脏读&lt;/li&gt;
+&lt;li&gt;读提交: 解决脏读,可以读到其他事务提交了的行&lt;/li&gt;
+&lt;li&gt;读重复: 可以重复读数据,但是存在幻读(即对方插入了新的数据行,你是可以重复读出来行数不一样的)(要解决这个问题要锁全表)&lt;/li&gt;
+&lt;li&gt;读串化: 加表级锁&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;InnoDB的索引: B+树,有利于范围选择(对比hash和b树),B+树的数据指针节点都在叶子节点&lt;/li&gt;
+&lt;li&gt;3层的B+树可以支持2kw数据索引(基于一页放一个结点,一页16KB,一行数据1KB)&lt;/li&gt;
+&lt;li&gt;四,七层负载均衡:
+&lt;ol&gt;
+&lt;li&gt;四层:传输层,根据(ip:port)来映射到不同的app server,其工作本质类似于一个NAT,它不查看包的内容&lt;/li&gt;
+&lt;li&gt;七层:应用层,以http为例,它可能会解析出http request line/header,根据url来映射到不同的app server&lt;/li&gt;
+&lt;li&gt;不管是哪种方式,连接都是client和proxy建立,proxy再与app server建立&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;中断的分类:
+&lt;ol&gt;
+&lt;li&gt;外部中断: 外部io设备中断&lt;/li&gt;
+&lt;li&gt;内部中断
+&lt;ol&gt;
+&lt;li&gt;受迫中断: 除零等&lt;/li&gt;
+&lt;li&gt;自主中断: 系统调用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;os是中断驱动的软件(指令序列)&lt;/li&gt;
+&lt;li&gt;内核态与用户态切换的开销(系统调用的开销): 几百ns左右
+&lt;ol&gt;
+&lt;li&gt;特权模式的切换本身应该没有多耗时,主要是这个系统调用本身底层可能要执行数百条指令&lt;/li&gt;
+&lt;li&gt;对于getpid这样的系统调用,其实也是很快的,个位数ns左右&lt;/li&gt;
+&lt;li&gt;需要切换堆栈指针寄存器等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;进程上下文切换的开销(deprecated: see 16 instead)
+&lt;ol&gt;
+&lt;li&gt;进入内核态&lt;/li&gt;
+&lt;li&gt;切换页表寄存器指针&lt;/li&gt;
+&lt;li&gt;切换硬件寄存器上下文&lt;/li&gt;
+&lt;li&gt;执行调度代码(比如PCB进入运行队列)&lt;/li&gt;
+&lt;li&gt;冷启动造成的频繁缺页&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;硬件线程上下文切换的开销
+&lt;ol&gt;
+&lt;li&gt;切换硬件寄存器上下文&lt;/li&gt;
+&lt;li&gt;内核态进行&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;用户线程(协程)上下文切换的开销
+&lt;ol&gt;
+&lt;li&gt;用户态进行,超轻量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;线程比进程轻量的原因: 页表缓存&lt;/li&gt;
+&lt;li&gt;协程比线程轻量的原因: 不用进入内核态&lt;/li&gt;
+&lt;li&gt;https: 7次握手(tcp3+tls4)&lt;/li&gt;
+&lt;li&gt;io复用: select和poll类似,需要自己去遍历整个event数组寻找哪些可读可写; epoll返回激活fd的数目fds,访问event数组的前fds个event即可&lt;/li&gt;
+&lt;li&gt;进程切换的开销: &lt;a href=&#34;https://www.youtube.com/watch?v=lS1GOdXFLJo&#34;&gt;ref&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt;直接开销: pcb的各字段的load&amp;amp;store(页表指针,界限指针等)(从内存到寄存器)&lt;/li&gt;
+&lt;li&gt;间接开销: cold cache&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;内核线程切换的开销:
+&lt;ol&gt;
+&lt;li&gt;直接开销: pcb的各字段的load&amp;amp;store(页表指针,界限指针等)(从内存到寄存器)&lt;/li&gt;
+&lt;li&gt;线程和进程都是task_struct&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;用户态线程的开销:
+&lt;ol&gt;
+&lt;li&gt;不需要进入内核态(进入内核态涉及中断)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;指令级并行: ILP 多发射,超标量(动态多发射)
+&lt;ol&gt;
+&lt;li&gt;多个取值译码器,多个ALU,单个执行上下文(所以只支持单进程的多发射乱序执行)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;线程级并行: 多核程序
+&lt;ol&gt;
+&lt;li&gt;单核多线程也可以,比如intel的四核八线程,在指令级并行的基础上增加多个执行上下文&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;数据级并行: SIMD
+&lt;ol&gt;
+&lt;li&gt;单个取值译码器,超多个ALU&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;TLS握手:
+&lt;ol&gt;
+&lt;li&gt;client hello,client random&lt;/li&gt;
+&lt;li&gt;server hello,server random,server certificate&lt;/li&gt;
+&lt;li&gt;client encode premaster secret using server public key&lt;/li&gt;
+&lt;li&gt;&amp;lt;-&amp;gt;通信双方根据预主密钥和random计算出对称密钥,用于后续通信的加密&lt;/li&gt;
+&lt;li&gt;server-&amp;gt;client ,  finished&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;为什么要random: 避免重放攻击?
+&lt;ol&gt;
+&lt;li&gt;个人感觉不是,random就只是单纯的random一下,为了生成一个不易被爆破的密钥吧&lt;/li&gt;
+&lt;li&gt;为了避免重放,应该为每一个报文加一个序号&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;为什么要对称密钥加密,而不是直接server公钥: 对称密钥加解密速度快&lt;/li&gt;
+&lt;li&gt;tcp三次握手,最后一次为什么要握手,没有行不行?
+&lt;ol&gt;
+&lt;li&gt;为了防止无意的过期连接的建立&lt;/li&gt;
+&lt;li&gt;可以类比有意的syn攻击(一种dos攻击)
+&lt;ol&gt;
+&lt;li&gt;防御手段? tcp cookie?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;数据库并发控制
+&lt;ol&gt;
+&lt;li&gt;悲观锁: 一次封锁或两阶段锁
+&lt;ol&gt;
+&lt;li&gt;一次封锁: 有效防止死锁,在事务开始时,一次获取所有锁,事务结束后释放所有锁&lt;/li&gt;
+&lt;li&gt;两阶段锁: 可能死锁, 事务分为growing阶段和shrinking阶段,前一个阶段只能获取锁,后一个阶段只能释放锁
+&lt;ol&gt;
+&lt;li&gt;解决死锁:
+&lt;ol&gt;
+&lt;li&gt;死锁检测: 维护一个锁等待图,追踪每个事务要获得哪些锁,图中节点是事务,边是等待关系(i-&amp;gt;j, 表示事务i等待事务j释放锁) ,系统周期性检查图中是否有环, 有环则死锁,对其中一个restart或者abort&lt;/li&gt;
+&lt;li&gt;死锁避免:  当事务i想要获取事务j的某个锁,dbms杀掉i或j来避免死锁
+&lt;ol&gt;
+&lt;li&gt;old waits for young(wait-die)
+&lt;ol&gt;
+&lt;li&gt;如果请求事务比持有事务启动的早,则请求事务wait; 否则请求事务abort&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;young waits for old(wound-wait)
+&lt;ol&gt;
+&lt;li&gt;如果请求事务比持有事务启动的早,则持有事务abort,释放锁; 否则等待&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;悲观锁的缺点: 大多数db读多于写,减少了潜在的并行性&lt;/li&gt;
+&lt;li&gt;意向锁: An intention lockallows a higher-level node to be locked in sharedor exclusivemode without having to check all descendent nodes.
+&lt;ol&gt;
+&lt;li&gt;如果表有意向读锁,则说明某一行加了读锁&lt;/li&gt;
+&lt;li&gt;如果表有意向写锁,则说明某一行加了写锁&lt;/li&gt;
+&lt;li&gt;意向锁与锁有一定的兼容性,本质是为了快速判断某一事物是否能在这个表上完成:
+&lt;ol&gt;
+&lt;li&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;/li&gt;
+&lt;li&gt;共享意向排他锁SIX: 表示读取整个表,修改部分行(即 S + IX),只有当某个事务是读取某一行时,才让其进入表(与之兼容)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;乐观锁: 基于时间戳排序的协议(保证执行效果就像按时间戳串行一样)
+&lt;ol&gt;
+&lt;li&gt;不加锁,每个事务启动时获取一个唯一时间戳. 表的每一行都维护读时间戳和写时间戳
+&lt;ol&gt;
+&lt;li&gt;行的读写时间戳不能和事务启动时间戳矛盾&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;另一种方法,不在运行时验证,而是先写到自己的空间,事务提交时统一验证
+&lt;ol&gt;
+&lt;li&gt;OCC phases(optimistic concurrency control)
+&lt;ol&gt;
+&lt;li&gt;读阶段,The DBMS copies every tuple that the txnaccesses from the shared database to its workspace ensure repeatable reads.&lt;/li&gt;
+&lt;li&gt;验证阶段: When txnTi invokes COMMIT, the DBMS checks if it conflicts with other txns.&lt;/li&gt;
+&lt;li&gt;写阶段:The DBMS propagates the changes in the txn’swrite set to the database and makes them visible to other txns&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;多版本并发控制
+&lt;ol&gt;
+&lt;li&gt;对于每一行,维护多个版本,只要一个事务写或修改了一行,就创建一个那一行的新版本(版本基于时间戳)&lt;/li&gt;
+&lt;li&gt;事务读时,会自己选择去读最新的与事务启动时间戳兼容的版本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;日志记录(持久化机制)&lt;/li&gt;
+&lt;li&gt;高可用:  短暂的系统中断时间,能快速恢复(类比汽车的备胎)&lt;/li&gt;
+&lt;li&gt;容错: 系统故障,但继续提供服务,因为冗余节点(类比飞机的多个发动机)&lt;/li&gt;
+&lt;li&gt;灾备(disaster recovery): 系统故障后,如何抢救业务数据,放弃基础设施&lt;/li&gt;
+&lt;li&gt;外排序: 以归并排序为例,对900MB数据排序,内存100MB
+&lt;ol&gt;
+&lt;li&gt;归并排序是divide-and-conquer算法,先分成多块,分别sort,然后对这排好序的多快进行merge&lt;/li&gt;
+&lt;li&gt;900/100 = 9,所有9路归并&lt;/li&gt;
+&lt;li&gt;divide-sort阶段: 对这9块数据,每块100MB,依次读入内存,进行内排序sort,写出内存&lt;/li&gt;
+&lt;li&gt;merge阶段: 内存分为9个input buffer和1个output buffer;每次对每块读入10MB,进行merge,output buffer满后写出内存,input buffer满后,从自己那块再从磁盘取&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;redis持久化机制:
+&lt;ol&gt;
+&lt;li&gt;RDB:redis database&lt;/li&gt;
+&lt;li&gt;将数据快照保存在磁盘上&lt;/li&gt;
+&lt;li&gt;命令: save(同步save) , bgsave(异步save),自动同步(配置文件)&lt;/li&gt;
+&lt;li&gt;缺点: 自动同步时间一般设置的较大,比如100s,实时性不够
+&lt;ol&gt;
+&lt;li&gt;显然不能频繁写,因为要把内存全部覆盖到磁盘,数据量还是很大的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;AOF: append-only-file
+&lt;ol&gt;
+&lt;li&gt;存储日志,恢复时redo,可以配置每一条指令,或每秒fsync一次&lt;/li&gt;
+&lt;li&gt;缺点:aof文件比rdb文件大&lt;/li&gt;
+&lt;li&gt;优点: append-only,方便磁盘寻址&lt;/li&gt;
+&lt;li&gt;bgrewriteaof,对aof文件重写(优化),目的是为了减少指令数目,用尽可能少的指令数目完成一样的功能; 有助于数据恢复速度和磁盘空间&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;WAL: write ahead log
+&lt;ol&gt;
+&lt;li&gt;先写日志再写数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
       <title>[linux] daemon</title>
       <link>https://wymli.github.io/2021/03/linux-bg-run-linux/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/linux-bg-run-linux/</guid>
-      <description>[linux] 关于后台运行进程的小实验 我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置 守护模式 通</description>
+      <description>&lt;h1 id=&#34;linux-关于后台运行进程的小实验&#34;&gt;[linux] 关于后台运行进程的小实验&lt;/h1&gt;
+&lt;p&gt;我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置&lt;/p&gt;
+&lt;h2 id=&#34;守护模式&#34;&gt;守护模式&lt;/h2&gt;
+&lt;p&gt;通过编程,可以使得程序进入daemon模式&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -26,7 +494,30 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/linux-high-performance-server/</guid>
-      <description>高性能linux服务器 服务器监听范式 一个传统的单线程服务器 graph LR; A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd); B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind] C--&amp;gt;D[listen] D--&amp;gt;E[accept] E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;] F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E 一个传统的多线程服务器, pthread也可以换成fork,</description>
+      <description>&lt;h1 id=&#34;高性能linux服务器&#34;&gt;高性能linux服务器&lt;/h1&gt;
+&lt;h2 id=&#34;服务器监听范式&#34;&gt;服务器监听范式&lt;/h2&gt;
+&lt;p&gt;一个传统的单线程服务器&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR;
+A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd);
+B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind]
+C--&amp;gt;D[listen]
+D--&amp;gt;E[accept]
+E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一个传统的多线程服务器, pthread也可以换成fork,多进程&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR;
+A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd);
+B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind]
+C--&amp;gt;D[listen]
+D--&amp;gt;E[accept]
+E--&amp;gt;|connfd|F[pthread_create]
+F--&amp;gt;|pthread|G[threadRoutine]--&amp;gt;O[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|pthread|H[threadRoutine]--&amp;gt;Oo[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|pthread|I[threadRoutine]--&amp;gt;Ooo[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一个传统的多线程服务器,多线程同时accpet同一个sockfd&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -35,7 +526,14 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/linux-server-intro/</guid>
-      <description>Introduction to linux server linux 服务器导论 文件目录相关 假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式 如果是.d结尾,则代表</description>
+      <description>&lt;h1 id=&#34;introduction-to-linux-server&#34;&gt;Introduction to linux server&lt;/h1&gt;
+&lt;p&gt;linux 服务器导论&lt;/p&gt;
+&lt;h2 id=&#34;文件目录相关&#34;&gt;文件目录相关&lt;/h2&gt;
+&lt;p&gt;假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果是.d结尾,则代表是文件目录&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;日志目录&#34;&gt;日志目录&lt;/h3&gt;
+&lt;p&gt;/var/log/testServerd/&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -44,7 +542,238 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/other-everyday/</guid>
-      <description>12.1 重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习 看了一篇微服务的概述</description>
+      <description>&lt;h1 id=&#34;121&#34;&gt;12.1&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习&lt;/li&gt;
+&lt;li&gt;看了一篇微服务的概述,看起来微服务的兴起就像操作系统的历史一样,由宏内核到微内核,将函数作为服务提供调用,微服务则是将不同的功能组件独立成独立的网络服务,分布在不同的主机;为了降低延迟,使用rpc而不是http,使用protobuf(?存疑)而不是json/xml,因为解析速度不够;带宽方面,随着计算机性能的提升,一般没问题,记得chenshuo在muduo教程里面测过通过本机tcp端口做ipc,带宽也非常可观.目的还是降低单次调用的延时&lt;/li&gt;
+&lt;li&gt;看了下go语言的sync.map源码,实现上类似于双缓冲区,涉及到写缓冲区的操作一律加锁,默认一个读一个写,加快速度,读不到了再从写的那个缓冲区读;miss次数一定后,就更新缓冲区(用写缓冲区直接覆盖读缓冲区,写缓冲区置为0,后续第一次写入写缓冲区时,会先将读缓冲区的数据拷贝过来,为什么这样设计,可能只是语言机制语法上的妥协吧);
+&lt;ol&gt;
+&lt;li&gt;关于写,如果在读缓冲区读到了(注意读到了还要考虑是不是被删除了),就用cas写(换指针),否则上锁,去写缓冲区;&lt;/li&gt;
+&lt;li&gt;关于读,读缓冲区没读到,并且两个缓冲区数据不一致(定义两个缓冲区数据一致指的是写缓冲区为0,即刚将写缓冲区覆盖读缓冲区),就上锁,去写缓冲区读;&lt;/li&gt;
+&lt;li&gt;删除: 将指向value的指针置为nil,但本身还存在map中,延迟删除&lt;/li&gt;
+&lt;li&gt;还有一个特点是,获取锁后,不要立即访问写缓冲区,而是再访问一次读缓冲区,因为你不知道有没有其他线程触发更新,使得写缓存区清空了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;把win10升级到了专业版,可以用remote desktop了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;122&#34;&gt;12.2&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;remote desktop 的延迟还是挺高的,仅仅能用&lt;/li&gt;
+&lt;li&gt;继续说sync.map,其中还是有很多东西可以说到说到的
+&lt;ol&gt;
+&lt;li&gt;乐观锁与悲观锁
+&lt;ol&gt;
+&lt;li&gt;数据库中的概念&lt;/li&gt;
+&lt;li&gt;cas(compare&amp;amp;swap),或者是test&amp;amp;set,这些原子指令认为是无锁的,lock-free
+&lt;ol&gt;
+&lt;li&gt;但这并不意味着它们代价低,事实上cas作为一个写指令,一定会在总线上发出BusX(后续会写的读信号)信号,以失效多核cpu的其他核的cache,保证cache一致性,然后才读到数据,compare失败或成功&lt;/li&gt;
+&lt;li&gt;因此一个典型的优化是read and cas,先读,因为处理器读导致BusRead不会使cache失效,这其实就是要减少cas的强制占用总线,后续也可能会有多个核cas,但没关系,最多是核数而不是线程数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;乐观锁,倾向于数据少写
+&lt;ol&gt;
+&lt;li&gt;先不加锁访问(读),直到更新的时候再用cas更新,可以通过比较version字段(或要修改的值的最新状态与之前的快照)来比较,然后update
+&lt;ol&gt;
+&lt;li&gt;如果是全局的version字段,就不会有ABA问题&lt;/li&gt;
+&lt;li&gt;如果失败,就回滚,重新search&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;所以其实乐观锁不算是一种锁&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;悲观锁,倾向于数据多写
+&lt;ol&gt;
+&lt;li&gt;强制加锁,访问&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;复制的效率
+&lt;ol&gt;
+&lt;li&gt;可以看到读缓冲区miss后将要访问写缓冲区时,写缓冲区要先copy读缓冲区,再写新的key&amp;amp;value&lt;/li&gt;
+&lt;li&gt;这是说明了复制的效率一定高于加锁PV的效率?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;1213&#34;&gt;12.13&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;一下子就10天没写了,自己还是太懒了,但是这十天还是接触了很多东西的&lt;/li&gt;
+&lt;li&gt;authentication and authorization, 认证与鉴权
+&lt;ul&gt;
+&lt;li&gt;在go里面,认证可以用jwt,鉴权可以用casbin,一般鉴权是rbac,role-based-access-control,基于角色的访问控制,鉴权就是访问控制&lt;/li&gt;
+&lt;li&gt;这其实就类似于Kerberos,有认证服务器和票据服务器,二者分开&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;go语言并发,daisy chain之类的东西,输入channel,开goroutine对数据filter,输出channel&lt;/li&gt;
+&lt;li&gt;reactor,proactor,两种事件处理模式,event-driven
+&lt;ul&gt;
+&lt;li&gt;reactor是主线程只负责监听事件发生(epoll_wait),然后分发任务给任务线程,读写数据都在工作线程中完成,accept()也在worker中完成&lt;/li&gt;
+&lt;li&gt;proactor是异步io的,将io操作交给主线程/内核完成,我们知道异步本质就是注册一个回调函数,当io结束后执行回调函数&lt;/li&gt;
+&lt;li&gt;不够,感觉没太大用,因为目前还接触不到应用的场景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;reactiveX,流式处理数据,一种异步io风格
+&lt;ul&gt;
+&lt;li&gt;但是和回调又有点不同,它是源源不断接收流式的数据,然后对数据像流水线一样处理. 当然本质也就是注册回调函数,但可以避免过多callback时候的混乱代码,主要是语法上更简介吧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;看了beego的session模块的代码,感觉写的确实收益颇多
+&lt;ul&gt;
+&lt;li&gt;因为可以有不同的存储场景,所以用interface在中间层抽象,应用层(应用者,user)和底层(提供者,provider)都面向interface编程,底层存储提供者可以是memory,file,redis,db等等,这需要编写对应的驱动(虽然我不知道这叫不叫驱动,但是确实在功能上给我一种驱动的感觉,一般会称之为adapter吧,适配器)&lt;/li&gt;
+&lt;li&gt;它的并发链表的实现也不错,一方面用链表存储数据,另一方面为了解决链表线性访问慢的问题,用map存储链表的node,快速查找sessionId对应的node
+&lt;ul&gt;
+&lt;li&gt;为什么要用container/list呢,而不直接用sync.map存储session,这是因为,我们还要计算其超时时间!&lt;/li&gt;
+&lt;li&gt;我们不可能遍历所有的node去计算其超时,所以必须要按时间排序&lt;/li&gt;
+&lt;li&gt;在这里,list就充当了这个角色,新创建的session被放到list的前面,快超时的session自然在最后面,在gc的时候只需要不断测试最后一个node就好了
+&lt;ul&gt;
+&lt;li&gt;另外这种定时事件,好像都是用小顶堆做的,这里用链表其实也不错&lt;/li&gt;
+&lt;li&gt;container/list提供了极其方便的api,比如:PushFront,MoveToFront,Remove&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;何时GC,处理超时session:
+&lt;ul&gt;
+&lt;li&gt;在sessionInit时,就goroutine一个线程定时gc,可以用递归的形式,比较优雅.当然放在一个for{}无穷循环里面也可&lt;/li&gt;
+&lt;li&gt;func(m *manager)gc(){m.provider.gc(); time.AfterFunc(time.Duration , m.gc)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;在哪里告诉程序,这个provider实现了?
+&lt;ul&gt;
+&lt;li&gt;直接在init()中register,维护一个全局的map即可,实现了就在这个文件的init函数中往map里面写就可以了,极其容易拓展,低耦合&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;注意session只需要管理一个sessionId和对应的value就行了,value可以是任何值的集合,可以设成map[string]interface{},虽然其实go也支持map[interface{}]interface{}
+&lt;ul&gt;
+&lt;li&gt;session不需要管理对应的url路径什么的,那是cookie的事,我们在response的时候要set-cookie,对应的cookie值在那里设置,value设置成对应的sessionId即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MVC架构
+&lt;ul&gt;
+&lt;li&gt;model-view-controller
+&lt;ul&gt;
+&lt;li&gt;model就是一个个定义的结构体/类对象,其实主要还是用来访问数据库的,其他的名字:DAO,data-access-object,数据访问对象,也就是orm,object-relation-model&lt;/li&gt;
+&lt;li&gt;view,就是前端视图了,可能是一些模板之类的&lt;/li&gt;
+&lt;li&gt;controller就是后端处理逻辑,hanler,middlerware,log,session,router之类的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;综合看下来,beego不完全是一个web框架,它还集成了client,定时任务task之类的模块,我感觉非常值得学习,而且谢大的书go web编程也是开源的,顶礼膜拜好吧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;VUE
+&lt;ul&gt;
+&lt;li&gt;在看奇淼在b站录的vue视频,感觉这个人教学方面是很不错的,视频看下来不会让我感觉无聊,讲的也比较有激情,知识点归纳的也不错&lt;/li&gt;
+&lt;li&gt;在我入门gin的情况下去听了下他的gin入门课,感觉还是很不错的,也有收获&lt;/li&gt;
+&lt;li&gt;之前接触的那些开源项目的目录结构都很迷,初学者完全看不懂为什么这么摆,他的gin-vue-admin的项目目录结构就比较清爽,一目了然&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;vue-router
+&lt;ul&gt;
+&lt;li&gt;前端页面路由,用来构建单页面应用&lt;/li&gt;
+&lt;li&gt;表现上就是一个页面内的标签页/导航&lt;/li&gt;
+&lt;li&gt;典型的,前端路由可以用在登陆界面上,就不用登陆界面单独写一个后端路由/html了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;1214&#34;&gt;12.14&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;这一周打算:
+&lt;ul&gt;
+&lt;li&gt;学会vue/element ui的布局layout,一个典型的后台管理系统就是单页面的,在固定的框类切换不同的内容,所以建立好总体的布局尤为重要&lt;/li&gt;
+&lt;li&gt;了解http2,简单看了下,感觉都在说什么连接复用,头部压缩之类的,但是http1.0/1.1不是也已经支持keep-alive了吗?这两个长连接的区别?&lt;/li&gt;
+&lt;li&gt;了解redis?redis就是一个键值对的数据库,经常用作缓存&lt;/li&gt;
+&lt;li&gt;看到了vue-element-admin,是个不错的项目,而且有教程,基本和奇淼的gin-vue-admin是一个东西,不过这也是因为后台管理系统确实就是那一套.但是对我来说,依然还是有很多学习的地方的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;todo
+&lt;ul&gt;
+&lt;li&gt;组件上的v-model&lt;/li&gt;
+&lt;li&gt;子组件的this.emit(&amp;lsquo;input&amp;rsquo;,)&lt;/li&gt;
+&lt;li&gt;根组件
+&lt;ul&gt;
+&lt;li&gt;就是new Vue()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;组件一定要被&lt;!-- raw HTML omitted --&gt;包含?&lt;/li&gt;
+&lt;li&gt;直接获取组件对象:
+&lt;ul&gt;
+&lt;li&gt;根组件: $root&lt;/li&gt;
+&lt;li&gt;父组件:$parent 只读&lt;/li&gt;
+&lt;li&gt;子组件:$children 只读,无序
+&lt;ul&gt;
+&lt;li&gt;若想改变子组件的内容,只能直接改变子组件所引用的数组的内容,子组件由v-for生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;插槽
+&lt;ul&gt;
+&lt;li&gt;用来指示外部传给组件的innerHTML的显示位置&lt;/li&gt;
+&lt;li&gt;比如&lt;!-- raw HTML omitted --&gt;&amp;ldquo;this is innerHTML&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;vue的入口文件:
+&lt;ul&gt;
+&lt;li&gt;入口可以是 main.js、index.js、App.vue 或 app.vue 中的一个&lt;/li&gt;
+&lt;li&gt;哪个定义了new Vue()实例,哪个就是入口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;vue实例内置数据/方法,前加$,比如var vm = new Vue({el:&amp;quot;&amp;quot;,data:{}}),vm.$el,vm.$mount()
+&lt;ul&gt;
+&lt;li&gt;只有在初始创建时在data字典里面的数据才是响应式的,后面添加的都必须手动触发更新&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;关于layout
+&lt;ul&gt;
+&lt;li&gt;一般来说,后台管理系统是单页面的,简洁好用,没必要设计成跳来跳去的跳转&lt;/li&gt;
+&lt;li&gt;一般的,用侧边栏来导航,el-main块用来显示内容,如何实现点击不同的按钮,main块切换到不同的页面内容呢?
+&lt;ul&gt;
+&lt;li&gt;这个其实element-ui直接实现了,叫标签页&lt;/li&gt;
+&lt;li&gt;但是如果想更灵活一点,可以自己设计,是通过vue-route实现的&lt;/li&gt;
+&lt;li&gt;main块放&lt;!-- raw HTML omitted --&gt;即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;标签页是容易实现的,可以用它来练习组件,设计插槽,父子组件通信这些
+&lt;ul&gt;
+&lt;li&gt;本质就是一个tab组件,子组件是tab-pane代表各个标签,tab只是控制tab-pane的显示而已,而显示可以用v-if,很简单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一个标准的vue前端代码结构是: ./component , ./App.vue , ./main.js
+&lt;ul&gt;
+&lt;li&gt;在main.js中引入全局组件,App.vue是入口文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;组件通信: 父传子:props down ; 子传父:events up : this.$emit()&lt;/li&gt;
+&lt;li&gt;关于vue的组件,强推这个课程:https://www.bilibili.com/video/BV1nx411X7oA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;1216&#34;&gt;12.16&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;前后端分离,不仅仅是独立开发,也是独立部署,这意味着后端仅仅是提供api的路由!而由前端自己提供页面的路由,这就是意味着前端有自己的路由&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;1218&#34;&gt;12.18&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;前后端分离,前端一般是单页面的,通过内置前端路由实现多页面,但只有一个vue实例,请求后端api服务器可能需要设置跨域
+SPA,单页面应用的路由有两种模式:hash和history,这两种方法都可以改变uri而不触发浏览器的刷新(向服务器请求)
+&lt;ul&gt;
+&lt;li&gt;如果是history模式,又没有前后端分开部署(即服务端渲染),指浏览器直接向后端服务器请求html,这时候手动刷新页面就会触发对后端的请求,但因为是前端路由,在后端中不存在,所以需要后端特别配置,后端当收到不存在的路由时,直接返回index.html,index.html将自动根据浏览器栏的path跳转到特定的前端路由,此时要注意设置前端路由的404,用&amp;rsquo;*&amp;lsquo;匹配即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;了解了vue的路由,以及子路由&lt;/li&gt;
+&lt;li&gt;todo:
+&lt;ul&gt;
+&lt;li&gt;import , export default,export const这些是什么&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;未来目标: 重构一下sysu_jwxt_v2,前后端分离,后端仅作为api服务器&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -53,7 +782,13 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/other-term/</guid>
-      <description>What&amp;rsquo;s the diff? x86,x64,386,amd64,i386,intel64 &amp;hellip;. x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构 x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86 IA64,一种新的64位架构,不基于x86</description>
+      <description>&lt;h1 id=&#34;whats-the-diff&#34;&gt;What&amp;rsquo;s the diff?&lt;/h1&gt;
+&lt;h2 id=&#34;x86x64386amd64i386intel64-&#34;&gt;x86,x64,386,amd64,i386,intel64 &amp;hellip;.&lt;/h2&gt;
+&lt;p&gt;x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构&lt;/p&gt;
+&lt;p&gt;x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86&lt;/p&gt;
+&lt;p&gt;IA64,一种新的64位架构,不基于x86&lt;/p&gt;
+&lt;h2 id=&#34;linux--ubuntu--centos--redhat--&#34;&gt;Linux , Ubuntu , CentOS , RedHat  &amp;hellip;.&lt;/h2&gt;
+&lt;p&gt;linux是内核kernel的名字&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -62,7 +797,9 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
-      <description>OAuth2.0 open authority 2.0,开放授权 主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是</description>
+      <description>&lt;h1 id=&#34;oauth20&#34;&gt;OAuth2.0&lt;/h1&gt;
+&lt;p&gt;open authority 2.0,开放授权&lt;/p&gt;
+&lt;p&gt;主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是如果直接给予A网站用户的用户名密码,又太不安全,并且我们希望只提供给A网站受限的资源访问权限,比如只能获取到用户名等.因此需要使用OAuth2.0&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -71,7 +808,17 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/rpc-rpcx/</guid>
-      <description>RPC识记-微服务概述 respect： rpc框架: https://doc.rpcx.io/ 关键字 服务发现，注册中心，服务治理，限流熔断隔离降级，codec等 Outline 一般的，一个rpc框</description>
+      <description>&lt;h1 id=&#34;rpc识记-微服务概述&#34;&gt;RPC识记-微服务概述&lt;/h1&gt;
+&lt;p&gt;respect： rpc框架:  &lt;a href=&#34;https://doc.rpcx.io/&#34;&gt;https://doc.rpcx.io/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关键字&#34;&gt;关键字&lt;/h2&gt;
+&lt;p&gt;服务发现，注册中心，服务治理，限流熔断隔离降级，codec等&lt;/p&gt;
+&lt;h2 id=&#34;outline&#34;&gt;Outline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一般的，一个rpc框架就是一个微服务框架&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个好的协议,request和response应该是同样的格式&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -80,7 +827,48 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/sys-inotify/</guid>
-      <description>Inotify The inotify API provides a mechanism for monitoring filesystem events. Inotify can be used to monitor individual files, or to monitor directories. When a directory is monitored, inotify will return events for the directory itself, and for files inside the directory. 四个API func InotifyInit() (fd int, err error) func InotifyInit1(flags int) (fd int, err error) 这个可以设置flag</description>
+      <description>&lt;h1 id=&#34;inotify&#34;&gt;Inotify&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;The inotify API provides a mechanism for monitoring filesystem
+events.  Inotify can be used to monitor individual files, or to
+monitor directories.  When a directory is monitored, inotify will
+return events for the directory itself, and for files inside the
+directory.
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;四个API&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;func InotifyInit() (fd int, err error)
+&lt;ul&gt;
+&lt;li&gt;func InotifyInit1(flags int) (fd int, err error) 这个可以设置flags(O_NONBLOCK,O_BLOCK),这涉及到read(fd,buffer,buff_size)时是阻塞还是非阻塞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
+&lt;ul&gt;
+&lt;li&gt;对pathname进行监听,并绑定到fd上,mask表示监听哪些事件&lt;/li&gt;
+&lt;li&gt;返回watch desciptor,专用于remove取消监听&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
+&lt;ul&gt;
+&lt;li&gt;将监听事件从fd上取消&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;其他
+&lt;ul&gt;
+&lt;li&gt;读取事件
+&lt;ul&gt;
+&lt;li&gt;read(fd , buf , buf_sz)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;关闭监听
+&lt;ul&gt;
+&lt;li&gt;close(fd)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;buf 将需要被解释成:&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -89,7 +877,11 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/sys-tsarproc/</guid>
-      <description>TSAR taobao system activity reporter 该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息 关于此目录下的文件信息</description>
+      <description>&lt;h1 id=&#34;tsar&#34;&gt;TSAR&lt;/h1&gt;
+&lt;p&gt;taobao system activity reporter&lt;/p&gt;
+&lt;p&gt;该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息&lt;/p&gt;
+&lt;p&gt;关于此目录下的文件信息,&lt;/p&gt;
+&lt;p&gt;可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -98,55 +890,11 @@
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2021/03/vue-everything/</guid>
-      <description>1. vue的生命周期/运行流程/渲染流程/初始化流程 doc link vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue</description>
-    </item>
-    
-    <item>
-      <title>[vue] import-export</title>
-      <link>https://wymli.github.io/2021/03/vue-import-export/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/vue-import-export/</guid>
-      <description>About import and export 这是es6的语法,即js的语法 export用于对外输出本模块的数据 import用于引入其他模块的数据 语法细则 // 导出变量 // 法一 // js1 export var</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://wymli.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/about/</guid>
-      <description>Hi there 👋 🏃 求实习
-About me: ♂, 信息与计算科学(计算机学院) 中山大学 广州
-2018 - 2022
-Contact me: liwm29@mail2.sysu.edu.cn</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://wymli.github.io/1/01/datamining-cluster/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/1/01/datamining-cluster/</guid>
-      <description>聚类 聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起 对于输入的数值元组的不同的视角,我们可以定义不同的距离</description>
-    </item>
-    
-    <item>
-      <title>[c] 符号与链接</title>
-      <link>https://wymli.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/1/01/c-%E7%AC%A6%E5%8F%B7%E4%B8%8E%E9%93%BE%E6%8E%A5/</guid>
-      <description>[c] 符号与链接 我们知道,一个可执行文件的生成过程经历了一些步骤: 预处理-&amp;gt;编译-&amp;gt;汇编-&amp;gt;链接 最终的步骤,是将不同的.o目标</description>
-    </item>
-    
-    <item>
-      <title>[sys] unix domain socket</title>
-      <link>https://wymli.github.io/1/01/sys-unix-domain-socket/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/1/01/sys-unix-domain-socket/</guid>
-      <description>荐读 unix domain sockets vs. internet sockets 简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经</description>
+      <description>&lt;h1 id=&#34;1-vue的生命周期运行流程渲染流程初始化流程&#34;&gt;1. vue的生命周期/运行流程/渲染流程/初始化流程&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA&#34;&gt;doc link&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue,App.vue&lt;/p&gt;</description>
     </item>
     
   </channel>

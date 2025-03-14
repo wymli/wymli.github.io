@@ -1,8 +1,8 @@
 ---
 title: "[mq] kafka2 producer"
 date: 2021-03-31
-categories: ["mq"]
-tags: ["mq" , "kafka"]
+categories: ["MessageQueue"]
+tags: [ "Kafka"]
 ---
 
 # kafka producer

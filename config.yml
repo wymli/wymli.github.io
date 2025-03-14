@@ -5,7 +5,9 @@ copyright: CC BY 4.0 CN
 defaultContentLanguage: en  # en/zh/...
 footnoteReturnLinkContents: ↩
 hasCJKLanguage: true
-paginate: 7
+pagination:
+  pagerSize: 7
+summayLength: 5
 enableEmoji: true
 PygmentsCodeFences: false
 publishDir : docs

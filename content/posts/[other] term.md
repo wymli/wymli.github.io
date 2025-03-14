@@ -1,8 +1,8 @@
 ---
 title: "[other] term"
 date: 2021-03-25
-tags: ["other"]
-categories: ["other"]
+tags: ["Other"]
+categories: ["Other"]
 ---
 
 # What's the diff?

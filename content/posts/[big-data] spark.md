@@ -1,8 +1,8 @@
 ---
-title: "[big-data] spark"
+title: "[BigData] spark"
 date: 2022-04-15
-categories: ["big-data"]
-tags: ["big-data"]
+categories: ["BigData"]
+tags: ["BigData"]
 ---
 
 

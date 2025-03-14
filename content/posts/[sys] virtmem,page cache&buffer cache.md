@@ -1,8 +1,8 @@
 ---
 title: "[sys] 虚拟内存与缓存缓冲"
 date: 2021-03-30
-categories : ["sys"]
-tag: ["sys","vm"]
+categories : []
+tag: ["OS-Memory"]
 ---
 
 # 虚拟内存virtual memory

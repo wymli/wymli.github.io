@@ -1,8 +1,8 @@
 ---
 title: "[mq] kafka4 工作原理"
 date: 2021-04-03
-categories: ["mq" ]
-tags: ["mq" , "kafka"]
+categories: ["MessageQueue" ]
+tags: [ "Kafka"]
 ---
 
 # 深入kafka

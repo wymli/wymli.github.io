@@ -1,8 +1,8 @@
 ---
 title: "[mq] kafka1.5 install"
 date: 2021-04-01
-categories: ["mq"]
-tags: ["mq" , "kafka"]
+categories: ["MessageQueue"]
+tags: ["Kafka"]
 ---
 
 # 安装kafka

@@ -1,8 +1,8 @@
 ---
 title: "[Go] 单测"
 date: 2021-06-25T12:23:27+08:00
-tags : ["Go" ,"ut"]
-categories : ["Go"]
+tags : ["Golang" ,"ut"]
+categories : ["Golang"]
 ---
 
 # 单测

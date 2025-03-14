@@ -1,8 +1,8 @@
 ---
 title: "[DB] mutex"
 date: 2021-03-25
-tags: ["DB"]
-categories: ["DB" , "innoDB"]
+tags: ["Database"]
+categories: ["Database" , "innoDB"]
 ---
 # 数据库中的三种锁
 

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Atomic on UnderTheHood</title>
+    <link>https://wymli.github.io/tags/atomic/</link>
+    <description>Recent content in Atomic on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://wymli.github.io/tags/atomic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[vue] import-export</title>
+      <link>https://wymli.github.io/2021/03/vue-import-export/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/vue-import-export/</guid>
+      <description>&lt;h1 id=&#34;about-import-and-export&#34;&gt;About import and export&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;这是es6的语法,即js的语法&lt;/li&gt;
+&lt;li&gt;export用于对外输出本模块的数据&lt;/li&gt;
+&lt;li&gt;import用于引入其他模块的数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;语法细则&#34;&gt;语法细则&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// 导出变量
+// 法一
+// js1
+export var name = &amp;quot;a&amp;quot;
+// js2
+import {name} from &amp;quot;./js1.js&amp;quot;
+
+// 法二
+// js1
+var name1 = &amp;quot;a&amp;quot;
+var name2 = &amp;quot;b&amp;quot;
+export {name1 , name2}
+// 或者
+export name1
+export name2
+// 或者
+export var name1 = &amp;quot;a&amp;quot;
+export var name2 = &amp;quot;b&amp;quot;
+
+// js2
+import {name1 , name2} from &amp;quot;./js1.js&amp;quot;
+// 或者
+import {name1} from &amp;quot;./js1.js&amp;quot;
+import {name2} from &amp;quot;./js1.js&amp;quot;
+
+// ===========================
+
+// 导出函数,和变量是一致的
+function add(x,y){
+  return (x+y)
+}
+export {add}
+// 或者
+export function add(x,y){
+  return x+y
+}
+// js2
+import {add} from &amp;quot;./js1.js&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;export-and-export-default&#34;&gt;export and export default&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;export,export default均可用于导出变量,函数,文件,模块等&lt;/li&gt;
+&lt;li&gt;一个文件或模块中,export/import可以有多个,但是export default只能有一个&lt;/li&gt;
+&lt;li&gt;export的导出,import时要加入{},但是export default则不需要&lt;/li&gt;
+&lt;li&gt;export default相当于指定默认输出,而export时,import要完整写出对应导出的变量/函数名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;export default {
+	address：&#39;1&#39;,
+}
+export var title = &#39;2&#39;
+export var zzz = &#39;3&#39;
+// js2
+import js1,{title as t , zzz} from &amp;quot;./js1.js&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;import的后缀名省略&#34;&gt;import的后缀名省略&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;直接使用&lt;code&gt;import js from &amp;quot;./js1&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;规则:
+&lt;ul&gt;
+&lt;li&gt;在 &lt;code&gt;webpack.base.conf.js&lt;/code&gt; 中设置&lt;/li&gt;
+&lt;li&gt;可以省略js,vue后缀&lt;/li&gt;
+&lt;li&gt;若同时存在js,vue后缀同名文件,js&amp;gt;vue&lt;/li&gt;
+&lt;li&gt;from后可以是文件夹
+&lt;ul&gt;
+&lt;li&gt;加载规则:
+&lt;ul&gt;
+&lt;li&gt;先看该文件夹有没有packag.json
+&lt;ul&gt;
+&lt;li&gt;若有:取package.main指定的js作为from的来源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;index.js&lt;/li&gt;
+&lt;li&gt;index.vue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;注意,一般来说 package.json都只会出现项目根目录,注意不是@,是@的再外面一层,用来配置npm install这些指令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wymli.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/about/</guid>
+      <description>&lt;h2 id=&#34;hi-there-&#34;&gt;Hi there 👋&lt;/h2&gt;
+&lt;p&gt;&amp;#x1f3c3; 求实习&lt;/p&gt;
+&lt;h4 id=&#34;about-me&#34;&gt;About me:&lt;/h4&gt;
+&lt;p&gt;♂, 信息与计算科学(计算机学院) 中山大学 广州&lt;br&gt;
+2018 - 2022&lt;/p&gt;
+&lt;h4 id=&#34;contact-me&#34;&gt;Contact me:&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:liwm29@mail2.sysu.edu.cn&#34;&gt;liwm29@mail2.sysu.edu.cn&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://wymli.github.io/1/01/datamining-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/1/01/datamining-cluster/</guid>
+      <description>&lt;h1 id=&#34;聚类&#34;&gt;聚类&lt;/h1&gt;
+&lt;p&gt;聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起&lt;/p&gt;
+&lt;p&gt;对于输入的数值元组的不同的视角,我们可以定义不同的距离&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将元组视为向量
+&lt;ul&gt;
+&lt;li&gt;计算cos距离来求解相似度,即余弦值,可有余弦定理计算得出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;将元组视为集合
+&lt;ul&gt;
+&lt;li&gt;计算jaccard距离,即A∩B/A∪B&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;将元组视为欧氏空间中的坐标点
+&lt;ul&gt;
+&lt;li&gt;计算欧式距离&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;层次聚类&#34;&gt;层次聚类&lt;/h2&gt;
+&lt;p&gt;方法是不断的将小聚类合并(合并两个最近的聚类),形成大的聚类,从单个点作为一个聚类开始&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

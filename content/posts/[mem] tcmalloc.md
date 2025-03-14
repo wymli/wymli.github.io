@@ -1,8 +1,8 @@
 ---
 title: "[mem] tcmalloc"
 date: 2021-03-26T12:23:27+08:00
-tags : ["mem"]
-categories : ["mem"]
+tags : []
+categories : ["OS-Memory"]
 ---
 
 # TCMalloc

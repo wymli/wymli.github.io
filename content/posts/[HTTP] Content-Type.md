@@ -2,7 +2,7 @@
 title: "[HTTP] Content-Type"
 date: 2021-03-25
 tags: ["HTTP"]
-categories: ["HTTP"]
+categories: ["Protocal"]
 ---
 
 # About Content-Type

@@ -1,8 +1,8 @@
 ---
 title: "[Go] user thread"
 date: 2021-03-25
-tags: ["Go"]
-categories: ["Go"]
+tags: ["Golang"]
+categories: ["Golang"]
 ---
 
 # 用户线程与核心线程

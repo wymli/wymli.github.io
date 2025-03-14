@@ -6494,7 +6494,11 @@ body.no-sidebar .sidebar {
 }
 
 .article-header {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+
+.article-summary {
+  font-size: 5px;
 }
 
 .article-footer {
@@ -9458,4 +9462,19 @@ body.okayNav-loaded {
   margin: 0 0 10px;
   border-left: 3px solid #ffcc00;
   background-color: #fffae6;
+}
+
+
+
+.artical-summary *
+{
+  font-size: 10px;
+}
+
+.artical-summary h1{
+  font-size: 15px;
+}
+
+.artical-summary h2{
+  font-size: 13px;
 }

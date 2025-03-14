@@ -1,8 +1,8 @@
 ---
 title: "[sys] tsar&proc"
 date: 2021-03-25
-tags: ["sys"]
-categories: ["sys"]
+tags: ["proc"]
+categories: ["OS"]
 ---
 
 # TSAR

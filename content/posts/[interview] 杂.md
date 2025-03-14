@@ -1,8 +1,8 @@
 ---
-title: "[interview] 杂"
+title: "[Interview] 杂"
 date: 2021-03-25
-tags: ["interview"]
-categories: ["interview"]
+tags: ["Interview"]
+categories: ["Interview"]
 ---
 
 # 记录一下为面试做的准备

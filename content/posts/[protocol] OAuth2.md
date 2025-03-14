@@ -1,8 +1,8 @@
 ---
 title: "[protocol] OAuth2"
 date: 2021-03-25
-tags: ["protocol"]
-categories: ["protocol"]
+tags: ["oauth2"]
+categories: ["Protocol"]
 ---
 
 # OAuth2.0

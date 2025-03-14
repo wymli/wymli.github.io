@@ -1,8 +1,8 @@
 ---
-title: "[interview] ByteDance2"
+title: "[Interview] ByteDance2"
 date: 2021-03-27
-tags: ["interview", "ByteDance"]
-categories: ["interview","ByteDance"]
+tags: ["Interview", "ByteDance"]
+categories: ["Interview","ByteDance"]
 ---
 
 # 字节二面

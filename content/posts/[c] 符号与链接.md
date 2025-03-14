@@ -1,6 +1,6 @@
 ---
 title: "[c] 符号与链接"
-data: 2021-04-10
+date: 2021-04-10
 categories: ["c"]
 tags: ["c"]
 ---

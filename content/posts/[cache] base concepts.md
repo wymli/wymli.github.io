@@ -1,8 +1,8 @@
 ---
 title: "[cache] base concepts"
 date: 2021-03-25
-tags: ["cache"]
-categories: ["cache"]
+tags: ["Cache"]
+categories: ["Cache"]
 ---
 
 # 应用层缓存

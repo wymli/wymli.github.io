@@ -1,8 +1,8 @@
 ---
 title: "[arch] design pattern"
 date: 2021-03-25
-tags: ["arch"]
-categories: ["arch"]
+tags: ["Arch"]
+categories: ["Arch"]
 ---
 
 # 设计模式
