@@ -1,8 +1,8 @@
 ---
 title: "[Go] GMP"
 date: 2025-05-11
-categories : ["go"]
-tags : ["go"]
+categories : ["golang"]
+tags : ["golang"]
 ---
 
 > 原文: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg

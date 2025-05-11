@@ -7,10 +7,151 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 10 Jul 2021 12:23:27 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[脚本] 脚本</title>
+      <link>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;h2 id=&#34;输出version到文件&#34;&gt;输出version到文件&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;version=`git log --date=iso --pretty=format:&amp;quot;%cd @%H&amp;quot; -1`
+if [ $? -ne 0 ]; then
+    version=&amp;quot;unknown version&amp;quot;
+fi
+
+compile=`date +&amp;quot;%F %T %z&amp;quot;`&amp;quot; by &amp;quot;`go version`
+if [ $? -ne 0 ]; then
+    compile=&amp;quot;unknown datetime&amp;quot;
+fi
+
+describe=`git describe --tags 2&amp;gt;/dev/null`
+if [ $? -eq 0 ]; then
+    version=&amp;quot;${version} @${describe}&amp;quot;
+fi
+
+cat &amp;lt;&amp;lt; EOF | gofmt &amp;gt; pkg/utils/version.go
+package utils
+const (
+    Version = &amp;quot;$version&amp;quot;
+    Compile = &amp;quot;$compile&amp;quot;
+)
+EOF
+
+cat &amp;lt;&amp;lt; EOF &amp;gt; bin/version
+version = $version
+compile = $compile
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] 多步骤构造器</title>
+      <link>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</link>
+      <pubDate>Sat, 10 Jul 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</guid>
+      <description>&lt;h1 id=&#34;设计模式-多步骤构造器&#34;&gt;设计模式-多步骤构造器&lt;/h1&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;想像这样一个场景,我们有一个工人类,工人可以吃饭,工作,睡觉&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type worker interface{
+    eat()
+    work()
+    sleep()
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是如何获得一个工人呢?常见的我们有一个New函数用于构造:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type workerImpl struct{
+}
+
+var _ worker = new(workerImpl)
+
+func NewWorker() workerImpl {
+    return &amp;amp;workerImpl{}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意这里使用的常见的技巧有:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[DB] redis</title>
+      <link>https://wymli.github.io/2021/07/db-redis/</link>
+      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/07/db-redis/</guid>
+      <description>&lt;h1 id=&#34;关于redis的大部分事情&#34;&gt;关于redis的大部分事情&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;非常不错: &lt;a href=&#34;https://redis.io/topics/data-types-intro&#34;&gt;https://redis.io/topics/data-types-intro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;redis的数据结构:
+&lt;ul&gt;
+&lt;li&gt;Binary-safe strings.&lt;/li&gt;
+&lt;li&gt;Lists: collections of string elements sorted according to the order of insertion. They are basically &lt;em&gt;linked lists&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Sets: collections of unique, unsorted string elements.&lt;/li&gt;
+&lt;li&gt;Sorted sets, similar to Sets but where every string element is associated to a            floating number value, called &lt;em&gt;score&lt;/em&gt;. The elements are always taken sorted by their score, so unlike Sets it is possible to retrieve a range of elements (for example you may ask: give me the top 10, or the bottom 10).&lt;/li&gt;
+&lt;li&gt;Hashes, which are maps composed of fields associated with values. Both the field and the value are strings. This is very similar to Ruby or Python hashes.&lt;/li&gt;
+&lt;li&gt;Bit arrays (or simply bitmaps): it is possible, using special commands, to  handle String values like an array of bits: you can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.&lt;/li&gt;
+&lt;li&gt;HyperLogLogs: this is a probabilistic data structure which is used in order to estimate the cardinality of a set. Don&amp;rsquo;t be scared, it is simpler than it seems&amp;hellip; See later in the HyperLogLog section of this tutorial.&lt;/li&gt;
+&lt;li&gt;Streams: append-only collections of map-like entries that provide an abstract log data type. They are covered in depth in the &lt;a href=&#34;https://redis.io/topics/streams-intro&#34;&gt;Introduction to Redis Streams&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;hyperloglog计数(计算集合大小)的误差 less than 1% ,  最多 12KB的空间&lt;/li&gt;
+&lt;li&gt;redis的value最多512MB, 但是经验表明100MB就比较慢了&lt;/li&gt;
+&lt;li&gt;redis server-assisted client side caching
+&lt;ol&gt;
+&lt;li&gt;很明显,我们有时候要在机器上做localcache,比如常见的bigcache&lt;/li&gt;
+&lt;li&gt;如何保证本地缓存和redis数据的一致性是一个问题
+&lt;ol&gt;
+&lt;li&gt;简单场景,对实时性要求不高,给本地缓存设置一个过期时间即可&lt;/li&gt;
+&lt;li&gt;复杂场景,使用redis的pub/sub系统来发送失效消息(类似基于失效的缓存一致性模型)
+&lt;ol&gt;
+&lt;li&gt;但是这个发大了太多倍写流量,对每个写,都要发失效消息给每个订阅的client,但很可能那个client其实没有缓存该数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;redis实现:
+&lt;ol&gt;
+&lt;li&gt;tracking模式: redis存储客户端请求过哪些key,当这个key变动时,发送失效消息给客户端; &lt;code&gt;客户端需要显式传送CLIENT TRACKING ON指令来开启tracking&lt;/code&gt;
+&lt;ol&gt;
+&lt;li&gt;实际上server维护了固定大小的全局一张表,当满时,淘汰旧的key,发送invalid消息,这造成了不必要的流量,但有限减少了server的内存开销&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;broadcasting模式: 客户端决定订阅哪些前缀,server维护一个前缀表,当某个key被修改,server则发往所有订阅了该前缀的client invalid消息,而不管client是否之前read了这个key&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;redis cluster
+&lt;ol&gt;
+&lt;li&gt;主从读写分离, 写只由master写,读均摊到各个slave?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;redis 附加组件module
+&lt;ol&gt;
+&lt;li&gt;比如RedisBloom - Probabilistic Datatypes Module for Redis, 提供了布隆过滤器,topk等数据结构用于大数据流处理&lt;/li&gt;
+&lt;li&gt;使用: 在redis.conf中的loadmodule字段配置 /${dir}/redisbloom.so , 该.so的获得一般是通过clone 源代码,然后make&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] 单测</title>
+      <link>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</link>
+      <pubDate>Fri, 25 Jun 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</guid>
+      <description>&lt;h1 id=&#34;单测&#34;&gt;单测&lt;/h1&gt;
+&lt;p&gt;单测在业务开发的重要性中不言而喻,在常见的epc规范中,一般的存量覆盖率要求达到50%,增量覆盖率要求达到80%.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当然,这个很教条,我们一般只测有意义的目录,对于像config目录,dao目录测试的必要性不是很高&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>recommend system</title>
@@ -301,57 +442,6 @@
       <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
       <description>&lt;h1 id=&#34;netrpc&#34;&gt;net/rpc&lt;/h1&gt;
 &lt;p&gt;如下是一段极简的net/rpc代码, &lt;code&gt;client.Call()&lt;/code&gt;代表这是一个同步的rpc,如果是异步,net/rpc提供了&lt;code&gt;client.Go()&lt;/code&gt;方法,典型的实现是返回一个chan,当异步完成时,这个chan就会读出消息(当然,net/rpc的Go()不是完全这样实现的,但也差不多)&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mem] Buddy system</title>
-      <link>https://wymli.github.io/2021/03/mem-buddyfreelist/</link>
-      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/mem-buddyfreelist/</guid>
-      <description>&lt;h3 id=&#34;buddy-system&#34;&gt;Buddy system&lt;/h3&gt;
-&lt;p&gt;linux底层使用buddy-system+slab&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;slab位于buddy-system的上层&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;伙伴系统是一种基于二分的动态分区算法,一开始他有k大小的空间,当有新的内存申请到达时,他会对k进行二分,直到满足那个大小恰好是最合适的大小时,返回给用户.比如,申请18KB内存,伙伴系统最初是128KB,那么会一直二分成32KB,16KB,发现16&amp;lt;18,所以返回给用户32KB的大小,这造成了很大的内部碎片&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mem] tcmalloc</title>
-      <link>https://wymli.github.io/2021/03/mem-tcmalloc/</link>
-      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/mem-tcmalloc/</guid>
-      <description>&lt;h1 id=&#34;tcmalloc&#34;&gt;TCMalloc&lt;/h1&gt;
-&lt;p&gt;thread-caching malloc&lt;/p&gt;
-&lt;p&gt;顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的malloc操作就不会相互造成锁的竞争了&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Algorithm] sort</title>
-      <link>https://wymli.github.io/2021/03/alg-sort/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/alg-sort/</guid>
-      <description>&lt;h1 id=&#34;排序算法&#34;&gt;排序算法&lt;/h1&gt;
-&lt;h2 id=&#34;稳定性&#34;&gt;稳定性&lt;/h2&gt;
-&lt;p&gt;假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[j]，且r[i]在r[j]之前，而在排序后的序列中，r[i]仍在r[j]之前，则称这种排序算法是稳定的；否则称为不稳定的&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[arch] design pattern</title>
-      <link>https://wymli.github.io/2021/03/arch-design-pattern/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/arch-design-pattern/</guid>
-      <description>&lt;h1 id=&#34;设计模式&#34;&gt;设计模式&lt;/h1&gt;
-&lt;p&gt;聊聊我熟悉的设计模式&lt;/p&gt;
-&lt;p&gt;首先,推荐一下这门课: &lt;a href=&#34;https://time.geekbang.org/column/intro/100039001&#34;&gt;https://time.geekbang.org/column/intro/100039001&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;我看了目录,确实很有吸引力,可惜太贵了:(&lt;/p&gt;
-&lt;h2 id=&#34;创建型&#34;&gt;创建型&lt;/h2&gt;
-&lt;p&gt;用于创建类型&lt;/p&gt;
-&lt;h3 id=&#34;单例&#34;&gt;单例&lt;/h3&gt;
-&lt;p&gt;单例模式常用于创建全局唯一变量,大多数时候都增加了耦合,降低了可测试性&lt;/p&gt;</description>
     </item>
     
   </channel>

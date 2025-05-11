@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 14 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -42,6 +42,102 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] GMP</title>
+      <link>https://wymli.github.io/2025/05/go-gmp/</link>
+      <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/go-gmp/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] release notes</title>
+      <link>https://wymli.github.io/2025/05/go-release-notes/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/go-release-notes/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://tip.golang.org/doc/devel/release&#34;&gt;https://tip.golang.org/doc/devel/release&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;118&#34;&gt;1.18&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;加入泛型&lt;/li&gt;
+&lt;li&gt;新增包：golang.org/x/exp/constraints&lt;/li&gt;
+&lt;li&gt;新增包：golang.org/x/exp/slices&lt;/li&gt;
+&lt;li&gt;新增包：golang.org/x/exp/maps&lt;/li&gt;
+&lt;li&gt;新增 fuzz test&lt;/li&gt;
+&lt;li&gt;go get 不再拥有go install的能力&lt;/li&gt;
+&lt;li&gt;go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取&lt;/li&gt;
+&lt;li&gt;现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等&lt;/li&gt;
+&lt;li&gt;也可以import debug/buildinfo 在代码中获取这些信息&lt;/li&gt;
+&lt;li&gt;需要注意的是，build time这个东西还是只能通过-ldflags=&amp;quot;-X &amp;lsquo;main.buildTime=$(date)&amp;rsquo;&amp;quot; 在编译时注入&lt;/li&gt;
+&lt;li&gt;支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;119&#34;&gt;1.19&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;内存模型：The Go memory model has been revised to align Go with the memory model used by C, C++, Java, JavaScript, Rust, and Swift.&lt;/li&gt;
+&lt;li&gt;引入 debug.SetMemoryLimit , 设置后，当堆+非堆内存到达对应设置的soft memory后，强制gc一次&lt;/li&gt;
+&lt;li&gt;atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;120&#34;&gt;1.20&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;没啥特别的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;121&#34;&gt;1.21&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;引入 min and max&lt;/li&gt;
+&lt;li&gt;引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变&lt;/li&gt;
+&lt;li&gt;新增 log/slog， 结构化日志&lt;/li&gt;
+&lt;li&gt;slices/maps包增加通用泛型方法&lt;/li&gt;
+&lt;li&gt;sync增加 sync.OnceFunc, OnceValue&amp;hellip;，不再只是sync.Once&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;122&#34;&gt;1.22&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;for训练的value每次迭代时都会创建新的&lt;/li&gt;
+&lt;li&gt;支持 for range ${n}&lt;/li&gt;
+&lt;li&gt;支持  range-over-function iterators 函数迭代器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;123&#34;&gt;1.23&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数）&lt;/li&gt;
+&lt;li&gt;iter.Seq 就是一个函数的别名
+type (
+Seq[V any]     func(yield func(V) bool)
+Seq2[K, V any] func(yield func(K, V) bool)
+)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;124&#34;&gt;1.24&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;增加很多基于iter的util方法&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>[airflow] temporal</title>
+      <link>https://wymli.github.io/2025/05/workflow-2.-temporal/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/workflow-2.-temporal/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;简单介绍&#34;&gt;简单介绍&lt;/h1&gt;
+&lt;p&gt;学习一个新的东西首先在搜索引擎上搜下，了解下大概是什么东西。如果直接看官网文档的话，有些假大空的不说人话，容易懵。但深入的话，还是要看官方文档和源码。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[airflow] airflow</title>
+      <link>https://wymli.github.io/2025/03/worklfow-1.-airflow/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/worklfow-1.-airflow/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文：https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;官方文档很清晰，简单的知识无需赘述：https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html#workloads&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -265,147 +361,6 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件以静态和动态的开发库存在，主程序(main)入口和控制流程掌握在用户手中，比如pytorch，numpy，tensorflow。框架模式下，平台层软件以可执行文件的形式存在，以后端守护进程独立运行，程序的入口和整体流程由框架控制，比如spark，mapreduce。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[脚本] 脚本</title>
-      <link>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</link>
-      <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</guid>
-      <description>&lt;h2 id=&#34;输出version到文件&#34;&gt;输出version到文件&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;version=`git log --date=iso --pretty=format:&amp;quot;%cd @%H&amp;quot; -1`
-if [ $? -ne 0 ]; then
-    version=&amp;quot;unknown version&amp;quot;
-fi
-
-compile=`date +&amp;quot;%F %T %z&amp;quot;`&amp;quot; by &amp;quot;`go version`
-if [ $? -ne 0 ]; then
-    compile=&amp;quot;unknown datetime&amp;quot;
-fi
-
-describe=`git describe --tags 2&amp;gt;/dev/null`
-if [ $? -eq 0 ]; then
-    version=&amp;quot;${version} @${describe}&amp;quot;
-fi
-
-cat &amp;lt;&amp;lt; EOF | gofmt &amp;gt; pkg/utils/version.go
-package utils
-const (
-    Version = &amp;quot;$version&amp;quot;
-    Compile = &amp;quot;$compile&amp;quot;
-)
-EOF
-
-cat &amp;lt;&amp;lt; EOF &amp;gt; bin/version
-version = $version
-compile = $compile
-EOF
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;或&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] 多步骤构造器</title>
-      <link>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</link>
-      <pubDate>Sat, 10 Jul 2021 12:23:27 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/07/go-%E5%A4%9A%E6%AD%A5%E9%AA%A4%E6%9E%84%E5%BB%BA/</guid>
-      <description>&lt;h1 id=&#34;设计模式-多步骤构造器&#34;&gt;设计模式-多步骤构造器&lt;/h1&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;想像这样一个场景,我们有一个工人类,工人可以吃饭,工作,睡觉&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type worker interface{
-    eat()
-    work()
-    sleep()
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;但是如何获得一个工人呢?常见的我们有一个New函数用于构造:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type workerImpl struct{
-}
-
-var _ worker = new(workerImpl)
-
-func NewWorker() workerImpl {
-    return &amp;amp;workerImpl{}
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意这里使用的常见的技巧有:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[DB] redis</title>
-      <link>https://wymli.github.io/2021/07/db-redis/</link>
-      <pubDate>Sat, 03 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/07/db-redis/</guid>
-      <description>&lt;h1 id=&#34;关于redis的大部分事情&#34;&gt;关于redis的大部分事情&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;非常不错: &lt;a href=&#34;https://redis.io/topics/data-types-intro&#34;&gt;https://redis.io/topics/data-types-intro&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;redis的数据结构:
-&lt;ul&gt;
-&lt;li&gt;Binary-safe strings.&lt;/li&gt;
-&lt;li&gt;Lists: collections of string elements sorted according to the order of insertion. They are basically &lt;em&gt;linked lists&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;Sets: collections of unique, unsorted string elements.&lt;/li&gt;
-&lt;li&gt;Sorted sets, similar to Sets but where every string element is associated to a            floating number value, called &lt;em&gt;score&lt;/em&gt;. The elements are always taken sorted by their score, so unlike Sets it is possible to retrieve a range of elements (for example you may ask: give me the top 10, or the bottom 10).&lt;/li&gt;
-&lt;li&gt;Hashes, which are maps composed of fields associated with values. Both the field and the value are strings. This is very similar to Ruby or Python hashes.&lt;/li&gt;
-&lt;li&gt;Bit arrays (or simply bitmaps): it is possible, using special commands, to  handle String values like an array of bits: you can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.&lt;/li&gt;
-&lt;li&gt;HyperLogLogs: this is a probabilistic data structure which is used in order to estimate the cardinality of a set. Don&amp;rsquo;t be scared, it is simpler than it seems&amp;hellip; See later in the HyperLogLog section of this tutorial.&lt;/li&gt;
-&lt;li&gt;Streams: append-only collections of map-like entries that provide an abstract log data type. They are covered in depth in the &lt;a href=&#34;https://redis.io/topics/streams-intro&#34;&gt;Introduction to Redis Streams&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;hyperloglog计数(计算集合大小)的误差 less than 1% ,  最多 12KB的空间&lt;/li&gt;
-&lt;li&gt;redis的value最多512MB, 但是经验表明100MB就比较慢了&lt;/li&gt;
-&lt;li&gt;redis server-assisted client side caching
-&lt;ol&gt;
-&lt;li&gt;很明显,我们有时候要在机器上做localcache,比如常见的bigcache&lt;/li&gt;
-&lt;li&gt;如何保证本地缓存和redis数据的一致性是一个问题
-&lt;ol&gt;
-&lt;li&gt;简单场景,对实时性要求不高,给本地缓存设置一个过期时间即可&lt;/li&gt;
-&lt;li&gt;复杂场景,使用redis的pub/sub系统来发送失效消息(类似基于失效的缓存一致性模型)
-&lt;ol&gt;
-&lt;li&gt;但是这个发大了太多倍写流量,对每个写,都要发失效消息给每个订阅的client,但很可能那个client其实没有缓存该数据&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;redis实现:
-&lt;ol&gt;
-&lt;li&gt;tracking模式: redis存储客户端请求过哪些key,当这个key变动时,发送失效消息给客户端; &lt;code&gt;客户端需要显式传送CLIENT TRACKING ON指令来开启tracking&lt;/code&gt;
-&lt;ol&gt;
-&lt;li&gt;实际上server维护了固定大小的全局一张表,当满时,淘汰旧的key,发送invalid消息,这造成了不必要的流量,但有限减少了server的内存开销&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;broadcasting模式: 客户端决定订阅哪些前缀,server维护一个前缀表,当某个key被修改,server则发往所有订阅了该前缀的client invalid消息,而不管client是否之前read了这个key&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;redis cluster
-&lt;ol&gt;
-&lt;li&gt;主从读写分离, 写只由master写,读均摊到各个slave?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;redis 附加组件module
-&lt;ol&gt;
-&lt;li&gt;比如RedisBloom - Probabilistic Datatypes Module for Redis, 提供了布隆过滤器,topk等数据结构用于大数据流处理&lt;/li&gt;
-&lt;li&gt;使用: 在redis.conf中的loadmodule字段配置 /${dir}/redisbloom.so , 该.so的获得一般是通过clone 源代码,然后make&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] 单测</title>
-      <link>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</link>
-      <pubDate>Fri, 25 Jun 2021 12:23:27 +0800</pubDate>
-      
-      <guid>https://wymli.github.io/2021/06/go-%E5%8D%95%E6%B5%8B/</guid>
-      <description>&lt;h1 id=&#34;单测&#34;&gt;单测&lt;/h1&gt;
-&lt;p&gt;单测在业务开发的重要性中不言而喻,在常见的epc规范中,一般的存量覆盖率要求达到50%,增量覆盖率要求达到80%.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;当然,这个很教条,我们一般只测有意义的目录,对于像config目录,dao目录测试的必要性不是很高&lt;/p&gt;</description>
     </item>
     
   </channel>

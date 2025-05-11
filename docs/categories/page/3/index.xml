@@ -7,10 +7,61 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 14 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[mem] Buddy system</title>
+      <link>https://wymli.github.io/2021/03/mem-buddyfreelist/</link>
+      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mem-buddyfreelist/</guid>
+      <description>&lt;h3 id=&#34;buddy-system&#34;&gt;Buddy system&lt;/h3&gt;
+&lt;p&gt;linux底层使用buddy-system+slab&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;slab位于buddy-system的上层&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;伙伴系统是一种基于二分的动态分区算法,一开始他有k大小的空间,当有新的内存申请到达时,他会对k进行二分,直到满足那个大小恰好是最合适的大小时,返回给用户.比如,申请18KB内存,伙伴系统最初是128KB,那么会一直二分成32KB,16KB,发现16&amp;lt;18,所以返回给用户32KB的大小,这造成了很大的内部碎片&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mem] tcmalloc</title>
+      <link>https://wymli.github.io/2021/03/mem-tcmalloc/</link>
+      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mem-tcmalloc/</guid>
+      <description>&lt;h1 id=&#34;tcmalloc&#34;&gt;TCMalloc&lt;/h1&gt;
+&lt;p&gt;thread-caching malloc&lt;/p&gt;
+&lt;p&gt;顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的malloc操作就不会相互造成锁的竞争了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Algorithm] sort</title>
+      <link>https://wymli.github.io/2021/03/alg-sort/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/alg-sort/</guid>
+      <description>&lt;h1 id=&#34;排序算法&#34;&gt;排序算法&lt;/h1&gt;
+&lt;h2 id=&#34;稳定性&#34;&gt;稳定性&lt;/h2&gt;
+&lt;p&gt;假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[j]，且r[i]在r[j]之前，而在排序后的序列中，r[i]仍在r[j]之前，则称这种排序算法是稳定的；否则称为不稳定的&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[arch] design pattern</title>
+      <link>https://wymli.github.io/2021/03/arch-design-pattern/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/arch-design-pattern/</guid>
+      <description>&lt;h1 id=&#34;设计模式&#34;&gt;设计模式&lt;/h1&gt;
+&lt;p&gt;聊聊我熟悉的设计模式&lt;/p&gt;
+&lt;p&gt;首先,推荐一下这门课: &lt;a href=&#34;https://time.geekbang.org/column/intro/100039001&#34;&gt;https://time.geekbang.org/column/intro/100039001&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我看了目录,确实很有吸引力,可惜太贵了:(&lt;/p&gt;
+&lt;h2 id=&#34;创建型&#34;&gt;创建型&lt;/h2&gt;
+&lt;p&gt;用于创建类型&lt;/p&gt;
+&lt;h3 id=&#34;单例&#34;&gt;单例&lt;/h3&gt;
+&lt;p&gt;单例模式常用于创建全局唯一变量,大多数时候都增加了耦合,降低了可测试性&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[atomic] atomic</title>
@@ -224,88 +275,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
 &lt;/ul&gt;
 &lt;h2 id=&#34;标记-清扫法mark-sweep&#34;&gt;标记-清扫法(mark-sweep)&lt;/h2&gt;
 &lt;p&gt;典型的STW(stop the world)算法,当进行垃圾回收时,先暂停用户程序,然后从根对象出发对堆对象进行可达性标记(比如bfs/dfs),标记完后遍历所有的堆对象,回收掉不可达对象&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] goroutine pool</title>
-      <link>https://wymli.github.io/2021/03/go-goroutine-pool/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-goroutine-pool/</guid>
-      <description>&lt;h1 id=&#34;goroutine-pool&#34;&gt;Goroutine Pool&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;代码来自:gobwas/ws-example&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,复用goroutine形成goroutine池的优化效果很有限&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] monkey patch</title>
-      <link>https://wymli.github.io/2021/03/go-monkey-patch/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-monkey-patch/</guid>
-      <description>&lt;h1 id=&#34;monkey-patch-猴子补丁&#34;&gt;Monkey patch 猴子补丁&lt;/h1&gt;
-&lt;p&gt;ref: &lt;a href=&#34;https://bou.ke/blog/monkey-patching-in-go/&#34;&gt;https://bou.ke/blog/monkey-patching-in-go/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;intro-什么是monkey-patch&#34;&gt;Intro: 什么是monkey patch?&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
-
-func a() int { return 1 }
-func b() int { return 2 }
-
-func main() {
-	replace(a, b)
-	print(a())  // 2
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;monkey patch将做到如上的效果,当你调用a函数时,实际却调用了b函数,看起来有点神奇!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] mutex</title>
-      <link>https://wymli.github.io/2021/03/go-mutex/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-mutex/</guid>
-      <description>&lt;h1 id=&#34;mutex&#34;&gt;mutex&lt;/h1&gt;
-&lt;h2 id=&#34;结构&#34;&gt;结构&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Mutex struct {
-    state int32
-    sema  uint32
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;自旋&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for{
-  cas(m.state)
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;阻塞&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;wait(m.sema)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;状态&#34;&gt;状态&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;普通模式
-&lt;ul&gt;
-&lt;li&gt;就是正常的模式,线程相互竞争获得锁&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;饥饿模式
-&lt;ul&gt;
-&lt;li&gt;由于线程竞争失败会阻塞,而这些被唤醒的线程会和其他第一次来申请锁的线程一起竞争,显然,不可能竞争过,因为新的线程是占据着cpu的&lt;/li&gt;
-&lt;li&gt;这会导致阻塞线程的饥饿,因此,mutex加入了饥饿模式,当进入饥饿模式后,锁直接赋予阻塞队列的第一个线程,新线程自动加入阻塞队列&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意,对锁的竞争,有两大来源,一是新线程,二是被阻塞线程(由于锁的释放而被唤醒),新线程如果自旋一段时间后未获得锁,便进入阻塞态,加入该锁的等待队列&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] netaddr</title>
-      <link>https://wymli.github.io/2021/03/go-netaddr/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-netaddr/</guid>
-      <description></description>
     </item>
     
   </channel>

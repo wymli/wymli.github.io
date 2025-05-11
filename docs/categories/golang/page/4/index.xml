@@ -7,10 +7,92 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 10 Jul 2021 12:23:27 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] goroutine pool</title>
+      <link>https://wymli.github.io/2021/03/go-goroutine-pool/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-goroutine-pool/</guid>
+      <description>&lt;h1 id=&#34;goroutine-pool&#34;&gt;Goroutine Pool&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;代码来自:gobwas/ws-example&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,复用goroutine形成goroutine池的优化效果很有限&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] monkey patch</title>
+      <link>https://wymli.github.io/2021/03/go-monkey-patch/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-monkey-patch/</guid>
+      <description>&lt;h1 id=&#34;monkey-patch-猴子补丁&#34;&gt;Monkey patch 猴子补丁&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://bou.ke/blog/monkey-patching-in-go/&#34;&gt;https://bou.ke/blog/monkey-patching-in-go/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;intro-什么是monkey-patch&#34;&gt;Intro: 什么是monkey patch?&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+func a() int { return 1 }
+func b() int { return 2 }
+
+func main() {
+	replace(a, b)
+	print(a())  // 2
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;monkey patch将做到如上的效果,当你调用a函数时,实际却调用了b函数,看起来有点神奇!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] mutex</title>
+      <link>https://wymli.github.io/2021/03/go-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-mutex/</guid>
+      <description>&lt;h1 id=&#34;mutex&#34;&gt;mutex&lt;/h1&gt;
+&lt;h2 id=&#34;结构&#34;&gt;结构&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Mutex struct {
+    state int32
+    sema  uint32
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;自旋&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for{
+  cas(m.state)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;阻塞&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;wait(m.sema)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;状态&#34;&gt;状态&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;普通模式
+&lt;ul&gt;
+&lt;li&gt;就是正常的模式,线程相互竞争获得锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;饥饿模式
+&lt;ul&gt;
+&lt;li&gt;由于线程竞争失败会阻塞,而这些被唤醒的线程会和其他第一次来申请锁的线程一起竞争,显然,不可能竞争过,因为新的线程是占据着cpu的&lt;/li&gt;
+&lt;li&gt;这会导致阻塞线程的饥饿,因此,mutex加入了饥饿模式,当进入饥饿模式后,锁直接赋予阻塞队列的第一个线程,新线程自动加入阻塞队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意,对锁的竞争,有两大来源,一是新线程,二是被阻塞线程(由于锁的释放而被唤醒),新线程如果自旋一段时间后未获得锁,便进入阻塞态,加入该锁的等待队列&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] netaddr</title>
+      <link>https://wymli.github.io/2021/03/go-netaddr/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-netaddr/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>[Go] radix-tree</title>
@@ -800,101 +882,6 @@ SPA,单页面应用的路由有两种模式:hash和history,这两种方法都可
       <description>&lt;h1 id=&#34;oauth20&#34;&gt;OAuth2.0&lt;/h1&gt;
 &lt;p&gt;open authority 2.0,开放授权&lt;/p&gt;
 &lt;p&gt;主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是如果直接给予A网站用户的用户名密码,又太不安全,并且我们希望只提供给A网站受限的资源访问权限,比如只能获取到用户名等.因此需要使用OAuth2.0&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[rpc] rpcx</title>
-      <link>https://wymli.github.io/2021/03/rpc-rpcx/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/rpc-rpcx/</guid>
-      <description>&lt;h1 id=&#34;rpc识记-微服务概述&#34;&gt;RPC识记-微服务概述&lt;/h1&gt;
-&lt;p&gt;respect： rpc框架:  &lt;a href=&#34;https://doc.rpcx.io/&#34;&gt;https://doc.rpcx.io/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;关键字&#34;&gt;关键字&lt;/h2&gt;
-&lt;p&gt;服务发现，注册中心，服务治理，限流熔断隔离降级，codec等&lt;/p&gt;
-&lt;h2 id=&#34;outline&#34;&gt;Outline&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;一般的，一个rpc框架就是一个微服务框架&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一个好的协议,request和response应该是同样的格式&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[sys] inotify</title>
-      <link>https://wymli.github.io/2021/03/sys-inotify/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/sys-inotify/</guid>
-      <description>&lt;h1 id=&#34;inotify&#34;&gt;Inotify&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;pre&gt;&lt;code&gt;The inotify API provides a mechanism for monitoring filesystem
-events.  Inotify can be used to monitor individual files, or to
-monitor directories.  When a directory is monitored, inotify will
-return events for the directory itself, and for files inside the
-directory.
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
-&lt;p&gt;四个API&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;func InotifyInit() (fd int, err error)
-&lt;ul&gt;
-&lt;li&gt;func InotifyInit1(flags int) (fd int, err error) 这个可以设置flags(O_NONBLOCK,O_BLOCK),这涉及到read(fd,buffer,buff_size)时是阻塞还是非阻塞&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
-&lt;ul&gt;
-&lt;li&gt;对pathname进行监听,并绑定到fd上,mask表示监听哪些事件&lt;/li&gt;
-&lt;li&gt;返回watch desciptor,专用于remove取消监听&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
-&lt;ul&gt;
-&lt;li&gt;将监听事件从fd上取消&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;其他
-&lt;ul&gt;
-&lt;li&gt;读取事件
-&lt;ul&gt;
-&lt;li&gt;read(fd , buf , buf_sz)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;关闭监听
-&lt;ul&gt;
-&lt;li&gt;close(fd)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;buf 将需要被解释成:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[sys] tsar&amp;proc</title>
-      <link>https://wymli.github.io/2021/03/sys-tsarproc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/sys-tsarproc/</guid>
-      <description>&lt;h1 id=&#34;tsar&#34;&gt;TSAR&lt;/h1&gt;
-&lt;p&gt;taobao system activity reporter&lt;/p&gt;
-&lt;p&gt;该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息&lt;/p&gt;
-&lt;p&gt;关于此目录下的文件信息,&lt;/p&gt;
-&lt;p&gt;可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[vue] everything</title>
-      <link>https://wymli.github.io/2021/03/vue-everything/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/vue-everything/</guid>
-      <description>&lt;h1 id=&#34;1-vue的生命周期运行流程渲染流程初始化流程&#34;&gt;1. vue的生命周期/运行流程/渲染流程/初始化流程&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA&#34;&gt;doc link&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue,App.vue&lt;/p&gt;</description>
     </item>
     
   </channel>

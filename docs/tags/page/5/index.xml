@@ -7,10 +7,105 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 14 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[rpc] rpcx</title>
+      <link>https://wymli.github.io/2021/03/rpc-rpcx/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-rpcx/</guid>
+      <description>&lt;h1 id=&#34;rpc识记-微服务概述&#34;&gt;RPC识记-微服务概述&lt;/h1&gt;
+&lt;p&gt;respect： rpc框架:  &lt;a href=&#34;https://doc.rpcx.io/&#34;&gt;https://doc.rpcx.io/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关键字&#34;&gt;关键字&lt;/h2&gt;
+&lt;p&gt;服务发现，注册中心，服务治理，限流熔断隔离降级，codec等&lt;/p&gt;
+&lt;h2 id=&#34;outline&#34;&gt;Outline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一般的，一个rpc框架就是一个微服务框架&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一个好的协议,request和response应该是同样的格式&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[sys] inotify</title>
+      <link>https://wymli.github.io/2021/03/sys-inotify/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/sys-inotify/</guid>
+      <description>&lt;h1 id=&#34;inotify&#34;&gt;Inotify&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;The inotify API provides a mechanism for monitoring filesystem
+events.  Inotify can be used to monitor individual files, or to
+monitor directories.  When a directory is monitored, inotify will
+return events for the directory itself, and for files inside the
+directory.
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;四个API&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;func InotifyInit() (fd int, err error)
+&lt;ul&gt;
+&lt;li&gt;func InotifyInit1(flags int) (fd int, err error) 这个可以设置flags(O_NONBLOCK,O_BLOCK),这涉及到read(fd,buffer,buff_size)时是阻塞还是非阻塞&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
+&lt;ul&gt;
+&lt;li&gt;对pathname进行监听,并绑定到fd上,mask表示监听哪些事件&lt;/li&gt;
+&lt;li&gt;返回watch desciptor,专用于remove取消监听&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
+&lt;ul&gt;
+&lt;li&gt;将监听事件从fd上取消&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;其他
+&lt;ul&gt;
+&lt;li&gt;读取事件
+&lt;ul&gt;
+&lt;li&gt;read(fd , buf , buf_sz)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;关闭监听
+&lt;ul&gt;
+&lt;li&gt;close(fd)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;buf 将需要被解释成:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[sys] tsar&amp;proc</title>
+      <link>https://wymli.github.io/2021/03/sys-tsarproc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/sys-tsarproc/</guid>
+      <description>&lt;h1 id=&#34;tsar&#34;&gt;TSAR&lt;/h1&gt;
+&lt;p&gt;taobao system activity reporter&lt;/p&gt;
+&lt;p&gt;该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息&lt;/p&gt;
+&lt;p&gt;关于此目录下的文件信息,&lt;/p&gt;
+&lt;p&gt;可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[vue] everything</title>
+      <link>https://wymli.github.io/2021/03/vue-everything/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/vue-everything/</guid>
+      <description>&lt;h1 id=&#34;1-vue的生命周期运行流程渲染流程初始化流程&#34;&gt;1. vue的生命周期/运行流程/渲染流程/初始化流程&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA&#34;&gt;doc link&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue,App.vue&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[vue] import-export</title>
