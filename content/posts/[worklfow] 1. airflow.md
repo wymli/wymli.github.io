@@ -5,7 +5,7 @@ categories : ["workflow"]
 tags : ["workflow", "airflow"]
 ---
 
-> 原文：https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc
+> 原文记录在飞书文档：https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc
 
 官方文档很清晰，简单的知识无需赘述：https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html#workloads
 

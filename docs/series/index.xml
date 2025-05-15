@@ -50,8 +50,22 @@
       
       <guid>https://wymli.github.io/2025/05/go-gmp/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;原文: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;原文记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] release notes</title>
+      <link>https://wymli.github.io/2025/05/aiagent-eino/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/aiagent-eino/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&lt;/a&gt;
+拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。
+Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成
+大模型有三种主要的应用模式：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -61,7 +75,8 @@
       
       <guid>https://wymli.github.io/2025/05/go-release-notes/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;原文: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&lt;/a&gt;
+拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://tip.golang.org/doc/devel/release&#34;&gt;https://tip.golang.org/doc/devel/release&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;118&#34;&gt;1.18&lt;/h1&gt;
 &lt;ol&gt;
@@ -123,7 +138,7 @@ Seq2[K, V any] func(yield func(K, V) bool)
       
       <guid>https://wymli.github.io/2025/05/workflow-2.-temporal/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;原文: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;原文记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h1 id=&#34;简单介绍&#34;&gt;简单介绍&lt;/h1&gt;
 &lt;p&gt;学习一个新的东西首先在搜索引擎上搜下，了解下大概是什么东西。如果直接看官网文档的话，有些假大空的不说人话，容易懵。但深入的话，还是要看官方文档和源码。&lt;/p&gt;</description>
     </item>
@@ -135,8 +150,7 @@ Seq2[K, V any] func(yield func(K, V) bool)
       
       <guid>https://wymli.github.io/2025/03/worklfow-1.-airflow/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;原文：https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;官方文档很清晰，简单的知识无需赘述：https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/overview.html#workloads&lt;/p&gt;</description>
+&lt;p&gt;原文记录在飞书文档：https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -344,22 +358,6 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我比较好奇容器是怎么交付的，可以深究一下&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[tensorflow-arch] 入门</title>
-      <link>https://wymli.github.io/2022/04/tensorflow-intro/</link>
-      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2022/04/tensorflow-intro/</guid>
-      <description>&lt;h1 id=&#34;tensorflow入门&#34;&gt;tensorflow入门&lt;/h1&gt;
-&lt;h2 id=&#34;intro&#34;&gt;intro&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;tensorflow采用基于数据流图的模型设计方法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件以静态和动态的开发库存在，主程序(main)入口和控制流程掌握在用户手中，比如pytorch，numpy，tensorflow。框架模式下，平台层软件以可执行文件的形式存在，以后端守护进程独立运行，程序的入口和整体流程由框架控制，比如spark，mapreduce。&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -5,7 +5,8 @@ categories : ["golang"]
 tags : ["golang"]
 ---
 
-> 原文: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+> 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+> 拷贝时会有格式问题
 
 https://tip.golang.org/doc/devel/release
 # 1.18

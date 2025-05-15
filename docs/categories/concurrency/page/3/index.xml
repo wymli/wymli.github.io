@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>[rpc] net/rpc</title>
+      <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
+      <description>&lt;h1 id=&#34;netrpc&#34;&gt;net/rpc&lt;/h1&gt;
+&lt;p&gt;如下是一段极简的net/rpc代码, &lt;code&gt;client.Call()&lt;/code&gt;代表这是一个同步的rpc,如果是异步,net/rpc提供了&lt;code&gt;client.Go()&lt;/code&gt;方法,典型的实现是返回一个chan,当异步完成时,这个chan就会读出消息(当然,net/rpc的Go()不是完全这样实现的,但也差不多)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[mem] Buddy system</title>
       <link>https://wymli.github.io/2021/03/mem-buddyfreelist/</link>
       <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
@@ -254,27 +264,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
       <description>&lt;h1 id=&#34;逃逸分析&#34;&gt;逃逸分析&lt;/h1&gt;
 &lt;p&gt;首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配&lt;/p&gt;
 &lt;p&gt;注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当函数参数是interface{}时,不知其具体类型&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] GC</title>
-      <link>https://wymli.github.io/2021/03/go-gc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-gc/</guid>
-      <description>&lt;h1 id=&#34;垃圾回收算法&#34;&gt;垃圾回收算法&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/&#34;&gt;https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;有两种常见的自动管理堆内存的方法:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;引用计数/智能指针&lt;/li&gt;
-&lt;li&gt;追踪式垃圾回收(对堆内存的对象关系图进行可达性分析)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;术语&#34;&gt;术语&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;根对象: 包括所有栈上对象,全局变量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;标记-清扫法mark-sweep&#34;&gt;标记-清扫法(mark-sweep)&lt;/h2&gt;
-&lt;p&gt;典型的STW(stop the world)算法,当进行垃圾回收时,先暂停用户程序,然后从根对象出发对堆对象进行可达性标记(比如bfs/dfs),标记完后遍历所有的堆对象,回收掉不可达对象&lt;/p&gt;</description>
     </item>
     
   </channel>

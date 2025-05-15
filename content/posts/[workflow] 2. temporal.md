@@ -5,7 +5,7 @@ categories : ["workflow"]
 tags : ["workflow", "temporal"]
 ---
 
-> 原文: https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg
+> 原文记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg
 
 
 # 简单介绍

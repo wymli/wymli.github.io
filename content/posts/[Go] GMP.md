@@ -5,7 +5,7 @@ categories : ["golang"]
 tags : ["golang"]
 ---
 
-> 原文: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg
+> 原文记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg
 
 
 golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。

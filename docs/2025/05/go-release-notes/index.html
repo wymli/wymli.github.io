@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content=" 原文: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+    <meta name="description" content=" 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
 https://tip.golang.org/doc/devel/release
 1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&quot;-X &lsquo;main.buildTime=$(date)&rsquo;&quot; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue&hellip;，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法 " />
     <meta name="generator" content="Hugo 0.145.0 with theme pure" />
@@ -34,7 +34,7 @@ https://tip.golang.org/doc/devel/release
     <meta property="og:url" content="https://wymli.github.io/2025/05/go-release-notes/">
   <meta property="og:site_name" content="UnderTheHood">
   <meta property="og:title" content="[Go] release notes">
-  <meta property="og:description" content="原文: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+  <meta property="og:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
 https://tip.golang.org/doc/devel/release
 1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&#34;-X ‘main.buildTime=$(date)’&#34; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue…，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法">
   <meta property="og:locale" content="en">
@@ -45,16 +45,16 @@ https://tip.golang.org/doc/devel/release
     <meta property="article:tag" content="Golang">
 
   <meta itemprop="name" content="[Go] release notes">
-  <meta itemprop="description" content="原文: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+  <meta itemprop="description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
 https://tip.golang.org/doc/devel/release
 1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&#34;-X ‘main.buildTime=$(date)’&#34; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue…，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法">
   <meta itemprop="datePublished" content="2025-05-10T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-05-10T00:00:00+00:00">
-  <meta itemprop="wordCount" content="817">
+  <meta itemprop="wordCount" content="834">
   <meta itemprop="keywords" content="Golang">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Go] release notes">
-  <meta name="twitter:description" content="原文: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+  <meta name="twitter:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
 https://tip.golang.org/doc/devel/release
 1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&#34;-X ‘main.buildTime=$(date)’&#34; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue…，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法">
 
@@ -244,8 +244,8 @@ https://tip.golang.org/doc/devel/release
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/golang/" class="tag-list-link" rel="20">golang<span
-               class="tag-list-count">20</span></a>
+            <a href="https://wymli.github.io/tags/golang/" class="tag-list-link" rel="21">golang<span
+               class="tag-list-count">21</span></a>
             
             
             <a href="https://wymli.github.io/tags/http/" class="tag-list-link" rel="2">http<span
@@ -396,7 +396,7 @@ function tagCloud(where, min, max) {
             <li class="category-list-item"><a href="https://wymli.github.io/categories/datastructure/" class="category-list-link">datastructure</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/distribute/" class="category-list-link">distribute</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">20</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">21</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/innodb/" class="category-list-link">innodb</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/install/" class="category-list-link">install</a><span class="category-list-count">1</span></li>
@@ -504,7 +504,7 @@ function tagCloud(where, min, max) {
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/golang/" class="tag-list-link">golang</a><span
-                    class="tag-list-count">20</span></li>
+                    class="tag-list-count">21</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/http/" class="tag-list-link">http</a><span
@@ -652,7 +652,7 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2025/05/go-release-notes/" class="title">[Go] release notes</a>
+                        <a href="https://wymli.github.io/2025/05/aiagent-eino/" class="title">[Go] release notes</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-10</time>
@@ -662,10 +662,10 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2025/05/workflow-2.-temporal/" class="title">[airflow] temporal</a>
+                        <a href="https://wymli.github.io/2025/05/go-release-notes/" class="title">[Go] release notes</a>
                     </p>
                     <p class="item-date">
-                        <time datetime="2025-05-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-08</time>
+                        <time datetime="2025-05-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-10</time>
                     </p>
                 </div>
             </li>
@@ -715,13 +715,14 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/golang/"> golang </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 817 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 834 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <blockquote>
-<p>原文: <a href="https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg">https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg</a></p></blockquote>
+<p>原文我记录在飞书文档: <a href="https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg">https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg</a>
+拷贝时会有格式问题</p></blockquote>
 <p><a href="https://tip.golang.org/doc/devel/release">https://tip.golang.org/doc/devel/release</a></p>
 <h1 id="118">1.18</h1>
 <ol>
@@ -817,8 +818,8 @@ Seq2[K, V any] func(yield func(K, V) bool)
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://wymli.github.io/2025/05/go-gmp/"
-                    title="[Go] GMP"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="https://wymli.github.io/2025/05/aiagent-eino/"
+                    title="[Go] release notes"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             

@@ -12,6 +12,22 @@
     
     
     <item>
+      <title>[tensorflow-arch] 入门</title>
+      <link>https://wymli.github.io/2022/04/tensorflow-intro/</link>
+      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/tensorflow-intro/</guid>
+      <description>&lt;h1 id=&#34;tensorflow入门&#34;&gt;tensorflow入门&lt;/h1&gt;
+&lt;h2 id=&#34;intro&#34;&gt;intro&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tensorflow采用基于数据流图的模型设计方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基础平台层软件设计模式： 库模式和框架模式。库模式下，平台层软件以静态和动态的开发库存在，主程序(main)入口和控制流程掌握在用户手中，比如pytorch，numpy，tensorflow。框架模式下，平台层软件以可执行文件的形式存在，以后端守护进程独立运行，程序的入口和整体流程由框架控制，比如spark，mapreduce。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[脚本] 脚本</title>
       <link>https://wymli.github.io/2021/07/%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 22 Jul 2021 00:00:00 +0000</pubDate>
@@ -431,16 +447,6 @@ func NewWorker() workerImpl {
       <description>&lt;h1 id=&#34;什么是rpc&#34;&gt;什么是RPC?&lt;/h1&gt;
 &lt;p&gt;rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数&lt;/p&gt;
 &lt;p&gt;在传统的单体服务中,所有的函数都写在一个进程映像里,我们调用函数只需要跳转到对应的代码段即可.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[rpc] net/rpc</title>
-      <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
-      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
-      <description>&lt;h1 id=&#34;netrpc&#34;&gt;net/rpc&lt;/h1&gt;
-&lt;p&gt;如下是一段极简的net/rpc代码, &lt;code&gt;client.Call()&lt;/code&gt;代表这是一个同步的rpc,如果是异步,net/rpc提供了&lt;code&gt;client.Go()&lt;/code&gt;方法,典型的实现是返回一个chan,当异步完成时,这个chan就会读出消息(当然,net/rpc的Go()不是完全这样实现的,但也差不多)&lt;/p&gt;</description>
     </item>
     
   </channel>
