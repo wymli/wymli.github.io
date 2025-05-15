@@ -7,21 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>[protocol] OAuth2</title>
-      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
-      <description>&lt;h1 id=&#34;oauth20&#34;&gt;OAuth2.0&lt;/h1&gt;
-&lt;p&gt;open authority 2.0,开放授权&lt;/p&gt;
-&lt;p&gt;主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是如果直接给予A网站用户的用户名密码,又太不安全,并且我们希望只提供给A网站受限的资源访问权限,比如只能获取到用户名等.因此需要使用OAuth2.0&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>[rpc] rpcx</title>

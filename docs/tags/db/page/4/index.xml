@@ -1,23 +1,258 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DB on UnderTheHood</title>
-    <link>http://localhost:1313/tags/db/</link>
-    <description>Recent content in DB on UnderTheHood</description>
+    <title>Db on UnderTheHood</title>
+    <link>https://wymli.github.io/tags/db/</link>
+    <description>Recent content in Db on UnderTheHood</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 May 2025 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="http://localhost:1313/tags/db/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://wymli.github.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>[interview] ByteDance&amp;Tencent</title>
-      <link>http://localhost:1313/2021/03/interview-bytedancetencent/</link>
+      <title>[Go] goroutine pool</title>
+      <link>https://wymli.github.io/2021/03/go-goroutine-pool/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/interview-bytedancetencent/</guid>
+      <guid>https://wymli.github.io/2021/03/go-goroutine-pool/</guid>
+      <description>&lt;h1 id=&#34;goroutine-pool&#34;&gt;Goroutine Pool&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;代码来自:gobwas/ws-example&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,复用goroutine形成goroutine池的优化效果很有限&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] monkey patch</title>
+      <link>https://wymli.github.io/2021/03/go-monkey-patch/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-monkey-patch/</guid>
+      <description>&lt;h1 id=&#34;monkey-patch-猴子补丁&#34;&gt;Monkey patch 猴子补丁&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://bou.ke/blog/monkey-patching-in-go/&#34;&gt;https://bou.ke/blog/monkey-patching-in-go/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;intro-什么是monkey-patch&#34;&gt;Intro: 什么是monkey patch?&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+func a() int { return 1 }
+func b() int { return 2 }
+
+func main() {
+	replace(a, b)
+	print(a())  // 2
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;monkey patch将做到如上的效果,当你调用a函数时,实际却调用了b函数,看起来有点神奇!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] mutex</title>
+      <link>https://wymli.github.io/2021/03/go-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-mutex/</guid>
+      <description>&lt;h1 id=&#34;mutex&#34;&gt;mutex&lt;/h1&gt;
+&lt;h2 id=&#34;结构&#34;&gt;结构&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Mutex struct {
+    state int32
+    sema  uint32
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;自旋&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for{
+  cas(m.state)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;阻塞&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;wait(m.sema)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;状态&#34;&gt;状态&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;普通模式
+&lt;ul&gt;
+&lt;li&gt;就是正常的模式,线程相互竞争获得锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;饥饿模式
+&lt;ul&gt;
+&lt;li&gt;由于线程竞争失败会阻塞,而这些被唤醒的线程会和其他第一次来申请锁的线程一起竞争,显然,不可能竞争过,因为新的线程是占据着cpu的&lt;/li&gt;
+&lt;li&gt;这会导致阻塞线程的饥饿,因此,mutex加入了饥饿模式,当进入饥饿模式后,锁直接赋予阻塞队列的第一个线程,新线程自动加入阻塞队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意,对锁的竞争,有两大来源,一是新线程,二是被阻塞线程(由于锁的释放而被唤醒),新线程如果自旋一段时间后未获得锁,便进入阻塞态,加入该锁的等待队列&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] netaddr</title>
+      <link>https://wymli.github.io/2021/03/go-netaddr/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-netaddr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] radix-tree</title>
+      <link>https://wymli.github.io/2021/03/go-radix-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-radix-tree/</guid>
+      <description>&lt;h1 id=&#34;radix树&#34;&gt;Radix树&lt;/h1&gt;
+&lt;p&gt;又叫压缩前缀树,基数树,常用于路由匹配上,会将路由组织成一颗radix树&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] reflect</title>
+      <link>https://wymli.github.io/2021/03/go-reflect/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-reflect/</guid>
+      <description>&lt;h2 id=&#34;什么是反射&#34;&gt;什么是反射?&lt;/h2&gt;
+&lt;p&gt;反射提供了一种运行时能对对象增删查改的方法.&lt;/p&gt;
+&lt;p&gt;换句话说,当函数参数的interface{}时,提供了一种访问原来的类型和值的方法. 这与switch type类似,但是switch只能对type进行判断,而你根本不知道会传进来何种自定义的结构体,这就是需要判断reflect.kind了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] runtime struct builder</title>
+      <link>https://wymli.github.io/2021/03/go-runtime-struct-builder/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-runtime-struct-builder/</guid>
+      <description>&lt;h1 id=&#34;runtime-struct-运行时结构体构造方法&#34;&gt;Runtime Struct: 运行时结构体构造方法&lt;/h1&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/itsubaki/gostruct&#34;&gt;https://github.com/itsubaki/gostruct&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pkg.go.dev/reflect#example-StructOf&#34;&gt;https://pkg.go.dev/reflect#example-StructOf&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;reflectnewtyp-reflecttype-reflectvalue&#34;&gt;reflect.New(typ reflect.Type) reflect.Value&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ).&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;因此,给定一个结构体类型的type,我们就可以构造出value&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] short var declare</title>
+      <link>https://wymli.github.io/2021/03/go-short-var-declare/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-short-var-declare/</guid>
+      <description>&lt;h1 id=&#34;go-短变量声明-&#34;&gt;[Go] 短变量声明 :=&lt;/h1&gt;
+&lt;p&gt;在Go中,提供了动态语言常用的一种直接声明并赋值的语法糖,即 := 短变量声明&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;:= 这个符号,可能是借鉴了Pascal&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;短变量声明有一定的要注意的地方,它与先声明后赋值有着一定的区别:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] slice index detail</title>
+      <link>https://wymli.github.io/2021/03/go-slice-index-detail/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-slice-index-detail/</guid>
+      <description>&lt;h1 id=&#34;go-slice的下标索引细节&#34;&gt;[Go] Slice的下标索引细节&lt;/h1&gt;
+&lt;p&gt;在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治&lt;/p&gt;
+&lt;p&gt;常见的比如快排,恢复二叉树等&lt;/p&gt;
+&lt;p&gt;在c/c++中,我会使用func(int* array , int lo , int hi)来标识数组的范围,但是在python这种动态语言中,可以直接使用数组的切片,很方便的传入递归函数 func (slice[lo:hi])&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] standard package layout</title>
+      <link>https://wymli.github.io/2021/03/go-standard-package-layout/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-standard-package-layout/</guid>
+      <description>&lt;h1 id=&#34;standard-package-layout&#34;&gt;Standard Package Layout&lt;/h1&gt;
+&lt;p&gt;标准包布局   -Ben Johnson &lt;a href=&#34;https://www.gobeyond.dev/standard-package-layout/&#34;&gt;https://www.gobeyond.dev/standard-package-layout/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用的包布局(application package layout)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] user thread</title>
+      <link>https://wymli.github.io/2021/03/go-user-thread/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-user-thread/</guid>
+      <description>&lt;h1 id=&#34;用户线程与核心线程&#34;&gt;用户线程与核心线程&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://flint.cs.yale.edu/cs422/doc/sched-act.pdf&#34;&gt;Scheduler Activations: Effective Kernel Support for the  User-Level Management of Parallelism&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;论文观点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We  argue  that  the  performance  of  user-levelthreads  is  inherently  better  than  that  of  kernel  threads,  rather  than  thisbeing  an  artifact  of  existing  implementations.&lt;/li&gt;
+&lt;li&gt;kernel   threads   are   the wrong   abstraction   on   which   to   support   user-level management   of   parallelism.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1用户线程的优势&#34;&gt;1.用户线程的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The  cost  of  accessing  thread  management  operations.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>[HTTP] Content-Type</title>
+      <link>https://wymli.github.io/2021/03/http-content-type/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/http-content-type/</guid>
+      <description>&lt;h1 id=&#34;about-content-type&#34;&gt;About Content-Type&lt;/h1&gt;
+&lt;p&gt;Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段&lt;/p&gt;
+&lt;h2 id=&#34;三种content-type&#34;&gt;三种Content-Type&lt;/h2&gt;
+&lt;h3 id=&#34;applicationx-www-form-urlencoded&#34;&gt;application/x-www-form-urlencoded&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;默认类型,当form不指定enctype时使用此content-type&lt;/li&gt;
+&lt;li&gt;看名字就知道,urlencoded,当自己构造时,要对参数进行url转义&lt;/li&gt;
+&lt;li&gt;示例: &lt;code&gt;a=123&amp;amp;b=123&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go语言中,可以直接传string/[]byte给body,也可以是map[string]string,也可以是url.Values(typedef map[string][]string)
+&lt;ul&gt;
+&lt;li&gt;虽然这些都可以,但推荐url.Values,可以直接调用.encode(),自己构造的是没有encode的,但一般来说都没有问题,因为只有特殊字符需要encode!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;go-server-解析&#34;&gt;go server 解析:&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;multipartform-datamime&#34;&gt;multipart/form-data(mime)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用于上传文件&lt;/li&gt;
+&lt;li&gt;html form 构造: &lt;code&gt;form.enctype=&amp;quot;multipart/form-data&amp;quot; i.put:type=&amp;quot;file&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go client 构造: &lt;code&gt;import &amp;quot;mime/multipart&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go server 解析:
+&lt;ul&gt;
+&lt;li&gt;首先解析: &lt;code&gt;r.ParseMultipartForm(1024 * 1024)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;取出来:&lt;code&gt;image := r.MultipartForm.Value[&amp;quot;image&amp;quot;] &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;也可以看看gin的api,更方便&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;applicationjson&#34;&gt;application/json&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;json.marshall之后传进body即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gin解析&#34;&gt;gin解析:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;id := c.Query(&amp;quot;id&amp;quot;)
+c.PostForm(&amp;quot;name&amp;quot;)
+// 也可以bind进一个结构体
+// 推荐使用bind,可以很方便的进行表单验证
+// get:BindQuery , post:bindjson/bindxml/...
+c.ShouldBind(&amp;amp;person)
+
+
+// 单文件
+router.MaxMultipartMemory = 8 &amp;lt;&amp;lt; 20 
+file, _ := c.FormFile(&amp;quot;file&amp;quot;)
+c.SaveUploadedFile(file, dst)
+
+// 多文件
+form, _ := c.MultipartForm()
+files := form.File[&amp;quot;upload[]&amp;quot;]
+
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Interview] ByteDance&amp;Tencent</title>
+      <link>https://wymli.github.io/2021/03/interview-bytedancetencent/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-bytedancetencent/</guid>
       <description>&lt;h1 id=&#34;bytedancetencent&#34;&gt;ByteDance&amp;amp;Tencent&lt;/h1&gt;
 &lt;p&gt;2021/3 暑期实习&lt;/p&gt;
 &lt;h3 id=&#34;腾讯一面&#34;&gt;腾讯一面&lt;/h3&gt;
@@ -81,11 +316,11 @@ print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
     </item>
     
     <item>
-      <title>[interview] 杂</title>
-      <link>http://localhost:1313/2021/03/interview-%E6%9D%82/</link>
+      <title>[Interview] 杂</title>
+      <link>https://wymli.github.io/2021/03/interview-%E6%9D%82/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/interview-%E6%9D%82/</guid>
+      <guid>https://wymli.github.io/2021/03/interview-%E6%9D%82/</guid>
       <description>&lt;h1 id=&#34;记录一下为面试做的准备&#34;&gt;记录一下为面试做的准备&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;声明: 以下知识点可能不完全正确,但也不会错的太离谱&lt;/p&gt;&lt;/blockquote&gt;
@@ -325,10 +560,10 @@ print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
     
     <item>
       <title>[linux] daemon</title>
-      <link>http://localhost:1313/2021/03/linux-bg-run-linux/</link>
+      <link>https://wymli.github.io/2021/03/linux-bg-run-linux/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/linux-bg-run-linux/</guid>
+      <guid>https://wymli.github.io/2021/03/linux-bg-run-linux/</guid>
       <description>&lt;h1 id=&#34;linux-关于后台运行进程的小实验&#34;&gt;[linux] 关于后台运行进程的小实验&lt;/h1&gt;
 &lt;p&gt;我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置&lt;/p&gt;
 &lt;h2 id=&#34;守护模式&#34;&gt;守护模式&lt;/h2&gt;
@@ -337,10 +572,10 @@ print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
     
     <item>
       <title>[linux] high performance server</title>
-      <link>http://localhost:1313/2021/03/linux-high-performance-server/</link>
+      <link>https://wymli.github.io/2021/03/linux-high-performance-server/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/linux-high-performance-server/</guid>
+      <guid>https://wymli.github.io/2021/03/linux-high-performance-server/</guid>
       <description>&lt;h1 id=&#34;高性能linux服务器&#34;&gt;高性能linux服务器&lt;/h1&gt;
 &lt;h2 id=&#34;服务器监听范式&#34;&gt;服务器监听范式&lt;/h2&gt;
 &lt;p&gt;一个传统的单线程服务器&lt;/p&gt;
@@ -369,10 +604,10 @@ F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
     
     <item>
       <title>[linux] server intro</title>
-      <link>http://localhost:1313/2021/03/linux-server-intro/</link>
+      <link>https://wymli.github.io/2021/03/linux-server-intro/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/linux-server-intro/</guid>
+      <guid>https://wymli.github.io/2021/03/linux-server-intro/</guid>
       <description>&lt;h1 id=&#34;introduction-to-linux-server&#34;&gt;Introduction to linux server&lt;/h1&gt;
 &lt;p&gt;linux 服务器导论&lt;/p&gt;
 &lt;h2 id=&#34;文件目录相关&#34;&gt;文件目录相关&lt;/h2&gt;
@@ -385,10 +620,10 @@ F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
     
     <item>
       <title>[other] everyDay</title>
-      <link>http://localhost:1313/2021/03/other-everyday/</link>
+      <link>https://wymli.github.io/2021/03/other-everyday/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/other-everyday/</guid>
+      <guid>https://wymli.github.io/2021/03/other-everyday/</guid>
       <description>&lt;h1 id=&#34;121&#34;&gt;12.1&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;重新学习了gin的一部分用法,比如参数获取,文件上传,静态文件目录之类的,我感觉任何东西还是要先学会用,再去看源码学习&lt;/li&gt;
@@ -625,10 +860,10 @@ SPA,单页面应用的路由有两种模式:hash和history,这两种方法都可
     
     <item>
       <title>[other] term</title>
-      <link>http://localhost:1313/2021/03/other-term/</link>
+      <link>https://wymli.github.io/2021/03/other-term/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/other-term/</guid>
+      <guid>https://wymli.github.io/2021/03/other-term/</guid>
       <description>&lt;h1 id=&#34;whats-the-diff&#34;&gt;What&amp;rsquo;s the diff?&lt;/h1&gt;
 &lt;h2 id=&#34;x86x64386amd64i386intel64-&#34;&gt;x86,x64,386,amd64,i386,intel64 &amp;hellip;.&lt;/h2&gt;
 &lt;p&gt;x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构&lt;/p&gt;
@@ -640,250 +875,13 @@ SPA,单页面应用的路由有两种模式:hash和history,这两种方法都可
     
     <item>
       <title>[protocol] OAuth2</title>
-      <link>http://localhost:1313/2021/03/protocol-oauth2/</link>
+      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2021/03/protocol-oauth2/</guid>
+      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
       <description>&lt;h1 id=&#34;oauth20&#34;&gt;OAuth2.0&lt;/h1&gt;
 &lt;p&gt;open authority 2.0,开放授权&lt;/p&gt;
 &lt;p&gt;主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是如果直接给予A网站用户的用户名密码,又太不安全,并且我们希望只提供给A网站受限的资源访问权限,比如只能获取到用户名等.因此需要使用OAuth2.0&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[rpc] rpcx</title>
-      <link>http://localhost:1313/2021/03/rpc-rpcx/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/2021/03/rpc-rpcx/</guid>
-      <description>&lt;h1 id=&#34;rpc识记-微服务概述&#34;&gt;RPC识记-微服务概述&lt;/h1&gt;
-&lt;p&gt;respect： rpc框架:  &lt;a href=&#34;https://doc.rpcx.io/&#34;&gt;https://doc.rpcx.io/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;关键字&#34;&gt;关键字&lt;/h2&gt;
-&lt;p&gt;服务发现，注册中心，服务治理，限流熔断隔离降级，codec等&lt;/p&gt;
-&lt;h2 id=&#34;outline&#34;&gt;Outline&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;一般的，一个rpc框架就是一个微服务框架&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一个好的协议,request和response应该是同样的格式&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[sys] inotify</title>
-      <link>http://localhost:1313/2021/03/sys-inotify/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/2021/03/sys-inotify/</guid>
-      <description>&lt;h1 id=&#34;inotify&#34;&gt;Inotify&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;pre&gt;&lt;code&gt;The inotify API provides a mechanism for monitoring filesystem
-events.  Inotify can be used to monitor individual files, or to
-monitor directories.  When a directory is monitored, inotify will
-return events for the directory itself, and for files inside the
-directory.
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
-&lt;p&gt;四个API&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;func InotifyInit() (fd int, err error)
-&lt;ul&gt;
-&lt;li&gt;func InotifyInit1(flags int) (fd int, err error) 这个可以设置flags(O_NONBLOCK,O_BLOCK),这涉及到read(fd,buffer,buff_size)时是阻塞还是非阻塞&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;func InotifyAddWatch(fd int, pathname string, mask uint32) (watchdesc int, err error)
-&lt;ul&gt;
-&lt;li&gt;对pathname进行监听,并绑定到fd上,mask表示监听哪些事件&lt;/li&gt;
-&lt;li&gt;返回watch desciptor,专用于remove取消监听&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;func InotifyRmWatch(fd int, watchdesc uint32) (success int, err error)
-&lt;ul&gt;
-&lt;li&gt;将监听事件从fd上取消&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;其他
-&lt;ul&gt;
-&lt;li&gt;读取事件
-&lt;ul&gt;
-&lt;li&gt;read(fd , buf , buf_sz)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;关闭监听
-&lt;ul&gt;
-&lt;li&gt;close(fd)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;buf 将需要被解释成:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[sys] tsar&amp;proc</title>
-      <link>http://localhost:1313/2021/03/sys-tsarproc/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/2021/03/sys-tsarproc/</guid>
-      <description>&lt;h1 id=&#34;tsar&#34;&gt;TSAR&lt;/h1&gt;
-&lt;p&gt;taobao system activity reporter&lt;/p&gt;
-&lt;p&gt;该工具本质是在读取linux系统/proc目录下的一些计数器文件,本片文章来介绍这些文件,及其内部包含的信息&lt;/p&gt;
-&lt;p&gt;关于此目录下的文件信息,&lt;/p&gt;
-&lt;p&gt;可直接看linux官方文档:https://man7.org/linux/man-pages/man5/procfs.5.html&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[vue] everything</title>
-      <link>http://localhost:1313/2021/03/vue-everything/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/2021/03/vue-everything/</guid>
-      <description>&lt;h1 id=&#34;1-vue的生命周期运行流程渲染流程初始化流程&#34;&gt;1. vue的生命周期/运行流程/渲染流程/初始化流程&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA&#34;&gt;doc link&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;vue的入口文件可以有四个可能的命名:main.js,index.js,app.vue,App.vue&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[vue] import-export</title>
-      <link>http://localhost:1313/2021/03/vue-import-export/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/2021/03/vue-import-export/</guid>
-      <description>&lt;h1 id=&#34;about-import-and-export&#34;&gt;About import and export&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;这是es6的语法,即js的语法&lt;/li&gt;
-&lt;li&gt;export用于对外输出本模块的数据&lt;/li&gt;
-&lt;li&gt;import用于引入其他模块的数据&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;语法细则&#34;&gt;语法细则&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;// 导出变量
-// 法一
-// js1
-export var name = &amp;quot;a&amp;quot;
-// js2
-import {name} from &amp;quot;./js1.js&amp;quot;
-
-// 法二
-// js1
-var name1 = &amp;quot;a&amp;quot;
-var name2 = &amp;quot;b&amp;quot;
-export {name1 , name2}
-// 或者
-export name1
-export name2
-// 或者
-export var name1 = &amp;quot;a&amp;quot;
-export var name2 = &amp;quot;b&amp;quot;
-
-// js2
-import {name1 , name2} from &amp;quot;./js1.js&amp;quot;
-// 或者
-import {name1} from &amp;quot;./js1.js&amp;quot;
-import {name2} from &amp;quot;./js1.js&amp;quot;
-
-// ===========================
-
-// 导出函数,和变量是一致的
-function add(x,y){
-  return (x+y)
-}
-export {add}
-// 或者
-export function add(x,y){
-  return x+y
-}
-// js2
-import {add} from &amp;quot;./js1.js&amp;quot;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;export-and-export-default&#34;&gt;export and export default&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;export,export default均可用于导出变量,函数,文件,模块等&lt;/li&gt;
-&lt;li&gt;一个文件或模块中,export/import可以有多个,但是export default只能有一个&lt;/li&gt;
-&lt;li&gt;export的导出,import时要加入{},但是export default则不需要&lt;/li&gt;
-&lt;li&gt;export default相当于指定默认输出,而export时,import要完整写出对应导出的变量/函数名&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;export default {
-	address：&#39;1&#39;,
-}
-export var title = &#39;2&#39;
-export var zzz = &#39;3&#39;
-// js2
-import js1,{title as t , zzz} from &amp;quot;./js1.js&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;import的后缀名省略&#34;&gt;import的后缀名省略&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;直接使用&lt;code&gt;import js from &amp;quot;./js1&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;规则:
-&lt;ul&gt;
-&lt;li&gt;在 &lt;code&gt;webpack.base.conf.js&lt;/code&gt; 中设置&lt;/li&gt;
-&lt;li&gt;可以省略js,vue后缀&lt;/li&gt;
-&lt;li&gt;若同时存在js,vue后缀同名文件,js&amp;gt;vue&lt;/li&gt;
-&lt;li&gt;from后可以是文件夹
-&lt;ul&gt;
-&lt;li&gt;加载规则:
-&lt;ul&gt;
-&lt;li&gt;先看该文件夹有没有packag.json
-&lt;ul&gt;
-&lt;li&gt;若有:取package.main指定的js作为from的来源&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;index.js&lt;/li&gt;
-&lt;li&gt;index.vue&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;注意,一般来说 package.json都只会出现项目根目录,注意不是@,是@的再外面一层,用来配置npm install这些指令&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h2 id=&#34;hi-there-&#34;&gt;Hi there 👋&lt;/h2&gt;
-&lt;p&gt;&amp;#x1f3c3; 求实习&lt;/p&gt;
-&lt;h4 id=&#34;about-me&#34;&gt;About me:&lt;/h4&gt;
-&lt;p&gt;♂, 信息与计算科学(计算机学院) 中山大学 广州&lt;br&gt;
-2018 - 2022&lt;/p&gt;
-&lt;h4 id=&#34;contact-me&#34;&gt;Contact me:&lt;/h4&gt;
-&lt;p&gt;&lt;a href=&#34;mailto:liwm29@mail2.sysu.edu.cn&#34;&gt;liwm29@mail2.sysu.edu.cn&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/1/01/datamining-cluster/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/1/01/datamining-cluster/</guid>
-      <description>&lt;h1 id=&#34;聚类&#34;&gt;聚类&lt;/h1&gt;
-&lt;p&gt;聚类是一种无监督的方法,我们仅仅通过向量的特征即可将不同的向量按相邻的距离聚在一起&lt;/p&gt;
-&lt;p&gt;对于输入的数值元组的不同的视角,我们可以定义不同的距离&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将元组视为向量
-&lt;ul&gt;
-&lt;li&gt;计算cos距离来求解相似度,即余弦值,可有余弦定理计算得出&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;将元组视为集合
-&lt;ul&gt;
-&lt;li&gt;计算jaccard距离,即A∩B/A∪B&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;将元组视为欧氏空间中的坐标点
-&lt;ul&gt;
-&lt;li&gt;计算欧式距离&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;层次聚类&#34;&gt;层次聚类&lt;/h2&gt;
-&lt;p&gt;方法是不断的将小聚类合并(合并两个最近的聚类),形成大的聚类,从单个点作为一个聚类开始&lt;/p&gt;</description>
     </item>
     
   </channel>

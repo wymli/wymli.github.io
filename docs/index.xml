@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -45,6 +45,19 @@
     </item>
     
     <item>
+      <title>[DB] 事务隔离与锁</title>
+      <link>https://wymli.github.io/2025/05/db-mutex/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/db-mutex/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&lt;/a&gt;
+拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。
+四种隔离级别&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[Go] GMP</title>
       <link>https://wymli.github.io/2025/05/go-gmp/</link>
       <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
@@ -53,20 +66,6 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;原文记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] release notes</title>
-      <link>https://wymli.github.io/2025/05/aiagent-eino/</link>
-      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2025/05/aiagent-eino/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&lt;/a&gt;
-拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。
-Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成
-大模型有三种主要的应用模式：&lt;/p&gt;</description>
     </item>
     
     <item>

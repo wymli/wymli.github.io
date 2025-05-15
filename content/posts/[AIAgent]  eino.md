@@ -1,11 +1,11 @@
 ---
-title: "[Go] release notes"
-date: 2025-05-10
-categories : ["golang"]
-tags : ["golang"]
+title: "[AI Agent] Eino"
+date: 2025-05-16
+categories : ["ai agent"]
+tags : ["ai agent","eino"]
 ---
 
-> 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg
+> 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b
 > 拷贝时会有格式问题
 
 Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。
