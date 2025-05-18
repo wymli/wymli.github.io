@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Wed, 14 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -42,6 +42,20 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[AI Agent] Eino</title>
+      <link>https://wymli.github.io/2025/05/aiagent-eino/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/aiagent-eino/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&lt;/a&gt;
+拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。
+Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成
+大模型有三种主要的应用模式：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -309,55 +323,6 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
 &lt;/ul&gt;
 &lt;h2 id=&#34;执行流程&#34;&gt;执行流程&lt;/h2&gt;
 &lt;p&gt;一个spark 应用的流程是这样的：&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[BigData] 大数据入门</title>
-      <link>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</guid>
-      <description>&lt;h1 id=&#34;大数据&#34;&gt;大数据&lt;/h1&gt;
-&lt;p&gt;未来工作或多或少要接触大数据，学习下。&lt;/p&gt;
-&lt;h1 id=&#34;glossary&#34;&gt;glossary&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;hadoop， 可以认为大数据平台就是hadoop平台/hadoop集群的代名词&lt;/li&gt;
-&lt;li&gt;hadoop集群作为基础设施，主要包括存储和调度。存储是hdfs（hadoop distributed file system），调度是yarn（yet another resource negotiater），在计算方面，一般是和用户强相关的，执行的是用户传入的Job，在计算框架上，一般有MapReduce/Spark/Flink等。使用这些分布式计算框架实现的作业，当被yarn调度从而运行时，一般称之为“XX On Yarn”，比如&amp;quot;Spark On yarn&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;hdfs&#34;&gt;Hdfs&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;hdfs是一个流式的分布式的文件存储系统&lt;/li&gt;
-&lt;li&gt;存的是文件，但不是以文件为单位分布式副本存储；而是将文件切分成多个小块block（一个block 128MB），每个block将按照一定的副本策略存在多个机器上。&lt;/li&gt;
-&lt;li&gt;hdfs的架构主要分为NameNode和DataNode，DataNode存储文件块数据，NameNode存储元数据
-&lt;ul&gt;
-&lt;li&gt;元数据包括1.目录树信息 2.文件到块的映射 3.块到DataNode的映射&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;hdfs还包括secondaryNameNode，不过这个进程不是很重要，他的工作主要合并日志，NameNode对于写文件操作，一般不是直接进行随机内存访问的直接修改磁盘上的持久化的文件目录数和映射关系（称作fsimage），而是将写操作以日志追加的方式append到一个叫做edit.log的文件中，类似于各种AOF，WAL，secondaryNameNode的工作就是合并fsimage和edit.log（按道理来说，这个合并应该直接让NameNode分出一个线程来合并就完事了，但是这里独立了一个进程，优劣性可以再讨论）&lt;/li&gt;
-&lt;li&gt;hdfs是流式的，这意味着文件只能追加，不能修改。一次写入，多次读。&lt;/li&gt;
-&lt;li&gt;在写操作时，先写到本地临时文件，当文件大小达到一个块后，开始以4KB为一个packet发送给第一个DataNode，第一个DataNode会接受并转发给第二个DataNode（递归形式），当文件全部写完后，文件才可见。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;yarn&#34;&gt;Yarn&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Yarn是资源管理调度器，所谓的资源是硬件资源，包括内存，CPU，磁盘，网络等，以容器的形式交付给应用&lt;/li&gt;
-&lt;li&gt;我感觉就是k8s+docker的感觉，提供统一的nodeManager和容器资源交付。&lt;/li&gt;
-&lt;li&gt;架构上是资源管理器（分为资源调度器和应用程序管理器）+节点管理器
-&lt;ul&gt;
-&lt;li&gt;资源调度器根据需要的资源声明交付容器&lt;/li&gt;
-&lt;li&gt;应用程序管理器管理应用的提交，与资源调度器协商资源等&lt;/li&gt;
-&lt;li&gt;节点管理器，顾名思义，节点代理，实际上的工作者，分配容器资源，启动工作进程等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;每个任务的提交需要三个东西
-&lt;ul&gt;
-&lt;li&gt;应用的Master程序（ApplicationMaster），比如MapReduceApplicationMaster，类似于k8s中CRD Operator的感觉，比如spark中的driver就是这种appMaster程序（也就是spark的main程序，包含sparkcontext）&lt;/li&gt;
-&lt;li&gt;应用的Master程序的启动程序，估计是启动脚本一类的。&lt;/li&gt;
-&lt;li&gt;用户程序，比如用户自己编写的MapReduce程序&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我比较好奇容器是怎么交付的，可以深究一下&lt;/p&gt;</description>
     </item>
     
   </channel>

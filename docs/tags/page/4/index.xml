@@ -7,10 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Wed, 14 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] GC</title>
+      <link>https://wymli.github.io/2021/03/go-gc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-gc/</guid>
+      <description>&lt;h1 id=&#34;垃圾回收算法&#34;&gt;垃圾回收算法&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/&#34;&gt;https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有两种常见的自动管理堆内存的方法:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引用计数/智能指针&lt;/li&gt;
+&lt;li&gt;追踪式垃圾回收(对堆内存的对象关系图进行可达性分析)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;术语&#34;&gt;术语&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;根对象: 包括所有栈上对象,全局变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;标记-清扫法mark-sweep&#34;&gt;标记-清扫法(mark-sweep)&lt;/h2&gt;
+&lt;p&gt;典型的STW(stop the world)算法,当进行垃圾回收时,先暂停用户程序,然后从根对象出发对堆对象进行可达性标记(比如bfs/dfs),标记完后遍历所有的堆对象,回收掉不可达对象&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[Go] goroutine pool</title>
@@ -871,17 +892,6 @@ SPA,单页面应用的路由有两种模式:hash和history,这两种方法都可
 &lt;p&gt;IA64,一种新的64位架构,不基于x86&lt;/p&gt;
 &lt;h2 id=&#34;linux--ubuntu--centos--redhat--&#34;&gt;Linux , Ubuntu , CentOS , RedHat  &amp;hellip;.&lt;/h2&gt;
 &lt;p&gt;linux是内核kernel的名字&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[protocol] OAuth2</title>
-      <link>https://wymli.github.io/2021/03/protocol-oauth2/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/protocol-oauth2/</guid>
-      <description>&lt;h1 id=&#34;oauth20&#34;&gt;OAuth2.0&lt;/h1&gt;
-&lt;p&gt;open authority 2.0,开放授权&lt;/p&gt;
-&lt;p&gt;主要用于A网站向某个常用第三方社交网站请求用户信息,第三方社交网站需要给予A网站用户信息,这必须有用户的授权才行,但是如果直接给予A网站用户的用户名密码,又太不安全,并且我们希望只提供给A网站受限的资源访问权限,比如只能获取到用户名等.因此需要使用OAuth2.0&lt;/p&gt;</description>
     </item>
     
   </channel>

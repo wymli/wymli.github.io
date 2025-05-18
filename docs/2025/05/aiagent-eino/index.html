@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        [Go] release notes - UnderTheHood
+        [AI Agent] Eino - UnderTheHood
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,11 +20,11 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content=" 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
+    <meta name="description" content=" 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b 拷贝时会有格式问题
 Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。 Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成 大模型有三种主要的应用模式：
 " />
     <meta name="generator" content="Hugo 0.145.0 with theme pure" />
-    <title>[Go] release notes - UnderTheHood</title>
+    <title>[AI Agent] Eino - UnderTheHood</title>
     
     
     <link rel="stylesheet" href="https://wymli.github.io/css/style.min.31c841d028bbb1b4f57eadc51e8f652fb1d4f783171c15f4f5de039708e133b3.css">
@@ -33,26 +33,27 @@ Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的la
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:url" content="https://wymli.github.io/2025/05/aiagent-eino/">
   <meta property="og:site_name" content="UnderTheHood">
-  <meta property="og:title" content="[Go] release notes">
-  <meta property="og:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
+  <meta property="og:title" content="[AI Agent] Eino">
+  <meta property="og:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b 拷贝时会有格式问题
 Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。 Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成 大模型有三种主要的应用模式：">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-05-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-05-10T00:00:00+00:00">
-    <meta property="article:tag" content="Golang">
+    <meta property="article:published_time" content="2025-05-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-16T00:00:00+00:00">
+    <meta property="article:tag" content="Ai Agent">
+    <meta property="article:tag" content="Eino">
 
-  <meta itemprop="name" content="[Go] release notes">
-  <meta itemprop="description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
+  <meta itemprop="name" content="[AI Agent] Eino">
+  <meta itemprop="description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b 拷贝时会有格式问题
 Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。 Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成 大模型有三种主要的应用模式：">
-  <meta itemprop="datePublished" content="2025-05-10T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-05-10T00:00:00+00:00">
+  <meta itemprop="datePublished" content="2025-05-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-05-16T00:00:00+00:00">
   <meta itemprop="wordCount" content="5531">
-  <meta itemprop="keywords" content="Golang">
+  <meta itemprop="keywords" content="Ai Agent,Eino">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="[Go] release notes">
-  <meta name="twitter:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
+  <meta name="twitter:title" content="[AI Agent] Eino">
+  <meta name="twitter:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b 拷贝时会有格式问题
 Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。 Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成 大模型有三种主要的应用模式：">
 
     <!--[if lte IE 9]>
@@ -165,6 +166,10 @@ Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的la
     <div id="tag-cloud-list" class="widget-body">
             
             
+            <a href="https://wymli.github.io/tags/ai-agent/" class="tag-list-link" rel="1">ai agent<span
+               class="tag-list-count">1</span></a>
+            
+            
             <a href="https://wymli.github.io/tags/airflow/" class="tag-list-link" rel="1">airflow<span
                class="tag-list-count">1</span></a>
             
@@ -213,8 +218,8 @@ Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的la
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/database/" class="tag-list-link" rel="5">database<span
-               class="tag-list-count">5</span></a>
+            <a href="https://wymli.github.io/tags/database/" class="tag-list-link" rel="4">database<span
+               class="tag-list-count">4</span></a>
             
             
             <a href="https://wymli.github.io/tags/datamining/" class="tag-list-link" rel="1">datamining<span
@@ -222,6 +227,10 @@ Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的la
             
             
             <a href="https://wymli.github.io/tags/datastructure/" class="tag-list-link" rel="1">datastructure<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://wymli.github.io/tags/db/" class="tag-list-link" rel="1">db<span
                class="tag-list-count">1</span></a>
             
             
@@ -237,12 +246,16 @@ Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的la
                class="tag-list-count">1</span></a>
             
             
+            <a href="https://wymli.github.io/tags/eino/" class="tag-list-link" rel="1">eino<span
+               class="tag-list-count">1</span></a>
+            
+            
             <a href="https://wymli.github.io/tags/event-stream/" class="tag-list-link" rel="1">event-stream<span
                class="tag-list-count">1</span></a>
             
             
-            <a href="https://wymli.github.io/tags/golang/" class="tag-list-link" rel="21">golang<span
-               class="tag-list-count">21</span></a>
+            <a href="https://wymli.github.io/tags/golang/" class="tag-list-link" rel="20">golang<span
+               class="tag-list-count">20</span></a>
             
             
             <a href="https://wymli.github.io/tags/http/" class="tag-list-link" rel="2">http<span
@@ -377,6 +390,7 @@ function tagCloud(where, min, max) {
     <h3 class="widget-title"> Categories</h3>
     <div class="widget-body">
         <ul class="category-list">
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/ai-agent/" class="category-list-link">ai agent</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/algorithm/" class="category-list-link">algorithm</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/arch/" class="category-list-link">arch</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/atomic/" class="category-list-link">atomic</a><span class="category-list-count">1</span></li>
@@ -388,14 +402,14 @@ function tagCloud(where, min, max) {
             <li class="category-list-item"><a href="https://wymli.github.io/categories/concurrency/" class="category-list-link">concurrency</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/configcenter/" class="category-list-link">configcenter</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/container/" class="category-list-link">container</a><span class="category-list-count">6</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/database/" class="category-list-link">database</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/database/" class="category-list-link">database</a><span class="category-list-count">4</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/datamining/" class="category-list-link">datamining</a><span class="category-list-count">2</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/datastructure/" class="category-list-link">datastructure</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/db/" class="category-list-link">db</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/deploy/" class="category-list-link">deploy</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/distribute/" class="category-list-link">distribute</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">21</span></li>
+            <li class="category-list-item"><a href="https://wymli.github.io/categories/golang/" class="category-list-link">golang</a><span class="category-list-count">20</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/http/" class="category-list-link">http</a><span class="category-list-count">1</span></li>
-            <li class="category-list-item"><a href="https://wymli.github.io/categories/innodb/" class="category-list-link">innodb</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/install/" class="category-list-link">install</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/interview/" class="category-list-link">interview</a><span class="category-list-count">3</span></li>
             <li class="category-list-item"><a href="https://wymli.github.io/categories/linux/" class="category-list-link">linux</a><span class="category-list-count">3</span></li>
@@ -422,6 +436,10 @@ function tagCloud(where, min, max) {
     <h3 class="widget-title"> Tags</h3>
     <div class="widget-body">
         <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/ai-agent/" class="tag-list-link">ai agent</a><span
+                    class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/airflow/" class="tag-list-link">airflow</a><span
@@ -473,7 +491,7 @@ function tagCloud(where, min, max) {
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/database/" class="tag-list-link">database</a><span
-                    class="tag-list-count">5</span></li>
+                    class="tag-list-count">4</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/datamining/" class="tag-list-link">datamining</a><span
@@ -481,6 +499,10 @@ function tagCloud(where, min, max) {
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/datastructure/" class="tag-list-link">datastructure</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/db/" class="tag-list-link">db</a><span
                     class="tag-list-count">1</span></li>
             
             
@@ -496,12 +518,16 @@ function tagCloud(where, min, max) {
                     class="tag-list-count">1</span></li>
             
             
+            <li class="tag-list-item"><a href="https://wymli.github.io/tags/eino/" class="tag-list-link">eino</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/event-stream/" class="tag-list-link">event-stream</a><span
                     class="tag-list-count">1</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/golang/" class="tag-list-link">golang</a><span
-                    class="tag-list-count">21</span></li>
+                    class="tag-list-count">20</span></li>
             
             
             <li class="tag-list-item"><a href="https://wymli.github.io/tags/http/" class="tag-list-link">http</a><span
@@ -639,30 +665,30 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/aiagent-eino/" class="title">[AI Agent] Eino</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/db-mutex/" class="title">[DB] 事务隔离与锁</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
                         <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://wymli.github.io/2025/05/aiagent-eino/" class="title">[Go] release notes</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2025-05-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-10</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://wymli.github.io/2025/05/go-release-notes/" class="title">[Go] release notes</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2025-05-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-10</time>
                     </p>
                 </div>
             </li>
@@ -691,7 +717,7 @@ function tagCloud(where, min, max) {
   <a
     class="article-title"
     href="/2025/05/aiagent-eino/"
-    >[Go] release notes</a
+    >[AI Agent] Eino</a
   >
 </h1>
 
@@ -700,16 +726,17 @@ function tagCloud(where, min, max) {
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
 <a href="https://wymli.github.io/2025/05/aiagent-eino/" class="article-date">
-  <time datetime="2025-05-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-10</time>
+  <time datetime="2025-05-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-16</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/golang/"> golang </a>
+  <a class="article-category-link" href="/categories/ai-agent/"> ai agent </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/golang/"> golang </a>
+    <a class="article-tag-link" href="/tags/ai-agent/"> ai agent </a>
+    <a class="article-tag-link" href="/tags/eino/"> eino </a>
   </span>
 
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5531 words</span>
@@ -718,7 +745,7 @@ function tagCloud(where, min, max) {
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <blockquote>
-<p>原文我记录在飞书文档: <a href="https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg">https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg</a>
+<p>原文我记录在飞书文档: <a href="https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b">https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b</a>
 拷贝时会有格式问题</p></blockquote>
 <p>Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。
 Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成
@@ -1472,7 +1499,7 @@ a -&gt; c
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://wymli.github.io/2025/05/aiagent-eino/" title="[Go] release notes" target="_blank" rel="external">https://wymli.github.io/2025/05/aiagent-eino/</a>
+      <a href="https://wymli.github.io/2025/05/aiagent-eino/" title="[AI Agent] Eino" target="_blank" rel="external">https://wymli.github.io/2025/05/aiagent-eino/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License: </strong>
@@ -1503,13 +1530,13 @@ a -&gt; c
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://wymli.github.io/2025/05/go-release-notes/" title="[Go] release notes"><i
+                <a href="https://wymli.github.io/2025/05/db-mutex/" title="[DB] 事务隔离与锁"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://wymli.github.io/2025/05/go-gmp/"
-                    title="[Go] GMP"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/"
+                    title="[UnderTheHood] 基础-重要-知识-教旨-格言-蝉"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
