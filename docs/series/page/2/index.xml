@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>[BigData] spark</title>
+      <link>https://wymli.github.io/2022/04/big-data-spark/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-spark/</guid>
+      <description>&lt;h1 id=&#34;spark&#34;&gt;Spark&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;并行计算框架&lt;/li&gt;
+&lt;li&gt;支持流式或批式&lt;/li&gt;
+&lt;li&gt;spark提交有一个单独的spark-commit.sh脚本&lt;/li&gt;
+&lt;li&gt;批处理是spark core&lt;/li&gt;
+&lt;li&gt;流处理是spark streaming，这里的流在实现上是会传入一个窗口大小和下一个窗口的位移，来产生RDD，一个RDD就是一个窗口的小批次数据，所以spark streaming只是在批式spark core上包装了一下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;执行流程&#34;&gt;执行流程&lt;/h2&gt;
+&lt;p&gt;一个spark 应用的流程是这样的：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[BigData] 大数据入门</title>
       <link>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
@@ -475,16 +493,6 @@ func NewWorker() workerImpl {
 &lt;/li&gt;
 &lt;li&gt;其他,忘了,暂时只想起来这么多&lt;/li&gt;
 &lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>[rpc] grpc</title>
-      <link>https://wymli.github.io/2021/03/rpc-grpc/</link>
-      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
-      <description>&lt;h1 id=&#34;grpc&#34;&gt;grpc&lt;/h1&gt;
-&lt;p&gt;grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就像在本机上调用一样.&lt;/p&gt;</description>
     </item>
     
   </channel>

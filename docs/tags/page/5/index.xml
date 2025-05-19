@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[other] term</title>
+      <link>https://wymli.github.io/2021/03/other-term/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/other-term/</guid>
+      <description>&lt;h1 id=&#34;whats-the-diff&#34;&gt;What&amp;rsquo;s the diff?&lt;/h1&gt;
+&lt;h2 id=&#34;x86x64386amd64i386intel64-&#34;&gt;x86,x64,386,amd64,i386,intel64 &amp;hellip;.&lt;/h2&gt;
+&lt;p&gt;x86,x86-32,386,80386,i386,IA32 都是指的intel的32位cpu架构&lt;/p&gt;
+&lt;p&gt;x86-64,x64,amd64,intel64 都是指的intel的64位cpu架构,基于x86&lt;/p&gt;
+&lt;p&gt;IA64,一种新的64位架构,不基于x86&lt;/p&gt;
+&lt;h2 id=&#34;linux--ubuntu--centos--redhat--&#34;&gt;Linux , Ubuntu , CentOS , RedHat  &amp;hellip;.&lt;/h2&gt;
+&lt;p&gt;linux是内核kernel的名字&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[protocol] OAuth2</title>

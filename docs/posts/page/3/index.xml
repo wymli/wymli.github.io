@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 16 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[rpc] grpc</title>
+      <link>https://wymli.github.io/2021/03/rpc-grpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
+      <description>&lt;h1 id=&#34;grpc&#34;&gt;grpc&lt;/h1&gt;
+&lt;p&gt;grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就像在本机上调用一样.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[rpc] intro</title>
@@ -248,17 +258,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
       <description>&lt;h1 id=&#34;error&#34;&gt;Error&lt;/h1&gt;
 &lt;p&gt;go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下&lt;code&gt;if err!=nil{return err}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;而对于进阶一点的程序员,则会诟病它的error接口设计的太烂,只要实现了&lt;code&gt;Error()&lt;/code&gt;,就是一个error,这导致难以比较&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] escape analysis</title>
-      <link>https://wymli.github.io/2021/03/go-escape-analysis/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-escape-analysis/</guid>
-      <description>&lt;h1 id=&#34;逃逸分析&#34;&gt;逃逸分析&lt;/h1&gt;
-&lt;p&gt;首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配&lt;/p&gt;
-&lt;p&gt;注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当函数参数是interface{}时,不知其具体类型&lt;/p&gt;</description>
     </item>
     
   </channel>
