@@ -20,9 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content=" 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
-https://tip.golang.org/doc/devel/release
-1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&quot;-X &lsquo;main.buildTime=$(date)&rsquo;&quot; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue&hellip;，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法 " />
+    <meta name="description" content=" 前往飞书云文档查看 " />
     <meta name="generator" content="Hugo 0.145.0 with theme pure" />
     <title>[Go] release notes - UnderTheHood</title>
     
@@ -34,9 +32,7 @@ https://tip.golang.org/doc/devel/release
     <meta property="og:url" content="https://wymli.github.io/2025/05/go-release-notes/">
   <meta property="og:site_name" content="UnderTheHood">
   <meta property="og:title" content="[Go] release notes">
-  <meta property="og:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
-https://tip.golang.org/doc/devel/release
-1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&#34;-X ‘main.buildTime=$(date)’&#34; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue…，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法">
+  <meta property="og:description" content="前往飞书云文档查看">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -45,18 +41,14 @@ https://tip.golang.org/doc/devel/release
     <meta property="article:tag" content="Golang">
 
   <meta itemprop="name" content="[Go] release notes">
-  <meta itemprop="description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
-https://tip.golang.org/doc/devel/release
-1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&#34;-X ‘main.buildTime=$(date)’&#34; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue…，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法">
+  <meta itemprop="description" content="前往飞书云文档查看">
   <meta itemprop="datePublished" content="2025-05-10T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-05-10T00:00:00+00:00">
-  <meta itemprop="wordCount" content="834">
+  <meta itemprop="wordCount" content="9">
   <meta itemprop="keywords" content="Golang">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Go] release notes">
-  <meta name="twitter:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg 拷贝时会有格式问题
-https://tip.golang.org/doc/devel/release
-1.18 加入泛型 新增包：golang.org/x/exp/constraints 新增包：golang.org/x/exp/slices 新增包：golang.org/x/exp/maps 新增 fuzz test go get 不再拥有go install的能力 go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取 现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等 也可以import debug/buildinfo 在代码中获取这些信息 需要注意的是，build time这个东西还是只能通过-ldflags=&#34;-X ‘main.buildTime=$(date)’&#34; 在编译时注入 支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file） 1.19 内存模型：The Go memory model has been revised to align Go with the memory model used by C, C&#43;&#43;, Java, JavaScript, Rust, and Swift. 引入 debug.SetMemoryLimit , 设置后，当堆&#43;非堆内存到达对应设置的soft memory后，强制gc一次 atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型 1.20 没啥特别的 1.21 引入 min and max 引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变 新增 log/slog， 结构化日志 slices/maps包增加通用泛型方法 sync增加 sync.OnceFunc, OnceValue…，不再只是sync.Once 1.22 for训练的value每次迭代时都会创建新的 支持 for range ${n} 支持 range-over-function iterators 函数迭代器 1.23 增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数） iter.Seq 就是一个函数的别名 type ( Seq[V any] func(yield func(V) bool) Seq2[K, V any] func(yield func(K, V) bool) ) 1.24 增加很多基于iter的util方法">
+  <meta name="twitter:description" content="前往飞书云文档查看">
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -656,16 +648,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -700,6 +682,16 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
                     </p>
                 </div>
             </li>
@@ -749,66 +741,17 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/golang/"> golang </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 834 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 9 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <blockquote>
-<p>原文我记录在飞书文档: <a href="https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg">https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg</a>
-拷贝时会有格式问题</p></blockquote>
-<p><a href="https://tip.golang.org/doc/devel/release">https://tip.golang.org/doc/devel/release</a></p>
-<h1 id="118">1.18</h1>
-<ol>
-<li>加入泛型</li>
-<li>新增包：golang.org/x/exp/constraints</li>
-<li>新增包：golang.org/x/exp/slices</li>
-<li>新增包：golang.org/x/exp/maps</li>
-<li>新增 fuzz test</li>
-<li>go get 不再拥有go install的能力</li>
-<li>go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取</li>
-<li>现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等</li>
-<li>也可以import debug/buildinfo 在代码中获取这些信息</li>
-<li>需要注意的是，build time这个东西还是只能通过-ldflags=&quot;-X &lsquo;main.buildTime=$(date)&rsquo;&quot; 在编译时注入</li>
-<li>支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file）</li>
-</ol>
-<h1 id="119">1.19</h1>
-<ol>
-<li>内存模型：The Go memory model has been revised to align Go with the memory model used by C, C++, Java, JavaScript, Rust, and Swift.</li>
-<li>引入 debug.SetMemoryLimit , 设置后，当堆+非堆内存到达对应设置的soft memory后，强制gc一次</li>
-<li>atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型</li>
-</ol>
-<h1 id="120">1.20</h1>
-<ol>
-<li>没啥特别的</li>
-</ol>
-<h1 id="121">1.21</h1>
-<ol>
-<li>引入 min and max</li>
-<li>引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变</li>
-<li>新增 log/slog， 结构化日志</li>
-<li>slices/maps包增加通用泛型方法</li>
-<li>sync增加 sync.OnceFunc, OnceValue&hellip;，不再只是sync.Once</li>
-</ol>
-<h1 id="122">1.22</h1>
-<ol>
-<li>for训练的value每次迭代时都会创建新的</li>
-<li>支持 for range ${n}</li>
-<li>支持  range-over-function iterators 函数迭代器</li>
-</ol>
-<h1 id="123">1.23</h1>
-<ol>
-<li>增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数）</li>
-<li>iter.Seq 就是一个函数的别名
-type (
-Seq[V any]     func(yield func(V) bool)
-Seq2[K, V any] func(yield func(K, V) bool)
-)</li>
-</ol>
-<h1 id="124">1.24</h1>
-<ol>
-<li>增加很多基于iter的util方法</li>
-</ol>
+      <p><a href="https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg" target="_blank"> 前往飞书云文档查看 </a></p>
+<iframe 
+    width="100%"
+    style="height: 80vh;"
+    allow="fullscreen"
+    src="https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg">
 
     </div>
     <div class="article-footer">

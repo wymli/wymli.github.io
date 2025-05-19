@@ -653,16 +653,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -697,6 +687,16 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
                     </p>
                 </div>
             </li>
@@ -802,7 +802,7 @@ ADD INDEX idx_name_score (name,score);
 <p>有序性: 当对平衡二叉搜索树进行中序遍历时,将得到一个递增序列</p></blockquote>
 <h3 id="b树">B树</h3>
 <p>B树是平衡二叉搜索树的进阶版,可以认为,B树是<code>平衡多叉搜索树</code>,在这里,平衡是严格平衡,不再是相差为1,而是都一样的高度</p>
-<!-- raw HTML omitted -->
+<img src="https://static.javatpoint.com/ds/images/b-tree.png" alt="B Tree - javatpoint" style="zoom:33%;" />
 <p>这是<code>google/btree</code>的go语言实现版</p>
 <pre><code class="language-go">// degree指度数,一个node的最小item数是degree-1,最大是degree*2-1
 // order指阶数,一个node的最大子树个数是order,最大item数是order-1,最小item数是order/2

@@ -5,50 +5,9 @@ categories : ["db"]
 tags : ["db"]
 ---
 
-> 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib
-> 拷贝时会有格式问题
-
-NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。
-四种隔离级别
-
-- 读未提交
-  - 多个并发事务之间，可以读到对方未提交的修改，即有脏读
-- 读已提交
-  - 多个并发事务之间，只能读到对方已提交的修改
-  - 互联网公司一般使用这个级别，rc，read committed
-  - 但是存在不可重复读的问题，一个事务内，对同一行的两次读可能不一致，一般我们不在乎，但确实是个隔离性的问题
-- 可重复读
-  - 基于MVCC提供可重复读，对于读到的行，会比较对方最新被修改的事务的版本和自己的版本，如果自己更高，说明可以直接读，如果对方高，说明在事务开启后，这一行又进行了更新，就基于该行的undo log回溯到一个合适的版本
-  - 简单来说，就是只读事务开始时的快照
-  - 可重复读也提供了两种区间锁，用来防止插入，解决一部分幻读的问题，gap-lock 和 next-key lock
-    - Gap-lock 锁住左开右开区间(a,b)
-    - Next-key lock 锁住左开右闭区间(a,b]， 相比于gap-lock, 多了一个对b的行锁，防止对已存在元素的修改，本质就是间隙锁+区间内元素的行锁
-    - 需要注意的是，锁住(a,b)，即可锁住对b的插入，和b+树结构有关
-- 串行化
-  - 按事务开始时间串行执行，一个事务未结束前，另一个事务不能开始
-
-锁
-- 锁粒度：
-  - 行锁：行级锁，一行粒度，加在索引上（主键索引必加，如果有用到二级索引，也会加到二级索引上）
-  - 区间锁：gap lock 和 next-key lock, 锁住一个区间，用来防止插入，是解决幻读的手段。
-    - 加在 preceding gap
-  - 表锁：表级粒度的锁
-  - 意向锁：作用于表，不是一种锁，更像是标志位，用来快速判断表锁和行锁的兼容性，比如已经存在行X lock, 那肯定不能对表施加X Lock.
-    - 意向锁在行级锁添加前自动对表添加，行X锁对表加IX锁(Intention ), S锁同理。
-- 行锁：
-  - 行级锁一般分为排他锁 X Lock, 共享锁 S Lock，也就是写锁和读锁的区别
-    - 注意这个读写锁是读优先，持有的S Lock的时候，其他事务无法加X Lock, 这个共享锁是一种解决可重复读的方案，禁止事务过程中其他事务修改某行
-  - 加锁触发条件
-    - X Lock:
-      - Update、 delete、select ... For update
-    - S Lock:
-      - Select ... For share (mysql8+)
-      - SELECT ... LOCK IN SHARE MODE  (mysql5.7)
-- 区间锁：
-  - 用来解决幻读的方案，作用是锁住一个区间禁止插入
-  - 以user表为例，现有列为 (id, age)的3行：(1, 10), (2, 20), (3, 30) 
-    - 当使用非唯一索引等值查询并加锁的时候，查到了，会触发next-key lock,  比如 select * from user where age=10 for update, 这个会锁住(-∞, 10], 防止对 age=10 的插入
-    - 当使用非唯一索引范围查询并加锁的时候，会触发next-key lock,  比如 select * from user where age > 10 for update, 这个会锁住(10, 20], (20, 30] , (30, +∞) (假设存在20和30), 防止对 age>10 的插入
-    - 当使用非唯一索引等值查询并加锁的时候，没查到，会触发gap lock,  比如 select * from user where age=11 for update, 这个会锁住(10, 20], 防止对 age=11 的插入, 避免幻读
-
-
+<a href="https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib" target="_blank"> 前往飞书云文档查看 </a>
+<iframe 
+    width="100%"
+    style="height: 80vh;"
+    allow="fullscreen"
+    src="https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib">

@@ -3,7 +3,6 @@ title: "TodoList"
 date: 2021-04-08
 categories : ["Todo"]
 tags : ["Todo"]
-weight: 1
 ---
 
 # TodoList

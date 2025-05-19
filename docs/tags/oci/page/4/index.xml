@@ -513,7 +513,7 @@ print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
 &lt;li&gt;意向锁与锁有一定的兼容性,本质是为了快速判断某一事物是否能在这个表上完成:
 &lt;ol&gt;
 &lt;li&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;img src=&#34;C:\Users\salvare000\AppData\Roaming\Typora\typora-user-images\image-20210309091233223.png&#34; alt=&#34;image-20210309091233223&#34;  /&gt;
 &lt;/li&gt;
 &lt;li&gt;共享意向排他锁SIX: 表示读取整个表,修改部分行(即 S + IX),只有当某个事务是读取某一行时,才让其进入表(与之兼容)&lt;/li&gt;
 &lt;/ol&gt;
@@ -812,7 +812,7 @@ F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
 &lt;li&gt;就是new Vue()&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;组件一定要被&lt;!-- raw HTML omitted --&gt;包含?&lt;/li&gt;
+&lt;li&gt;组件一定要被&lt;template&gt;包含?&lt;/li&gt;
 &lt;li&gt;直接获取组件对象:
 &lt;ul&gt;
 &lt;li&gt;根组件: $root&lt;/li&gt;
@@ -824,10 +824,10 @@ F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt;插槽
+&lt;li&gt;&lt;slot&gt;插槽
 &lt;ul&gt;
 &lt;li&gt;用来指示外部传给组件的innerHTML的显示位置&lt;/li&gt;
-&lt;li&gt;比如&lt;!-- raw HTML omitted --&gt;&amp;ldquo;this is innerHTML&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;比如&lt;my-button&gt;&amp;ldquo;this is innerHTML&amp;rdquo;&lt;/my-button&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;vue的入口文件:
@@ -850,7 +850,7 @@ F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
 &lt;ul&gt;
 &lt;li&gt;这个其实element-ui直接实现了,叫标签页&lt;/li&gt;
 &lt;li&gt;但是如果想更灵活一点,可以自己设计,是通过vue-route实现的&lt;/li&gt;
-&lt;li&gt;main块放&lt;!-- raw HTML omitted --&gt;即可&lt;/li&gt;
+&lt;li&gt;main块放&lt;router-view&gt;即可&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

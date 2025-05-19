@@ -22,7 +22,7 @@
       </div>
       {{ else if .Summary }}
       <div class="article-entry artical-summary text-muted" itemprop="description" style="border: 1px solid; padding: 10px; border-radius: 5px;">
-        {{ .Summary | truncate 50 }}
+        {{ .Summary | truncate 10 }}
       </div>
       {{- end }}
       <p class="article-meta">

@@ -208,3 +208,8 @@ params:
 
 
 
+# config.toml
+markup:
+  goldmark:
+    renderer:
+      unsafe : true

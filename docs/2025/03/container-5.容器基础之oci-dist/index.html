@@ -658,16 +658,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -705,6 +695,16 @@ function tagCloud(where, min, max) {
                     </p>
                 </div>
             </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
+                    </p>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
@@ -738,7 +738,7 @@ function tagCloud(where, min, max) {
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://wymli.github.io/2025/03/container-5.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-dist/" class="article-date">
+<a href="https://wymli.github.io/2025/03/container-5.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-dist/" class="">
   <time datetime="2025-03-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-03-09</time>
 </a>
 </span>
@@ -763,7 +763,7 @@ function tagCloud(where, min, max) {
 <h1 id="pull">Pull</h1>
 <h2 id="pull-manifest">Pull manifest</h2>
 <ol>
-<li>GET /v2/<!-- raw HTML omitted -->/manifests/<!-- raw HTML omitted -->
+<li>GET /v2/<name>/manifests/<reference>
 <ol>
 <li>name: 一般是${namespace/image_name}, 比如 library/nginx</li>
 <li>reference：一般是digest或者tag，比如latest、v1.2.3、sha256:abc123&hellip;</li>
@@ -773,7 +773,7 @@ function tagCloud(where, min, max) {
 </ol>
 <h2 id="pull-blobs">Pull blobs</h2>
 <ol>
-<li>GET /v2/<!-- raw HTML omitted -->/blobs/<!-- raw HTML omitted --></li>
+<li>GET /v2/<name>/blobs/<digest></li>
 </ol>
 <h1 id="push">Push</h1>
 <p>值得注意的是，在push image时，是先push blobs，再push manifest，与pull相反</p>
@@ -781,17 +781,17 @@ function tagCloud(where, min, max) {
 <ol>
 <li>单次Post
 <ol>
-<li>直接往 /v2/<!-- raw HTML omitted -->/blobs/uploads/?digest=<!-- raw HTML omitted --> 进行Post，body就是blob二进制内容</li>
+<li>直接往 /v2/<name>/blobs/uploads/?digest=<digest> 进行Post，body就是blob二进制内容</li>
 </ol>
 </li>
 <li>先Post再Put
 <ol>
-<li>Post /v2/<!-- raw HTML omitted -->/blobs/uploads/ 拿到 upload url(upload url将被放在rsp header里的Location字段)
+<li>Post /v2/<name>/blobs/uploads/ 拿到 upload url(upload url将被放在rsp header里的Location字段)
 <ol>
 <li>这里的location url往往是专用存储的地址，比如s3</li>
 </ol>
 </li>
-<li>随后上传二进制到 <!-- raw HTML omitted -->?digest=<!-- raw HTML omitted --></li>
+<li>随后上传二进制到 <Location>?digest=<digest></li>
 </ol>
 </li>
 <li>分块上传
@@ -815,7 +815,7 @@ function tagCloud(where, min, max) {
 </ol>
 <h2 id="push-manifest">Push manifest</h2>
 <ol>
-<li>PUT /v2/<!-- raw HTML omitted -->/manifests/<!-- raw HTML omitted --></li>
+<li>PUT /v2/<name>/manifests/<reference></li>
 </ol>
 
     </div>

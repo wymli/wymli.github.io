@@ -20,9 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content=" 原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib 拷贝时会有格式问题
-NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。 四种隔离级别
-" />
+    <meta name="description" content=" 前往飞书云文档查看 " />
     <meta name="generator" content="Hugo 0.145.0 with theme pure" />
     <title>[DB] 事务隔离与锁 - UnderTheHood</title>
     
@@ -34,8 +32,7 @@ NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际�
     <meta property="og:url" content="https://wymli.github.io/2025/05/db-mutex/">
   <meta property="og:site_name" content="UnderTheHood">
   <meta property="og:title" content="[DB] 事务隔离与锁">
-  <meta property="og:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib 拷贝时会有格式问题
-NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。 四种隔离级别">
+  <meta property="og:description" content="前往飞书云文档查看">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -44,16 +41,14 @@ NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际�
     <meta property="article:tag" content="Db">
 
   <meta itemprop="name" content="[DB] 事务隔离与锁">
-  <meta itemprop="description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib 拷贝时会有格式问题
-NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。 四种隔离级别">
+  <meta itemprop="description" content="前往飞书云文档查看">
   <meta itemprop="datePublished" content="2025-05-14T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-05-14T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1156">
+  <meta itemprop="wordCount" content="9">
   <meta itemprop="keywords" content="Db">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[DB] 事务隔离与锁">
-  <meta name="twitter:description" content="原文我记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib 拷贝时会有格式问题
-NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。 四种隔离级别">
+  <meta name="twitter:description" content="前往飞书云文档查看">
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -653,16 +648,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -697,6 +682,16 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
                     </p>
                 </div>
             </li>
@@ -746,103 +741,17 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/db/"> db </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1156 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 9 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <blockquote>
-<p>原文我记录在飞书文档: <a href="https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib">https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib</a>
-拷贝时会有格式问题</p></blockquote>
-<p>NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。
-四种隔离级别</p>
-<ul>
-<li>读未提交
-<ul>
-<li>多个并发事务之间，可以读到对方未提交的修改，即有脏读</li>
-</ul>
-</li>
-<li>读已提交
-<ul>
-<li>多个并发事务之间，只能读到对方已提交的修改</li>
-<li>互联网公司一般使用这个级别，rc，read committed</li>
-<li>但是存在不可重复读的问题，一个事务内，对同一行的两次读可能不一致，一般我们不在乎，但确实是个隔离性的问题</li>
-</ul>
-</li>
-<li>可重复读
-<ul>
-<li>基于MVCC提供可重复读，对于读到的行，会比较对方最新被修改的事务的版本和自己的版本，如果自己更高，说明可以直接读，如果对方高，说明在事务开启后，这一行又进行了更新，就基于该行的undo log回溯到一个合适的版本</li>
-<li>简单来说，就是只读事务开始时的快照</li>
-<li>可重复读也提供了两种区间锁，用来防止插入，解决一部分幻读的问题，gap-lock 和 next-key lock
-<ul>
-<li>Gap-lock 锁住左开右开区间(a,b)</li>
-<li>Next-key lock 锁住左开右闭区间(a,b]， 相比于gap-lock, 多了一个对b的行锁，防止对已存在元素的修改，本质就是间隙锁+区间内元素的行锁</li>
-<li>需要注意的是，锁住(a,b)，即可锁住对b的插入，和b+树结构有关</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>串行化
-<ul>
-<li>按事务开始时间串行执行，一个事务未结束前，另一个事务不能开始</li>
-</ul>
-</li>
-</ul>
-<p>锁</p>
-<ul>
-<li>锁粒度：
-<ul>
-<li>行锁：行级锁，一行粒度，加在索引上（主键索引必加，如果有用到二级索引，也会加到二级索引上）</li>
-<li>区间锁：gap lock 和 next-key lock, 锁住一个区间，用来防止插入，是解决幻读的手段。
-<ul>
-<li>加在 preceding gap</li>
-</ul>
-</li>
-<li>表锁：表级粒度的锁</li>
-<li>意向锁：作用于表，不是一种锁，更像是标志位，用来快速判断表锁和行锁的兼容性，比如已经存在行X lock, 那肯定不能对表施加X Lock.
-<ul>
-<li>意向锁在行级锁添加前自动对表添加，行X锁对表加IX锁(Intention ), S锁同理。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>行锁：
-<ul>
-<li>行级锁一般分为排他锁 X Lock, 共享锁 S Lock，也就是写锁和读锁的区别
-<ul>
-<li>注意这个读写锁是读优先，持有的S Lock的时候，其他事务无法加X Lock, 这个共享锁是一种解决可重复读的方案，禁止事务过程中其他事务修改某行</li>
-</ul>
-</li>
-<li>加锁触发条件
-<ul>
-<li>X Lock:
-<ul>
-<li>Update、 delete、select &hellip; For update</li>
-</ul>
-</li>
-<li>S Lock:
-<ul>
-<li>Select &hellip; For share (mysql8+)</li>
-<li>SELECT &hellip; LOCK IN SHARE MODE  (mysql5.7)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>区间锁：
-<ul>
-<li>用来解决幻读的方案，作用是锁住一个区间禁止插入</li>
-<li>以user表为例，现有列为 (id, age)的3行：(1, 10), (2, 20), (3, 30)
-<ul>
-<li>当使用非唯一索引等值查询并加锁的时候，查到了，会触发next-key lock,  比如 select * from user where age=10 for update, 这个会锁住(-∞, 10], 防止对 age=10 的插入</li>
-<li>当使用非唯一索引范围查询并加锁的时候，会触发next-key lock,  比如 select * from user where age &gt; 10 for update, 这个会锁住(10, 20], (20, 30] , (30, +∞) (假设存在20和30), 防止对 age&gt;10 的插入</li>
-<li>当使用非唯一索引等值查询并加锁的时候，没查到，会触发gap lock,  比如 select * from user where age=11 for update, 这个会锁住(10, 20], 防止对 age=11 的插入, 避免幻读</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+      <p><a href="https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib" target="_blank"> 前往飞书云文档查看 </a></p>
+<iframe 
+    width="100%"
+    style="height: 80vh;"
+    allow="fullscreen"
+    src="https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib">
 
     </div>
     <div class="article-footer">

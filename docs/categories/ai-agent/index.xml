@@ -13,23 +13,6 @@
     
     
     <item>
-      <title>TodoList</title>
-      <link>https://wymli.github.io/2021/04/a2todo-todo-list/</link>
-      <pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/04/a2todo-todo-list/</guid>
-      <description>&lt;h1 id=&#34;todolist&#34;&gt;TodoList&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;sysmon线程&lt;/li&gt;
-&lt;li&gt;eBPF和ipvs : &lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=MzU1MzY4NzQ1OA==&amp;amp;mid=2247494326&amp;amp;idx=1&amp;amp;sn=82db83a0c03f45d1258f9563b5e465e7&amp;amp;chksm=fbedaa7bcc9a236df2dfae59f4f0400e6f3d15d747eaf66248a8bc9e3dda260a7cf203c6404e&amp;amp;xtrack=1&amp;amp;scene=90&amp;amp;subscene=93&amp;amp;sessionid=1617852418&amp;amp;clicktime=1617852482&amp;amp;enterid=1617852482&amp;amp;ascene=56&amp;amp;devicetype=android-29&amp;amp;version=2800023b&amp;amp;nettype=WIFI&amp;amp;abtest_cookie=AAACAA%3D%3D&amp;amp;lang=zh_CN&amp;amp;exportkey=A%2BaD1VoeZK%2BNcCdBAeTSRpU%3D&amp;amp;pass_ticket=ruwUaHgmNx%2FW6lI59EtPJWAVZNtV2JsX1zGoRFgjLCnzopLmGt361yB46zNl%2BcPs&amp;amp;wx_header=1&#34;&gt;ref&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;kafka client, 看看sarama,了解kafka客户端能获得哪些东西,server api暴露了哪些东西&lt;/li&gt;
-&lt;li&gt;kv db, 比如etcd的boltdb多读少写, lsm-tree的多写少读&lt;/li&gt;
-&lt;li&gt;etcd ,consul 的分布式共识&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
       <title>[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</title>
       <link>https://wymli.github.io/2021/04/a1underthehood-underthehood/</link>
       <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
@@ -50,7 +33,12 @@
       <pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/05/llm-intro/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/FgcCdRVVgoe72gxMkCecS9L1nzc&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/FgcCdRVVgoe72gxMkCecS9L1nzc&#34;&gt;</description>
     </item>
     
     <item>
@@ -59,12 +47,12 @@
       <pubDate>Fri, 16 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/05/aiagent-eino/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&lt;/a&gt;
-拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Eino 是字节开源的golang写的 ai agent 开发框架，类似python写的langchain、llamaindex。
-Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行” 的程序，其中思考的部分借助大模型完成
-大模型有三种主要的应用模式：&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&#34;&gt;</description>
     </item>
     
     <item>
@@ -73,11 +61,12 @@ Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行�
       <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/05/db-mutex/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&lt;/a&gt;
-拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;NOTE: 下文中区间锁（gap/next-key）锁住的区间有误，和我实际实验的区间对不上，但是网络上也没看到比较准确的答案，先待定。互联网业务一般不开rr，所以无影响。
-四种隔离级别&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&#34;&gt;</description>
     </item>
     
     <item>
@@ -86,9 +75,12 @@ Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行�
       <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/05/go-gmp/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;</description>
     </item>
     
     <item>
@@ -97,61 +89,12 @@ Ai agent 智能体，可以理解为是一种完成 “感知、思考、执行�
       <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/05/go-release-notes/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文我记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&lt;/a&gt;
-拷贝时会有格式问题&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://tip.golang.org/doc/devel/release&#34;&gt;https://tip.golang.org/doc/devel/release&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;118&#34;&gt;1.18&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;加入泛型&lt;/li&gt;
-&lt;li&gt;新增包：golang.org/x/exp/constraints&lt;/li&gt;
-&lt;li&gt;新增包：golang.org/x/exp/slices&lt;/li&gt;
-&lt;li&gt;新增包：golang.org/x/exp/maps&lt;/li&gt;
-&lt;li&gt;新增 fuzz test&lt;/li&gt;
-&lt;li&gt;go get 不再拥有go install的能力&lt;/li&gt;
-&lt;li&gt;go编译时注入额外的版本控制信息到binary中，可以在代码里获取，也可以直接从二进制获取&lt;/li&gt;
-&lt;li&gt;现在可以直接通过go version -m ${bin} 看到对应的vcs（比如git）的一些信息，比如代码对应的最后一次commit的时间，编译用的go版本等&lt;/li&gt;
-&lt;li&gt;也可以import debug/buildinfo 在代码中获取这些信息&lt;/li&gt;
-&lt;li&gt;需要注意的是，build time这个东西还是只能通过-ldflags=&amp;quot;-X &amp;lsquo;main.buildTime=$(date)&amp;rsquo;&amp;quot; 在编译时注入&lt;/li&gt;
-&lt;li&gt;支持Workspace mode，如果在当前目录或父目录有go.work file，或者通过GOWORK env指定了go.work文件地址, 用来支持多个main module（比如原来vscode只支持单个go.mod file）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;119&#34;&gt;1.19&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;内存模型：The Go memory model has been revised to align Go with the memory model used by C, C++, Java, JavaScript, Rust, and Swift.&lt;/li&gt;
-&lt;li&gt;引入 debug.SetMemoryLimit , 设置后，当堆+非堆内存到达对应设置的soft memory后，强制gc一次&lt;/li&gt;
-&lt;li&gt;atomic包增加原子类型，比如atomic.Bool, 在之前atomic只有原子操作，没提供类型&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;120&#34;&gt;1.20&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;没啥特别的&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;121&#34;&gt;1.21&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;引入 min and max&lt;/li&gt;
-&lt;li&gt;引入 clear, 可以 clear map/slice, 需要注意的是，对map，是清空，len变0；对slice，是将元素清零，但是len不变&lt;/li&gt;
-&lt;li&gt;新增 log/slog， 结构化日志&lt;/li&gt;
-&lt;li&gt;slices/maps包增加通用泛型方法&lt;/li&gt;
-&lt;li&gt;sync增加 sync.OnceFunc, OnceValue&amp;hellip;，不再只是sync.Once&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;122&#34;&gt;1.22&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;for训练的value每次迭代时都会创建新的&lt;/li&gt;
-&lt;li&gt;支持 for range ${n}&lt;/li&gt;
-&lt;li&gt;支持  range-over-function iterators 函数迭代器&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;123&#34;&gt;1.23&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;增加iter包, 了解下iter.Seq, 迭代器类型，迭代器可以被for range使用，也可以直接传入yield函数（其实感觉更像是handle函数）&lt;/li&gt;
-&lt;li&gt;iter.Seq 就是一个函数的别名
-type (
-Seq[V any]     func(yield func(V) bool)
-Seq2[K, V any] func(yield func(K, V) bool)
-)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;124&#34;&gt;1.24&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;增加很多基于iter的util方法&lt;/li&gt;
-&lt;/ol&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;</description>
     </item>
     
     <item>
@@ -160,10 +103,12 @@ Seq2[K, V any] func(yield func(K, V) bool)
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/05/workflow-2.-temporal/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文记录在飞书文档: &lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34;&gt;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h1 id=&#34;简单介绍&#34;&gt;简单介绍&lt;/h1&gt;
-&lt;p&gt;学习一个新的东西首先在搜索引擎上搜下，了解下大概是什么东西。如果直接看官网文档的话，有些假大空的不说人话，容易懵。但深入的话，还是要看官方文档和源码。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34;&gt;</description>
     </item>
     
     <item>
@@ -172,8 +117,12 @@ Seq2[K, V any] func(yield func(K, V) bool)
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
       
       <guid>https://wymli.github.io/2025/03/worklfow-1.-airflow/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;原文记录在飞书文档：https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&#34;&gt;</description>
     </item>
     
     <item>
@@ -199,7 +148,7 @@ Seq2[K, V any] func(yield func(K, V) bool)
 &lt;h1 id=&#34;pull&#34;&gt;Pull&lt;/h1&gt;
 &lt;h2 id=&#34;pull-manifest&#34;&gt;Pull manifest&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;GET /v2/&lt;!-- raw HTML omitted --&gt;/manifests/&lt;!-- raw HTML omitted --&gt;
+&lt;li&gt;GET /v2/&lt;name&gt;/manifests/&lt;reference&gt;
 &lt;ol&gt;
 &lt;li&gt;name: 一般是${namespace/image_name}, 比如 library/nginx&lt;/li&gt;
 &lt;li&gt;reference：一般是digest或者tag，比如latest、v1.2.3、sha256:abc123&amp;hellip;&lt;/li&gt;
@@ -209,7 +158,7 @@ Seq2[K, V any] func(yield func(K, V) bool)
 &lt;/ol&gt;
 &lt;h2 id=&#34;pull-blobs&#34;&gt;Pull blobs&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;GET /v2/&lt;!-- raw HTML omitted --&gt;/blobs/&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;GET /v2/&lt;name&gt;/blobs/&lt;digest&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;push&#34;&gt;Push&lt;/h1&gt;
 &lt;p&gt;值得注意的是，在push image时，是先push blobs，再push manifest，与pull相反&lt;/p&gt;</description>
@@ -314,6 +263,24 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
       
       <guid>https://wymli.github.io/2022/04/big-data-yarn/</guid>
       <description>&lt;h1 id=&#34;yarn-client&#34;&gt;Yarn Client&lt;/h1&gt;</description>
+    </item>
+    
+    <item>
+      <title>[BigData] spark</title>
+      <link>https://wymli.github.io/2022/04/big-data-spark/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-spark/</guid>
+      <description>&lt;h1 id=&#34;spark&#34;&gt;Spark&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;并行计算框架&lt;/li&gt;
+&lt;li&gt;支持流式或批式&lt;/li&gt;
+&lt;li&gt;spark提交有一个单独的spark-commit.sh脚本&lt;/li&gt;
+&lt;li&gt;批处理是spark core&lt;/li&gt;
+&lt;li&gt;流处理是spark streaming，这里的流在实现上是会传入一个窗口大小和下一个窗口的位移，来产生RDD，一个RDD就是一个窗口的小批次数据，所以spark streaming只是在批式spark core上包装了一下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;执行流程&#34;&gt;执行流程&lt;/h2&gt;
+&lt;p&gt;一个spark 应用的流程是这样的：&lt;/p&gt;</description>
     </item>
     
   </channel>

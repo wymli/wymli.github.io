@@ -648,16 +648,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -692,6 +682,16 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
                     </p>
                 </div>
             </li>
@@ -902,7 +902,7 @@ function tagCloud(where, min, max) {
 <li>就是new Vue()</li>
 </ul>
 </li>
-<li>组件一定要被<!-- raw HTML omitted -->包含?</li>
+<li>组件一定要被<template>包含?</li>
 <li>直接获取组件对象:
 <ul>
 <li>根组件: $root</li>
@@ -914,10 +914,10 @@ function tagCloud(where, min, max) {
 </li>
 </ul>
 </li>
-<li><!-- raw HTML omitted -->插槽
+<li><slot>插槽
 <ul>
 <li>用来指示外部传给组件的innerHTML的显示位置</li>
-<li>比如<!-- raw HTML omitted -->&ldquo;this is innerHTML&rdquo;<!-- raw HTML omitted --></li>
+<li>比如<my-button>&ldquo;this is innerHTML&rdquo;</my-button></li>
 </ul>
 </li>
 <li>vue的入口文件:
@@ -940,7 +940,7 @@ function tagCloud(where, min, max) {
 <ul>
 <li>这个其实element-ui直接实现了,叫标签页</li>
 <li>但是如果想更灵活一点,可以自己设计,是通过vue-route实现的</li>
-<li>main块放<!-- raw HTML omitted -->即可</li>
+<li>main块放<router-view>即可</li>
 </ul>
 </li>
 </ul>

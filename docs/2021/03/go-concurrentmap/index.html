@@ -653,16 +653,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -697,6 +687,16 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
                     </p>
                 </div>
             </li>
@@ -936,7 +936,7 @@ func newEntry(i interface{}) *entry {
 }
 </code></pre>
 <p>相信这个图加上上面的注释已经解释的差不多了  <a href="https://juejin.cn/post/6844903895227957262"> ref</a></p>
-<!-- raw HTML omitted -->
+<img src="/posts/static/sync_map.png" style="zoom:50%;" />
 <pre><code class="language-go">sync的结构为:
 type sync.Map{
     mutex

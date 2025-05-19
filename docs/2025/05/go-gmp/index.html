@@ -20,9 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content=" 原文记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg
-golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。
-" />
+    <meta name="description" content=" 前往飞书云文档查看 " />
     <meta name="generator" content="Hugo 0.145.0 with theme pure" />
     <title>[Go] GMP - UnderTheHood</title>
     
@@ -34,8 +32,7 @@ golang的一大特点就是用户态线程(协程)是一等公民（即由语言
     <meta property="og:url" content="https://wymli.github.io/2025/05/go-gmp/">
   <meta property="og:site_name" content="UnderTheHood">
   <meta property="og:title" content="[Go] GMP">
-  <meta property="og:description" content="原文记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg
-golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。">
+  <meta property="og:description" content="前往飞书云文档查看">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -44,16 +41,14 @@ golang的一大特点就是用户态线程(协程)是一等公民（即由语言
     <meta property="article:tag" content="Golang">
 
   <meta itemprop="name" content="[Go] GMP">
-  <meta itemprop="description" content="原文记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg
-golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。">
+  <meta itemprop="description" content="前往飞书云文档查看">
   <meta itemprop="datePublished" content="2025-05-11T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-05-11T00:00:00+00:00">
-  <meta itemprop="wordCount" content="1719">
+  <meta itemprop="wordCount" content="9">
   <meta itemprop="keywords" content="Golang">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Go] GMP">
-  <meta name="twitter:description" content="原文记录在飞书文档: https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg
-golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。">
+  <meta name="twitter:description" content="前往飞书云文档查看">
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -653,16 +648,6 @@ function tagCloud(where, min, max) {
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://wymli.github.io/2021/04/a2todo-todo-list/" class="title">TodoList</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2021-04-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-04-08</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
                         <a href="https://wymli.github.io/2021/04/a1underthehood-underthehood/" class="title">[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</a>
                     </p>
                     <p class="item-date">
@@ -697,6 +682,16 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2025-05-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-14</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://wymli.github.io/2025/05/go-gmp/" class="title">[Go] GMP</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2025-05-11</time>
                     </p>
                 </div>
             </li>
@@ -746,57 +741,17 @@ function tagCloud(where, min, max) {
     <a class="article-tag-link" href="/tags/golang/"> golang </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1719 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 9 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <blockquote>
-<p>原文记录在飞书文档: <a href="https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg">https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg</a></p></blockquote>
-<p>golang的一大特点就是用户态线程(协程)是一等公民（即由语言的关键字创建，而不是某个标准库），我们来看下用户态线程的一些关键细节。</p>
-<h1 id="线程逻辑关系">线程逻辑关系</h1>
-<p>我们知道，在不同层面上都有线程的说法，比如硬件线程，操作系统线程，用户态线程。</p>
-<ul>
-<li>硬件线程：由硬件提供的线程，其实就是一段指令序列实际执行的一条通道。一般来说，一个cpu核心就是一个硬件线程，同一时间只能处理一段硬件指令。intel有超线程技术，可以同一时间处理两条指令序列，也就是有两个硬件线程，也就是常说的比如四核八线程。</li>
-<li>操作系统线程：一般来说，我们会有多条并行执行的进程，每个进程可能有多个线程，这里的线程一般就是指操作系统线程，于是，一台服务器可能有成千上万个操作系统线程。这个操作系统线程将会被操作系统调度，在合适的时间放在硬件线程上执行，操作系统为我们屏蔽了与硬件的交互，我们只需要和操作系统线程打交道即可。操作系统线程是调度和执行的最小单位。</li>
-<li>用户态线程：指完全运行在用户态程序的线程，内核/操作系统不感知这种线程，即在操作系统线程里，又有多个可并行执行的指令序列，由用户态程序自己来控制在该操作系统线程上执行哪段指令序列
-这样的话，很显然，我们获得了 k:n:m 的一个关系</li>
-</ul>
-<h1 id="gmp">GMP</h1>
-<p>Goroutine(用户态线程)-machine(操作系统线程)-processor(处理器)</p>
-<ol>
-<li>每个goroutine被创建出来后，首先加入allg进行追踪，随后被加入当前P的本地runq队列</li>
-<li>如果存在自旋(spin)状态的M，M会轮询到空闲的P，执行绑定和上下文恢复以及运行g操作</li>
-<li>自旋(spin)状态指通过for循环不断检查是否有空闲的P和待执行的G，自旋几十微秒后睡眠</li>
-<li>如果都是空闲(idle)状态的M, 由sysmon线程负责唤醒或创建一个M，并会传入一个目标P, 被唤醒后的M会执行绑定P的操作，并恢复上下文以及运行g</li>
-<li>空闲(idle)状态指线程睡眠，需要由sysmon线程唤醒。睡眠用的是futex的指令：futex(FUTEX_WAIT)  futex(FUTEX_WAKE), 直接在用户态阻塞.</li>
-</ol>
-<h1 id="如何实现用户态线程">如何实现用户态线程</h1>
-<ol>
-<li>用户态线程切换逻辑：</li>
-<li>在go中通过汇编编写，在汇编中，会将当前的程序计数器、寄存器状态保存在goroutine对应结构体的某个字段上，然后跳转到调度器的schedule函数，执行调度逻辑，调度逻辑会将其他goroutine指令调度到该操作系统线程上执行。恢复执行同理，通过汇编设置程序计数器和寄存器的状态。</li>
-<li>何时切换:</li>
-<li>当陷入阻塞时，或者时间片耗尽（插入检查点或者抢占调度），或者主动触发调度（runtime.GoSched()），都会促使调度</li>
-<li>时间片耗尽触发调度由两种方式：
-1. go1.14 之前基于协作，也就是完全由goroutine运行过程中自己发现自己是否需要让出os thread，原理就是编译时在代码片段中注入一些检查点，运行到检查点时主动check一下是否需要让出，这依赖于编译时的注入能力，有可能某些边界case没注入成功，而且也无法预估指令的运行时长，时间片容易多占。
-2. go1.14 引入抢占调度（和协作调度一起工作），会另起一个sysmon线程，用于监控各个正在运行的goroutine的时间片，如果超出，会发送信号给对应的操作系统线程，执行信号处理函数让出os thread
-<ol>
-<li>sysmon线程负责goroutine抢占、gc操作、netpoll等</li>
-<li>sysmon线程绕过了GMP调度，直接创建一个M并运行，无需绑定P</li>
-</ol>
-</li>
-<li>为何能切换？</li>
-<li>时间片耗尽的主动检查和信号处理、或者主动触发调度时，都好理解可以触发切换，但是io阻塞时，是如何切换的呢？</li>
-<li>实际上，编译时会在可能阻塞的系统调用代码前后插入entersyscall 和 exitsyscall
-1. Entersyscall: 保存当前执行上下文到G（goroutine对应的结构体，runtime.g）上, M与P解绑，随后M陷入阻塞（也就是通常的操作系统线程阻塞），此时G/M不会被添加到什么队列里,G就挂在M上。
-<ol>
-<li>要找到G/M的话，可以从全局的 allg/allm 数组里找
-2. Exitsyscall: 为当前阻塞可运行的M寻找一个P(优先之前的P), 如果找到了，恢复运行（加载g的上下文）。如果找不到，将g放到全局队列中。M进入阻塞或销毁。</li>
-</ol>
-</li>
-</ol>
-<h1 id="一言以蔽之">一言以蔽之</h1>
-<p>go注入了一些代码来拦截传统的流程，最终完成了用户态线程调度</p>
+      <p><a href="https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg" target="_blank"> 前往飞书云文档查看 </a></p>
+<iframe 
+    width="100%"
+    style="height: 80vh;"
+    allow="fullscreen"
+    src="https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg">
 
     </div>
     <div class="article-footer">

@@ -3,13 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wymli.github.io/2021/04/a2todo-todo-list/</loc>
-    <lastmod>2021-04-08T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://wymli.github.io/2021/04/a1underthehood-underthehood/</loc>
     <lastmod>2021-04-10T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -578,6 +571,13 @@
   
   <url>
     <loc>https://wymli.github.io/tags/todo/</loc>
+    <lastmod>2021-04-08T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/2021/04/a2todo-todo-list/</loc>
     <lastmod>2021-04-08T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
