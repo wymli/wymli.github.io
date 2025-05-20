@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>[BigData] spark</title>
+      <link>https://wymli.github.io/2022/04/big-data-spark/</link>
+      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/big-data-spark/</guid>
+      <description>&lt;h1 id=&#34;spark&#34;&gt;Spark&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;并行计算框架&lt;/li&gt;
+&lt;li&gt;支持流式或批式&lt;/li&gt;
+&lt;li&gt;spark提交有一个单独的spark-commit.sh脚本&lt;/li&gt;
+&lt;li&gt;批处理是spark core&lt;/li&gt;
+&lt;li&gt;流处理是spark streaming，这里的流在实现上是会传入一个窗口大小和下一个窗口的位移，来产生RDD，一个RDD就是一个窗口的小批次数据，所以spark streaming只是在批式spark core上包装了一下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;执行流程&#34;&gt;执行流程&lt;/h2&gt;
+&lt;p&gt;一个spark 应用的流程是这样的：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[BigData] 大数据入门</title>
       <link>https://wymli.github.io/2022/04/big-data-hadoop%E7%9B%B8%E5%85%B3%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 10 Apr 2022 00:00:00 +0000</pubDate>
@@ -394,103 +412,6 @@ func NewWorker() workerImpl {
 &lt;li&gt;简洁的语法,不必把时间花费在底层理解上,但这也导致了无法极度的优化,不过相信大多数程序员都没有那么强,仍然利大于弊,不同的语言用来解决不同领域的问题&lt;/li&gt;
 &lt;li&gt;go的文档是直接放在一页的,直接ctrf-f搜索,很方便&lt;/li&gt;
 &lt;li&gt;待更&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Interview] ByteDance2</title>
-      <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
-      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
-      <description>&lt;h1 id=&#34;字节二面&#34;&gt;字节二面&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;算法题: 二叉树中的最长距离
-&lt;ol&gt;
-&lt;li&gt;又拉跨了,太久没做题了,做了很久&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;并发和并行的区别&lt;/li&gt;
-&lt;li&gt;讲讲go的协程调度
-&lt;ol&gt;
-&lt;li&gt;GMP模型,balabala讲一堆,提到了netpoller,触发linux io复用剧情&lt;/li&gt;
-&lt;li&gt;讲到了steal机制,面试官问我为什么在全局队列未空的时候要去steal呢?
-&lt;ol&gt;
-&lt;li&gt;回答,应该不会吧,毕竟其他p的g可能不在一个核上,会增加cahce缺失率&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;讲讲linux的io复用
-&lt;ol&gt;
-&lt;li&gt;select/poll/epoll&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;select和epoll的区别
-&lt;ol&gt;
-&lt;li&gt;说了些常见的,比如select用链表不限制fd个数,但是触发后要遍历所有fd,epoll只需要遍历已经激活的fd,数组的前n个&lt;/li&gt;
-&lt;li&gt;似乎不是面试官想要的,让我回去再看看&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;提到epoll只返回激活的fd的个数,问我怎么设计这个数据结构
-&lt;ol&gt;
-&lt;li&gt;其实没搞懂想问什么,于是我balabal扯了一堆&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;讲讲docker
-&lt;ol&gt;
-&lt;li&gt;一种linux容器&lt;/li&gt;
-&lt;li&gt;虚拟化,轻量级,隔离&lt;/li&gt;
-&lt;li&gt;dockerfile可以很方便的构建容器镜像&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;讲讲TCP的分包
-&lt;ol&gt;
-&lt;li&gt;tcp是面向流的协议&lt;/li&gt;
-&lt;li&gt;基于长度&lt;/li&gt;
-&lt;li&gt;基于分隔符&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;分隔符和内容冲突了怎么办?
-&lt;ol&gt;
-&lt;li&gt;转义
-&lt;ol&gt;
-&lt;li&gt;这里可以参考http协议,使用\r\n来分隔,对于body,会使用base64编码转义成文本字符,header和body之间有两个\r\n来区分&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;配对
-&lt;ol&gt;
-&lt;li&gt;比如json,xml这种,但显然面临注入的风险,也要转义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;定长
-&lt;ol&gt;
-&lt;li&gt;对于简单的报文,直接定长即可&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;看我实验室的经历,问我知道哪些机器学习算法
-&lt;ol&gt;
-&lt;li&gt;讲了些简单的&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;怎么对垃圾邮件分类
-&lt;ol&gt;
-&lt;li&gt;首先肯定是要特征工程,将邮件编码为欧氏空间中的一个点(向量,embedding),然后就是加标签之类的,丢到算法里面fit参数,我只懂些皮毛&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;问我svm怎么分类
-&lt;ol&gt;
-&lt;li&gt;没搞懂要问什么,以为要讲原理,我说一个分类间隔,支持向量啥啥啥的,反正我不懂,瞎扯一堆&lt;/li&gt;
-&lt;li&gt;最后说只需要怎么使用
-&lt;ol&gt;
-&lt;li&gt;那不是直接丢进去fit参数就行了嘛,重点在特征工程,分词那些吧,没搞懂面试官的逻辑&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;其他,忘了,暂时只想起来这么多&lt;/li&gt;
 &lt;/ol&gt;</description>
     </item>
     

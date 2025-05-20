@@ -7,10 +7,107 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 19 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Interview] ByteDance2</title>
+      <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
+      <description>&lt;h1 id=&#34;字节二面&#34;&gt;字节二面&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;算法题: 二叉树中的最长距离
+&lt;ol&gt;
+&lt;li&gt;又拉跨了,太久没做题了,做了很久&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;并发和并行的区别&lt;/li&gt;
+&lt;li&gt;讲讲go的协程调度
+&lt;ol&gt;
+&lt;li&gt;GMP模型,balabala讲一堆,提到了netpoller,触发linux io复用剧情&lt;/li&gt;
+&lt;li&gt;讲到了steal机制,面试官问我为什么在全局队列未空的时候要去steal呢?
+&lt;ol&gt;
+&lt;li&gt;回答,应该不会吧,毕竟其他p的g可能不在一个核上,会增加cahce缺失率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲linux的io复用
+&lt;ol&gt;
+&lt;li&gt;select/poll/epoll&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;select和epoll的区别
+&lt;ol&gt;
+&lt;li&gt;说了些常见的,比如select用链表不限制fd个数,但是触发后要遍历所有fd,epoll只需要遍历已经激活的fd,数组的前n个&lt;/li&gt;
+&lt;li&gt;似乎不是面试官想要的,让我回去再看看&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;提到epoll只返回激活的fd的个数,问我怎么设计这个数据结构
+&lt;ol&gt;
+&lt;li&gt;其实没搞懂想问什么,于是我balabal扯了一堆&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲docker
+&lt;ol&gt;
+&lt;li&gt;一种linux容器&lt;/li&gt;
+&lt;li&gt;虚拟化,轻量级,隔离&lt;/li&gt;
+&lt;li&gt;dockerfile可以很方便的构建容器镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲TCP的分包
+&lt;ol&gt;
+&lt;li&gt;tcp是面向流的协议&lt;/li&gt;
+&lt;li&gt;基于长度&lt;/li&gt;
+&lt;li&gt;基于分隔符&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;分隔符和内容冲突了怎么办?
+&lt;ol&gt;
+&lt;li&gt;转义
+&lt;ol&gt;
+&lt;li&gt;这里可以参考http协议,使用\r\n来分隔,对于body,会使用base64编码转义成文本字符,header和body之间有两个\r\n来区分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;配对
+&lt;ol&gt;
+&lt;li&gt;比如json,xml这种,但显然面临注入的风险,也要转义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;定长
+&lt;ol&gt;
+&lt;li&gt;对于简单的报文,直接定长即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;看我实验室的经历,问我知道哪些机器学习算法
+&lt;ol&gt;
+&lt;li&gt;讲了些简单的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;怎么对垃圾邮件分类
+&lt;ol&gt;
+&lt;li&gt;首先肯定是要特征工程,将邮件编码为欧氏空间中的一个点(向量,embedding),然后就是加标签之类的,丢到算法里面fit参数,我只懂些皮毛&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;问我svm怎么分类
+&lt;ol&gt;
+&lt;li&gt;没搞懂要问什么,以为要讲原理,我说一个分类间隔,支持向量啥啥啥的,反正我不懂,瞎扯一堆&lt;/li&gt;
+&lt;li&gt;最后说只需要怎么使用
+&lt;ol&gt;
+&lt;li&gt;那不是直接丢进去fit参数就行了嘛,重点在特征工程,分词那些吧,没搞懂面试官的逻辑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;其他,忘了,暂时只想起来这么多&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>[rpc] grpc</title>
@@ -247,17 +344,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
       <description>&lt;h1 id=&#34;built-in-map-syncmap--concurrentmap&#34;&gt;Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap&lt;/h1&gt;
 &lt;p&gt;并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map,&lt;/p&gt;
 &lt;p&gt;我们有如下的几种方案:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] errorx</title>
-      <link>https://wymli.github.io/2021/03/go-errorx/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-errorx/</guid>
-      <description>&lt;h1 id=&#34;error&#34;&gt;Error&lt;/h1&gt;
-&lt;p&gt;go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下&lt;code&gt;if err!=nil{return err}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;而对于进阶一点的程序员,则会诟病它的error接口设计的太烂,只要实现了&lt;code&gt;Error()&lt;/code&gt;,就是一个error,这导致难以比较&lt;/p&gt;</description>
     </item>
     
   </channel>

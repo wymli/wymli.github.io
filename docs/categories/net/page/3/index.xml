@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Net on UnderTheHood</title>
+    <link>https://wymli.github.io/categories/net/</link>
+    <description>Recent content in Net on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://wymli.github.io/categories/net/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[Interview] ByteDance2</title>
+      <link>https://wymli.github.io/2021/03/interview-bytedance2/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-bytedance2/</guid>
+      <description>&lt;h1 id=&#34;字节二面&#34;&gt;字节二面&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;算法题: 二叉树中的最长距离
+&lt;ol&gt;
+&lt;li&gt;又拉跨了,太久没做题了,做了很久&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;并发和并行的区别&lt;/li&gt;
+&lt;li&gt;讲讲go的协程调度
+&lt;ol&gt;
+&lt;li&gt;GMP模型,balabala讲一堆,提到了netpoller,触发linux io复用剧情&lt;/li&gt;
+&lt;li&gt;讲到了steal机制,面试官问我为什么在全局队列未空的时候要去steal呢?
+&lt;ol&gt;
+&lt;li&gt;回答,应该不会吧,毕竟其他p的g可能不在一个核上,会增加cahce缺失率&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲linux的io复用
+&lt;ol&gt;
+&lt;li&gt;select/poll/epoll&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;select和epoll的区别
+&lt;ol&gt;
+&lt;li&gt;说了些常见的,比如select用链表不限制fd个数,但是触发后要遍历所有fd,epoll只需要遍历已经激活的fd,数组的前n个&lt;/li&gt;
+&lt;li&gt;似乎不是面试官想要的,让我回去再看看&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;提到epoll只返回激活的fd的个数,问我怎么设计这个数据结构
+&lt;ol&gt;
+&lt;li&gt;其实没搞懂想问什么,于是我balabal扯了一堆&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲docker
+&lt;ol&gt;
+&lt;li&gt;一种linux容器&lt;/li&gt;
+&lt;li&gt;虚拟化,轻量级,隔离&lt;/li&gt;
+&lt;li&gt;dockerfile可以很方便的构建容器镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲TCP的分包
+&lt;ol&gt;
+&lt;li&gt;tcp是面向流的协议&lt;/li&gt;
+&lt;li&gt;基于长度&lt;/li&gt;
+&lt;li&gt;基于分隔符&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;分隔符和内容冲突了怎么办?
+&lt;ol&gt;
+&lt;li&gt;转义
+&lt;ol&gt;
+&lt;li&gt;这里可以参考http协议,使用\r\n来分隔,对于body,会使用base64编码转义成文本字符,header和body之间有两个\r\n来区分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;配对
+&lt;ol&gt;
+&lt;li&gt;比如json,xml这种,但显然面临注入的风险,也要转义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;定长
+&lt;ol&gt;
+&lt;li&gt;对于简单的报文,直接定长即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;看我实验室的经历,问我知道哪些机器学习算法
+&lt;ol&gt;
+&lt;li&gt;讲了些简单的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;怎么对垃圾邮件分类
+&lt;ol&gt;
+&lt;li&gt;首先肯定是要特征工程,将邮件编码为欧氏空间中的一个点(向量,embedding),然后就是加标签之类的,丢到算法里面fit参数,我只懂些皮毛&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;问我svm怎么分类
+&lt;ol&gt;
+&lt;li&gt;没搞懂要问什么,以为要讲原理,我说一个分类间隔,支持向量啥啥啥的,反正我不懂,瞎扯一堆&lt;/li&gt;
+&lt;li&gt;最后说只需要怎么使用
+&lt;ol&gt;
+&lt;li&gt;那不是直接丢进去fit参数就行了嘛,重点在特征工程,分词那些吧,没搞懂面试官的逻辑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;其他,忘了,暂时只想起来这么多&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>[rpc] grpc</title>
+      <link>https://wymli.github.io/2021/03/rpc-grpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-grpc/</guid>
+      <description>&lt;h1 id=&#34;grpc&#34;&gt;grpc&lt;/h1&gt;
+&lt;p&gt;grpc是一种rpc框架,先不管其实现或特点.首先我们明确,不管是什么rpc框架,其最终目标都是让用户能够在应用层轻松的调用远程的函数,就像在本机上调用一样.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[rpc] intro</title>
+      <link>https://wymli.github.io/2021/03/rpc-intro/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-intro/</guid>
+      <description>&lt;h1 id=&#34;什么是rpc&#34;&gt;什么是RPC?&lt;/h1&gt;
+&lt;p&gt;rpc: remote procedure call,顾名思义,指的就是远程过程调用,在大多数语境下,过程指的都是函数&lt;/p&gt;
+&lt;p&gt;在传统的单体服务中,所有的函数都写在一个进程映像里,我们调用函数只需要跳转到对应的代码段即可.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[rpc] net/rpc</title>
+      <link>https://wymli.github.io/2021/03/rpc-net-rpc/</link>
+      <pubDate>Sat, 27 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/rpc-net-rpc/</guid>
+      <description>&lt;h1 id=&#34;netrpc&#34;&gt;net/rpc&lt;/h1&gt;
+&lt;p&gt;如下是一段极简的net/rpc代码, &lt;code&gt;client.Call()&lt;/code&gt;代表这是一个同步的rpc,如果是异步,net/rpc提供了&lt;code&gt;client.Go()&lt;/code&gt;方法,典型的实现是返回一个chan,当异步完成时,这个chan就会读出消息(当然,net/rpc的Go()不是完全这样实现的,但也差不多)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mem] Buddy system</title>
+      <link>https://wymli.github.io/2021/03/mem-buddyfreelist/</link>
+      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mem-buddyfreelist/</guid>
+      <description>&lt;h3 id=&#34;buddy-system&#34;&gt;Buddy system&lt;/h3&gt;
+&lt;p&gt;linux底层使用buddy-system+slab&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;slab位于buddy-system的上层&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;伙伴系统是一种基于二分的动态分区算法,一开始他有k大小的空间,当有新的内存申请到达时,他会对k进行二分,直到满足那个大小恰好是最合适的大小时,返回给用户.比如,申请18KB内存,伙伴系统最初是128KB,那么会一直二分成32KB,16KB,发现16&amp;lt;18,所以返回给用户32KB的大小,这造成了很大的内部碎片&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[mem] tcmalloc</title>
+      <link>https://wymli.github.io/2021/03/mem-tcmalloc/</link>
+      <pubDate>Fri, 26 Mar 2021 12:23:27 +0800</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mem-tcmalloc/</guid>
+      <description>&lt;h1 id=&#34;tcmalloc&#34;&gt;TCMalloc&lt;/h1&gt;
+&lt;p&gt;thread-caching malloc&lt;/p&gt;
+&lt;p&gt;顾名思义,这个malloc算法是与thread有关的,直观理解上,就是每个thread单独维护一个内存池,这样,各个thread之间的malloc操作就不会相互造成锁的竞争了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Algorithm] sort</title>
+      <link>https://wymli.github.io/2021/03/alg-sort/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/alg-sort/</guid>
+      <description>&lt;h1 id=&#34;排序算法&#34;&gt;排序算法&lt;/h1&gt;
+&lt;h2 id=&#34;稳定性&#34;&gt;稳定性&lt;/h2&gt;
+&lt;p&gt;假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变，即在原序列中，r[i]=r[j]，且r[i]在r[j]之前，而在排序后的序列中，r[i]仍在r[j]之前，则称这种排序算法是稳定的；否则称为不稳定的&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[arch] design pattern</title>
+      <link>https://wymli.github.io/2021/03/arch-design-pattern/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/arch-design-pattern/</guid>
+      <description>&lt;h1 id=&#34;设计模式&#34;&gt;设计模式&lt;/h1&gt;
+&lt;p&gt;聊聊我熟悉的设计模式&lt;/p&gt;
+&lt;p&gt;首先,推荐一下这门课: &lt;a href=&#34;https://time.geekbang.org/column/intro/100039001&#34;&gt;https://time.geekbang.org/column/intro/100039001&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我看了目录,确实很有吸引力,可惜太贵了:(&lt;/p&gt;
+&lt;h2 id=&#34;创建型&#34;&gt;创建型&lt;/h2&gt;
+&lt;p&gt;用于创建类型&lt;/p&gt;
+&lt;h3 id=&#34;单例&#34;&gt;单例&lt;/h3&gt;
+&lt;p&gt;单例模式常用于创建全局唯一变量,大多数时候都增加了耦合,降低了可测试性&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[atomic] atomic</title>
+      <link>https://wymli.github.io/2021/03/atomic-atomic/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/atomic-atomic/</guid>
+      <description>&lt;h1 id=&#34;关于rmw与atomic-ldst&#34;&gt;关于RMW与Atomic LD/ST&lt;/h1&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;事情的起因是我在记录自己学习设计模式的过程时,看了sync.Once的源码,其实以前也看了很多遍,但今天一看,突然发现自己不是很懂atomic.LoadUint32()的意义,于是促成了这篇文章&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[c] trick1</title>
+      <link>https://wymli.github.io/2021/03/c-trick1/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/c-trick1/</guid>
+      <description>&lt;h1 id=&#34;总结一下在c语言中遇到的诸多tricks&#34;&gt;总结一下在c语言中遇到的诸多Tricks&lt;/h1&gt;
+&lt;h2 id=&#34;柔性数组&#34;&gt;柔性数组&lt;/h2&gt;
+&lt;p&gt;一个典型的柔性数组如下所示,数组本身是不占空间的&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct skipnode {
+        int key;
+        int value;
+        struct sk_link link[0];
+};
+
+struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关于柔性数组也可以看看redis的sds,也是用这个数组实现的&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[cache] base concepts</title>
+      <link>https://wymli.github.io/2021/03/cache-base-concepts/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/cache-base-concepts/</guid>
+      <description>&lt;h1 id=&#34;应用层缓存&#34;&gt;应用层缓存&lt;/h1&gt;
+&lt;p&gt;通常我们不希望所有数据的请求都去查询数据库,这一方面是慢,另一方面对数据库的压力也大.&lt;/p&gt;
+&lt;p&gt;因此,类似硬件层面的缓存,我们在应用层也会使用in-memory cache&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[cli] 事件分发系统</title>
+      <link>https://wymli.github.io/2021/03/1.-eventdistributionsystem/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/1.-eventdistributionsystem/</guid>
+      <description>&lt;h1 id=&#34;go-可交互动态终端-1-事件注册分发中心&#34;&gt;[Go] 可交互动态终端 &amp;lt;1, 事件注册分发中心&amp;gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mum4k/termdash&#34;&gt;github.com/mum4k/termdash&lt;/a&gt;&lt;/p&gt;
+&lt;img src=&#34;https://github.com/mum4k/termdash/raw/master/doc/images/termdashdemo_0_9_0.gif&#34; alt=&#34;termdashdemo&#34; style=&#34;zoom: 25%;&#34; /&gt;
+&lt;p&gt;如何完成一个好看的terminal呢?在以前我们大都会使用简单的printf来打印数据到终端,进阶一点,可能会加上颜色,再后来可能又做个贪吃蛇游戏,了解了如何高效刷新terminal&amp;hellip;&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[cli] 刷新屏幕</title>
+      <link>https://wymli.github.io/2021/03/2.-createandfreshscreen/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/2.-createandfreshscreen/</guid>
+      <description>&lt;h1 id=&#34;可交互动态终端-2-刷新屏幕&#34;&gt;可交互动态终端 &amp;lt;2, 刷新屏幕&amp;gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ref:  github.com/gdamore/tcell/v2&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数据刷新,而跳过不变的数据.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[concurrency] promise&amp;future</title>
+      <link>https://wymli.github.io/2021/03/concurrency-promisefuture/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/concurrency-promisefuture/</guid>
+      <description>&lt;h1 id=&#34;promisefuture&#34;&gt;Promise&amp;amp;future&lt;/h1&gt;
+&lt;p&gt;函数式编程是一个新的编程范式,基本上,只要你的编程语言支持&lt;code&gt;函数是一等公民&lt;/code&gt;这个说法,那么就至少支持部分的函数式编程&lt;/p&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;promise&#34;&gt;promise&lt;/h2&gt;
+&lt;p&gt;所谓的promise,是指对异步函数返回值的一个封装,比如就是对单个int的封装,但是由于是异步的,所以只能注册回调函数来完成当函数结束后对int进行访问&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[dataStructure] skip-list</title>
+      <link>https://wymli.github.io/2021/03/data-structure-skip-list/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/data-structure-skip-list/</guid>
+      <description>&lt;h1 id=&#34;skiplist&#34;&gt;skipList&lt;/h1&gt;
+&lt;p&gt;跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n)&lt;/p&gt;
+&lt;p&gt;跳表是二叉搜索树,AVL,RBTree的替代品&lt;/p&gt;
+&lt;p&gt;这里我们不介绍如何从头开始编写skipList,但仍然介绍其中可能存在的一些关键点&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[DB] b-tree</title>
+      <link>https://wymli.github.io/2021/03/db-b-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-b-tree/</guid>
+      <description>&lt;h1 id=&#34;索引中的平衡树b-treeb-plus-tree&#34;&gt;索引中的平衡树:b-tree,b-plus-tree&lt;/h1&gt;
+&lt;p&gt;主要介绍数据库的索引,及其实现,平衡多叉树&lt;/p&gt;
+&lt;h2 id=&#34;什么是索引&#34;&gt;什么是索引&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;想象一下,假设db没有任何数据结构驻留在内存,其一切存储都放在disk,那么想找到一张表的一个行,就必须把表的所有页取到memory,逐个比较各行. 因此我们必须放置一些特定的数据结构在内存中,方便快速查找(但不是缓存)(也不总是在内存中)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[DB] rule</title>
+      <link>https://wymli.github.io/2021/03/db-rule/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-rule/</guid>
+      <description>&lt;h1 id=&#34;数据库设计范式&#34;&gt;数据库设计范式&lt;/h1&gt;
+&lt;p&gt;所谓设计范式,可理解为设计一张表的各个列的规则&lt;/p&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;p&gt;键和函数依赖&lt;/p&gt;
+&lt;h3 id=&#34;键&#34;&gt;键&lt;/h3&gt;
+&lt;p&gt;所有的键(key) 都是 a set of one or more attributes&lt;/p&gt;
+&lt;p&gt;主属性(prime attribute) 至少出现在一个候选键中的属性&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[DB] sql spec</title>
+      <link>https://wymli.github.io/2021/03/db-sql-spec/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-sql-spec/</guid>
+      <description>&lt;h1 id=&#34;about-sql-statementindex-spec&#34;&gt;About sql statement&amp;amp;index spec&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考但不限于&lt;code&gt;Java开发手册（嵩山版）&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于索引&#34;&gt;关于索引&lt;/h2&gt;
+&lt;p&gt;与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过explain后的extra列来识别语句执行速度,但是在理论上,我们知道索引是一颗B+树,所以只要了解了B+树的构造,那么自然可以从理论上去识别一个条件查询是否能使用索引&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[deploy] server deploy</title>
+      <link>https://wymli.github.io/2021/03/deploy-server-deploy/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/deploy-server-deploy/</guid>
+      <description>&lt;h1 id=&#34;记一次云端部署web服务器&#34;&gt;记一次云端部署web服务器&lt;/h1&gt;
+&lt;p&gt;本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识.&lt;/p&gt;
+&lt;h2 id=&#34;首先是云服务器的环境配置&#34;&gt;首先是云服务器的环境配置&lt;/h2&gt;
+&lt;p&gt;典型的,我们是通过ssh上服务器(22端口),如果是windows,则是远程桌面的3389端口,这两个端口连同80和443端口都是默认开放的. 如果想使用其他端口必须在防火墙中设置入站白名单&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] concurrentMap</title>
+      <link>https://wymli.github.io/2021/03/go-concurrentmap/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-concurrentmap/</guid>
+      <description>&lt;h1 id=&#34;built-in-map-syncmap--concurrentmap&#34;&gt;Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap&lt;/h1&gt;
+&lt;p&gt;并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map,&lt;/p&gt;
+&lt;p&gt;我们有如下的几种方案:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

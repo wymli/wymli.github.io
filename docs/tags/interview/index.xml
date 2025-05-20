@@ -28,6 +28,20 @@
     </item>
     
     <item>
+      <title>[epoll] Epoll/Reactor/Netpoll</title>
+      <link>https://wymli.github.io/2025/05/net-epoll/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/net-epoll/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/ByvGdm0fyo5MPZx3BlbchrF9nKb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/ByvGdm0fyo5MPZx3BlbchrF9nKb&#34;&gt;</description>
+    </item>
+    
+    <item>
       <title>[llm] Intro</title>
       <link>https://wymli.github.io/2025/05/llm-intro/</link>
       <pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
@@ -263,24 +277,6 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
       
       <guid>https://wymli.github.io/2022/04/big-data-yarn/</guid>
       <description>&lt;h1 id=&#34;yarn-client&#34;&gt;Yarn Client&lt;/h1&gt;</description>
-    </item>
-    
-    <item>
-      <title>[BigData] spark</title>
-      <link>https://wymli.github.io/2022/04/big-data-spark/</link>
-      <pubDate>Fri, 15 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2022/04/big-data-spark/</guid>
-      <description>&lt;h1 id=&#34;spark&#34;&gt;Spark&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;并行计算框架&lt;/li&gt;
-&lt;li&gt;支持流式或批式&lt;/li&gt;
-&lt;li&gt;spark提交有一个单独的spark-commit.sh脚本&lt;/li&gt;
-&lt;li&gt;批处理是spark core&lt;/li&gt;
-&lt;li&gt;流处理是spark streaming，这里的流在实现上是会传入一个窗口大小和下一个窗口的位移，来产生RDD，一个RDD就是一个窗口的小批次数据，所以spark streaming只是在批式spark core上包装了一下。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;执行流程&#34;&gt;执行流程&lt;/h2&gt;
-&lt;p&gt;一个spark 应用的流程是这样的：&lt;/p&gt;</description>
     </item>
     
   </channel>
