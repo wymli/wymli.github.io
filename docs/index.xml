@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -25,6 +25,20 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[python] uv 版本与包管理</title>
+      <link>https://wymli.github.io/2025/05/python-uv/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/python-uv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/K0nidx31xoBpvMxJjyEcYqTUnfc&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/K0nidx31xoBpvMxJjyEcYqTUnfc&#34;&gt;</description>
     </item>
     
     <item>
@@ -268,15 +282,6 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
 &lt;h2 id=&#34;架构&#34;&gt;架构&lt;/h2&gt;
 &lt;p&gt;lmstfy使用redis作为底层存储，使用redis的list的&lt;code&gt;lpush&lt;/code&gt;,&lt;code&gt;brpop&lt;/code&gt;完成任务的生产和消费，消费要阻塞的pop，避免轮询。lmstfy使用redis设计了多个模块，ready队列是其一，还有timer zset的延时队列用来处理延时的任务，以及死信队列处理消费失败的任务。&lt;br&gt;
 假设称任务为task或job，下面统一称之为job。对于一个任务的提交（生产），它具有下面的生命周期：&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[BigData] yarn client</title>
-      <link>https://wymli.github.io/2022/04/big-data-yarn/</link>
-      <pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2022/04/big-data-yarn/</guid>
-      <description>&lt;h1 id=&#34;yarn-client&#34;&gt;Yarn Client&lt;/h1&gt;</description>
     </item>
     
   </channel>

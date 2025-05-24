@@ -13,6 +13,22 @@
     
     
     <item>
+      <title>[linux] server intro</title>
+      <link>https://wymli.github.io/2021/03/linux-server-intro/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/linux-server-intro/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-linux-server&#34;&gt;Introduction to linux server&lt;/h1&gt;
+&lt;p&gt;linux 服务器导论&lt;/p&gt;
+&lt;h2 id=&#34;文件目录相关&#34;&gt;文件目录相关&lt;/h2&gt;
+&lt;p&gt;假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果是.d结尾,则代表是文件目录&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;日志目录&#34;&gt;日志目录&lt;/h3&gt;
+&lt;p&gt;/var/log/testServerd/&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[other] everyDay</title>
       <link>https://wymli.github.io/2021/03/other-everyday/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>

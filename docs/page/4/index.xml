@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] concurrentMap</title>
+      <link>https://wymli.github.io/2021/03/go-concurrentmap/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-concurrentmap/</guid>
+      <description>&lt;h1 id=&#34;built-in-map-syncmap--concurrentmap&#34;&gt;Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap&lt;/h1&gt;
+&lt;p&gt;并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map,&lt;/p&gt;
+&lt;p&gt;我们有如下的几种方案:&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[Go] errorx</title>
@@ -643,22 +654,6 @@ F--&amp;gt;|pthread|I[threadRoutine]--&amp;gt;Ooo[&amp;quot;dowork(){read/write 
 F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;一个传统的多线程服务器,多线程同时accpet同一个sockfd&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[linux] server intro</title>
-      <link>https://wymli.github.io/2021/03/linux-server-intro/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/linux-server-intro/</guid>
-      <description>&lt;h1 id=&#34;introduction-to-linux-server&#34;&gt;Introduction to linux server&lt;/h1&gt;
-&lt;p&gt;linux 服务器导论&lt;/p&gt;
-&lt;h2 id=&#34;文件目录相关&#34;&gt;文件目录相关&lt;/h2&gt;
-&lt;p&gt;假设我们的服务器名为testServerd,这里末尾以d结尾,代表daemon守护模式&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果是.d结尾,则代表是文件目录&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h3 id=&#34;日志目录&#34;&gt;日志目录&lt;/h3&gt;
-&lt;p&gt;/var/log/testServerd/&lt;/p&gt;</description>
     </item>
     
   </channel>
