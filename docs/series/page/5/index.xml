@@ -12,6 +12,38 @@
     
     
     <item>
+      <title>[linux] high performance server</title>
+      <link>https://wymli.github.io/2021/03/linux-high-performance-server/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/linux-high-performance-server/</guid>
+      <description>&lt;h1 id=&#34;高性能linux服务器&#34;&gt;高性能linux服务器&lt;/h1&gt;
+&lt;h2 id=&#34;服务器监听范式&#34;&gt;服务器监听范式&lt;/h2&gt;
+&lt;p&gt;一个传统的单线程服务器&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR;
+A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd);
+B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind]
+C--&amp;gt;D[listen]
+D--&amp;gt;E[accept]
+E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一个传统的多线程服务器, pthread也可以换成fork,多进程&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR;
+A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd);
+B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind]
+C--&amp;gt;D[listen]
+D--&amp;gt;E[accept]
+E--&amp;gt;|connfd|F[pthread_create]
+F--&amp;gt;|pthread|G[threadRoutine]--&amp;gt;O[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|pthread|H[threadRoutine]--&amp;gt;Oo[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|pthread|I[threadRoutine]--&amp;gt;Ooo[&amp;quot;dowork(){read/write connfd}&amp;quot;]
+F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;一个传统的多线程服务器,多线程同时accpet同一个sockfd&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[linux] server intro</title>
       <link>https://wymli.github.io/2021/03/linux-server-intro/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>

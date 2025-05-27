@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -25,6 +25,20 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[k8s] scheduler</title>
+      <link>https://wymli.github.io/2025/05/k8s-scheduler/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/k8s-scheduler/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/SPPcdeeuGo74IuxARRHcAJZ1nkh&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/SPPcdeeuGo74IuxARRHcAJZ1nkh&#34;&gt;</description>
     </item>
     
     <item>
@@ -269,19 +283,6 @@ wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是
       <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
 &lt;p&gt;对大部分的业务系统来说，分布式往往体现在微服务上，即多个服务之间的分布式网络调用。&lt;/p&gt;
 &lt;p&gt;但是在分布式计算、分布式训练等特定领域，是需要真正的借助分布式机器进行并行计算或训练的，这一类应用也有几个经典的架构，或者说启动方式。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[task-queue] lmstfy</title>
-      <link>https://wymli.github.io/2022/04/task-queue-lmstfy/</link>
-      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2022/04/task-queue-lmstfy/</guid>
-      <description>&lt;h1 id=&#34;lmstfy&#34;&gt;lmstfy&lt;/h1&gt;
-&lt;p&gt;碰巧github给我推了这个&lt;a href=&#34;https://github.com/bitleak/lmstfy&#34;&gt;任务队列&lt;/a&gt;，抽空读了下源码。如果第一次接触这种延时任务队列，还是挺有意思的。&lt;/p&gt;
-&lt;h2 id=&#34;架构&#34;&gt;架构&lt;/h2&gt;
-&lt;p&gt;lmstfy使用redis作为底层存储，使用redis的list的&lt;code&gt;lpush&lt;/code&gt;,&lt;code&gt;brpop&lt;/code&gt;完成任务的生产和消费，消费要阻塞的pop，避免轮询。lmstfy使用redis设计了多个模块，ready队列是其一，还有timer zset的延时队列用来处理延时的任务，以及死信队列处理消费失败的任务。&lt;br&gt;
-假设称任务为task或job，下面统一称之为job。对于一个任务的提交（生产），它具有下面的生命周期：&lt;/p&gt;</description>
     </item>
     
   </channel>

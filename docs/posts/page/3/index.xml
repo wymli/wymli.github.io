@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[sys] unix domain socket</title>
+      <link>https://wymli.github.io/2021/03/sys-unix-domain-socket/</link>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/sys-unix-domain-socket/</guid>
+      <description>&lt;p&gt;荐读 &lt;a href=&#34;https://lists.freebsd.org/pipermail/freebsd-performance/2005-February/001143.html&#34;&gt;unix domain sockets vs. internet sockets&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经历一个完整的网络流程(虽然是通过lo网卡),也会收到syn,ack包,只是碰巧在解析的过程中,机器发现了这个包是要路由到本机的,于是借助lo网卡回来,本质仍然是一种尽力交付&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[Other] Go优点</title>
@@ -347,18 +357,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
 &lt;p&gt;参考但不限于&lt;code&gt;Java开发手册（嵩山版）&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;关于索引&#34;&gt;关于索引&lt;/h2&gt;
 &lt;p&gt;与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过explain后的extra列来识别语句执行速度,但是在理论上,我们知道索引是一颗B+树,所以只要了解了B+树的构造,那么自然可以从理论上去识别一个条件查询是否能使用索引&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[deploy] server deploy</title>
-      <link>https://wymli.github.io/2021/03/deploy-server-deploy/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/deploy-server-deploy/</guid>
-      <description>&lt;h1 id=&#34;记一次云端部署web服务器&#34;&gt;记一次云端部署web服务器&lt;/h1&gt;
-&lt;p&gt;本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识.&lt;/p&gt;
-&lt;h2 id=&#34;首先是云服务器的环境配置&#34;&gt;首先是云服务器的环境配置&lt;/h2&gt;
-&lt;p&gt;典型的,我们是通过ssh上服务器(22端口),如果是windows,则是远程桌面的3389端口,这两个端口连同80和443端口都是默认开放的. 如果想使用其他端口必须在防火墙中设置入站白名单&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -13,6 +13,18 @@
     
     
     <item>
+      <title>[deploy] server deploy</title>
+      <link>https://wymli.github.io/2021/03/deploy-server-deploy/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/deploy-server-deploy/</guid>
+      <description>&lt;h1 id=&#34;记一次云端部署web服务器&#34;&gt;记一次云端部署web服务器&lt;/h1&gt;
+&lt;p&gt;本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识.&lt;/p&gt;
+&lt;h2 id=&#34;首先是云服务器的环境配置&#34;&gt;首先是云服务器的环境配置&lt;/h2&gt;
+&lt;p&gt;典型的,我们是通过ssh上服务器(22端口),如果是windows,则是远程桌面的3389端口,这两个端口连同80和443端口都是默认开放的. 如果想使用其他端口必须在防火墙中设置入站白名单&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[Go] concurrentMap</title>
       <link>https://wymli.github.io/2021/03/go-concurrentmap/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
@@ -622,38 +634,6 @@ print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
 &lt;p&gt;我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置&lt;/p&gt;
 &lt;h2 id=&#34;守护模式&#34;&gt;守护模式&lt;/h2&gt;
 &lt;p&gt;通过编程,可以使得程序进入daemon模式&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[linux] high performance server</title>
-      <link>https://wymli.github.io/2021/03/linux-high-performance-server/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/linux-high-performance-server/</guid>
-      <description>&lt;h1 id=&#34;高性能linux服务器&#34;&gt;高性能linux服务器&lt;/h1&gt;
-&lt;h2 id=&#34;服务器监听范式&#34;&gt;服务器监听范式&lt;/h2&gt;
-&lt;p&gt;一个传统的单线程服务器&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR;
-A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd);
-B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind]
-C--&amp;gt;D[listen]
-D--&amp;gt;E[accept]
-E--&amp;gt;|connfd|F[&amp;quot;dowork(){read/write connfd}&amp;quot;]
-F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;一个传统的多线程服务器, pthread也可以换成fork,多进程&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR;
-A[&amp;quot;socket()&amp;quot;]--&amp;gt;B(sockfd);
-B--&amp;gt;|&amp;quot;setsockopt()&amp;quot;| C[bind]
-C--&amp;gt;D[listen]
-D--&amp;gt;E[accept]
-E--&amp;gt;|connfd|F[pthread_create]
-F--&amp;gt;|pthread|G[threadRoutine]--&amp;gt;O[&amp;quot;dowork(){read/write connfd}&amp;quot;]
-F--&amp;gt;|pthread|H[threadRoutine]--&amp;gt;Oo[&amp;quot;dowork(){read/write connfd}&amp;quot;]
-F--&amp;gt;|pthread|I[threadRoutine]--&amp;gt;Ooo[&amp;quot;dowork(){read/write connfd}&amp;quot;]
-F--&amp;gt;|&amp;quot;while (1)&amp;quot;| E
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;一个传统的多线程服务器,多线程同时accpet同一个sockfd&lt;/p&gt;</description>
     </item>
     
   </channel>

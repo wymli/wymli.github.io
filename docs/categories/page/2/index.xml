@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 24 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[task-queue] lmstfy</title>
+      <link>https://wymli.github.io/2022/04/task-queue-lmstfy/</link>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/task-queue-lmstfy/</guid>
+      <description>&lt;h1 id=&#34;lmstfy&#34;&gt;lmstfy&lt;/h1&gt;
+&lt;p&gt;碰巧github给我推了这个&lt;a href=&#34;https://github.com/bitleak/lmstfy&#34;&gt;任务队列&lt;/a&gt;，抽空读了下源码。如果第一次接触这种延时任务队列，还是挺有意思的。&lt;/p&gt;
+&lt;h2 id=&#34;架构&#34;&gt;架构&lt;/h2&gt;
+&lt;p&gt;lmstfy使用redis作为底层存储，使用redis的list的&lt;code&gt;lpush&lt;/code&gt;,&lt;code&gt;brpop&lt;/code&gt;完成任务的生产和消费，消费要阻塞的pop，避免轮询。lmstfy使用redis设计了多个模块，ready队列是其一，还有timer zset的延时队列用来处理延时的任务，以及死信队列处理消费失败的任务。&lt;br&gt;
+假设称任务为task或job，下面统一称之为job。对于一个任务的提交（生产），它具有下面的生命周期：&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[BigData] yarn client</title>
@@ -387,16 +400,6 @@ func NewWorker() workerImpl {
 &lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/68052232&#34;&gt;https://zhuanlan.zhihu.com/p/68052232&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;&lt;/blockquote&gt;
 &lt;p&gt;kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息)&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[sys] unix domain socket</title>
-      <link>https://wymli.github.io/2021/03/sys-unix-domain-socket/</link>
-      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/sys-unix-domain-socket/</guid>
-      <description>&lt;p&gt;荐读 &lt;a href=&#34;https://lists.freebsd.org/pipermail/freebsd-performance/2005-February/001143.html&#34;&gt;unix domain sockets vs. internet sockets&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;简单说来,就是internet socket(使用AF_INET地址族),即使是dial本机localhost来通信,其也会经历一个完整的网络流程(虽然是通过lo网卡),也会收到syn,ack包,只是碰巧在解析的过程中,机器发现了这个包是要路由到本机的,于是借助lo网卡回来,本质仍然是一种尽力交付&lt;/p&gt;</description>
     </item>
     
   </channel>
