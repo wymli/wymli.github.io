@@ -13,7 +13,8 @@ create $file $url:
     #!/usr/bin/bash
     d=$(date "+%Y-%m-%d")
     f="./content/posts/$file.md"
-    cat > $f <<EOF
+    echo $f
+    cat > "$f" <<EOF
     ---
     title: "$file"
     date: "$d"
