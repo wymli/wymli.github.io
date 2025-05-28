@@ -7,6 +7,17 @@ publish:
     git add .
     git commit -m "update"
     git push
+    just update_readme
+
+
+update_readme:
+    #!/usr/bin/bash
+    python x.py
+    cd wymli
+    git add .
+    git commit -m "update"
+    git push
+    cd -
 
 alias new := create
 create $file $url:
@@ -30,3 +41,4 @@ create $file $url:
         src="$url">
     EOF
     code $f
+

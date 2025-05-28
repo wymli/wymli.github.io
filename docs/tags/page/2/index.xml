@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[distribute] 单应用分布式架构</title>
+      <link>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</guid>
+      <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;对大部分的业务系统来说，分布式往往体现在微服务上，即多个服务之间的分布式网络调用。&lt;/p&gt;
+&lt;p&gt;但是在分布式计算、分布式训练等特定领域，是需要真正的借助分布式机器进行并行计算或训练的，这一类应用也有几个经典的架构，或者说启动方式。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[task-queue] lmstfy</title>
@@ -383,23 +394,6 @@ func NewWorker() workerImpl {
       <guid>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
       <description>&lt;h1 id=&#34;虚拟内存virtual-memory&#34;&gt;虚拟内存virtual memory&lt;/h1&gt;
 &lt;p&gt;什么是虚拟内存,应该不用多言.本质就是一个逻辑的虚拟地址空间,这些地址空间中,有的地址真正的对应到了物理内存的地址,有的地址却是对应到了磁盘上的地址(通过swap交换换页进入物理内存).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mq] kafka1 intro</title>
-      <link>https://wymli.github.io/2021/03/mq-kafka1-intro/</link>
-      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/mq-kafka1-intro/</guid>
-      <description>&lt;h1 id=&#34;kafka1-intro&#34;&gt;kafka1 intro&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;部分参考&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;kafka技术内幕:图文详解kafka源码设计和实现&lt;/li&gt;
-&lt;li&gt;kafka权威指南&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/68052232&#34;&gt;https://zhuanlan.zhihu.com/p/68052232&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;
-&lt;p&gt;kafka是一种流式数据处理平台(消息队列的进阶版,即除了完成的消息的转发外,还可以处理消息)&lt;/p&gt;</description>
     </item>
     
   </channel>

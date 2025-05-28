@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 27 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/k8s/index.xml" rel="self" type="application/rss+xml" />
     
@@ -25,6 +25,20 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[k8s] volcano gpu device plugin</title>
+      <link>https://wymli.github.io/2025/05/k8s-volcano-gpu-device-plugin/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/k8s-volcano-gpu-device-plugin/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/OuIud1XOZo1A10xmYuVc3ph2n9O&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/OuIud1XOZo1A10xmYuVc3ph2n9O&#34;&gt;</description>
     </item>
     
     <item>
@@ -272,17 +286,6 @@ overlayfs 是linux内核提供的功能，相关文档见 &lt;a href=&#34;https:
 &lt;p&gt;2025年wsl已经有了很多新的演进，在网络方便进步很多，原来wsl1如果要连接宿主机的代理，需要配宿主机的ip，但是宿主机的ip不固定，比较麻烦（不过也就是一个脚本的事，问题也不大）&lt;br&gt;
 wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是wsl里可以通过localhost访问host。&lt;br&gt;
 配置如下，在windows的用户目录下创建 &lt;code&gt;.wslconfig&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[distribute] 单应用分布式架构</title>
-      <link>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</link>
-      <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</guid>
-      <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
-&lt;p&gt;对大部分的业务系统来说，分布式往往体现在微服务上，即多个服务之间的分布式网络调用。&lt;/p&gt;
-&lt;p&gt;但是在分布式计算、分布式训练等特定领域，是需要真正的借助分布式机器进行并行计算或训练的，这一类应用也有几个经典的架构，或者说启动方式。&lt;/p&gt;</description>
     </item>
     
   </channel>

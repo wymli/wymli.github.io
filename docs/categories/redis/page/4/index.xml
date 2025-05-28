@@ -13,6 +13,19 @@
     
     
     <item>
+      <title>[DB] sql spec</title>
+      <link>https://wymli.github.io/2021/03/db-sql-spec/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-sql-spec/</guid>
+      <description>&lt;h1 id=&#34;about-sql-statementindex-spec&#34;&gt;About sql statement&amp;amp;index spec&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考但不限于&lt;code&gt;Java开发手册（嵩山版）&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于索引&#34;&gt;关于索引&lt;/h2&gt;
+&lt;p&gt;与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过explain后的extra列来识别语句执行速度,但是在理论上,我们知道索引是一颗B+树,所以只要了解了B+树的构造,那么自然可以从理论上去识别一个条件查询是否能使用索引&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[deploy] server deploy</title>
       <link>https://wymli.github.io/2021/03/deploy-server-deploy/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
@@ -622,18 +635,6 @@ print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>[linux] daemon</title>
-      <link>https://wymli.github.io/2021/03/linux-bg-run-linux/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/linux-bg-run-linux/</guid>
-      <description>&lt;h1 id=&#34;linux-关于后台运行进程的小实验&#34;&gt;[linux] 关于后台运行进程的小实验&lt;/h1&gt;
-&lt;p&gt;我们经常有将进程放到后台运行的需求,我们可以通过编程实现守护模式,也可以在shell中启动进程的时候配置&lt;/p&gt;
-&lt;h2 id=&#34;守护模式&#34;&gt;守护模式&lt;/h2&gt;
-&lt;p&gt;通过编程,可以使得程序进入daemon模式&lt;/p&gt;</description>
     </item>
     
   </channel>

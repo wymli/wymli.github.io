@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Volcano on UnderTheHood</title>
+    <link>https://wymli.github.io/categories/volcano/</link>
+    <description>Recent content in Volcano on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://wymli.github.io/categories/volcano/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</title>
+      <link>https://wymli.github.io/2021/04/a1underthehood-underthehood/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/a1underthehood-underthehood/</guid>
+      <description>&lt;h1 id=&#34;underthehood&#34;&gt;UnderTheHood&lt;/h1&gt;
+&lt;p&gt;这里记录一些具有重要的知识&lt;/p&gt;
+&lt;h2 id=&#34;page-cache&#34;&gt;Page Cache&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[k8s] volcano gpu device plugin</title>
+      <link>https://wymli.github.io/2025/05/k8s-volcano-gpu-device-plugin/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/k8s-volcano-gpu-device-plugin/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/OuIud1XOZo1A10xmYuVc3ph2n9O&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/OuIud1XOZo1A10xmYuVc3ph2n9O&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[k8s] scheduler</title>
+      <link>https://wymli.github.io/2025/05/k8s-scheduler/</link>
+      <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/k8s-scheduler/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/SPPcdeeuGo74IuxARRHcAJZ1nkh&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/SPPcdeeuGo74IuxARRHcAJZ1nkh&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[python] uv 版本与包管理</title>
+      <link>https://wymli.github.io/2025/05/python-uv/</link>
+      <pubDate>Sat, 24 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/python-uv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/K0nidx31xoBpvMxJjyEcYqTUnfc&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/K0nidx31xoBpvMxJjyEcYqTUnfc&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[epoll] Epoll/Reactor/Netpoll</title>
+      <link>https://wymli.github.io/2025/05/net-epoll/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/net-epoll/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/ByvGdm0fyo5MPZx3BlbchrF9nKb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/ByvGdm0fyo5MPZx3BlbchrF9nKb&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[llm] Intro</title>
+      <link>https://wymli.github.io/2025/05/llm-intro/</link>
+      <pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/llm-intro/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/FgcCdRVVgoe72gxMkCecS9L1nzc&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/FgcCdRVVgoe72gxMkCecS9L1nzc&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[AI Agent] Eino</title>
+      <link>https://wymli.github.io/2025/05/aiagent-eino/</link>
+      <pubDate>Fri, 16 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/aiagent-eino/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/WLmndFiDgokHVvxoBkZczB67n3b&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[DB] 事务隔离与锁</title>
+      <link>https://wymli.github.io/2025/05/db-mutex/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/db-mutex/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/Uyvadiw7zorRhLxww1LcMRaanib&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] GMP</title>
+      <link>https://wymli.github.io/2025/05/go-gmp/</link>
+      <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/go-gmp/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/O5M1dTRLxol7G0xScsucuYm6nSg&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] release notes</title>
+      <link>https://wymli.github.io/2025/05/go-release-notes/</link>
+      <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/go-release-notes/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/Nu9sd0FobokaxMxEddxc9VTXnIg&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[airflow] temporal</title>
+      <link>https://wymli.github.io/2025/05/workflow-2.-temporal/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/workflow-2.-temporal/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/MQmod4xkdoZ2TlxDbQncyQG9nbg&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[airflow] airflow</title>
+      <link>https://wymli.github.io/2025/03/worklfow-1.-airflow/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/worklfow-1.-airflow/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/POUfdFT2YoXlbHxeUA2cntmanzc&#34;&gt;</description>
+    </item>
+    
+    <item>
+      <title>[container] 6.容器基础之runc源码</title>
+      <link>https://wymli.github.io/2025/03/container-6.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc%E6%BA%90%E7%A0%81/</link>
+      <pubDate>Fri, 14 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-6.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc%E6%BA%90%E7%A0%81/</guid>
+      <description>&lt;p&gt;git clone &lt;a href=&#34;https://github.com/opencontainers/runc.git&#34;&gt;https://github.com/opencontainers/runc.git&lt;/a&gt;, 我们简单阅读下，代码不多&lt;/p&gt;
+&lt;h1 id=&#34;入口&#34;&gt;入口&lt;/h1&gt;
+&lt;p&gt;入口没啥好说的，先找main.go文件，可以看到runc这个库用了 github.com/urfave/cli 这个命令行库和 github.com/sirupsen/logrus 这个日志库，能在这种比较重要的工具里面使用，说明这两个库是很不错的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[container] 5.容器基础之oci dist</title>
+      <link>https://wymli.github.io/2025/03/container-5.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-dist/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-5.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-dist/</guid>
+      <description>&lt;p&gt;oci distribution spec 比较简单，就是定义了一些用于pull/push 的api&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个有趣的事实是，oci registry 不只是存储镜像，也可以用于存储helm chart。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;pull&#34;&gt;Pull&lt;/h1&gt;
+&lt;h2 id=&#34;pull-manifest&#34;&gt;Pull manifest&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;GET /v2/&lt;name&gt;/manifests/&lt;reference&gt;
+&lt;ol&gt;
+&lt;li&gt;name: 一般是${namespace/image_name}, 比如 library/nginx&lt;/li&gt;
+&lt;li&gt;reference：一般是digest或者tag，比如latest、v1.2.3、sha256:abc123&amp;hellip;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;拉取下来的是符合oci image spec的manifest文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;pull-blobs&#34;&gt;Pull blobs&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;GET /v2/&lt;name&gt;/blobs/&lt;digest&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;push&#34;&gt;Push&lt;/h1&gt;
+&lt;p&gt;值得注意的是，在push image时，是先push blobs，再push manifest，与pull相反&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[container] 4.容器基础之oci image</title>
+      <link>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</guid>
+      <description>&lt;p&gt;描述了一个镜像的打包目录和相关文件的schema&lt;/p&gt;
+&lt;h1 id=&#34;目录结构&#34;&gt;目录结构&lt;/h1&gt;
+&lt;p&gt;利用docker save拿到一个docke 镜像的tar包，解包后得到如下目录，这是一个兼容oci image spec的目录（但也只是兼容，不是严格相等，里面有一些oci image spec里未定义的文件）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[container] 3.容器基础之runc</title>
+      <link>https://wymli.github.io/2025/03/container-3.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-3.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc/</guid>
+      <description>&lt;p&gt;如果没有安装runc，先安装 (如果你安装了dockerd/containerd，一般不用再单独安装)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget https://github.com/opencontainers/runc/releases/download/v1.2.5/runc.amd64 -O runc &amp;amp;&amp;amp; chmod +x runc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;制作-bundle&#34;&gt;制作 bundle&lt;/h1&gt;
+&lt;p&gt;安装oci runtime spec, 我们先制作oci runtime bundle，也就是config.json 和 rootfs&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[http] 流式响应之text/event-stream</title>
+      <link>https://wymli.github.io/2025/03/http-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E4%B9%8Btext.event-stream/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/http-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E4%B9%8Btext.event-stream/</guid>
+      <description>&lt;p&gt;WIP&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[container] 1.容器基础之overlayfs</title>
+      <link>https://wymli.github.io/2025/03/container-1.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boverlayfs/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-1.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boverlayfs/</guid>
+      <description>&lt;p&gt;overlayfs ，如其名，覆盖文件系统，类似那些 overlay network一样（在underlay network上包一层），在原生的fs上包一层。&lt;br&gt;
+overlayfs 是linux内核提供的功能，相关文档见 &lt;a href=&#34;https://docs.kernel.org/filesystems/overlayfs.html&#34;&gt;https://docs.kernel.org/filesystems/overlayfs.html&lt;/a&gt;&lt;br&gt;
+容器使用 overlayfs 作为容器的文件系统，比如镜像是按层构建的，每一层都是lowerdir, 并创建一个容器的upperdir, 最终得到用户看到的容器文件系统。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[container] 2.容器基础之oci runtime</title>
+      <link>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</guid>
+      <description>&lt;p&gt;oci(open container initiative, 开放容器倡议) 主要有三个大的spec, runtime（容器运行时）、image（镜像）、distribution（分发）&lt;/p&gt;
+&lt;h1 id=&#34;oci-runtime-spec&#34;&gt;OCI Runtime Spec&lt;/h1&gt;
+&lt;p&gt;包含三方面：配置和打包定义（也就是bundle和config.json的schema）、执行环境、容器生命周期及相关操作&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[install] wsl 和 containerd 环境准备踩坑</title>
+      <link>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
+      <description>&lt;p&gt;后面开始用家里的windows主机开发和学习，换了新环境，配置环境很折磨，wsl虽说很方便，但是遇到各种坑，解决起来很费脑&lt;/p&gt;
+&lt;h1 id=&#34;wsl2-配置&#34;&gt;wsl2 配置&lt;/h1&gt;
+&lt;p&gt;2025年wsl已经有了很多新的演进，在网络方便进步很多，原来wsl1如果要连接宿主机的代理，需要配宿主机的ip，但是宿主机的ip不固定，比较麻烦（不过也就是一个脚本的事，问题也不大）&lt;br&gt;
+wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是wsl里可以通过localhost访问host。&lt;br&gt;
+配置如下，在windows的用户目录下创建 &lt;code&gt;.wslconfig&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
