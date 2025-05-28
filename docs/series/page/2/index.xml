@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>[install] wsl 和 containerd 环境准备踩坑</title>
+      <link>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
+      <description>&lt;p&gt;后面开始用家里的windows主机开发和学习，换了新环境，配置环境很折磨，wsl虽说很方便，但是遇到各种坑，解决起来很费脑&lt;/p&gt;
+&lt;h1 id=&#34;wsl2-配置&#34;&gt;wsl2 配置&lt;/h1&gt;
+&lt;p&gt;2025年wsl已经有了很多新的演进，在网络方便进步很多，原来wsl1如果要连接宿主机的代理，需要配宿主机的ip，但是宿主机的ip不固定，比较麻烦（不过也就是一个脚本的事，问题也不大）&lt;br&gt;
+wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是wsl里可以通过localhost访问host。&lt;br&gt;
+配置如下，在windows的用户目录下创建 &lt;code&gt;.wslconfig&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[distribute] 单应用分布式架构</title>
       <link>https://wymli.github.io/2022/04/distribute-%E5%8D%95%E5%BA%94%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/</link>
       <pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate>
@@ -383,16 +396,6 @@ func NewWorker() workerImpl {
 &lt;blockquote&gt;
 &lt;p&gt;参考kafka技术内幕:图文详解kafka源码设计和实现&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网络通信框架(比如rpc)&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[sys] 虚拟内存与缓存缓冲</title>
-      <link>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</link>
-      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/sys-virtmempage-cachebuffer-cache/</guid>
-      <description>&lt;h1 id=&#34;虚拟内存virtual-memory&#34;&gt;虚拟内存virtual memory&lt;/h1&gt;
-&lt;p&gt;什么是虚拟内存,应该不用多言.本质就是一个逻辑的虚拟地址空间,这些地址空间中,有的地址真正的对应到了物理内存的地址,有的地址却是对应到了磁盘上的地址(通过swap交换换页进入物理内存).&lt;/p&gt;</description>
     </item>
     
   </channel>

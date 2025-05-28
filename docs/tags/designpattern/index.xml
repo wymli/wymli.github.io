@@ -42,6 +42,20 @@
     </item>
     
     <item>
+      <title>[volcano] advanced schedule strategy</title>
+      <link>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</link>
+      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34;&gt;</description>
+    </item>
+    
+    <item>
       <title>[k8s] scheduler</title>
       <link>https://wymli.github.io/2025/05/k8s-scheduler/</link>
       <pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
@@ -273,19 +287,6 @@ overlayfs 是linux内核提供的功能，相关文档见 &lt;a href=&#34;https:
       <description>&lt;p&gt;oci(open container initiative, 开放容器倡议) 主要有三个大的spec, runtime（容器运行时）、image（镜像）、distribution（分发）&lt;/p&gt;
 &lt;h1 id=&#34;oci-runtime-spec&#34;&gt;OCI Runtime Spec&lt;/h1&gt;
 &lt;p&gt;包含三方面：配置和打包定义（也就是bundle和config.json的schema）、执行环境、容器生命周期及相关操作&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[install] wsl 和 containerd 环境准备踩坑</title>
-      <link>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</link>
-      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2025/03/install-wsl-%E5%92%8C-containerd-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/</guid>
-      <description>&lt;p&gt;后面开始用家里的windows主机开发和学习，换了新环境，配置环境很折磨，wsl虽说很方便，但是遇到各种坑，解决起来很费脑&lt;/p&gt;
-&lt;h1 id=&#34;wsl2-配置&#34;&gt;wsl2 配置&lt;/h1&gt;
-&lt;p&gt;2025年wsl已经有了很多新的演进，在网络方便进步很多，原来wsl1如果要连接宿主机的代理，需要配宿主机的ip，但是宿主机的ip不固定，比较麻烦（不过也就是一个脚本的事，问题也不大）&lt;br&gt;
-wsl2支持镜像网络模式，wsl和host可以共用网络地址了，也就是wsl里可以通过localhost访问host。&lt;br&gt;
-配置如下，在windows的用户目录下创建 &lt;code&gt;.wslconfig&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Schedule on UnderTheHood</title>
+    <link>https://wymli.github.io/tags/schedule/</link>
+    <description>Recent content in Schedule on UnderTheHood</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://wymli.github.io/tags/schedule/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[DB] rule</title>
+      <link>https://wymli.github.io/2021/03/db-rule/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-rule/</guid>
+      <description>&lt;h1 id=&#34;数据库设计范式&#34;&gt;数据库设计范式&lt;/h1&gt;
+&lt;p&gt;所谓设计范式,可理解为设计一张表的各个列的规则&lt;/p&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义&lt;/h2&gt;
+&lt;p&gt;键和函数依赖&lt;/p&gt;
+&lt;h3 id=&#34;键&#34;&gt;键&lt;/h3&gt;
+&lt;p&gt;所有的键(key) 都是 a set of one or more attributes&lt;/p&gt;
+&lt;p&gt;主属性(prime attribute) 至少出现在一个候选键中的属性&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[DB] sql spec</title>
+      <link>https://wymli.github.io/2021/03/db-sql-spec/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-sql-spec/</guid>
+      <description>&lt;h1 id=&#34;about-sql-statementindex-spec&#34;&gt;About sql statement&amp;amp;index spec&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考但不限于&lt;code&gt;Java开发手册（嵩山版）&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于索引&#34;&gt;关于索引&lt;/h2&gt;
+&lt;p&gt;与索引有关的注意事项,基本都集中在一个sql语句它到底是否正确使用了索引,这可以通过explain后的extra列来识别语句执行速度,但是在理论上,我们知道索引是一颗B+树,所以只要了解了B+树的构造,那么自然可以从理论上去识别一个条件查询是否能使用索引&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[deploy] server deploy</title>
+      <link>https://wymli.github.io/2021/03/deploy-server-deploy/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/deploy-server-deploy/</guid>
+      <description>&lt;h1 id=&#34;记一次云端部署web服务器&#34;&gt;记一次云端部署web服务器&lt;/h1&gt;
+&lt;p&gt;本来以为和在自己电脑上本地部署一样,没想到还是遇到很多自己不熟悉的地方,云端服务器会涉及到更多linux相关的知识.&lt;/p&gt;
+&lt;h2 id=&#34;首先是云服务器的环境配置&#34;&gt;首先是云服务器的环境配置&lt;/h2&gt;
+&lt;p&gt;典型的,我们是通过ssh上服务器(22端口),如果是windows,则是远程桌面的3389端口,这两个端口连同80和443端口都是默认开放的. 如果想使用其他端口必须在防火墙中设置入站白名单&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] concurrentMap</title>
+      <link>https://wymli.github.io/2021/03/go-concurrentmap/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-concurrentmap/</guid>
+      <description>&lt;h1 id=&#34;built-in-map-syncmap--concurrentmap&#34;&gt;Built-in map&amp;amp; sync.Map &amp;amp; ConcurrentMap&lt;/h1&gt;
+&lt;p&gt;并发map,是指多线程安全的map数据结构, 我们知道go语言原生的map是不支持并发的, 要想获得一个并发map,&lt;/p&gt;
+&lt;p&gt;我们有如下的几种方案:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] errorx</title>
+      <link>https://wymli.github.io/2021/03/go-errorx/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-errorx/</guid>
+      <description>&lt;h1 id=&#34;error&#34;&gt;Error&lt;/h1&gt;
+&lt;p&gt;go的error一直是被人诟病的,对于菜鸡来说无非是每调用一个函数就要判断一下&lt;code&gt;if err!=nil{return err}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;而对于进阶一点的程序员,则会诟病它的error接口设计的太烂,只要实现了&lt;code&gt;Error()&lt;/code&gt;,就是一个error,这导致难以比较&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] escape analysis</title>
+      <link>https://wymli.github.io/2021/03/go-escape-analysis/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-escape-analysis/</guid>
+      <description>&lt;h1 id=&#34;逃逸分析&#34;&gt;逃逸分析&lt;/h1&gt;
+&lt;p&gt;首先,逃逸分析发生在编译时,由分析结果决定运行时对象应该在堆还是栈上分配&lt;/p&gt;
+&lt;p&gt;注意: 这个编译时分析似乎是以函数为单位的静态分析,因此才有当函数参数是interface{}时,不知其具体类型&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] GC</title>
+      <link>https://wymli.github.io/2021/03/go-gc/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-gc/</guid>
+      <description>&lt;h1 id=&#34;垃圾回收算法&#34;&gt;垃圾回收算法&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/&#34;&gt;https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-garbage-collector/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有两种常见的自动管理堆内存的方法:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引用计数/智能指针&lt;/li&gt;
+&lt;li&gt;追踪式垃圾回收(对堆内存的对象关系图进行可达性分析)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;术语&#34;&gt;术语&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;根对象: 包括所有栈上对象,全局变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;标记-清扫法mark-sweep&#34;&gt;标记-清扫法(mark-sweep)&lt;/h2&gt;
+&lt;p&gt;典型的STW(stop the world)算法,当进行垃圾回收时,先暂停用户程序,然后从根对象出发对堆对象进行可达性标记(比如bfs/dfs),标记完后遍历所有的堆对象,回收掉不可达对象&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] goroutine pool</title>
+      <link>https://wymli.github.io/2021/03/go-goroutine-pool/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-goroutine-pool/</guid>
+      <description>&lt;h1 id=&#34;goroutine-pool&#34;&gt;Goroutine Pool&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;代码来自:gobwas/ws-example&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在go中,由于goroutine是完全的用户态线程,所以创建新线程的开销很小,在这种情况下,复用goroutine形成goroutine池的优化效果很有限&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] monkey patch</title>
+      <link>https://wymli.github.io/2021/03/go-monkey-patch/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-monkey-patch/</guid>
+      <description>&lt;h1 id=&#34;monkey-patch-猴子补丁&#34;&gt;Monkey patch 猴子补丁&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://bou.ke/blog/monkey-patching-in-go/&#34;&gt;https://bou.ke/blog/monkey-patching-in-go/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;intro-什么是monkey-patch&#34;&gt;Intro: 什么是monkey patch?&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+func a() int { return 1 }
+func b() int { return 2 }
+
+func main() {
+	replace(a, b)
+	print(a())  // 2
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;monkey patch将做到如上的效果,当你调用a函数时,实际却调用了b函数,看起来有点神奇!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] mutex</title>
+      <link>https://wymli.github.io/2021/03/go-mutex/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-mutex/</guid>
+      <description>&lt;h1 id=&#34;mutex&#34;&gt;mutex&lt;/h1&gt;
+&lt;h2 id=&#34;结构&#34;&gt;结构&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;type Mutex struct {
+    state int32
+    sema  uint32
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;自旋&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;for{
+  cas(m.state)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;阻塞&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;wait(m.sema)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;状态&#34;&gt;状态&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;普通模式
+&lt;ul&gt;
+&lt;li&gt;就是正常的模式,线程相互竞争获得锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;饥饿模式
+&lt;ul&gt;
+&lt;li&gt;由于线程竞争失败会阻塞,而这些被唤醒的线程会和其他第一次来申请锁的线程一起竞争,显然,不可能竞争过,因为新的线程是占据着cpu的&lt;/li&gt;
+&lt;li&gt;这会导致阻塞线程的饥饿,因此,mutex加入了饥饿模式,当进入饥饿模式后,锁直接赋予阻塞队列的第一个线程,新线程自动加入阻塞队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意,对锁的竞争,有两大来源,一是新线程,二是被阻塞线程(由于锁的释放而被唤醒),新线程如果自旋一段时间后未获得锁,便进入阻塞态,加入该锁的等待队列&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] netaddr</title>
+      <link>https://wymli.github.io/2021/03/go-netaddr/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-netaddr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>[Go] radix-tree</title>
+      <link>https://wymli.github.io/2021/03/go-radix-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-radix-tree/</guid>
+      <description>&lt;h1 id=&#34;radix树&#34;&gt;Radix树&lt;/h1&gt;
+&lt;p&gt;又叫压缩前缀树,基数树,常用于路由匹配上,会将路由组织成一颗radix树&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] reflect</title>
+      <link>https://wymli.github.io/2021/03/go-reflect/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-reflect/</guid>
+      <description>&lt;h2 id=&#34;什么是反射&#34;&gt;什么是反射?&lt;/h2&gt;
+&lt;p&gt;反射提供了一种运行时能对对象增删查改的方法.&lt;/p&gt;
+&lt;p&gt;换句话说,当函数参数的interface{}时,提供了一种访问原来的类型和值的方法. 这与switch type类似,但是switch只能对type进行判断,而你根本不知道会传进来何种自定义的结构体,这就是需要判断reflect.kind了&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] runtime struct builder</title>
+      <link>https://wymli.github.io/2021/03/go-runtime-struct-builder/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-runtime-struct-builder/</guid>
+      <description>&lt;h1 id=&#34;runtime-struct-运行时结构体构造方法&#34;&gt;Runtime Struct: 运行时结构体构造方法&lt;/h1&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/itsubaki/gostruct&#34;&gt;https://github.com/itsubaki/gostruct&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pkg.go.dev/reflect#example-StructOf&#34;&gt;https://pkg.go.dev/reflect#example-StructOf&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;reflectnewtyp-reflecttype-reflectvalue&#34;&gt;reflect.New(typ reflect.Type) reflect.Value&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;New returns a Value representing a pointer to a new zero value for the specified type. That is, the returned Value&amp;rsquo;s Type is PtrTo(typ).&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;因此,给定一个结构体类型的type,我们就可以构造出value&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] short var declare</title>
+      <link>https://wymli.github.io/2021/03/go-short-var-declare/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-short-var-declare/</guid>
+      <description>&lt;h1 id=&#34;go-短变量声明-&#34;&gt;[Go] 短变量声明 :=&lt;/h1&gt;
+&lt;p&gt;在Go中,提供了动态语言常用的一种直接声明并赋值的语法糖,即 := 短变量声明&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;:= 这个符号,可能是借鉴了Pascal&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;短变量声明有一定的要注意的地方,它与先声明后赋值有着一定的区别:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] slice index detail</title>
+      <link>https://wymli.github.io/2021/03/go-slice-index-detail/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-slice-index-detail/</guid>
+      <description>&lt;h1 id=&#34;go-slice的下标索引细节&#34;&gt;[Go] Slice的下标索引细节&lt;/h1&gt;
+&lt;p&gt;在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治&lt;/p&gt;
+&lt;p&gt;常见的比如快排,恢复二叉树等&lt;/p&gt;
+&lt;p&gt;在c/c++中,我会使用func(int* array , int lo , int hi)来标识数组的范围,但是在python这种动态语言中,可以直接使用数组的切片,很方便的传入递归函数 func (slice[lo:hi])&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] standard package layout</title>
+      <link>https://wymli.github.io/2021/03/go-standard-package-layout/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-standard-package-layout/</guid>
+      <description>&lt;h1 id=&#34;standard-package-layout&#34;&gt;Standard Package Layout&lt;/h1&gt;
+&lt;p&gt;标准包布局   -Ben Johnson &lt;a href=&#34;https://www.gobeyond.dev/standard-package-layout/&#34;&gt;https://www.gobeyond.dev/standard-package-layout/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用的包布局(application package layout)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Go] user thread</title>
+      <link>https://wymli.github.io/2021/03/go-user-thread/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-user-thread/</guid>
+      <description>&lt;h1 id=&#34;用户线程与核心线程&#34;&gt;用户线程与核心线程&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://flint.cs.yale.edu/cs422/doc/sched-act.pdf&#34;&gt;Scheduler Activations: Effective Kernel Support for the  User-Level Management of Parallelism&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;论文观点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We  argue  that  the  performance  of  user-levelthreads  is  inherently  better  than  that  of  kernel  threads,  rather  than  thisbeing  an  artifact  of  existing  implementations.&lt;/li&gt;
+&lt;li&gt;kernel   threads   are   the wrong   abstraction   on   which   to   support   user-level management   of   parallelism.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1用户线程的优势&#34;&gt;1.用户线程的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The  cost  of  accessing  thread  management  operations.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>[HTTP] Content-Type</title>
+      <link>https://wymli.github.io/2021/03/http-content-type/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/http-content-type/</guid>
+      <description>&lt;h1 id=&#34;about-content-type&#34;&gt;About Content-Type&lt;/h1&gt;
+&lt;p&gt;Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段&lt;/p&gt;
+&lt;h2 id=&#34;三种content-type&#34;&gt;三种Content-Type&lt;/h2&gt;
+&lt;h3 id=&#34;applicationx-www-form-urlencoded&#34;&gt;application/x-www-form-urlencoded&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;默认类型,当form不指定enctype时使用此content-type&lt;/li&gt;
+&lt;li&gt;看名字就知道,urlencoded,当自己构造时,要对参数进行url转义&lt;/li&gt;
+&lt;li&gt;示例: &lt;code&gt;a=123&amp;amp;b=123&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go语言中,可以直接传string/[]byte给body,也可以是map[string]string,也可以是url.Values(typedef map[string][]string)
+&lt;ul&gt;
+&lt;li&gt;虽然这些都可以,但推荐url.Values,可以直接调用.encode(),自己构造的是没有encode的,但一般来说都没有问题,因为只有特殊字符需要encode!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;go-server-解析&#34;&gt;go server 解析:&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;multipartform-datamime&#34;&gt;multipart/form-data(mime)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用于上传文件&lt;/li&gt;
+&lt;li&gt;html form 构造: &lt;code&gt;form.enctype=&amp;quot;multipart/form-data&amp;quot; i.put:type=&amp;quot;file&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go client 构造: &lt;code&gt;import &amp;quot;mime/multipart&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go server 解析:
+&lt;ul&gt;
+&lt;li&gt;首先解析: &lt;code&gt;r.ParseMultipartForm(1024 * 1024)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;取出来:&lt;code&gt;image := r.MultipartForm.Value[&amp;quot;image&amp;quot;] &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;也可以看看gin的api,更方便&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;applicationjson&#34;&gt;application/json&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;json.marshall之后传进body即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gin解析&#34;&gt;gin解析:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;id := c.Query(&amp;quot;id&amp;quot;)
+c.PostForm(&amp;quot;name&amp;quot;)
+// 也可以bind进一个结构体
+// 推荐使用bind,可以很方便的进行表单验证
+// get:BindQuery , post:bindjson/bindxml/...
+c.ShouldBind(&amp;amp;person)
+
+
+// 单文件
+router.MaxMultipartMemory = 8 &amp;lt;&amp;lt; 20 
+file, _ := c.FormFile(&amp;quot;file&amp;quot;)
+c.SaveUploadedFile(file, dst)
+
+// 多文件
+form, _ := c.MultipartForm()
+files := form.File[&amp;quot;upload[]&amp;quot;]
+
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>[Interview] ByteDance&amp;Tencent</title>
+      <link>https://wymli.github.io/2021/03/interview-bytedancetencent/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/interview-bytedancetencent/</guid>
+      <description>&lt;h1 id=&#34;bytedancetencent&#34;&gt;ByteDance&amp;amp;Tencent&lt;/h1&gt;
+&lt;p&gt;2021/3 暑期实习&lt;/p&gt;
+&lt;h3 id=&#34;腾讯一面&#34;&gt;腾讯一面&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;上来抛了道js,问我输出&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const a = (
+   i : 0,
+   toString(){
+      return i++
+   }
+)
+print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;答案是false,没答出来,我当时主要纠结于为什么会调用toString呢&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;问了下闭包,以及和方法引用对象变量的区别&lt;/li&gt;
+&lt;li&gt;union结构体,柔性数组&lt;/li&gt;
+&lt;li&gt;讲讲TCP三次握手,序数是从0开始吗
+&lt;ol&gt;
+&lt;li&gt;不是&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲数据包从本机到公网的历程
+&lt;ol&gt;
+&lt;li&gt;讲了arp,交换机,路由器这些&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;讲讲物理层的冲突
+&lt;ol&gt;
+&lt;li&gt;载波侦听多路访问&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;交换机和路由器的区别&lt;/li&gt;
+&lt;li&gt;交换机的端口分向内向外吗
+&lt;ol&gt;
+&lt;li&gt;不分,一个广播域,一个子网&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;了解tcmalloc吗
+&lt;ol&gt;
+&lt;li&gt;不懂,查了下,是thread cache malloc,一种内存管理中的内存分配方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;介绍自己的项目,聊到多态哈希,问我的并发控制是怎么做的
+&lt;ol&gt;
+&lt;li&gt;读写锁,map分片&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;哈希怎么做的内存管理
+&lt;ol&gt;
+&lt;li&gt;用bitmap,不是像slab用链表&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;等等,多数忘了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二面&#34;&gt;二面&lt;/h3&gt;
+&lt;p&gt;今天早上过了tx的二面,感觉面的很简单&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -17,6 +17,13 @@
   </url>
   
   <url>
+    <loc>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</loc>
+    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://wymli.github.io/categories/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -53,6 +60,13 @@
   
   <url>
     <loc>https://wymli.github.io/posts/</loc>
+    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://wymli.github.io/tags/schedule/</loc>
     <lastmod>2025-05-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
