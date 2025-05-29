@@ -1,6 +1,6 @@
 ---
 title: "[volcano] advanced schedule strategy"
-date: "2025-05-28"
+date: "2025-05-29"
 tags: ["k8s", "volcano", "schedule"]
 categories: ["k8s", "volcano"]
 ---

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
@@ -28,6 +28,20 @@
     </item>
     
     <item>
+      <title>[volcano] advanced schedule strategy</title>
+      <link>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</link>
+      <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34;&gt;</description>
+    </item>
+    
+    <item>
       <title>[k8s] volcano gpu device plugin</title>
       <link>https://wymli.github.io/2025/05/k8s-volcano-gpu-device-plugin/</link>
       <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
@@ -39,20 +53,6 @@
     style=&#34;height: 80vh;&#34;
     allow=&#34;fullscreen&#34;
     src=&#34;https://c6t4wbgxht.feishu.cn/docx/OuIud1XOZo1A10xmYuVc3ph2n9O&#34;&gt;</description>
-    </item>
-    
-    <item>
-      <title>[volcano] advanced schedule strategy</title>
-      <link>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</link>
-      <pubDate>Wed, 28 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
-&lt;iframe 
-    width=&#34;100%&#34;
-    style=&#34;height: 80vh;&#34;
-    allow=&#34;fullscreen&#34;
-    src=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34;&gt;</description>
     </item>
     
     <item>
