@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[mq] kafka2 producer</title>
+      <link>https://wymli.github.io/2021/03/mq-kafka2-producer/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/mq-kafka2-producer/</guid>
+      <description>&lt;h1 id=&#34;kafka-producer&#34;&gt;kafka producer&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考kafka技术内幕:图文详解kafka源码设计和实现&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网络通信框架(比如rpc)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[sys] 虚拟内存与缓存缓冲</title>
@@ -343,19 +355,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
 &lt;p&gt;跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n)&lt;/p&gt;
 &lt;p&gt;跳表是二叉搜索树,AVL,RBTree的替代品&lt;/p&gt;
 &lt;p&gt;这里我们不介绍如何从头开始编写skipList,但仍然介绍其中可能存在的一些关键点&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[DB] b-tree</title>
-      <link>https://wymli.github.io/2021/03/db-b-tree/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/db-b-tree/</guid>
-      <description>&lt;h1 id=&#34;索引中的平衡树b-treeb-plus-tree&#34;&gt;索引中的平衡树:b-tree,b-plus-tree&lt;/h1&gt;
-&lt;p&gt;主要介绍数据库的索引,及其实现,平衡多叉树&lt;/p&gt;
-&lt;h2 id=&#34;什么是索引&#34;&gt;什么是索引&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;想象一下,假设db没有任何数据结构驻留在内存,其一切存储都放在disk,那么想找到一张表的一个行,就必须把表的所有页取到memory,逐个比较各行. 因此我们必须放置一些特定的数据结构在内存中,方便快速查找(但不是缓存)(也不总是在内存中)&lt;/p&gt;</description>
     </item>
     
   </channel>

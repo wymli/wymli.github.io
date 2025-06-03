@@ -12,7 +12,7 @@ publish:
 
 update_readme:
     #!/usr/bin/bash
-    python x.py
+    uv run collect_latest_posts.py
     cd wymli
     git add .
     git commit -m "update"
@@ -40,5 +40,5 @@ create $file $url:
         allow="fullscreen"
         src="$url">
     EOF
-    code $f
+    code "$f"
 

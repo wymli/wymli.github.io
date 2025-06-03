@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[container] 2.容器基础之oci runtime</title>
+      <link>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</guid>
+      <description>&lt;p&gt;oci(open container initiative, 开放容器倡议) 主要有三个大的spec, runtime（容器运行时）、image（镜像）、distribution（分发）&lt;/p&gt;
+&lt;h1 id=&#34;oci-runtime-spec&#34;&gt;OCI Runtime Spec&lt;/h1&gt;
+&lt;p&gt;包含三方面：配置和打包定义（也就是bundle和config.json的schema）、执行环境、容器生命周期及相关操作&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[install] wsl 和 containerd 环境准备踩坑</title>
@@ -385,18 +396,6 @@ func NewWorker() workerImpl {
       <guid>https://wymli.github.io/2021/04/mq-kafka1.5-install/</guid>
       <description>&lt;h1 id=&#34;安装kafka&#34;&gt;安装kafka&lt;/h1&gt;
 &lt;p&gt;我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get search搜索看有没有自己想要的版本&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mq] kafka2 producer</title>
-      <link>https://wymli.github.io/2021/03/mq-kafka2-producer/</link>
-      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/mq-kafka2-producer/</guid>
-      <description>&lt;h1 id=&#34;kafka-producer&#34;&gt;kafka producer&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;参考kafka技术内幕:图文详解kafka源码设计和实现&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;本节主要讲关于kafka的生产者相关的事情,比如同步与异步的api调用,底层的网络通信框架(比如rpc)&lt;/p&gt;</description>
     </item>
     
   </channel>

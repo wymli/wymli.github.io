@@ -13,6 +13,19 @@
     
     
     <item>
+      <title>[DB] b-tree</title>
+      <link>https://wymli.github.io/2021/03/db-b-tree/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/db-b-tree/</guid>
+      <description>&lt;h1 id=&#34;索引中的平衡树b-treeb-plus-tree&#34;&gt;索引中的平衡树:b-tree,b-plus-tree&lt;/h1&gt;
+&lt;p&gt;主要介绍数据库的索引,及其实现,平衡多叉树&lt;/p&gt;
+&lt;h2 id=&#34;什么是索引&#34;&gt;什么是索引&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;想象一下,假设db没有任何数据结构驻留在内存,其一切存储都放在disk,那么想找到一张表的一个行,就必须把表的所有页取到memory,逐个比较各行. 因此我们必须放置一些特定的数据结构在内存中,方便快速查找(但不是缓存)(也不总是在内存中)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[DB] rule</title>
       <link>https://wymli.github.io/2021/03/db-rule/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
@@ -339,74 +352,6 @@ form, _ := c.MultipartForm()
 files := form.File[&amp;quot;upload[]&amp;quot;]
 
 &lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Interview] ByteDance&amp;Tencent</title>
-      <link>https://wymli.github.io/2021/03/interview-bytedancetencent/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/interview-bytedancetencent/</guid>
-      <description>&lt;h1 id=&#34;bytedancetencent&#34;&gt;ByteDance&amp;amp;Tencent&lt;/h1&gt;
-&lt;p&gt;2021/3 暑期实习&lt;/p&gt;
-&lt;h3 id=&#34;腾讯一面&#34;&gt;腾讯一面&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;上来抛了道js,问我输出&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const a = (
-   i : 0,
-   toString(){
-      return i++
-   }
-)
-print(a == 0 &amp;amp;&amp;amp; a==1 &amp;amp;&amp;amp; a==2)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;答案是false,没答出来,我当时主要纠结于为什么会调用toString呢&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;问了下闭包,以及和方法引用对象变量的区别&lt;/li&gt;
-&lt;li&gt;union结构体,柔性数组&lt;/li&gt;
-&lt;li&gt;讲讲TCP三次握手,序数是从0开始吗
-&lt;ol&gt;
-&lt;li&gt;不是&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;讲讲数据包从本机到公网的历程
-&lt;ol&gt;
-&lt;li&gt;讲了arp,交换机,路由器这些&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;讲讲物理层的冲突
-&lt;ol&gt;
-&lt;li&gt;载波侦听多路访问&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;交换机和路由器的区别&lt;/li&gt;
-&lt;li&gt;交换机的端口分向内向外吗
-&lt;ol&gt;
-&lt;li&gt;不分,一个广播域,一个子网&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;了解tcmalloc吗
-&lt;ol&gt;
-&lt;li&gt;不懂,查了下,是thread cache malloc,一种内存管理中的内存分配方法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;介绍自己的项目,聊到多态哈希,问我的并发控制是怎么做的
-&lt;ol&gt;
-&lt;li&gt;读写锁,map分片&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;哈希怎么做的内存管理
-&lt;ol&gt;
-&lt;li&gt;用bitmap,不是像slab用链表&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;等等,多数忘了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;二面&#34;&gt;二面&lt;/h3&gt;
-&lt;p&gt;今天早上过了tx的二面,感觉面的很简单&lt;/p&gt;</description>
     </item>
     
   </channel>

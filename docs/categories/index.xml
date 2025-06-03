@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -25,6 +25,20 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JS: Javascript is all you need</title>
+      <link>https://wymli.github.io/2025/05/js-javascript-is-all-you-need/</link>
+      <pubDate>Fri, 30 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/js-javascript-is-all-you-need/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/PLphdHQQSowBfyxbdsPcMxDcnFe&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/PLphdHQQSowBfyxbdsPcMxDcnFe&#34;&gt;</description>
     </item>
     
     <item>
@@ -276,17 +290,6 @@
       <description>&lt;p&gt;overlayfs ，如其名，覆盖文件系统，类似那些 overlay network一样（在underlay network上包一层），在原生的fs上包一层。&lt;br&gt;
 overlayfs 是linux内核提供的功能，相关文档见 &lt;a href=&#34;https://docs.kernel.org/filesystems/overlayfs.html&#34;&gt;https://docs.kernel.org/filesystems/overlayfs.html&lt;/a&gt;&lt;br&gt;
 容器使用 overlayfs 作为容器的文件系统，比如镜像是按层构建的，每一层都是lowerdir, 并创建一个容器的upperdir, 最终得到用户看到的容器文件系统。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[container] 2.容器基础之oci runtime</title>
-      <link>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</link>
-      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2025/03/container-2.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-runtime/</guid>
-      <description>&lt;p&gt;oci(open container initiative, 开放容器倡议) 主要有三个大的spec, runtime（容器运行时）、image（镜像）、distribution（分发）&lt;/p&gt;
-&lt;h1 id=&#34;oci-runtime-spec&#34;&gt;OCI Runtime Spec&lt;/h1&gt;
-&lt;p&gt;包含三方面：配置和打包定义（也就是bundle和config.json的schema）、执行环境、容器生命周期及相关操作&lt;/p&gt;</description>
     </item>
     
   </channel>
