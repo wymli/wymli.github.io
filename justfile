@@ -3,7 +3,7 @@ alias p := publish
 alias push := publish
 publish:
     #!/usr/bin/bash
-    gvm use go1.23.0
+    source ~/.bashrc && gvm use go1.23.0
     hugo build
     git add .
     git commit -m "update"
