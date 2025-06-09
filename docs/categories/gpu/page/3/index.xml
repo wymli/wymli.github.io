@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/gpu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[mq] kafka3 consumer</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka3-consumer/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka3-consumer/</guid>
+      <description>&lt;h1 id=&#34;kafka3-consumer&#34;&gt;kafka3 consumer&lt;/h1&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;消费组&#34;&gt;消费组&lt;/h2&gt;
+&lt;p&gt;往群组里增加消费者是横向伸缩消费能力的主要方式&lt;/p&gt;
+&lt;p&gt;消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个topic的消息,而必须要订阅&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[mq] kafka1.5 install</title>
@@ -340,19 +353,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
 &lt;blockquote&gt;
 &lt;p&gt;ref:  github.com/gdamore/tcell/v2&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数据刷新,而跳过不变的数据.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[concurrency] promise&amp;future</title>
-      <link>https://wymli.github.io/2021/03/concurrency-promisefuture/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/concurrency-promisefuture/</guid>
-      <description>&lt;h1 id=&#34;promisefuture&#34;&gt;Promise&amp;amp;future&lt;/h1&gt;
-&lt;p&gt;函数式编程是一个新的编程范式,基本上,只要你的编程语言支持&lt;code&gt;函数是一等公民&lt;/code&gt;这个说法,那么就至少支持部分的函数式编程&lt;/p&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&#34;promise&#34;&gt;promise&lt;/h2&gt;
-&lt;p&gt;所谓的promise,是指对异步函数返回值的一个封装,比如就是对单个int的封装,但是由于是异步的,所以只能注册回调函数来完成当函数结束后对int进行访问&lt;/p&gt;</description>
     </item>
     
   </channel>

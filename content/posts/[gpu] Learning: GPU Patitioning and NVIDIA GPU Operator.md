@@ -1,6 +1,6 @@
 ---
 title: "Learning: GPU Patitioning and NVIDIA GPU Operator"
-date: "2025-06-10"
+date: "2025-06-09"
 tags: ["k8s", "gpu"]
 categories: ["k8s", "gpu"]
 ---

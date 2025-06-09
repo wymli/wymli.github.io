@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[http] 流式响应之text/event-stream</title>
+      <link>https://wymli.github.io/2025/03/http-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E4%B9%8Btext.event-stream/</link>
+      <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/http-%E6%B5%81%E5%BC%8F%E5%93%8D%E5%BA%94%E4%B9%8Btext.event-stream/</guid>
+      <description>&lt;p&gt;WIP&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[container] 1.容器基础之overlayfs</title>
@@ -384,19 +393,6 @@ func NewWorker() workerImpl {
 &lt;blockquote&gt;
 &lt;p&gt;官方文档： &lt;a href=&#34;https://zookeeper.apache.org/doc/r3.4.14/&#34;&gt;https://zookeeper.apache.org/doc/r3.4.14/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;zookeeper是一种分布式协调服务(也就是说常称的注册中心),分布式应用正在运行的一组系统称为&lt;strong&gt;集群&lt;/strong&gt;，而在集群中运行的每台机器被称为&lt;strong&gt;节点&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mq] kafka3 consumer</title>
-      <link>https://wymli.github.io/2021/04/mq-kafka3-consumer/</link>
-      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/04/mq-kafka3-consumer/</guid>
-      <description>&lt;h1 id=&#34;kafka3-consumer&#34;&gt;kafka3 consumer&lt;/h1&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&#34;消费组&#34;&gt;消费组&lt;/h2&gt;
-&lt;p&gt;往群组里增加消费者是横向伸缩消费能力的主要方式&lt;/p&gt;
-&lt;p&gt;消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个topic的消息,而必须要订阅&lt;/p&gt;</description>
     </item>
     
   </channel>

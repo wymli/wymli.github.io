@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Wed, 28 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/gpu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] user thread</title>
+      <link>https://wymli.github.io/2021/03/go-user-thread/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-user-thread/</guid>
+      <description>&lt;h1 id=&#34;用户线程与核心线程&#34;&gt;用户线程与核心线程&lt;/h1&gt;
+&lt;p&gt;ref: &lt;a href=&#34;https://flint.cs.yale.edu/cs422/doc/sched-act.pdf&#34;&gt;Scheduler Activations: Effective Kernel Support for the  User-Level Management of Parallelism&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;论文观点:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;We  argue  that  the  performance  of  user-levelthreads  is  inherently  better  than  that  of  kernel  threads,  rather  than  thisbeing  an  artifact  of  existing  implementations.&lt;/li&gt;
+&lt;li&gt;kernel   threads   are   the wrong   abstraction   on   which   to   support   user-level management   of   parallelism.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1用户线程的优势&#34;&gt;1.用户线程的优势&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;The  cost  of  accessing  thread  management  operations.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>[HTTP] Content-Type</title>
