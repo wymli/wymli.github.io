@@ -7,10 +7,71 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Fri, 30 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[HTTP] Content-Type</title>
+      <link>https://wymli.github.io/2021/03/http-content-type/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/http-content-type/</guid>
+      <description>&lt;h1 id=&#34;about-content-type&#34;&gt;About Content-Type&lt;/h1&gt;
+&lt;p&gt;Content-Type 用来指定在POST请求中body的数据类型(或格式),是一个非常重要的Header字段&lt;/p&gt;
+&lt;h2 id=&#34;三种content-type&#34;&gt;三种Content-Type&lt;/h2&gt;
+&lt;h3 id=&#34;applicationx-www-form-urlencoded&#34;&gt;application/x-www-form-urlencoded&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;默认类型,当form不指定enctype时使用此content-type&lt;/li&gt;
+&lt;li&gt;看名字就知道,urlencoded,当自己构造时,要对参数进行url转义&lt;/li&gt;
+&lt;li&gt;示例: &lt;code&gt;a=123&amp;amp;b=123&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go语言中,可以直接传string/[]byte给body,也可以是map[string]string,也可以是url.Values(typedef map[string][]string)
+&lt;ul&gt;
+&lt;li&gt;虽然这些都可以,但推荐url.Values,可以直接调用.encode(),自己构造的是没有encode的,但一般来说都没有问题,因为只有特殊字符需要encode!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;go-server-解析&#34;&gt;go server 解析:&lt;/h2&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;multipartform-datamime&#34;&gt;multipart/form-data(mime)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;用于上传文件&lt;/li&gt;
+&lt;li&gt;html form 构造: &lt;code&gt;form.enctype=&amp;quot;multipart/form-data&amp;quot; i.put:type=&amp;quot;file&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go client 构造: &lt;code&gt;import &amp;quot;mime/multipart&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go server 解析:
+&lt;ul&gt;
+&lt;li&gt;首先解析: &lt;code&gt;r.ParseMultipartForm(1024 * 1024)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;取出来:&lt;code&gt;image := r.MultipartForm.Value[&amp;quot;image&amp;quot;] &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;也可以看看gin的api,更方便&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;applicationjson&#34;&gt;application/json&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;json.marshall之后传进body即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;gin解析&#34;&gt;gin解析:&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;id := c.Query(&amp;quot;id&amp;quot;)
+c.PostForm(&amp;quot;name&amp;quot;)
+// 也可以bind进一个结构体
+// 推荐使用bind,可以很方便的进行表单验证
+// get:BindQuery , post:bindjson/bindxml/...
+c.ShouldBind(&amp;amp;person)
+
+
+// 单文件
+router.MaxMultipartMemory = 8 &amp;lt;&amp;lt; 20 
+file, _ := c.FormFile(&amp;quot;file&amp;quot;)
+c.SaveUploadedFile(file, dst)
+
+// 多文件
+form, _ := c.MultipartForm()
+files := form.File[&amp;quot;upload[]&amp;quot;]
+
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
     
     <item>
       <title>[Interview] ByteDance&amp;Tencent</title>

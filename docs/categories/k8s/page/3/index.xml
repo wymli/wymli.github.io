@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/k8s/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[mq] kafka1.5 install</title>
+      <link>https://wymli.github.io/2021/04/mq-kafka1.5-install/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/mq-kafka1.5-install/</guid>
+      <description>&lt;h1 id=&#34;安装kafka&#34;&gt;安装kafka&lt;/h1&gt;
+&lt;p&gt;我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get search搜索看有没有自己想要的版本&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[mq] kafka2 producer</title>
@@ -343,18 +353,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&#34;promise&#34;&gt;promise&lt;/h2&gt;
 &lt;p&gt;所谓的promise,是指对异步函数返回值的一个封装,比如就是对单个int的封装,但是由于是异步的,所以只能注册回调函数来完成当函数结束后对int进行访问&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[dataStructure] skip-list</title>
-      <link>https://wymli.github.io/2021/03/data-structure-skip-list/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/data-structure-skip-list/</guid>
-      <description>&lt;h1 id=&#34;skiplist&#34;&gt;skipList&lt;/h1&gt;
-&lt;p&gt;跳表具有平均的O(logn)的时间复杂度,但最坏情况仍是O(n)&lt;/p&gt;
-&lt;p&gt;跳表是二叉搜索树,AVL,RBTree的替代品&lt;/p&gt;
-&lt;p&gt;这里我们不介绍如何从头开始编写skipList,但仍然介绍其中可能存在的一些关键点&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[container] 1.容器基础之overlayfs</title>
+      <link>https://wymli.github.io/2025/03/container-1.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boverlayfs/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-1.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boverlayfs/</guid>
+      <description>&lt;p&gt;overlayfs ，如其名，覆盖文件系统，类似那些 overlay network一样（在underlay network上包一层），在原生的fs上包一层。&lt;br&gt;
+overlayfs 是linux内核提供的功能，相关文档见 &lt;a href=&#34;https://docs.kernel.org/filesystems/overlayfs.html&#34;&gt;https://docs.kernel.org/filesystems/overlayfs.html&lt;/a&gt;&lt;br&gt;
+容器使用 overlayfs 作为容器的文件系统，比如镜像是按层构建的，每一层都是lowerdir, 并创建一个容器的upperdir, 最终得到用户看到的容器文件系统。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[container] 2.容器基础之oci runtime</title>
@@ -386,16 +397,6 @@ func NewWorker() workerImpl {
 &lt;h2 id=&#34;消费组&#34;&gt;消费组&lt;/h2&gt;
 &lt;p&gt;往群组里增加消费者是横向伸缩消费能力的主要方式&lt;/p&gt;
 &lt;p&gt;消费组内的消费者可以订阅不同的topic,这意味着不是所有的消费者都能接收到某个topic的消息,而必须要订阅&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mq] kafka1.5 install</title>
-      <link>https://wymli.github.io/2021/04/mq-kafka1.5-install/</link>
-      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/04/mq-kafka1.5-install/</guid>
-      <description>&lt;h1 id=&#34;安装kafka&#34;&gt;安装kafka&lt;/h1&gt;
-&lt;p&gt;我们知道apt-get install只能安装某个版本的软件,这取决于在软件源那里的最新软件版本,你可以使用apt-get search搜索看有没有自己想要的版本&lt;/p&gt;</description>
     </item>
     
   </channel>
