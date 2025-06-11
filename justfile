@@ -3,7 +3,8 @@ alias p := publish
 alias push := publish
 publish:
     #!/usr/bin/bash
-    source ~/.bashrc
+    
+    [[ -s "/home/liweiming/.gvm/scripts/gvm" ]] && source "/home/liweiming/.gvm/scripts/gvm"
     gvm use go1.23
     hugo build
     git add .
