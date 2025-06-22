@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/categories/redis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[zk] zk1 intro</title>
+      <link>https://wymli.github.io/2021/04/zk-zk1-intro/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/04/zk-zk1-intro/</guid>
+      <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官方文档： &lt;a href=&#34;https://zookeeper.apache.org/doc/r3.4.14/&#34;&gt;https://zookeeper.apache.org/doc/r3.4.14/&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;zookeeper是一种分布式协调服务(也就是说常称的注册中心),分布式应用正在运行的一组系统称为&lt;strong&gt;集群&lt;/strong&gt;，而在集群中运行的每台机器被称为&lt;strong&gt;节点&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[mq] kafka3 consumer</title>
@@ -341,18 +353,6 @@ struct skipnode *node = malloc(sizeof(*node) + level * sizeof(struct sk_link));
 &lt;p&gt;&lt;a href=&#34;https://github.com/mum4k/termdash&#34;&gt;github.com/mum4k/termdash&lt;/a&gt;&lt;/p&gt;
 &lt;img src=&#34;https://github.com/mum4k/termdash/raw/master/doc/images/termdashdemo_0_9_0.gif&#34; alt=&#34;termdashdemo&#34; style=&#34;zoom: 25%;&#34; /&gt;
 &lt;p&gt;如何完成一个好看的terminal呢?在以前我们大都会使用简单的printf来打印数据到终端,进阶一点,可能会加上颜色,再后来可能又做个贪吃蛇游戏,了解了如何高效刷新terminal&amp;hellip;&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[cli] 刷新屏幕</title>
-      <link>https://wymli.github.io/2021/03/2.-createandfreshscreen/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/2.-createandfreshscreen/</guid>
-      <description>&lt;h1 id=&#34;可交互动态终端-2-刷新屏幕&#34;&gt;可交互动态终端 &amp;lt;2, 刷新屏幕&amp;gt;&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ref:  github.com/gdamore/tcell/v2&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;我们知道,对于终端的刷新来说,如果我们直接刷新整个屏幕,将会有明显的帧刷新感,由此,我们需要只对更新的数据刷新,而跳过不变的数据.&lt;/p&gt;</description>
     </item>
     
   </channel>

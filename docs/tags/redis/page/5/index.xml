@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 03 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Go] standard package layout</title>
+      <link>https://wymli.github.io/2021/03/go-standard-package-layout/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/go-standard-package-layout/</guid>
+      <description>&lt;h1 id=&#34;standard-package-layout&#34;&gt;Standard Package Layout&lt;/h1&gt;
+&lt;p&gt;标准包布局   -Ben Johnson &lt;a href=&#34;https://www.gobeyond.dev/standard-package-layout/&#34;&gt;https://www.gobeyond.dev/standard-package-layout/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vendoring和Generics,它们在go社区似乎都是big issue,但还有一个很少提及的issue,就是应用的包布局(application package layout)&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[Go] user thread</title>
