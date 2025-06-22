@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 09 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[volcano] advanced schedule strategy</title>
+      <link>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</link>
+      <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34;&gt;</description>
+    </item>
     
     <item>
       <title>[UnderTheHood] 基础-重要-知识-教旨-格言-蝉</title>
@@ -25,6 +39,20 @@
 &lt;li&gt;主存充当两个功能,一个是进程的存储空间(堆栈),一个磁盘的缓存(page cache)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;如此一来,一切都说得通了,我们常说read要从内核缓冲区拷贝到用户缓冲区,你也许和我有一样的疑惑,为什么要先拷贝到内核缓冲区呢?不能直接拷贝到用户缓冲区呢?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learning: k8s 散解(WIP)</title>
+      <link>https://wymli.github.io/2025/06/learning-k8s-%E6%95%A3%E8%A7%A3wip/</link>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/06/learning-k8s-%E6%95%A3%E8%A7%A3wip/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/AIbVdSZARom5puxfIsTcmcQvn3b&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
+&lt;iframe 
+    width=&#34;100%&#34;
+    style=&#34;height: 80vh;&#34;
+    allow=&#34;fullscreen&#34;
+    src=&#34;https://c6t4wbgxht.feishu.cn/docx/AIbVdSZARom5puxfIsTcmcQvn3b&#34;&gt;</description>
     </item>
     
     <item>
@@ -81,20 +109,6 @@
     style=&#34;height: 80vh;&#34;
     allow=&#34;fullscreen&#34;
     src=&#34;https://c6t4wbgxht.feishu.cn/docx/PLphdHQQSowBfyxbdsPcMxDcnFe&#34;&gt;</description>
-    </item>
-    
-    <item>
-      <title>[volcano] advanced schedule strategy</title>
-      <link>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</link>
-      <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2025/05/volcano-advanced-schedule-strategy/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34; target=&#34;_blank&#34;&gt; 前往飞书云文档查看 &lt;/a&gt;&lt;/p&gt;
-&lt;iframe 
-    width=&#34;100%&#34;
-    style=&#34;height: 80vh;&#34;
-    allow=&#34;fullscreen&#34;
-    src=&#34;https://c6t4wbgxht.feishu.cn/docx/VspsdtleQog980x7kZfcjL6Bnmb&#34;&gt;</description>
     </item>
     
     <item>
@@ -288,17 +302,6 @@
 &lt;/ol&gt;
 &lt;h1 id=&#34;push&#34;&gt;Push&lt;/h1&gt;
 &lt;p&gt;值得注意的是，在push image时，是先push blobs，再push manifest，与pull相反&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[container] 4.容器基础之oci image</title>
-      <link>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</link>
-      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</guid>
-      <description>&lt;p&gt;描述了一个镜像的打包目录和相关文件的schema&lt;/p&gt;
-&lt;h1 id=&#34;目录结构&#34;&gt;目录结构&lt;/h1&gt;
-&lt;p&gt;利用docker save拿到一个docke 镜像的tar包，解包后得到如下目录，这是一个兼容oci image spec的目录（但也只是兼容，不是严格相等，里面有一些oci image spec里未定义的文件）&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -13,6 +13,17 @@
     
     
     <item>
+      <title>[container] 4.容器基础之oci image</title>
+      <link>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2025/03/container-4.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Boci-image/</guid>
+      <description>&lt;p&gt;描述了一个镜像的打包目录和相关文件的schema&lt;/p&gt;
+&lt;h1 id=&#34;目录结构&#34;&gt;目录结构&lt;/h1&gt;
+&lt;p&gt;利用docker save拿到一个docke 镜像的tar包，解包后得到如下目录，这是一个兼容oci image spec的目录（但也只是兼容，不是严格相等，里面有一些oci image spec里未定义的文件）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>[container] 3.容器基础之runc</title>
       <link>https://wymli.github.io/2025/03/container-3.%E5%AE%B9%E5%99%A8%E5%9F%BA%E7%A1%80%E4%B9%8Brunc/</link>
       <pubDate>Tue, 04 Mar 2025 00:00:00 +0000</pubDate>
@@ -382,18 +393,6 @@ func NewWorker() workerImpl {
 &lt;li&gt;etcd ,consul 的分布式共识&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>[mq] kafka4 工作原理</title>
-      <link>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</link>
-      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/04/mq-kafka4-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</guid>
-      <description>&lt;h1 id=&#34;深入kafka&#34;&gt;深入kafka&lt;/h1&gt;
-&lt;p&gt;在此前的系列中,其实对于kafka集群和zk集群的区分很模糊,数据似乎有时是存在某个broker中的,又有时是存在zk中的&lt;/p&gt;
-&lt;h2 id=&#34;kafka成员&#34;&gt;kafka成员&lt;/h2&gt;
-&lt;p&gt;kafka使用zk来维护集群成员的信息.&lt;/p&gt;</description>
     </item>
     
   </channel>

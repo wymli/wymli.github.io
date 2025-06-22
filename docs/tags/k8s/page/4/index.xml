@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 09 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jun 2025 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://wymli.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[cli] 事件分发系统</title>
+      <link>https://wymli.github.io/2021/03/1.-eventdistributionsystem/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://wymli.github.io/2021/03/1.-eventdistributionsystem/</guid>
+      <description>&lt;h1 id=&#34;go-可交互动态终端-1-事件注册分发中心&#34;&gt;[Go] 可交互动态终端 &amp;lt;1, 事件注册分发中心&amp;gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/mum4k/termdash&#34;&gt;github.com/mum4k/termdash&lt;/a&gt;&lt;/p&gt;
+&lt;img src=&#34;https://github.com/mum4k/termdash/raw/master/doc/images/termdashdemo_0_9_0.gif&#34; alt=&#34;termdashdemo&#34; style=&#34;zoom: 25%;&#34; /&gt;
+&lt;p&gt;如何完成一个好看的terminal呢?在以前我们大都会使用简单的printf来打印数据到终端,进阶一点,可能会加上颜色,再后来可能又做个贪吃蛇游戏,了解了如何高效刷新terminal&amp;hellip;&amp;hellip;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>[cli] 刷新屏幕</title>
@@ -286,18 +298,6 @@ func main() {
 &lt;blockquote&gt;
 &lt;p&gt;:= 这个符号,可能是借鉴了Pascal&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;短变量声明有一定的要注意的地方,它与先声明后赋值有着一定的区别:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>[Go] slice index detail</title>
-      <link>https://wymli.github.io/2021/03/go-slice-index-detail/</link>
-      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://wymli.github.io/2021/03/go-slice-index-detail/</guid>
-      <description>&lt;h1 id=&#34;go-slice的下标索引细节&#34;&gt;[Go] Slice的下标索引细节&lt;/h1&gt;
-&lt;p&gt;在刷oj的时候,经常遇到要对一个数组取一部分的场景,用来递归分治&lt;/p&gt;
-&lt;p&gt;常见的比如快排,恢复二叉树等&lt;/p&gt;
-&lt;p&gt;在c/c++中,我会使用func(int* array , int lo , int hi)来标识数组的范围,但是在python这种动态语言中,可以直接使用数组的切片,很方便的传入递归函数 func (slice[lo:hi])&lt;/p&gt;</description>
     </item>
     
   </channel>
